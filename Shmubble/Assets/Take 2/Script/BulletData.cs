@@ -11,6 +11,8 @@ public class BulletData : MonoBehaviour {
     public int damage = 1;
     [Tooltip("Velocity of the projectile in local space. Controls all straight movement.")]
     public Vector3 velocity;
+    [Tooltip("Timer controlling time between shots.")]
+    public float timeBetweenShots;
 
     [Space(10)]
     [Header("Curve movement")]
@@ -53,11 +55,11 @@ public class BulletData : MonoBehaviour {
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
-        if (gameObject.tag == "ProjectileBoss")
+        if (gameObject.CompareTag ("ProjectileBoss"))
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
         }
-        else if (gameObject.tag == "Projectile")
+        else if (gameObject.CompareTag("Projectile"))
         {
             target = GameObject.FindGameObjectWithTag("Boss").transform;
         }
@@ -80,7 +82,7 @@ public class BulletData : MonoBehaviour {
 
     void OnTriggerEnter (Collider hit)
     {
-        if (hit.gameObject.tag == "OutOfBounds")
+        if (hit.gameObject.CompareTag("OutOfBounds"))
         {
             Destroy(gameObject);
         }

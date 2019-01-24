@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - OutOfBounds
+  - Boss
+  - Enemy
   - ProjectileBoss
   - Projectile
   layers:
@@ -18,7 +20,7 @@ TagManager:
   - 
   - Player
   - Enemy
-  - 
+  - Ground
   - 
   - 
   - 

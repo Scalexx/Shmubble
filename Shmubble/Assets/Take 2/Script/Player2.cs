@@ -15,6 +15,8 @@ public class Player2 : MonoBehaviour {
     [Tooltip ("How fast the character falls back down.")]
     public float gravity = 25.0f;
     private bool secondJump = false;
+    [Tooltip ("Layer to check when the player is grounded.")]
+    public LayerMask groundLayer;
 
     [Header("Dash")]
     [Tooltip ("Dash distance. Relates to the amount of time it stays in the dash.")]
@@ -27,6 +29,20 @@ public class Player2 : MonoBehaviour {
     private Vector3 moveDirection;
     private float dir;
 
+    [Header("Invulnerability")]
+    [Tooltip("How long you stay invulnerable to damage.")]
+    public float invulnerabilityPeriod;
+    float invulnerabilityTimer = 0;
+    int correctLayer;
+    public Renderer playerRenderer;
+    public float flashPeriod;
+    private float flashTimer;
+
+    [Header("Knock Back")]
+    public float knockBackForce;
+    public float knockBackPeriod;
+    private float knockBackTimer;
+
     private Vector3 moveVector;
     private Vector3 lastMotion;
     private CharacterController controller;
@@ -34,47 +50,71 @@ public class Player2 : MonoBehaviour {
 	void Start () {
         controller = GetComponent<CharacterController>();
         currentDashTime = maxDashTime;
+        correctLayer = gameObject.layer;
     }
 	
 	void Update () {
-        moveVector = Vector3.zero;
-        inputDirection = Input.GetAxisRaw("Horizontal") * speed;
-
-        HandleDash();
-
-        if (IsControllerGrounded())
+        if (knockBackTimer <= 0)
         {
-            verticalVelocity = 0;
-            secondJump = true;
+            moveVector = Vector3.zero;
+            inputDirection = Input.GetAxisRaw("Horizontal") * speed;
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            HandleDash();
+
+            if (IsControllerGrounded())
             {
-                verticalVelocity = jumpHeight;
+                verticalVelocity = 0;
+                secondJump = true;
+
+                if (Input.GetButtonDown("Jump"))
+                {
+                    verticalVelocity = jumpHeight;
+                }
             }
+            else
+            {
+                if (Input.GetButtonDown("Jump"))
+                {
+                    if (secondJump)
+                    {
+                        verticalVelocity = jumpHeight;
+                        secondJump = false;
+                    }
+                }
+
+                verticalVelocity -= gravity * Time.deltaTime;
+            }
+            moveVector.x = inputDirection;
+            moveVector.y = verticalVelocity;
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                if (secondJump)
-                {
-                    verticalVelocity = jumpHeight;
-                    secondJump = false;
-                }
-            }
-
-            verticalVelocity -= gravity * Time.deltaTime;
+            knockBackTimer -= Time.deltaTime;
         }
 
-        moveVector.x = inputDirection;
-        moveVector.y = verticalVelocity;
-
         controller.Move(moveVector * Time.deltaTime);
+
         if (inputDirection != 0)
         {
             lastMotion.x = moveVector.x / speed;
         }
-	}
+
+        if (invulnerabilityTimer > 0)
+        {
+            invulnerabilityTimer -= Time.deltaTime;
+
+            flashTimer -= Time.deltaTime;
+            if (flashTimer <= 0)
+            {
+                playerRenderer.enabled = !playerRenderer.enabled;
+                flashTimer = flashPeriod;
+            }
+            if (invulnerabilityTimer <= 0)
+            {
+                playerRenderer.enabled = true;
+            }
+        }
+    }
 
     private bool IsControllerGrounded()
     {
@@ -87,12 +127,12 @@ public class Player2 : MonoBehaviour {
         leftRayStart.x -= controller.bounds.extents.x;
         rightRayStart.x += controller.bounds.extents.x;
 
-        if(Physics.Raycast(leftRayStart, Vector3.down, (controller.height / 2) + 0.1f))
+        if(Physics.Raycast(leftRayStart, Vector3.down, (controller.height / 2) + 0.1f, groundLayer))
         { 
             return true;
         }
 
-        if (Physics.Raycast(rightRayStart, Vector3.down, (controller.height / 2) + 0.1f))
+        if (Physics.Raycast(rightRayStart, Vector3.down, (controller.height / 2) + 0.1f, groundLayer))
         {
             return true;
         }
@@ -122,13 +162,39 @@ public class Player2 : MonoBehaviour {
 
     void OnTriggerEnter (Collider hit)
     {
-        if (hit.gameObject.tag == "OutOfBounds")
+        if (hit.gameObject.CompareTag("OutOfBounds"))
         {
             LevelManager.Instance.OutOfBounds();
         }
-        if (hit.gameObject.tag == "ProjectileBoss")
+        if (hit.gameObject.layer == 9)
         {
-            LevelManager.Instance.GetDamaged();
+            if (invulnerabilityTimer <= 0)
+            {
+                Vector2 hitDirection = hit.transform.position - transform.position;
+                hitDirection =- hitDirection.normalized;
+                Knockback(hitDirection);
+
+                LevelManager.Instance.GetDamaged();
+                invulnerabilityTimer = invulnerabilityPeriod;
+
+                playerRenderer.enabled = false;
+                flashTimer = flashPeriod;
+            }
         }
+    }
+
+    public void Knockback(Vector2 knockBackDirection)
+    {
+        knockBackTimer = knockBackPeriod;
+        if (knockBackDirection.x > 0)
+        {
+            knockBackDirection.x = 1;
+        }
+        else if (knockBackDirection.x <= 0)
+        {
+            knockBackDirection.x = -1;
+        }
+        moveVector.x = knockBackDirection.x * knockBackForce;
+        moveVector.y = knockBackForce;
     }
 }
