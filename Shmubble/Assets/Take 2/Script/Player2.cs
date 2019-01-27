@@ -55,7 +55,7 @@ public class Player2 : MonoBehaviour {
         currentDashTime = maxDashTime;
     }
 	
-	void Update () {
+	void FixedUpdate () {
         if (knockBackTimer <= 0)
         {
             moveVector = Vector3.zero;
