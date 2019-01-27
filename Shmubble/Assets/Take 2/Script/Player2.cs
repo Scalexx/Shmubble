@@ -59,7 +59,7 @@ public class Player2 : MonoBehaviour {
         if (knockBackTimer <= 0)
         {
             moveVector = Vector3.zero;
-            inputDirection = Input.GetAxisRaw("Horizontal") * speed;
+            inputDirection = Input.GetAxis("Horizontal") * speed;
 
             HandleDash();
 
@@ -98,7 +98,15 @@ public class Player2 : MonoBehaviour {
 
         if (inputDirection != 0)
         {
-            lastMotion.x = moveVector.x / speed;
+            float tempInput = moveVector.x / speed;
+            if (tempInput > 0)
+            {
+                lastMotion.x = 1;
+            }
+            else
+            {
+                lastMotion.x = -1;
+            }
         }
 
         if (invulnerabilityTimer > 0)
