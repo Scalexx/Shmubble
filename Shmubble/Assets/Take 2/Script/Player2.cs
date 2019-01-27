@@ -33,13 +33,16 @@ public class Player2 : MonoBehaviour {
     [Tooltip("How long you stay invulnerable to damage.")]
     public float invulnerabilityPeriod;
     float invulnerabilityTimer = 0;
-    int correctLayer;
+    [Tooltip("The mesh renderer of the player. The renderer has to be assigned in the inspector.")]
     public Renderer playerRenderer;
+    [Tooltip("How fast the player blinks when hit.")]
     public float flashPeriod;
     private float flashTimer;
 
     [Header("Knock Back")]
+    [Tooltip("The force which is applied when the player is hit.")]
     public float knockBackForce;
+    [Tooltip("The amount of time the player will have the force applied and can't move.")]
     public float knockBackPeriod;
     private float knockBackTimer;
 
@@ -50,7 +53,6 @@ public class Player2 : MonoBehaviour {
 	void Start () {
         controller = GetComponent<CharacterController>();
         currentDashTime = maxDashTime;
-        correctLayer = gameObject.layer;
     }
 	
 	void Update () {

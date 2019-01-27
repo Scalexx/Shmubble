@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
 	public float moveSpeed = 0.2f ;
-	int damage = 1 ;
+	//int damage = 1 ;
 	Vector3 positionBullet ;
 
 	// Use this for initialization

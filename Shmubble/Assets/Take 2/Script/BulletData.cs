@@ -52,7 +52,7 @@ public class BulletData : MonoBehaviour {
 
     [Space(10)]
     [Header("Targeted")]
-    [Tooltip("Makes the projectile targeted at the player when shot.")]
+    [Tooltip("Makes the projectile targeted at the target transform when shot.")]
     public bool useTarget;
     Vector3 targetPos;
     Vector3 velocityTarget;
