@@ -33,6 +33,7 @@ public class LevelManager : MonoBehaviour {
     {
         // Out of bounds
         playerTransform.position = spawnPosition.position;
+        playerTransform.GetComponent<Player2>().Invulnerable();
         health--;
         if (health <= 0)
         {
@@ -43,5 +44,10 @@ public class LevelManager : MonoBehaviour {
     public void GetDamaged ()
     {
         health--;
+    }
+
+    public void DamageBoss (int damage)
+    {
+        bossHealth -= damage;
     }
 }

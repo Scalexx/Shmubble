@@ -171,14 +171,11 @@ public class Player2 : MonoBehaviour {
             if (invulnerabilityTimer <= 0)
             {
                 Vector2 hitDirection = hit.transform.position - transform.position;
-                hitDirection =- hitDirection.normalized;
+                hitDirection = -hitDirection.normalized;
                 Knockback(hitDirection);
 
                 LevelManager.Instance.GetDamaged();
-                invulnerabilityTimer = invulnerabilityPeriod;
-
-                playerRenderer.enabled = false;
-                flashTimer = flashPeriod;
+                Invulnerable();
             }
         }
     }
@@ -196,5 +193,13 @@ public class Player2 : MonoBehaviour {
         }
         moveVector.x = knockBackDirection.x * knockBackForce;
         moveVector.y = knockBackForce;
+    }
+
+    public void Invulnerable ()
+    {
+        invulnerabilityTimer = invulnerabilityPeriod;
+
+        playerRenderer.enabled = false;
+        flashTimer = flashPeriod;
     }
 }

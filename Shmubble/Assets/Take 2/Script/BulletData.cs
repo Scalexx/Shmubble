@@ -9,7 +9,7 @@ public class BulletData : MonoBehaviour {
     public float speed;
     [Tooltip("Damage of the projectile (only used for player).")]
     public int damage = 1;
-    [Tooltip("Velocity of the projectile in local space. Controls all straight movement.")]
+    [Tooltip("Velocity of the projectile in local space. Controls all straight movement. 1 is forward, -1 is backwards.")]
     public Vector3 velocity;
     [Tooltip("Timer controlling time between shots.")]
     public float timeBetweenShots;
@@ -45,10 +45,17 @@ public class BulletData : MonoBehaviour {
     [Header("Homing movement")]
     [Tooltip("Makes the projectile homing to the player.")]
     public bool useHoming;
-    [Tooltip("Set a target for the projectile. If tag is set to ProjectileBoss, it sets the target to Player. If tag is set to Projectile, it sets the target to Boss")]
+    [Tooltip("Set a target for the projectile. If tag is set to ProjectileBoss, it sets the target to Player. If tag is set to Projectile, it sets the target to Boss.")]
     public Transform target;
     [Tooltip("Set the speed at which the projectile can turn around.")]
     public float angleChangingSpeed;
+
+    [Space(10)]
+    [Header("Targeted")]
+    [Tooltip("Makes the projectile targeted at the player when shot.")]
+    public bool useTarget;
+    Vector3 targetPos;
+    Vector3 velocityTarget;
 
     Rigidbody rb;
 
@@ -58,11 +65,15 @@ public class BulletData : MonoBehaviour {
         if (gameObject.CompareTag ("ProjectileBoss"))
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
+            gameObject.layer = 9;
         }
         else if (gameObject.CompareTag("Projectile"))
         {
             target = GameObject.FindGameObjectWithTag("Boss").transform;
+            gameObject.layer = 8;
         }
+        targetPos = target.position;
+        velocityTarget = (targetPos - transform.position).normalized;
     }
 
     void FixedUpdate ()
@@ -75,8 +86,12 @@ public class BulletData : MonoBehaviour {
         {
             HomingMovement();
         }
+        if (useTarget)
+        {
+            rb.velocity = velocityTarget * speed;
+        }
         else {
-            rb.velocity = transform.InverseTransformDirection(velocity * speed);
+            rb.velocity = transform.TransformDirection(velocity * speed);
         }
     }
 

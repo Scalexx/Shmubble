@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class BulletSpawner : MonoBehaviour {
 
-    public Transform spawnPoint;
+    public List<Transform> spawnPoints = new List<Transform>();
+    Vector3 direction;
     float timeBetweenShots;
     int projectileChoice;
 
     public List<GameObject> projectiles = new List<GameObject>();
 
 	void Start () {
-        if(spawnPoint == null)
+        if(spawnPoints.Count == 0)
         {
-            spawnPoint = gameObject.transform;
+            spawnPoints.Add (gameObject.transform);
         }
-        projectileChoice = 0;
 	}
 	
 	void Update () {
 		if (timeBetweenShots <= 0)
         {
-            Instantiate(projectiles[projectileChoice], spawnPoint.position, spawnPoint.rotation);
+            Instantiate(projectiles[projectileChoice], spawnPoints[0].position, spawnPoints[0].rotation);
             timeBetweenShots = projectiles[projectileChoice].GetComponent<BulletData>().timeBetweenShots;
         }
         else
