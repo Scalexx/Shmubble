@@ -5,7 +5,6 @@ using UnityEngine;
 public class BulletSpawner : MonoBehaviour {
 
     public List<Transform> spawnPoints = new List<Transform>();
-    Vector3 direction;
     float timeBetweenShots;
     int projectileChoice;
 

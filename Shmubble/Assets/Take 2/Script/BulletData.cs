@@ -82,13 +82,13 @@ public class BulletData : MonoBehaviour {
         {
             CurveMovement(); 
         }
-        if (useHoming)
-        {
-            HomingMovement();
-        }
         if (useTarget)
         {
             rb.velocity = velocityTarget * speed;
+        }
+        else if (useHoming)
+        {
+            HomingMovement();
         }
         else {
             rb.velocity = transform.TransformDirection(velocity * speed);
@@ -127,11 +127,11 @@ public class BulletData : MonoBehaviour {
 
     void HomingMovement()
     {
-        //needs fixing
         Vector3 direction = target.position - rb.position;
         direction.Normalize();
-        Vector3 rotateAmount = Vector3.Cross(transform.up, direction);
+        Vector3 rotateAmount = Vector3.Cross(transform.right, direction);
         rb.angularVelocity = rotateAmount * angleChangingSpeed;
-        rb.velocity = transform.up * speed;
+        velocity = transform.right.normalized;
+        rb.velocity = transform.right * speed;
     }
 }
