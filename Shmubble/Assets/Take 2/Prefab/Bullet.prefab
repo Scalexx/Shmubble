@@ -156,7 +156,7 @@ MonoBehaviour:
     m_RotationOrder: 0
   animationSpeedMultiplier: 1
   curveMaxY: 1
-  useHoming: 1
+  useHoming: 0
   target: {fileID: 0}
   angleChangingSpeed: 4
   useTarget: 0

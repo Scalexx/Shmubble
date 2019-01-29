@@ -91,6 +91,7 @@ public class BulletData : MonoBehaviour {
             HomingMovement();
         }
         else {
+            rb.angularVelocity = new Vector3(0, 0, 0);
             rb.velocity = transform.TransformDirection(velocity * speed);
         }
     }
