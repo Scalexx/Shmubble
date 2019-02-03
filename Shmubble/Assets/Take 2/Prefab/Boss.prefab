@@ -180,3 +180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afcb45b1b0b5c954dbd400cc60451552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
+  healthTriggerPhase2: 1000
+  introDuration1: 1
+  introDuration2: 1
+  idleMinTime: 3
+  idleMaxTime: 6
