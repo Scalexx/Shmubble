@@ -50,6 +50,10 @@ public class Boss : MonoBehaviour {
         {
             Phase2();
         }
+        if (LevelManager.Instance.bossHealth <= 0)
+        {
+            state = State.DEATH;
+        }
     }
 
     void Phase1()
