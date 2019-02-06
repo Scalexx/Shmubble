@@ -184,6 +184,9 @@ public class Player : MonoBehaviour {
 
     private void HandleShoot()
     {
+        HandleDirection();
+
+
         if(timeBetweenShots <= 0)
         {
             GameObject newProjectile = projectilePool.GetPooledObject();
@@ -198,6 +201,67 @@ public class Player : MonoBehaviour {
         {
             timeBetweenShots -= Time.deltaTime;
         }
+    }
+
+    // Delete this function later when Animations are added as it will serve the same purpose
+    void HandleDirection ()
+    {
+        int zRotation;
+        float yInput = Input.GetAxisRaw("Vertical");
+        if (moveVector.x > 0)
+        {
+            if (yInput > 0)
+            {
+                zRotation = 45;
+            }
+            else if (yInput < 0)
+            {
+                zRotation = -45;
+            }
+            else
+            {
+                zRotation = 0;
+            }
+        }
+        else if (moveVector.x < 0)
+        {
+            if (yInput > 0)
+            {
+                zRotation = 135;
+            }
+            else if (yInput < 0)
+            {
+                zRotation = -135;
+            }
+            else
+            {
+                zRotation = 180;
+            }
+        }
+        else
+        {
+            if (yInput > 0)
+            {
+                zRotation = 90;
+            }
+            else if (yInput < 0)
+            {
+                zRotation = -90;
+            }
+            else
+            {
+                if (lastMotion.x >= 0)
+                {
+                    zRotation = 0;
+                }
+                else
+                {
+                    zRotation = 180;
+                }
+            }
+        }
+
+        spawnPoint.eulerAngles = new Vector3(0, 0, zRotation);
     }
 
     void OnTriggerEnter (Collider hit)

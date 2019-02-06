@@ -59,7 +59,7 @@ public class BulletData : MonoBehaviour {
 
     Rigidbody rb;
 
-    void Start ()
+    void OnEnable ()
     {
         rb = GetComponent<Rigidbody>();
         if (gameObject.CompareTag ("ProjectileBoss"))
