@@ -7,6 +7,7 @@ public class SmoothCamera : MonoBehaviour {
     public Transform lookAt;
 
     private bool smooth = true;
+    public bool cameraPanning;
     [Range (0,1)]
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
@@ -22,6 +23,10 @@ public class SmoothCamera : MonoBehaviour {
         else
         {
             transform.position = desiredPosition;
+        }
+        if (cameraPanning)
+        {
+            transform.LookAt(lookAt);
         }
     }
 }
