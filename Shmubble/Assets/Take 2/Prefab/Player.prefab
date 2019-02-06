@@ -19,9 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4572824638751644}
-  - component: {fileID: 114266443942310418}
   m_Layer: 2
-  m_Name: BulletSpawner
+  m_Name: BulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,20 +113,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1293531456679972}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114266443942310418
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1083647222634004}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7882cf17a23326e4cb5d4f68bbcb1575, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
-  projectiles:
-  - {fileID: 1723027501008808, guid: 390c02f98794eee4da1fd3eb9c43b59f, type: 2}
 --- !u!114 &114888668478743008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,6 +130,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 1024
+  spawnPoint: {fileID: 4572824638751644}
+  projectilePool: {fileID: 0}
   maxDashTime: 0.4
   dashSpeed: 50
   dashStoppingSpeed: 0.1

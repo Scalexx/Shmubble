@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player2 : MonoBehaviour {
+public class Player : MonoBehaviour {
 
     private float inputDirection;               //x value of moveVector
     private float verticalVelocity;             //y value of moveVector
@@ -17,6 +17,14 @@ public class Player2 : MonoBehaviour {
     private bool secondJump = false;
     [Tooltip ("Layer to check when the player is grounded.")]
     public LayerMask groundLayer;
+
+    [Header("Shooting")]
+    [Tooltip("The GameObject the bullet spawns from.")]
+    public Transform spawnPoint;
+    float timeBetweenShots;
+    int projectileChoice;
+    [Tooltip("The GameObject with the Object Pool on it.")]
+    public ObjectPooler projectilePool;
 
     [Header("Dash")]
     [Tooltip ("Dash distance. Relates to the amount of time it stays in the dash.")]
@@ -124,6 +132,10 @@ public class Player2 : MonoBehaviour {
                 playerRenderer.enabled = true;
             }
         }
+        if (Input.GetButton("Shoot"))
+        {
+            HandleShoot();
+        }
     }
 
     private bool IsControllerGrounded()
@@ -168,6 +180,24 @@ public class Player2 : MonoBehaviour {
             moveDirection = Vector3.zero;
         }
         controller.Move(moveDirection * Time.deltaTime);
+    }
+
+    private void HandleShoot()
+    {
+        if(timeBetweenShots <= 0)
+        {
+            GameObject newProjectile = projectilePool.GetPooledObject();
+
+            newProjectile.transform.position = spawnPoint.position;
+            newProjectile.transform.rotation = spawnPoint.rotation;
+            newProjectile.SetActive(true);
+
+            timeBetweenShots = newProjectile.GetComponent<BulletData>().timeBetweenShots;
+        }
+        else
+        {
+            timeBetweenShots -= Time.deltaTime;
+        }
     }
 
     void OnTriggerEnter (Collider hit)

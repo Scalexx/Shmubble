@@ -34,6 +34,14 @@ public class Boss : MonoBehaviour {
     public float idleMaxTime;
     private bool entered;
 
+    [Header("Attacks")]
+    [Tooltip("The GameObject the bullet spawns from.")]
+    public Transform spawnPoint;
+    float timeBetweenShots;
+    int projectileChoice;
+    [Tooltip("The GameObject with the Object Pool on it.")]
+    public ObjectPooler[] projectilePools;
+
     private int rand;
 
     void Start () {
@@ -112,18 +120,24 @@ public class Boss : MonoBehaviour {
                 break;
             case State.ATTACK_1:
                 // do attack stuff
-                
+                //projectileChoice = 0;
+                //HandleShoot();
+
                 // if attack is done
                 state = State.IDLE;
                 break;
             case State.ATTACK_2:
                 // do attack stuff
+                //projectileChoice = 1;
+                //HandleShoot();
 
                 // if attack is done
                 state = State.IDLE;
                 break;
             case State.ATTACK_3:
                 // do attack stuff
+                //projectileChoice = 2;
+                //HandleShoot();
 
                 // if attack is done
                 state = State.IDLE;
@@ -214,6 +228,24 @@ public class Boss : MonoBehaviour {
         if (hit.gameObject.layer == 8)
         {
             LevelManager.Instance.DamageBoss(hit.gameObject.GetComponent<BulletData>().damage);
+        }
+    }
+
+    public void HandleShoot()
+    {
+        if (timeBetweenShots <= 0)
+        {
+            GameObject newProjectile = projectilePools[projectileChoice].GetPooledObject();
+
+            newProjectile.transform.position = spawnPoint.position;
+            newProjectile.transform.rotation = spawnPoint.rotation;
+            newProjectile.SetActive(true);
+
+            timeBetweenShots = newProjectile.GetComponent<BulletData>().timeBetweenShots;
+        }
+        else
+        {
+            timeBetweenShots -= Time.deltaTime;
         }
     }
 }

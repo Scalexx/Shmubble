@@ -100,7 +100,7 @@ public class BulletData : MonoBehaviour {
     {
         if (hit.gameObject.CompareTag("OutOfBounds"))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 

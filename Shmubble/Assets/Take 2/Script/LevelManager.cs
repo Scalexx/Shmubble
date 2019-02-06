@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour {
     {
         // Out of bounds
         playerTransform.position = spawnPosition.position;
-        playerTransform.GetComponent<Player2>().Invulnerable();
+        playerTransform.GetComponent<Player>().Invulnerable();
         health--;
         if (health <= 0)
         {
