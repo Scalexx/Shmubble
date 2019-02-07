@@ -64,42 +64,49 @@ public class Player : MonoBehaviour {
     }
 	
 	void FixedUpdate () {
-        if (knockBackTimer <= 0)
+        if (Input.GetButton("Lock Movement"))
         {
             moveVector = Vector3.zero;
-            inputDirection = Input.GetAxis("Horizontal") * speed;
-
-            HandleDash();
-
-            if (IsControllerGrounded())
-            {
-                verticalVelocity = 0;
-                secondJump = true;
-
-                if (Input.GetButtonDown("Jump"))
-                {
-                    verticalVelocity = jumpHeight;
-                }
-            }
-            else
-            {
-                if (Input.GetButtonDown("Jump"))
-                {
-                    if (secondJump)
-                    {
-                        verticalVelocity = jumpHeight;
-                        secondJump = false;
-                    }
-                }
-
-                verticalVelocity -= gravity * Time.deltaTime;
-            }
-            moveVector.x = inputDirection;
-            moveVector.y = verticalVelocity;
         }
         else
         {
-            knockBackTimer -= Time.deltaTime;
+            if (knockBackTimer <= 0)
+            {
+                moveVector = Vector3.zero;
+                inputDirection = Input.GetAxis("Horizontal") * speed;
+
+                HandleDash();
+
+                if (IsControllerGrounded())
+                {
+                    verticalVelocity = 0;
+                    secondJump = true;
+
+                    if (Input.GetButtonDown("Jump"))
+                    {
+                        verticalVelocity = jumpHeight;
+                    }
+                }
+                else
+                {
+                    if (Input.GetButtonDown("Jump"))
+                    {
+                        if (secondJump)
+                        {
+                            verticalVelocity = jumpHeight;
+                            secondJump = false;
+                        }
+                    }
+
+                    verticalVelocity -= gravity * Time.deltaTime;
+                }
+                moveVector.x = inputDirection;
+                moveVector.y = verticalVelocity;
+            }
+            else
+            {
+                knockBackTimer -= Time.deltaTime;
+            }
         }
 
         controller.Move(moveVector * Time.deltaTime);
@@ -207,8 +214,9 @@ public class Player : MonoBehaviour {
     void HandleDirection ()
     {
         int zRotation;
+        float xInput = Input.GetAxisRaw("Horizontal");
         float yInput = Input.GetAxisRaw("Vertical");
-        if (moveVector.x > 0)
+        if (xInput > 0)
         {
             if (yInput > 0)
             {
@@ -223,7 +231,7 @@ public class Player : MonoBehaviour {
                 zRotation = 0;
             }
         }
-        else if (moveVector.x < 0)
+        else if (xInput < 0)
         {
             if (yInput > 0)
             {
