@@ -113,7 +113,7 @@ public class Player : MonoBehaviour {
 
         if (inputDirection != 0)
         {
-            float tempInput = moveVector.x / speed;
+            float tempInput = inputDirection / speed;
             if (tempInput > 0)
             {
                 lastMotion.x = 1;
