@@ -64,16 +64,18 @@ public class Player : MonoBehaviour {
     }
 	
 	void FixedUpdate () {
-        if (Input.GetButton("Lock Movement"))
+        if (knockBackTimer <= 0)
         {
-            moveVector = Vector3.zero;
-        }
-        else
-        {
-            if (knockBackTimer <= 0)
+            inputDirection = Input.GetAxis("Horizontal") * speed;
+
+            if (Input.GetButton("Lock Movement"))
+            {
+                moveVector.x = 0;
+                moveVector.y -= gravity * Time.deltaTime;
+            }
+            else
             {
                 moveVector = Vector3.zero;
-                inputDirection = Input.GetAxis("Horizontal") * speed;
 
                 HandleDash();
 
@@ -103,10 +105,10 @@ public class Player : MonoBehaviour {
                 moveVector.x = inputDirection;
                 moveVector.y = verticalVelocity;
             }
-            else
-            {
-                knockBackTimer -= Time.deltaTime;
-            }
+        }
+        else
+        {
+            knockBackTimer -= Time.deltaTime;
         }
 
         controller.Move(moveVector * Time.deltaTime);
@@ -139,7 +141,7 @@ public class Player : MonoBehaviour {
                 playerRenderer.enabled = true;
             }
         }
-        if (Input.GetButton("Shoot"))
+        if (Input.GetButton("Shoot") || Input.GetAxis("Shoot") > 0)
         {
             HandleShoot();
         }
@@ -222,10 +224,6 @@ public class Player : MonoBehaviour {
             {
                 zRotation = 45;
             }
-            else if (yInput < 0)
-            {
-                zRotation = -45;
-            }
             else
             {
                 zRotation = 0;
@@ -237,10 +235,6 @@ public class Player : MonoBehaviour {
             {
                 zRotation = 135;
             }
-            else if (yInput < 0)
-            {
-                zRotation = -135;
-            }
             else
             {
                 zRotation = 180;
@@ -251,10 +245,6 @@ public class Player : MonoBehaviour {
             if (yInput > 0)
             {
                 zRotation = 90;
-            }
-            else if (yInput < 0)
-            {
-                zRotation = -90;
             }
             else
             {
