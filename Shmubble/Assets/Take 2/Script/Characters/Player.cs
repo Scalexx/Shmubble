@@ -288,7 +288,7 @@ public class Player : MonoBehaviour {
                 hitDirection = -hitDirection.normalized;
                 Knockback(hitDirection);
 
-                LevelManager.Instance.GetDamaged();
+                LevelManager.Instance.GetDamaged(hit.gameObject.GetComponent<BulletData>().damage);
                 Invulnerable();
             }
         }

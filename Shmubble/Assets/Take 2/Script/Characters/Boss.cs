@@ -223,7 +223,7 @@ public class Boss : MonoBehaviour {
         }
     }
 
-        void OnTriggerEnter (Collider hit)
+    void OnTriggerEnter (Collider hit)
     {
         if (hit.gameObject.layer == 8)
         {
@@ -249,3 +249,5 @@ public class Boss : MonoBehaviour {
         }
     }
 }
+
+// no bugs plz

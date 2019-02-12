@@ -6,8 +6,10 @@ public class LevelManager : MonoBehaviour {
 
     public static LevelManager Instance { set; get; }
 
-    public int health = 3;
-    public int bossHealth = 1200;
+    public float health = 3;
+    private float healthTrigger1;
+    private float healthTrigger2;
+    public float bossHealth = 1200;
 
     public Transform spawnPosition;
 
@@ -17,6 +19,8 @@ public class LevelManager : MonoBehaviour {
     private void Awake ()
     {
         Instance = this;
+        healthTrigger1 = health / 4;
+        healthTrigger2 = 1;
     }
 
     void Update ()
@@ -41,13 +45,24 @@ public class LevelManager : MonoBehaviour {
         }
     }
 
-    public void GetDamaged ()
+    public void GetDamaged (float damage)
     {
-        health--;
+        health -= damage;
     }
 
-    public void DamageBoss (int damage)
+    public void DamageBoss (float damage)
     {
+        if (health <= healthTrigger2)
+        {
+            damage = damage * 2;
+        }
+        else if (health <= healthTrigger1)
+        {
+            damage = damage * 1.25f;
+        }
         bossHealth -= damage;
+        print(damage);
     }
 }
+
+// no bugs plz

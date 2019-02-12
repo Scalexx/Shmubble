@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dad62229fe4f7149959c9765c4902b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 20
   bossHealth: 2000
   spawnPosition: {fileID: 1299936453}
   playerTransform: {fileID: 1379962273}

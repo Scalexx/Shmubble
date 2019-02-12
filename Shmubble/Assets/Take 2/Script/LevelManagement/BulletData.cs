@@ -7,8 +7,8 @@ public class BulletData : MonoBehaviour {
     [Header("Basic parameters")]
     [Tooltip("Speed of the projectile.")]
     public float speed;
-    [Tooltip("Damage of the projectile (only used for player).")]
-    public int damage = 1;
+    [Tooltip("Damage of the projectile.")]
+    public float damage = 1;
     [Tooltip("Velocity of the projectile in local space. Controls all straight movement. 1 is forward, -1 is backwards.")]
     public Vector3 velocity;
     [Tooltip("Timer controlling time between shots.")]
@@ -136,3 +136,5 @@ public class BulletData : MonoBehaviour {
         rb.velocity = transform.right * speed;
     }
 }
+
+// no bugs plz
