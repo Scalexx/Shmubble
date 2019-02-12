@@ -61,7 +61,6 @@ public class LevelManager : MonoBehaviour {
             damage = damage * 1.25f;
         }
         bossHealth -= damage;
-        print(damage);
     }
 }
 

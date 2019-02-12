@@ -17,6 +17,9 @@ public class Player : MonoBehaviour {
     private bool secondJump = false;
     [Tooltip ("Layer to check when the player is grounded.")]
     public LayerMask groundLayer;
+    private bool crouch;
+
+    public float bossTouchDamage;
 
     [Header("Shooting")]
     [Tooltip("The GameObject the bullet spawns from.")]
@@ -68,13 +71,22 @@ public class Player : MonoBehaviour {
         {
             inputDirection = Input.GetAxis("Horizontal") * speed;
 
-            if (Input.GetButton("Lock Movement"))
+            if (IsControllerGrounded() && Input.GetButton("Lock Movement"))
             {
                 moveVector.x = 0;
                 moveVector.y -= gravity * Time.deltaTime;
+                crouch = false;
+            }
+            else if (IsControllerGrounded() && Input.GetAxisRaw("Vertical") < 0)
+            {
+                moveVector.x = 0;
+                moveVector.y -= gravity * Time.deltaTime;
+                crouch = true;
             }
             else
             {
+                crouch = false;
+
                 moveVector = Vector3.zero;
 
                 HandleDash();
@@ -224,9 +236,16 @@ public class Player : MonoBehaviour {
             {
                 zRotation = 45;
             }
-            else if (!IsControllerGrounded() && yInput < 0)
+            else if (yInput < 0)
             {
-                zRotation = -45;
+                if (Input.GetButton("Lock Movement") || !IsControllerGrounded())
+                {
+                    zRotation = -45;
+                }
+                else
+                {
+                    zRotation = 0;
+                }
             }
             else
             {
@@ -239,9 +258,16 @@ public class Player : MonoBehaviour {
             {
                 zRotation = 135;
             }
-            else if (!IsControllerGrounded() && yInput < 0)
+            else if (yInput < 0)
             {
-                zRotation = -135;
+                if (Input.GetButton("Lock Movement") || !IsControllerGrounded())
+                {
+                    zRotation = -135;
+                }
+                else
+                {
+                    zRotation = 180;
+                }
             }
             else
             {
@@ -254,9 +280,23 @@ public class Player : MonoBehaviour {
             {
                 zRotation = 90;
             }
-            else if (!IsControllerGrounded() && yInput < 0)
+            else if (yInput < 0)
             {
-                zRotation = -90;
+                if (Input.GetButton("Lock Movement") || !IsControllerGrounded())
+                {
+                    zRotation = -90;
+                }
+                else
+                {
+                    if (lastMotion.x >= 0)
+                    {
+                        zRotation = 0;
+                    }
+                    else
+                    {
+                        zRotation = 180;
+                    }
+                }
             }
             else
             {
@@ -288,7 +328,17 @@ public class Player : MonoBehaviour {
                 hitDirection = -hitDirection.normalized;
                 Knockback(hitDirection);
 
-                LevelManager.Instance.GetDamaged(hit.gameObject.GetComponent<BulletData>().damage);
+                BulletData bulletDamage = hit.gameObject.GetComponent<BulletData>();
+                float damaged;
+                if (bulletDamage != null)
+                {
+                    damaged = bulletDamage.damage;
+                }
+                else
+                {
+                    damaged = bossTouchDamage;
+                }
+                LevelManager.Instance.GetDamaged(damaged);
                 Invulnerable();
             }
         }
