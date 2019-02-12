@@ -224,6 +224,10 @@ public class Player : MonoBehaviour {
             {
                 zRotation = 45;
             }
+            else if (!IsControllerGrounded() && yInput < 0)
+            {
+                zRotation = -45;
+            }
             else
             {
                 zRotation = 0;
@@ -235,6 +239,10 @@ public class Player : MonoBehaviour {
             {
                 zRotation = 135;
             }
+            else if (!IsControllerGrounded() && yInput < 0)
+            {
+                zRotation = -135;
+            }
             else
             {
                 zRotation = 180;
@@ -245,6 +253,10 @@ public class Player : MonoBehaviour {
             if (yInput > 0)
             {
                 zRotation = 90;
+            }
+            else if (!IsControllerGrounded() && yInput < 0)
+            {
+                zRotation = -90;
             }
             else
             {
@@ -305,3 +317,5 @@ public class Player : MonoBehaviour {
         flashTimer = flashPeriod;
     }
 }
+
+// no bugs plz
