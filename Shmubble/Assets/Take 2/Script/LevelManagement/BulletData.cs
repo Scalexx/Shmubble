@@ -32,6 +32,12 @@ public class BulletData : MonoBehaviour {
     public AnimationCurve trajectoryCurveY;
 
     [Space(10)]
+    [Tooltip("Use a curve for the Z velocity.")]
+    public bool useZCurve;
+    [Tooltip("Curve in which the projective moves on the Z axis.")]
+    public AnimationCurve trajectoryCurveZ;
+
+    [Space(10)]
     [Tooltip("How fast the value goes through the curve (X value Time).")]
     public float animationSpeedMultiplier;
     [Tooltip("The height of the curve (Y value Amount).")]
@@ -40,6 +46,7 @@ public class BulletData : MonoBehaviour {
     private float curveTimer;
     private float curveAmountX;
     private float curveAmountY;
+    private float curveAmountZ;
 
     [Space(10)]
     [Header("Homing movement")]
@@ -118,6 +125,11 @@ public class BulletData : MonoBehaviour {
             {
                 curveAmountY = trajectoryCurveY.Evaluate(curveTimer);
                 velocity.y = curveAmountY * curveMaxY;
+            }
+            if (useZCurve)
+            {
+                curveAmountZ = trajectoryCurveZ.Evaluate(curveTimer);
+                velocity.z = curveAmountZ * curveMaxY;
             }
         }
         else
