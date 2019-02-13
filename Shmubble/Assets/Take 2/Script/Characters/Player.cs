@@ -26,8 +26,10 @@ public class Player : MonoBehaviour {
     public Transform spawnPoint;
     float timeBetweenShots;
     int projectileChoice;
-    [Tooltip("The GameObject with the Object Pool on it.")]
+    [Tooltip("The GameObject with the Projectile Object Pool on it.")]
     public ObjectPooler projectilePool;
+    [Tooltip("The GameObject with the EX Projectile Object Pool on it.")]
+    public ObjectPooler exProjectilePool;
 
     [Header("Dash")]
     [Tooltip ("Dash distance. Relates to the amount of time it stays in the dash.")]
@@ -157,6 +159,13 @@ public class Player : MonoBehaviour {
         {
             HandleShoot();
         }
+        if (Input.GetButton("EX Shoot"))
+        {
+            if (LevelManager.Instance.damageDealt == LevelManager.Instance.specialMaxCharge)
+            {
+                HandleExShoot();
+            }
+        }
     }
 
     private bool IsControllerGrounded()
@@ -222,6 +231,19 @@ public class Player : MonoBehaviour {
         {
             timeBetweenShots -= Time.deltaTime;
         }
+    }
+
+    private void HandleExShoot()
+    {
+        HandleDirection();
+
+        GameObject newProjectile = exProjectilePool.GetPooledObject();
+
+        newProjectile.transform.position = spawnPoint.position;
+        newProjectile.transform.rotation = spawnPoint.rotation;
+        newProjectile.SetActive(true);
+
+        LevelManager.Instance.SpecialDone();
     }
 
     // Delete this function later when Animations are added as it will serve the same purpose

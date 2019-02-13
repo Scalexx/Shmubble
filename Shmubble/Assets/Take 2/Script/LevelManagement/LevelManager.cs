@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
 
@@ -10,6 +11,13 @@ public class LevelManager : MonoBehaviour {
     private float healthTrigger1;
     private float healthTrigger2;
     public float bossHealth = 1200;
+
+    [Tooltip("Charge it needs to do the EX attack.")]
+    public float specialMaxCharge;
+    public float damageDealt;
+
+    public Slider healthBar;
+    public Slider exBar;
 
     public Transform spawnPosition;
 
@@ -21,6 +29,8 @@ public class LevelManager : MonoBehaviour {
         Instance = this;
         healthTrigger1 = health / 4;
         healthTrigger2 = 1;
+
+        healthBar.GetComponent<Slider>().maxValue = health;
     }
 
     void Update ()
@@ -48,6 +58,12 @@ public class LevelManager : MonoBehaviour {
     public void GetDamaged (float damage)
     {
         health -= damage;
+
+        healthBar.GetComponent<Slider>().value = health;
+
+        damageDealt -= damage;
+
+        exBar.GetComponent<Slider>().value = damageDealt;
     }
 
     public void DamageBoss (float damage)
@@ -61,6 +77,17 @@ public class LevelManager : MonoBehaviour {
             damage = damage * 1.25f;
         }
         bossHealth -= damage;
+
+        if (damageDealt < specialMaxCharge)
+        {
+            damageDealt += damage;
+            exBar.GetComponent<Slider>().value = damageDealt;
+        }
+    }
+
+    public void SpecialDone ()
+    {
+        damageDealt = 0;
     }
 }
 
