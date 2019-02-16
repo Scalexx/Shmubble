@@ -80,9 +80,14 @@ public class LevelManager : MonoBehaviour {
 
         if (damageDealt < specialMaxCharge)
         {
-            damageDealt += damage;
-            exBar.GetComponent<Slider>().value = damageDealt;
+            DamageDealt(damage);
         }
+    }
+
+    public void DamageDealt(float damage)
+    {
+        damageDealt += damage;
+        exBar.GetComponent<Slider>().value = damageDealt;
     }
 
     public void SpecialDone ()

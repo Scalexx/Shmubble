@@ -161,7 +161,7 @@ public class Player : MonoBehaviour {
         }
         if (Input.GetButton("EX Shoot"))
         {
-            if (LevelManager.Instance.damageDealt == LevelManager.Instance.specialMaxCharge)
+            if (LevelManager.Instance.damageDealt >= LevelManager.Instance.specialMaxCharge)
             {
                 HandleExShoot();
             }
@@ -364,6 +364,11 @@ public class Player : MonoBehaviour {
                 Invulnerable();
             }
         }
+    }
+
+    void OnControlleColliderHit(ControllerColliderHit hit)
+    {
+        
     }
 
     public void Knockback(Vector2 knockBackDirection)

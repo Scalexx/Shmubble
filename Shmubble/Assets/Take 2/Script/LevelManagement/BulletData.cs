@@ -65,10 +65,24 @@ public class BulletData : MonoBehaviour {
     Vector3 velocityTarget;
 
     Rigidbody rb;
+    bool solidObject;
 
     void OnEnable ()
     {
         rb = GetComponent<Rigidbody>();
+
+        AreaDenial adCheck = GetComponent<AreaDenial>();
+        if (adCheck != null)
+        {
+            if (adCheck.solidObject)
+            {
+                gameObject.layer = 10;
+                GetComponent<Collider>().isTrigger = false;
+                rb.freezeRotation = true;
+                solidObject = true;
+            }
+        }
+
         if (gameObject.CompareTag ("ProjectileBoss"))
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -96,6 +110,10 @@ public class BulletData : MonoBehaviour {
         else if (useHoming)
         {
             HomingMovement();
+        }
+        else if (solidObject)
+        {
+            transform.Translate(velocity * speed * Time.deltaTime);
         }
         else {
             rb.angularVelocity = new Vector3(0, 0, 0);
