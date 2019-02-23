@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - ProjectileBoss
   - Projectile
+  - OutOfBoundsFar
   layers:
   - Default
   - TransparentFX

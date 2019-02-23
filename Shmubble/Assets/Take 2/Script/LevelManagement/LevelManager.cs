@@ -28,6 +28,8 @@ public class LevelManager : MonoBehaviour {
     {
         Instance = this;
         healthTrigger1 = health / 4;
+
+        Cursor.visible = false;
         healthTrigger2 = 1;
 
         healthBar.GetComponent<Slider>().maxValue = health;

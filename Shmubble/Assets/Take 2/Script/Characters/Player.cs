@@ -344,31 +344,31 @@ public class Player : MonoBehaviour {
         }
         if (hit.gameObject.layer == 9)
         {
-            if (invulnerabilityTimer <= 0)
-            {
-                Vector2 hitDirection = hit.transform.position - transform.position;
-                hitDirection = -hitDirection.normalized;
-                Knockback(hitDirection);
-
-                BulletData bulletDamage = hit.gameObject.GetComponent<BulletData>();
-                float damaged;
-                if (bulletDamage != null)
-                {
-                    damaged = bulletDamage.damage;
-                }
-                else
-                {
-                    damaged = bossTouchDamage;
-                }
-                LevelManager.Instance.GetDamaged(damaged);
-                Invulnerable();
-            }
+            GetDamaged(hit.transform);
         }
     }
 
-    void OnControlleColliderHit(ControllerColliderHit hit)
+    public void GetDamaged(Transform hit)
     {
-        
+        if (invulnerabilityTimer <= 0)
+        {
+            Vector2 hitDirection = hit.position - transform.position;
+            hitDirection = -hitDirection.normalized;
+            Knockback(hitDirection);
+
+            BulletData bulletDamage = hit.gameObject.GetComponent<BulletData>();
+            float damaged;
+            if (bulletDamage != null)
+            {
+                damaged = bulletDamage.damage;
+            }
+            else
+            {
+                damaged = bossTouchDamage;
+            }
+            LevelManager.Instance.GetDamaged(damaged);
+            Invulnerable();
+        }
     }
 
     public void Knockback(Vector2 knockBackDirection)
