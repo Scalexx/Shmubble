@@ -47,3 +47,5 @@ public class Laser : MonoBehaviour
         }
     }
 }
+
+// no bugs plz
