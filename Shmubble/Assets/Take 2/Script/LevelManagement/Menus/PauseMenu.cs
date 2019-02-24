@@ -9,17 +9,22 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject pauseMenuUI;
 
+    public bool someoneDied = false;
+
     void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!someoneDied)
         {
-            if (gameIsPaused)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Resume();
-            }
-            else
-            {
-                Pause();
+                if (gameIsPaused)
+                {
+                    Resume();
+                }
+                else
+                {
+                    Pause();
+                }
             }
         }
     }

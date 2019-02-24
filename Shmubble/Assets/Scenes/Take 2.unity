@@ -749,6 +749,7 @@ MonoBehaviour:
   gameOver: {fileID: 1990899556}
   gameOverProgressBar: {fileID: 1567352522}
   winScreen: {fileID: 128622715}
+  pauseMenu: {fileID: 654713331}
   spawnPosition: {fileID: 1299936453}
   playerTransform: {fileID: 1379962273}
   bossTransform: {fileID: 1941330590}
@@ -1803,6 +1804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1891187635}
+  someoneDied: 0
 --- !u!1 &718283318
 GameObject:
   m_ObjectHideFlags: 0
