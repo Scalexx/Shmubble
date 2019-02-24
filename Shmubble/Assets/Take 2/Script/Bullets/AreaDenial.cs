@@ -56,6 +56,7 @@ public class AreaDenial : MonoBehaviour {
         if (hit.gameObject.CompareTag("Player"))
         {
             hit.transform.SetParent(transform);
+            hit.gameObject.GetComponent<Player>().takenOver = true;
         }
     }
 
@@ -64,6 +65,7 @@ public class AreaDenial : MonoBehaviour {
 
         if (hit.gameObject.CompareTag("Player"))
         {
+            hit.gameObject.GetComponent<Player>().takenOver = false;
             hit.transform.SetParent(null);
         }
     }

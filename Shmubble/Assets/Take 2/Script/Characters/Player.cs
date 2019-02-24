@@ -19,6 +19,7 @@ public class Player : MonoBehaviour {
     public LayerMask groundLayer;
     private bool crouch;
 
+    [Tooltip("Damage the player takes when touching the boss.")]
     public float bossTouchDamage;
 
     [Header("Shooting")]
@@ -58,6 +59,8 @@ public class Player : MonoBehaviour {
     [Tooltip("The amount of time the player will have the force applied and can't move.")]
     public float knockBackPeriod;
     private float knockBackTimer;
+
+    public bool takenOver;
 
     private Vector3 moveVector;
     private Vector3 lastMotion;
@@ -116,7 +119,15 @@ public class Player : MonoBehaviour {
 
                     verticalVelocity -= gravity * Time.deltaTime;
                 }
-                moveVector.x = inputDirection;
+                if (takenOver)
+                {
+                    moveVector.x = inputDirection * GetComponentInParent<BulletData>().velocity.x;
+                }
+                else
+                {
+                    moveVector.x = inputDirection;
+                }
+                
                 moveVector.y = verticalVelocity;
             }
         }
@@ -179,12 +190,12 @@ public class Player : MonoBehaviour {
         leftRayStart.x -= controller.bounds.extents.x;
         rightRayStart.x += controller.bounds.extents.x;
 
-        if(Physics.Raycast(leftRayStart, Vector3.down, (controller.height / 2) + 0.1f, groundLayer))
+        if (Physics.Raycast(leftRayStart, Vector3.down, (controller.height / 2) + 0.1f, groundLayer, QueryTriggerInteraction.Ignore))
         { 
             return true;
         }
 
-        if (Physics.Raycast(rightRayStart, Vector3.down, (controller.height / 2) + 0.1f, groundLayer))
+        if (Physics.Raycast(rightRayStart, Vector3.down, (controller.height / 2) + 0.1f, groundLayer, QueryTriggerInteraction.Ignore))
         {
             return true;
         }
