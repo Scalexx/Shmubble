@@ -54,6 +54,7 @@ public class LevelManager : MonoBehaviour {
     {
         Destroy(bossTransform.gameObject);
         Time.timeScale = 0f;
+        Cursor.visible = true;
 
         winScreen.SetActive(true);
     }

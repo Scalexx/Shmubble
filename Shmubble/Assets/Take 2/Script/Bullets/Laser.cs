@@ -5,6 +5,8 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
 
+    public float damage;
+
     public float beamRotationSpeed = 400.0f;
     public float beamExtendSpeed = 10.0f;
 
@@ -30,7 +32,7 @@ public class Laser : MonoBehaviour
         {
             currentSize = size;
             transform.localScale = Vector3.Lerp(transform.localScale, currentSize, (beamExtendSpeed * Time.deltaTime));
-            transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(currentSize.x / 2, currentSize.y, currentSize.z), (beamExtendSpeed * Time.deltaTime));
+            transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(currentSize.x / 2, 0, 0), (beamExtendSpeed * Time.deltaTime));
         }
         else
         {

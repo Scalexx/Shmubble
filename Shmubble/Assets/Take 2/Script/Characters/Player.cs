@@ -366,7 +366,15 @@ public class Player : MonoBehaviour {
             }
             else
             {
-                damaged = bossTouchDamage;
+                Laser laserDamage = hit.GetComponent<Laser>();
+                if (laserDamage != null)
+                {
+                    damaged = laserDamage.damage;
+                }
+                else
+                {
+                    damaged = bossTouchDamage;
+                }
             }
             LevelManager.Instance.GetDamaged(damaged);
             Invulnerable();
