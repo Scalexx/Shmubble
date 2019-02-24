@@ -130,7 +130,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 1024
-  bossTouchDamage: 0
+  bossTouchDamage: 5
   spawnPoint: {fileID: 4572824638751644}
   projectilePool: {fileID: 0}
   exProjectilePool: {fileID: 0}

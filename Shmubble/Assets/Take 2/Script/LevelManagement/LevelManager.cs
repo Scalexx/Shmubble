@@ -30,6 +30,9 @@ public class LevelManager : MonoBehaviour {
     public Slider healthBar;
     [Tooltip("EXbar gameobject.")]
     public Slider exBar;
+    float tValue;
+    [Tooltip("How fast the bars change their value.")]
+    public float speedBar;
 
     [Space(10)]
     [Tooltip("Game Over screen object.")]
@@ -65,12 +68,22 @@ public class LevelManager : MonoBehaviour {
         healthTrigger2 = 1;
 
         healthBar.GetComponent<Slider>().maxValue = health;
+        exBar.GetComponent<Slider>().maxValue = specialMaxCharge;
         gameOverProgressBar.maxValue = bossHealth;
     }
 
     void Update ()
     {
-        
+        if (healthBar.GetComponent<Slider>().value != health)
+        {
+            tValue += speedBar * Time.unscaledDeltaTime;
+            healthBar.GetComponent<Slider>().value = Mathf.SmoothStep(healthBar.GetComponent<Slider>().value, health, tValue);
+        }
+        if (exBar.GetComponent<Slider>().value != damageDealt)
+        {
+            tValue += speedBar * Time.unscaledDeltaTime;
+            exBar.GetComponent<Slider>().value = Mathf.SmoothStep(exBar.GetComponent<Slider>().value, damageDealt, tValue);
+        }
     }
 
     public void Win ()
@@ -93,9 +106,7 @@ public class LevelManager : MonoBehaviour {
 
     public void GetDamaged (float damage)
     {
-        health -= damage;
-
-        healthBar.GetComponent<Slider>().value = health;
+        health -= damage;    
 
         if (damageDealt >= damage)
         {
@@ -106,12 +117,12 @@ public class LevelManager : MonoBehaviour {
             damageDealt = 0;
         }
 
-        exBar.GetComponent<Slider>().value = damageDealt;
-
         if (health <= 0)
         {
             GameOver();
         }
+
+        tValue = 0;
     }
 
     public void DamageBoss (float damage)
@@ -135,16 +146,18 @@ public class LevelManager : MonoBehaviour {
         {
             Win();
         }
+
+        tValue = 0;
     }
 
     public void DamageDealt(float damage)
     {
         damageDealt += damage;
-        exBar.GetComponent<Slider>().value = damageDealt;
     }
 
     public void SpecialDone (float damage)
     {
+        tValue = 0;
         damageDealt = 0 - damage ;
     }
 

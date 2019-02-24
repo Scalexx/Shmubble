@@ -741,11 +741,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   bossHealth: 2000
-  specialMaxCharge: 500
+  specialMaxCharge: 100
   damageDealt: 0
   outOfBoundsDamage: 5
   healthBar: {fileID: 305608357}
   exBar: {fileID: 1863207955}
+  speedBar: 2
   gameOver: {fileID: 1990899556}
   gameOverProgressBar: {fileID: 1567352522}
   winScreen: {fileID: 128622715}
