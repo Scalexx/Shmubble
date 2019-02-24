@@ -6,6 +6,8 @@ using TMPro;
 
 public class GameOver : MonoBehaviour {
 
+    public Slider progress;
+
     public List<string> flavorTexts = new List<string>();
 
     public TMP_Text flavorText;
@@ -15,6 +17,8 @@ public class GameOver : MonoBehaviour {
         int rand = Random.Range(0, flavorTexts.Count);
 
         flavorText.text = flavorTexts[rand];
+
+        progress.value = progress.maxValue - LevelManager.Instance.bossHealth;
     }
 
 }

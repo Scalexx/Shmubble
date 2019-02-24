@@ -23,10 +23,14 @@ public class LevelManager : MonoBehaviour {
 
     [Tooltip("Game Over screen object.")]
     public GameObject gameOver;
+    public Slider gameOverProgressBar;
+
+    public GameObject winScreen;
 
     public Transform spawnPosition;
 
     public Transform playerTransform;
+    public Transform bossTransform;
 
     // Called before Start ()
     private void Awake ()
@@ -38,6 +42,7 @@ public class LevelManager : MonoBehaviour {
         healthTrigger2 = 1;
 
         healthBar.GetComponent<Slider>().maxValue = health;
+        gameOverProgressBar.maxValue = bossHealth;
     }
 
     void Update ()
@@ -47,7 +52,10 @@ public class LevelManager : MonoBehaviour {
 
     public void Win ()
     {
+        Destroy(bossTransform.gameObject);
+        Time.timeScale = 0f;
 
+        winScreen.SetActive(true);
     }
 
     public void OutOfBounds()
@@ -96,6 +104,11 @@ public class LevelManager : MonoBehaviour {
         if (damageDealt < specialMaxCharge)
         {
             DamageDealt(damage);
+        }
+
+        if (bossHealth <= 0)
+        {
+            Win();
         }
     }
 
