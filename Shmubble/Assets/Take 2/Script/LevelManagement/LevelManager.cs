@@ -144,7 +144,7 @@ public class LevelManager : MonoBehaviour {
 
         if (bossHealth <= 0)
         {
-            Win();
+            bossTransform.GetComponent<Boss>().state = Boss.State.DEATH;
         }
 
         tValue = 0;

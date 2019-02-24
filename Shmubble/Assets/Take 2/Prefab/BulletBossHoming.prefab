@@ -113,10 +113,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   damage: 1
-  velocity: {x: 0, y: 0, z: 0}
+  velocity: {x: 1, y: 0, z: 0}
   timeBetweenShots: 1
   destroyOnTouch: 0
-  destroyOtherOnTouch: 1
+  destroyOtherOnTouch: 0
   useCurve: 0
   useXCurve: 0
   trajectoryCurveX:
@@ -168,6 +168,7 @@ MonoBehaviour:
   useHoming: 1
   target: {fileID: 4340601524913464, guid: 7b54674ca2316e24f89e43115d10b45e, type: 2}
   angleChangingSpeed: 4
+  stopHomingTimer: 5
   useTarget: 0
 --- !u!135 &135388853420932064
 SphereCollider:

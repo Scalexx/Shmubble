@@ -37,8 +37,26 @@ public class Boss : MonoBehaviour {
     [Header("Attacks")]
     [Tooltip("The GameObject the bullet spawns from.")]
     public Transform spawnPoint;
+
+    [Space(10)]
+    [Tooltip("Amount of shots to fire with the first attack of the projectilePool.")]
+    public int shotsToFireAttack1;
+    [Tooltip("Amount of shots to fire with the second attack of the projectilePool.")]
+    public int shotsToFireAttack2;
+    [Tooltip("Amount of shots to fire with the third attack of the projectilePool.")]
+    public int shotsToFireAttack3;
+    [Tooltip("Amount of shots to fire with the fourth attack of the projectilePool.")]
+    public int shotsToFireAttack4;
+    [Tooltip("Amount of shots to fire with the fifth attack of the projectilePool.")]
+    public int shotsToFireAttack5;
+    [Tooltip("Amount of shots to fire with the sixth attack of the projectilePool.")]
+    public int shotsToFireAttack6;
+    int shotsFired;
+
     float timeBetweenShots;
     int projectileChoice;
+    
+    [Space(10)]
     [Tooltip("The GameObject with the Object Pool on it.")]
     public ObjectPooler[] projectilePools;
 
@@ -92,6 +110,8 @@ public class Boss : MonoBehaviour {
                 }
                 else
                 {
+                    shotsFired = 0;
+
                     if (time <= 0)
                     {
                         // choose attack to do
@@ -120,27 +140,39 @@ public class Boss : MonoBehaviour {
                 break;
             case State.ATTACK_1:
                 // do attack stuff
-                //projectileChoice = 0;
-                //HandleShoot();
-
-                // if attack is done
-                state = State.IDLE;
+                projectileChoice = 0;
+                if (shotsFired < shotsToFireAttack1)
+                {
+                    HandleShoot();
+                }
+                else
+                {
+                    state = State.IDLE;
+                }
                 break;
             case State.ATTACK_2:
                 // do attack stuff
-                //projectileChoice = 1;
-                //HandleShoot();
-
-                // if attack is done
-                state = State.IDLE;
+                projectileChoice = 1;
+                if (shotsFired < shotsToFireAttack2)
+                {
+                    HandleShoot();
+                }
+                else
+                {
+                    state = State.IDLE;
+                }
                 break;
             case State.ATTACK_3:
                 // do attack stuff
-                //projectileChoice = 2;
-                //HandleShoot();
-
-                // if attack is done
-                state = State.IDLE;
+                projectileChoice = 2;
+                if (shotsFired < shotsToFireAttack3)
+                {
+                    HandleShoot();
+                }
+                else
+                {
+                    state = State.IDLE;
+                }
                 break;
         }
     }
@@ -201,24 +233,43 @@ public class Boss : MonoBehaviour {
                 break;
             case State.ATTACK_1:
                 // do attack stuff
-
-                // if attack is done
-                state = State.IDLE;
+                projectileChoice = 4;
+                if (shotsFired < shotsToFireAttack4)
+                {
+                    HandleShoot();
+                }
+                else
+                {
+                    state = State.IDLE;
+                }
                 break;
             case State.ATTACK_2:
                 // do attack stuff
-
-                // if attack is done
-                state = State.IDLE;
+                projectileChoice = 5;
+                if (shotsFired < shotsToFireAttack4)
+                {
+                    HandleShoot();
+                }
+                else
+                {
+                    state = State.IDLE;
+                }
                 break;
             case State.ATTACK_3:
                 // do attack stuff
-
-                // if attack is done
-                state = State.IDLE;
+                projectileChoice = 6;
+                if (shotsFired < shotsToFireAttack4)
+                {
+                    HandleShoot();
+                }
+                else
+                {
+                    state = State.IDLE;
+                }
                 break;
             case State.DEATH:
                 // death animation
+                LevelManager.Instance.Win();
                 break;
         }
     }
@@ -242,6 +293,7 @@ public class Boss : MonoBehaviour {
             newProjectile.SetActive(true);
 
             timeBetweenShots = newProjectile.GetComponent<BulletData>().timeBetweenShots;
+            shotsFired++;
         }
         else
         {

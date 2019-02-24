@@ -56,10 +56,14 @@ public class BulletData : MonoBehaviour {
     [Header("Homing movement")]
     [Tooltip("Makes the projectile homing to the player.")]
     public bool useHoming;
+    private bool isHoming;
     [Tooltip("Set a target for the projectile. If tag is set to ProjectileBoss, it sets the target to Player. If tag is set to Projectile, it sets the target to Boss.")]
     public Transform target;
     [Tooltip("Set the speed at which the projectile can turn around.")]
     public float angleChangingSpeed;
+    [Tooltip("Stop homing after this long.")]
+    public float stopHomingTimer;
+    float stopHomingPeriod;
 
     [Space(10)]
     [Header("Targeted")]
@@ -72,8 +76,21 @@ public class BulletData : MonoBehaviour {
     bool solidObject;
     string bounds;
 
+    void Start ()
+    {
+        if (useHoming)
+        {
+            isHoming = true;
+        }
+    }
+
     void OnEnable ()
     {
+        if (isHoming)
+        {
+            useHoming = true;
+        }
+
         rb = GetComponent<Rigidbody>();
 
         AreaDenial adCheck = GetComponent<AreaDenial>();
@@ -93,6 +110,8 @@ public class BulletData : MonoBehaviour {
             bounds = "OutOfBounds";
         }
 
+        curveTimer = 0;
+
         if (gameObject.CompareTag ("ProjectileBoss"))
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -105,6 +124,8 @@ public class BulletData : MonoBehaviour {
         }
         targetPos = target.position;
         velocityTarget = (targetPos - transform.position).normalized;
+
+        stopHomingPeriod = stopHomingTimer;
     }
 
     void FixedUpdate ()
@@ -119,7 +140,16 @@ public class BulletData : MonoBehaviour {
         }
         else if (useHoming)
         {
-            HomingMovement();
+            stopHomingPeriod -= Time.deltaTime;
+
+            if (stopHomingPeriod >= 0)
+            {
+                HomingMovement();
+            }
+            else
+            {
+                useHoming = false;
+            }
         }
         else if (solidObject)
         {
