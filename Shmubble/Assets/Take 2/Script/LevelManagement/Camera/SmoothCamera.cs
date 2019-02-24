@@ -33,7 +33,15 @@ public class SmoothCamera : MonoBehaviour {
 
     void FixedUpdate()
     {
-        Vector3 desiredPosition = lookAt.transform.position + offset;
+        Vector3 desiredPosition = Vector3.zero;
+        if (lookAt != null)
+        {
+            desiredPosition = lookAt.transform.position + offset;
+        }
+        else
+        {
+            desiredPosition = offset;
+        }
 
         if(smooth)
         {

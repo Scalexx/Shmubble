@@ -13,6 +13,10 @@ public class BulletData : MonoBehaviour {
     public Vector3 velocity;
     [Tooltip("Timer controlling time between shots.")]
     public float timeBetweenShots;
+    [Tooltip("Destroys the projectile when colliding with the target.")]
+    public bool destroyOnTouch;
+    [Tooltip("Destroys other projectile when colliding.")]
+    public bool destroyOtherOnTouch;
 
     [Space(10)]
     [Header("Curve movement")]
@@ -66,6 +70,7 @@ public class BulletData : MonoBehaviour {
 
     Rigidbody rb;
     bool solidObject;
+    string bounds;
 
     void OnEnable ()
     {
@@ -74,6 +79,7 @@ public class BulletData : MonoBehaviour {
         AreaDenial adCheck = GetComponent<AreaDenial>();
         if (adCheck != null)
         {
+            bounds = "OutOfBoundsFar";
             if (adCheck.solidObject)
             {
                 gameObject.layer = 10;
@@ -81,6 +87,10 @@ public class BulletData : MonoBehaviour {
                 rb.freezeRotation = true;
                 solidObject = true;
             }
+        }
+        else
+        {
+            bounds = "OutOfBounds";
         }
 
         if (gameObject.CompareTag ("ProjectileBoss"))
@@ -123,7 +133,22 @@ public class BulletData : MonoBehaviour {
 
     void OnTriggerEnter (Collider hit)
     {
-        if (hit.gameObject.CompareTag("OutOfBounds"))
+        if (hit.gameObject.CompareTag(bounds))
+        {
+            gameObject.SetActive(false);
+        }
+        else if (destroyOtherOnTouch)
+        {
+            if (hit.gameObject.CompareTag("ProjectileBoss") || hit.gameObject.CompareTag("Projectile"))
+            {
+                hit.gameObject.SetActive(false);
+            }
+        }
+        else if (destroyOnTouch && target.gameObject.layer == hit.gameObject.layer)
+        {
+            gameObject.SetActive(false);
+        }
+        else if (gameObject.CompareTag("Projectile") && hit.gameObject.CompareTag("Boss"))
         {
             gameObject.SetActive(false);
         }

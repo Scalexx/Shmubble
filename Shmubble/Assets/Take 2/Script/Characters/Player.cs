@@ -243,7 +243,9 @@ public class Player : MonoBehaviour {
         newProjectile.transform.rotation = spawnPoint.rotation;
         newProjectile.SetActive(true);
 
-        LevelManager.Instance.SpecialDone();
+        float damage = newProjectile.GetComponent<BulletData>().damage;
+
+        LevelManager.Instance.SpecialDone(damage);
     }
 
     // Delete this function later when Animations are added as it will serve the same purpose

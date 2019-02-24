@@ -115,6 +115,8 @@ MonoBehaviour:
   damage: 1
   velocity: {x: 0, y: 0, z: 0}
   timeBetweenShots: 1
+  destroyOnTouch: 0
+  destroyOtherOnTouch: 1
   useCurve: 0
   useXCurve: 0
   trajectoryCurveX:
@@ -154,6 +156,13 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  useZCurve: 0
+  trajectoryCurveZ:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   animationSpeedMultiplier: 1
   curveMaxY: 1
   useHoming: 1

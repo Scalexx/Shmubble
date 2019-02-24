@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 1539728126334674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalScale: {x: 10, y: 5, z: 10}
   m_Children:
   - {fileID: 4764785542995330}
   m_Father: {fileID: 0}
@@ -130,7 +130,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 14
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &65032261461266354
 BoxCollider:
@@ -186,8 +186,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   damage: 4
-  velocity: {x: -1, y: 0, z: 0}
-  timeBetweenShots: 1
+  velocity: {x: 1, y: 0, z: 0}
+  timeBetweenShots: 10
   useCurve: 0
   useXCurve: 0
   trajectoryCurveX:

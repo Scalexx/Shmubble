@@ -16,8 +16,13 @@ public class LevelManager : MonoBehaviour {
     public float specialMaxCharge;
     public float damageDealt;
 
+    public float outOfBoundsDamage;
+
     public Slider healthBar;
     public Slider exBar;
+
+    [Tooltip("Game Over screen object.")]
+    public GameObject gameOver;
 
     public Transform spawnPosition;
 
@@ -50,11 +55,7 @@ public class LevelManager : MonoBehaviour {
         // Out of bounds
         playerTransform.position = spawnPosition.position;
         playerTransform.GetComponent<Player>().Invulnerable();
-        health--;
-        if (health <= 0)
-        {
-
-        }
+        GetDamaged(outOfBoundsDamage);
     }
 
     public void GetDamaged (float damage)
@@ -63,9 +64,21 @@ public class LevelManager : MonoBehaviour {
 
         healthBar.GetComponent<Slider>().value = health;
 
-        damageDealt -= damage;
+        if (damageDealt >= damage)
+        {
+            damageDealt -= damage;
+        }
+        else
+        {
+            damageDealt = 0;
+        }
 
         exBar.GetComponent<Slider>().value = damageDealt;
+
+        if (health <= 0)
+        {
+            GameOver();
+        }
     }
 
     public void DamageBoss (float damage)
@@ -92,9 +105,18 @@ public class LevelManager : MonoBehaviour {
         exBar.GetComponent<Slider>().value = damageDealt;
     }
 
-    public void SpecialDone ()
+    public void SpecialDone (float damage)
     {
-        damageDealt = 0;
+        damageDealt = 0 - damage ;
+    }
+
+    public void GameOver()
+    {
+        Destroy(playerTransform.gameObject);
+        Cursor.visible = true;
+        Time.timeScale = 0f;
+
+        gameOver.SetActive(true);
     }
 }
 
