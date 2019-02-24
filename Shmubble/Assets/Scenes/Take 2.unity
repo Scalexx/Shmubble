@@ -5666,6 +5666,7 @@ MonoBehaviour:
   - Flavor text 2
   - Flavor text 3
   flavorText: {fileID: 184234341}
+  speed: 0.5
 --- !u!95 &1990899561
 Animator:
   serializedVersion: 3
