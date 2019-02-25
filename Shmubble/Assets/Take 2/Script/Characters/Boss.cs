@@ -35,8 +35,8 @@ public class Boss : MonoBehaviour {
     private bool entered;
 
     [Header("Attacks")]
-    [Tooltip("The GameObject the bullet spawns from.")]
-    public Transform spawnPoint;
+    [Tooltip("The GameObjects the bullets can spawn from.")]
+    public List<Transform> spawnPoints = new List<Transform>();
 
     [Space(10)]
     [Tooltip("Amount of shots to fire with the first attack of the projectilePool.")]
@@ -289,11 +289,19 @@ public class Boss : MonoBehaviour {
         {
             GameObject newProjectile = projectilePools[projectileChoice].GetPooledObject();
 
-            newProjectile.transform.position = spawnPoint.position;
-            newProjectile.transform.rotation = spawnPoint.rotation;
+            newProjectile.transform.position = spawnPoints[projectileChoice].position;
+            newProjectile.transform.rotation = spawnPoints[projectileChoice].rotation;
             newProjectile.SetActive(true);
 
-            timeBetweenShots = newProjectile.GetComponent<BulletData>().timeBetweenShots;
+            BulletData temp = newProjectile.GetComponent<BulletData>();
+            if (temp != null)
+            {
+                timeBetweenShots = newProjectile.GetComponent<BulletData>().timeBetweenShots;
+            }
+            else
+            {
+                timeBetweenShots = 1;
+            }
             shotsFired++;
         }
         else

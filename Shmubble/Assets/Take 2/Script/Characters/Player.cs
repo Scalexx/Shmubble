@@ -82,7 +82,7 @@ public class Player : MonoBehaviour {
                 moveVector.y -= gravity * Time.deltaTime;
                 crouch = false;
             }
-            else if (IsControllerGrounded() && Input.GetAxisRaw("Vertical") < 0)
+            else if (IsControllerGrounded() && Input.GetAxis("Vertical") < -0.5)
             {
                 moveVector.x = 0;
                 moveVector.y -= gravity * Time.deltaTime;
@@ -264,14 +264,14 @@ public class Player : MonoBehaviour {
     {
         int zRotation;
         float xInput = Input.GetAxisRaw("Horizontal");
-        float yInput = Input.GetAxisRaw("Vertical");
+        float yInput = Input.GetAxis("Vertical");
         if (xInput > 0)
         {
-            if (yInput > 0)
+            if (yInput > 0.5)
             {
                 zRotation = 45;
             }
-            else if (yInput < 0)
+            else if (yInput < -0.5)
             {
                 if (Input.GetButton("Lock Movement") || !IsControllerGrounded())
                 {
@@ -289,11 +289,11 @@ public class Player : MonoBehaviour {
         }
         else if (xInput < 0)
         {
-            if (yInput > 0)
+            if (yInput > 0.5)
             {
                 zRotation = 135;
             }
-            else if (yInput < 0)
+            else if (yInput < -0.5)
             {
                 if (Input.GetButton("Lock Movement") || !IsControllerGrounded())
                 {
@@ -311,11 +311,11 @@ public class Player : MonoBehaviour {
         }
         else
         {
-            if (yInput > 0)
+            if (yInput > 0.5)
             {
                 zRotation = 90;
             }
-            else if (yInput < 0)
+            else if (yInput < -0.5)
             {
                 if (Input.GetButton("Lock Movement") || !IsControllerGrounded())
                 {
