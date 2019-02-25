@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ce61d7d0dad564086bcd1cc1be96c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 1723027501008808, guid: dc6e5f20d6351e6478f4898e3a85e868,
+  pooledObject: {fileID: 1723027501008808, guid: 720e785cfb9aa1c48930506b1913ed0b,
     type: 2}
   pooledAmount: 0
 --- !u!1 &49690370
@@ -3207,7 +3207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ce61d7d0dad564086bcd1cc1be96c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 1723027501008808, guid: dc6e5f20d6351e6478f4898e3a85e868,
+  pooledObject: {fileID: 1723027501008808, guid: 8a4c27ac9f9a0ac42a1bda8a6b48f91b,
     type: 2}
   pooledAmount: 0
 --- !u!1 &1209796692
@@ -4095,7 +4095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ce61d7d0dad564086bcd1cc1be96c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 1723027501008808, guid: dc6e5f20d6351e6478f4898e3a85e868,
+  pooledObject: {fileID: 1723027501008808, guid: 6d9a5366bbd8fcb419c47fc13fc40ead,
     type: 2}
   pooledAmount: 0
 --- !u!1 &1552331245
@@ -5802,9 +5802,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progress: {fileID: 1567352522}
   flavorTexts:
-  - Flavor text 1
-  - Flavor text 2
-  - Flavor text 3
+  - u sok
+  - git gud
+  - komt wel goed liefjuu <3
+  - Fluff is oud
   flavorText: {fileID: 184234341}
   speed: 0.5
 --- !u!95 &1990899561

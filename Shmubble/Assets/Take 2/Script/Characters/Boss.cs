@@ -197,7 +197,6 @@ public class Boss : MonoBehaviour {
             case State.IDLE:
                 // do idle stuff
                 // play idle animation
-
                 if (entered == false)
                 {
                     time = Random.Range(idleMinTime, idleMaxTime);
@@ -205,6 +204,8 @@ public class Boss : MonoBehaviour {
                 }
                 else
                 {
+                    shotsFired = 0;
+
                     if (time <= 0)
                     {
                         // choose attack to do
@@ -233,7 +234,7 @@ public class Boss : MonoBehaviour {
                 break;
             case State.ATTACK_1:
                 // do attack stuff
-                projectileChoice = 4;
+                projectileChoice = 3;
                 if (shotsFired < shotsToFireAttack4)
                 {
                     HandleShoot();
@@ -245,7 +246,7 @@ public class Boss : MonoBehaviour {
                 break;
             case State.ATTACK_2:
                 // do attack stuff
-                projectileChoice = 5;
+                projectileChoice = 4;
                 if (shotsFired < shotsToFireAttack4)
                 {
                     HandleShoot();
@@ -257,7 +258,7 @@ public class Boss : MonoBehaviour {
                 break;
             case State.ATTACK_3:
                 // do attack stuff
-                projectileChoice = 6;
+                projectileChoice = 5;
                 if (shotsFired < shotsToFireAttack4)
                 {
                     HandleShoot();

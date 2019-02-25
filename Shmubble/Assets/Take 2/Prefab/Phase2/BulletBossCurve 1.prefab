@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 23799858658706680}
   - component: {fileID: 54709078412833586}
   - component: {fileID: 114365011639748746}
-  m_Layer: 8
-  m_Name: Bullet
-  m_TagString: Projectile
+  m_Layer: 9
+  m_Name: BulletBossCurve 1
+  m_TagString: ProjectileBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1723027501008808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -58,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 791a2eb2610b46840a1ba84521f5499b, type: 2}
+  - {fileID: 2100000, guid: 0fa26e060e3892740aa1b336ee3f5824, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +84,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1723027501008808}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54709078412833586
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -111,14 +111,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530662a7a8be3ab4a808ab3a2bfc7892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  damage: 4
-  velocity: {x: 1, y: 0, z: 0}
-  timeBetweenShots: 0.2
+  speed: 7
+  damage: 1
+  velocity: {x: 0, y: 0, z: 0}
+  timeBetweenShots: 1
   destroyOnTouch: 0
   destroyOtherOnTouch: 0
-  useCurve: 0
-  useXCurve: 0
+  useCurve: 1
+  useXCurve: 1
   trajectoryCurveX:
     serializedVersion: 2
     m_Curve:
@@ -130,26 +130,26 @@ MonoBehaviour:
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 0
+      value: 1.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  useYCurve: 0
+  useYCurve: 1
   trajectoryCurveY:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 0.6
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 0
+      value: -0.6
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   animationSpeedMultiplier: 1
   curveMaxY: 1
   useHoming: 0
-  target: {fileID: 0}
+  target: {fileID: 4340601524913464, guid: 7b54674ca2316e24f89e43115d10b45e, type: 2}
   angleChangingSpeed: 4
   stopHomingTimer: 0
   useTarget: 0

@@ -138,22 +138,14 @@ public class BulletData : MonoBehaviour {
         {
             rb.velocity = velocityTarget * speed;
         }
-        else if (useHoming)
-        {
-            stopHomingPeriod -= Time.deltaTime;
-
-            if (stopHomingPeriod >= 0)
-            {
-                HomingMovement();
-            }
-            else
-            {
-                useHoming = false;
-            }
-        }
         else if (solidObject)
         {
             transform.Translate(velocity * speed * Time.deltaTime);
+        }
+        else if (useHoming)
+        {
+            stopHomingPeriod -= Time.deltaTime;
+            HomingMovement();
         }
         else {
             rb.angularVelocity = new Vector3(0, 0, 0);
@@ -213,8 +205,12 @@ public class BulletData : MonoBehaviour {
 
     void HomingMovement()
     {
-        Vector3 direction = target.position - rb.position;
-        direction.Normalize();
+        Vector3 direction = Vector3.zero;
+        if (stopHomingPeriod >= 0)
+        {
+            direction = target.position - rb.position;
+            direction.Normalize();
+        }
         Vector3 rotateAmount = Vector3.Cross(transform.right, direction);
         rb.angularVelocity = rotateAmount * angleChangingSpeed;
         velocity = transform.right.normalized;
