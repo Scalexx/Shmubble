@@ -35,10 +35,6 @@ public class Boss : MonoBehaviour {
     private bool entered;
 
     [Header("Attacks")]
-    [Tooltip("The GameObjects the bullets can spawn from.")]
-    public List<Transform> spawnPoints = new List<Transform>();
-
-    [Space(10)]
     [Tooltip("Amount of shots to fire with the first attack of the projectilePool.")]
     public int shotsToFireAttack1;
     [Tooltip("Amount of shots to fire with the second attack of the projectilePool.")]
@@ -52,6 +48,36 @@ public class Boss : MonoBehaviour {
     [Tooltip("Amount of shots to fire with the sixth attack of the projectilePool.")]
     public int shotsToFireAttack6;
     int shotsFired;
+
+    [Space(10)]
+    [Tooltip("The GameObjects the bullets can spawn from during the first attack.")]
+    public List<Transform> spawnPointsAttack1 = new List<Transform>();
+    [Tooltip("The GameObjects the bullets can spawn from during the second attack.")]
+    public List<Transform> spawnPointsAttack2 = new List<Transform>();
+    [Tooltip("The GameObjects the bullets can spawn from during the third attack.")]
+    public List<Transform> spawnPointsAttack3 = new List<Transform>();
+    [Tooltip("The GameObjects the bullets can spawn from during the fourth attack.")]
+    public List<Transform> spawnPointsAttack4 = new List<Transform>();
+    [Tooltip("The GameObjects the bullets can spawn from during the fifth attack.")]
+    public List<Transform> spawnPointsAttack5 = new List<Transform>();
+    [Tooltip("The GameObjects the bullets can spawn from during the sixth attack.")]
+    public List<Transform> spawnPointsAttack6 = new List<Transform>();
+    int spawnPointInt;
+    Transform spawnPoint;
+
+    [Space(10)]
+    [Tooltip("Chooses whether the bullets spawn from random points in the list during the first attack.")]
+    public bool randomSpawnAttack1;
+    [Tooltip("Chooses whether the bullets spawn from random points in the list during the second attack.")]
+    public bool randomSpawnAttack2;
+    [Tooltip("Chooses whether the bullets spawn from random points in the list during the third attack.")]
+    public bool randomSpawnAttack3;
+    [Tooltip("Chooses whether the bullets spawn from random points in the list during the fourth attack.")]
+    public bool randomSpawnAttack4;
+    [Tooltip("Chooses whether the bullets spawn from random points in the list during the fifth attack.")]
+    public bool randomSpawnAttack5;
+    [Tooltip("Chooses whether the bullets spawn from random points in the list during the sixth attack.")]
+    public bool randomSpawnAttack6;
 
     float timeBetweenShots;
     int projectileChoice;
@@ -111,23 +137,35 @@ public class Boss : MonoBehaviour {
                 else
                 {
                     shotsFired = 0;
-
+                    
                     if (time <= 0)
                     {
                         // choose attack to do
                         int rand = Random.Range(0, 3);
                         if (rand == 0)
                         {
+                            if (shotsToFireAttack1 > 1)
+                            {
+                                spawnPointInt = 0;
+                            }
                             state = State.ATTACK_1;
                             entered = false;
                         }
                         else if (rand == 1)
                         {
+                            if (shotsToFireAttack2 > 1)
+                            {
+                                spawnPointInt = 0;
+                            }
                             state = State.ATTACK_2;
                             entered = false;
                         }
                         else if (rand == 2)
                         {
+                            if (shotsToFireAttack3 > 1)
+                            {
+                                spawnPointInt = 0;
+                            }
                             state = State.ATTACK_3;
                             entered = false;
                         }
@@ -143,7 +181,20 @@ public class Boss : MonoBehaviour {
                 projectileChoice = 0;
                 if (shotsFired < shotsToFireAttack1)
                 {
-                    HandleShoot();
+                    if (randomSpawnAttack1)
+                    {
+                        spawnPointInt = Random.Range(0, spawnPointsAttack1.Count);
+                    }
+
+                    else if (spawnPointInt < spawnPointsAttack1.Count)
+                    {
+                        spawnPoint = spawnPointsAttack1[spawnPointInt];
+                        HandleShoot();
+                    }
+                    else
+                    {
+                        spawnPointInt = 0;
+                    }
                 }
                 else
                 {
@@ -155,7 +206,20 @@ public class Boss : MonoBehaviour {
                 projectileChoice = 1;
                 if (shotsFired < shotsToFireAttack2)
                 {
-                    HandleShoot();
+                    if (randomSpawnAttack2)
+                    {
+                        spawnPointInt = Random.Range(0, spawnPointsAttack2.Count);
+                    }
+
+                    else if (spawnPointInt < spawnPointsAttack2.Count)
+                    {
+                        spawnPoint = spawnPointsAttack2[spawnPointInt];
+                        HandleShoot();
+                    }
+                    else
+                    {
+                        spawnPointInt = 0;
+                    }
                 }
                 else
                 {
@@ -167,7 +231,20 @@ public class Boss : MonoBehaviour {
                 projectileChoice = 2;
                 if (shotsFired < shotsToFireAttack3)
                 {
-                    HandleShoot();
+                    if (randomSpawnAttack3)
+                    {
+                        spawnPointInt = Random.Range(0, spawnPointsAttack3.Count);
+                    }
+                    
+                    else if (spawnPointInt < spawnPointsAttack3.Count)
+                    {
+                        spawnPoint = spawnPointsAttack3[spawnPointInt];
+                        HandleShoot();
+                    }
+                    else
+                    {
+                        spawnPointInt = 0;
+                    }
                 }
                 else
                 {
@@ -237,7 +314,20 @@ public class Boss : MonoBehaviour {
                 projectileChoice = 3;
                 if (shotsFired < shotsToFireAttack4)
                 {
-                    HandleShoot();
+                    if (randomSpawnAttack4)
+                    {
+                        spawnPointInt = Random.Range(0, spawnPointsAttack4.Count);
+                    }
+
+                    else if (spawnPointInt < spawnPointsAttack4.Count)
+                    {
+                        spawnPoint = spawnPointsAttack4[spawnPointInt];
+                        HandleShoot();
+                    }
+                    else
+                    {
+                        spawnPointInt = 0;
+                    }
                 }
                 else
                 {
@@ -247,9 +337,22 @@ public class Boss : MonoBehaviour {
             case State.ATTACK_2:
                 // do attack stuff
                 projectileChoice = 4;
-                if (shotsFired < shotsToFireAttack4)
+                if (shotsFired < shotsToFireAttack5)
                 {
-                    HandleShoot();
+                    if (randomSpawnAttack5)
+                    {
+                        spawnPointInt = Random.Range(0, spawnPointsAttack5.Count);
+                    }
+
+                    else if (spawnPointInt < spawnPointsAttack5.Count)
+                    {
+                        spawnPoint = spawnPointsAttack5[spawnPointInt];
+                        HandleShoot();
+                    }
+                    else
+                    {
+                        spawnPointInt = 0;
+                    }
                 }
                 else
                 {
@@ -261,7 +364,20 @@ public class Boss : MonoBehaviour {
                 projectileChoice = 5;
                 if (shotsFired < shotsToFireAttack4)
                 {
-                    HandleShoot();
+                    if (randomSpawnAttack6)
+                    {
+                        spawnPointInt = Random.Range(0, spawnPointsAttack6.Count);
+                    }
+
+                    else if (spawnPointInt < spawnPointsAttack6.Count)
+                    {
+                        spawnPoint = spawnPointsAttack6[spawnPointInt];
+                        HandleShoot();
+                    }
+                    else
+                    {
+                        spawnPointInt = 0;
+                    }
                 }
                 else
                 {
@@ -289,8 +405,8 @@ public class Boss : MonoBehaviour {
         {
             GameObject newProjectile = projectilePools[projectileChoice].GetPooledObject();
 
-            newProjectile.transform.position = spawnPoints[projectileChoice].position;
-            newProjectile.transform.rotation = spawnPoints[projectileChoice].rotation;
+            newProjectile.transform.position = spawnPoint.position;
+            newProjectile.transform.rotation = spawnPoint.rotation;
             newProjectile.SetActive(true);
 
             BulletData temp = newProjectile.GetComponent<BulletData>();
@@ -303,6 +419,7 @@ public class Boss : MonoBehaviour {
                 timeBetweenShots = 1;
             }
             shotsFired++;
+            spawnPointInt++;
         }
         else
         {

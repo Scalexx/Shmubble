@@ -1982,6 +1982,21 @@ Prefab:
       propertyPath: spawnPoints.Array.size
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114438205146622082, guid: 2b5db025b46f0c14d941f772841ca3d9,
+        type: 2}
+      propertyPath: spawnPointsAttack1.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114438205146622082, guid: 2b5db025b46f0c14d941f772841ca3d9,
+        type: 2}
+      propertyPath: spawnPointsAttack2.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114438205146622082, guid: 2b5db025b46f0c14d941f772841ca3d9,
+        type: 2}
+      propertyPath: spawnPointsAttack3.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4857930203846120, guid: 2b5db025b46f0c14d941f772841ca3d9, type: 2}
       propertyPath: m_LocalPosition.x
       value: 10.35
@@ -2082,6 +2097,41 @@ Prefab:
     - target: {fileID: 114438205146622082, guid: 2b5db025b46f0c14d941f772841ca3d9,
         type: 2}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114438205146622082, guid: 2b5db025b46f0c14d941f772841ca3d9,
+        type: 2}
+      propertyPath: spawnPointsAttack1.Array.data[0]
+      value: 
+      objectReference: {fileID: 117478462}
+    - target: {fileID: 114438205146622082, guid: 2b5db025b46f0c14d941f772841ca3d9,
+        type: 2}
+      propertyPath: spawnPointsAttack2.Array.data[0]
+      value: 
+      objectReference: {fileID: 2012774473}
+    - target: {fileID: 114438205146622082, guid: 2b5db025b46f0c14d941f772841ca3d9,
+        type: 2}
+      propertyPath: spawnPointsAttack2.Array.data[1]
+      value: 
+      objectReference: {fileID: 2118497937}
+    - target: {fileID: 114438205146622082, guid: 2b5db025b46f0c14d941f772841ca3d9,
+        type: 2}
+      propertyPath: spawnPointsAttack3.Array.data[0]
+      value: 
+      objectReference: {fileID: 1097066694}
+    - target: {fileID: 114438205146622082, guid: 2b5db025b46f0c14d941f772841ca3d9,
+        type: 2}
+      propertyPath: spawnPointsAttack3.Array.data[1]
+      value: 
+      objectReference: {fileID: 314654012}
+    - target: {fileID: 114438205146622082, guid: 2b5db025b46f0c14d941f772841ca3d9,
+        type: 2}
+      propertyPath: spawnPointsAttack3.Array.data[2]
+      value: 
+      objectReference: {fileID: 117478462}
+    - target: {fileID: 114438205146622082, guid: 2b5db025b46f0c14d941f772841ca3d9,
+        type: 2}
+      propertyPath: shotsToFireAttack2
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

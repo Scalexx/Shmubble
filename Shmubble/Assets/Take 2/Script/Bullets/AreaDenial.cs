@@ -53,7 +53,7 @@ public class AreaDenial : MonoBehaviour {
             }
         }
 
-        if (hit.gameObject.CompareTag("Player"))
+        if (hit.gameObject.CompareTag("Player") && solidObject)
         {
             hit.transform.SetParent(transform);
             hit.gameObject.GetComponent<Player>().takenOver = true;
@@ -63,7 +63,7 @@ public class AreaDenial : MonoBehaviour {
     void OnTriggerExit (Collider hit)
     {
 
-        if (hit.gameObject.CompareTag("Player"))
+        if (hit.gameObject.CompareTag("Player") && solidObject)
         {
             hit.gameObject.GetComponent<Player>().takenOver = false;
             hit.transform.SetParent(null);
