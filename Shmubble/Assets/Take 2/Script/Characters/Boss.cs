@@ -186,7 +186,7 @@ public class Boss : MonoBehaviour {
                         spawnPointInt = Random.Range(0, spawnPointsAttack1.Count);
                     }
 
-                    else if (spawnPointInt < spawnPointsAttack1.Count)
+                    if (spawnPointInt < spawnPointsAttack1.Count)
                     {
                         spawnPoint = spawnPointsAttack1[spawnPointInt];
                         HandleShoot();
@@ -211,7 +211,7 @@ public class Boss : MonoBehaviour {
                         spawnPointInt = Random.Range(0, spawnPointsAttack2.Count);
                     }
 
-                    else if (spawnPointInt < spawnPointsAttack2.Count)
+                    if (spawnPointInt < spawnPointsAttack2.Count)
                     {
                         spawnPoint = spawnPointsAttack2[spawnPointInt];
                         HandleShoot();
@@ -236,7 +236,7 @@ public class Boss : MonoBehaviour {
                         spawnPointInt = Random.Range(0, spawnPointsAttack3.Count);
                     }
                     
-                    else if (spawnPointInt < spawnPointsAttack3.Count)
+                    if (spawnPointInt < spawnPointsAttack3.Count)
                     {
                         spawnPoint = spawnPointsAttack3[spawnPointInt];
                         HandleShoot();
@@ -319,7 +319,7 @@ public class Boss : MonoBehaviour {
                         spawnPointInt = Random.Range(0, spawnPointsAttack4.Count);
                     }
 
-                    else if (spawnPointInt < spawnPointsAttack4.Count)
+                    if (spawnPointInt < spawnPointsAttack4.Count)
                     {
                         spawnPoint = spawnPointsAttack4[spawnPointInt];
                         HandleShoot();
@@ -344,7 +344,7 @@ public class Boss : MonoBehaviour {
                         spawnPointInt = Random.Range(0, spawnPointsAttack5.Count);
                     }
 
-                    else if (spawnPointInt < spawnPointsAttack5.Count)
+                    if (spawnPointInt < spawnPointsAttack5.Count)
                     {
                         spawnPoint = spawnPointsAttack5[spawnPointInt];
                         HandleShoot();
@@ -369,7 +369,7 @@ public class Boss : MonoBehaviour {
                         spawnPointInt = Random.Range(0, spawnPointsAttack6.Count);
                     }
 
-                    else if (spawnPointInt < spawnPointsAttack6.Count)
+                    if (spawnPointInt < spawnPointsAttack6.Count)
                     {
                         spawnPoint = spawnPointsAttack6[spawnPointInt];
                         HandleShoot();

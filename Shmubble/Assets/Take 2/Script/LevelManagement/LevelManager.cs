@@ -15,6 +15,10 @@ public class LevelManager : MonoBehaviour {
     [Tooltip("Health of the boss.")]
     public float bossHealth = 1200;
 
+    [Header("Boss")]
+    [Tooltip("Amount of HP to trigger environmental attacks.")]
+    public float healthTriggerEnvironmental;
+
     [Header("Special move")]
     [Tooltip("Charge it needs to do the EX attack.")]
     public float specialMaxCharge;
