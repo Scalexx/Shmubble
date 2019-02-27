@@ -17,17 +17,8 @@ public class Boss : MonoBehaviour {
 
     public State state = State.INTRO;
 
-    [Header("Phases")]
-    [Tooltip ("Amount of HP to trigger phase 2.")]
-    public int healthTriggerPhase2;
-
-    [Header("Environmental")]
-    public bool queueEnvironmental;
-    public float environmentalTimer;
-    [Tooltip("The GameObject with the Object Pool on it.")]
-    public ObjectPooler bouncePool;
-    public Transform spawnpointBounce;
-    private float environmentalPeriod;
+    [HideInInspector]
+    public int healthTriggerPhaseFinal;
 
     [Header("Intro")]
     [Tooltip("Intro duration for phase 1.")]
@@ -89,13 +80,26 @@ public class Boss : MonoBehaviour {
     [Tooltip("Chooses whether the bullets spawn from random points in the list during the sixth attack.")]
     public bool randomSpawnAttack6;
 
-    float timeBetweenShots;
-    int projectileChoice;
-    float waitTime;
-    
     [Space(10)]
     [Tooltip("The GameObject with the Object Pool on it.")]
     public ObjectPooler[] projectilePools;
+
+    [Header("Environmental")]
+    [Tooltip("Amount of time between bounce attacks.")]
+    public float environmentalTimer;
+    private float environmentalPeriod;
+    [Tooltip("The GameObject with the Object Pool on it.")]
+    public ObjectPooler bouncePool;
+    [Tooltip("The GameObject the bounce object spawns from.")]
+    public Transform spawnpointBounce;
+    [HideInInspector]
+    public bool queueEnvironmental;
+    [HideInInspector]
+    public bool bounceTrigger;
+
+    float timeBetweenShots;
+    int projectileChoice;
+    float waitTime;
 
     private int rand;
 
@@ -105,12 +109,12 @@ public class Boss : MonoBehaviour {
 	}
 	
 	void Update () {
-        if (LevelManager.Instance.bossHealth > healthTriggerPhase2)
+        if (LevelManager.Instance.bossHealth > healthTriggerPhaseFinal)
         {
             Phase1();
             
         }
-        else if (LevelManager.Instance.bossHealth <= healthTriggerPhase2)
+        else if (LevelManager.Instance.bossHealth <= healthTriggerPhaseFinal)
         {
             Phase2();
         }
@@ -157,6 +161,7 @@ public class Boss : MonoBehaviour {
                 // play idle animation
                 if (entered == false)
                 {
+                    idleMinTime = idleMinTime + waitTime;
                     time = Random.Range(idleMinTime, idleMaxTime);
                     entered = true;
                 }
@@ -285,12 +290,19 @@ public class Boss : MonoBehaviour {
             case State.BOUNCE:
                 // play bounce animation
                 // do bounce stuff
-                spawnPoint = spawnpointBounce;
-                HandleBounce();
+                if (shotsFired < 1)
+                {
+                    spawnPoint = spawnpointBounce;
+                    HandleBounce();
+                }
 
-                // play intro
-                environmentalPeriod = environmentalTimer;
-                state = State.IDLE;
+                if (bounceTrigger)
+                {
+                    // play intro
+                    environmentalPeriod = environmentalTimer;
+                    state = State.IDLE;
+                    bounceTrigger = false;
+                }
                 break;
         }
     }
@@ -454,7 +466,7 @@ public class Boss : MonoBehaviour {
             if (temp != null)
             {
                 timeBetweenShots = newProjectile.GetComponent<BulletData>().timeBetweenShots;
-                idleMinTime = newProjectile.GetComponent<BulletData>().stopTimer;
+                waitTime = newProjectile.GetComponent<BulletData>().stopTimer;
             }
             else
             {
@@ -476,6 +488,8 @@ public class Boss : MonoBehaviour {
         newProjectile.transform.position = spawnPoint.position;
         newProjectile.transform.rotation = spawnPoint.rotation;
         newProjectile.SetActive(true);
+
+        shotsFired++;
     }
 }
 

@@ -432,6 +432,66 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &121331855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 121331856}
+  - component: {fileID: 121331858}
+  - component: {fileID: 121331857}
+  m_Layer: 0
+  m_Name: Bridge Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &121331856
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 121331855}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.53, y: -3.92, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1683010177}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &121331857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 121331855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef304fe185895148a590b0b0e00e9c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boss: {fileID: 121924713}
+--- !u!65 &121331858
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 121331855}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.2618303, y: 7.601325, z: 9.18}
+  m_Center: {x: 2.7450333, y: 0, z: 0}
+--- !u!114 &121924713 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114438205146622082, guid: 2b5db025b46f0c14d941f772841ca3d9,
+    type: 2}
+  m_PrefabInternal: {fileID: 692808522}
+  m_Script: {fileID: 11500000, guid: afcb45b1b0b5c954dbd400cc60451552, type: 3}
 --- !u!1 &128622715
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,7 +936,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   bossHealth: 2000
-  healthTriggerEnvironmental: 0
+  healthTriggerEnvironmental: 1500
+  healthTriggerPhaseFinal: 800
   specialMaxCharge: 100
   damageDealt: 0
   outOfBoundsDamage: 5
@@ -988,6 +1049,49 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 240227814}
+--- !u!1 &244149063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 244149065}
+  - component: {fileID: 244149064}
+  m_Layer: 0
+  m_Name: Bridge Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &244149064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 244149063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ce61d7d0dad564086bcd1cc1be96c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 1539728126334674, guid: ea4b6219e15dd784784c54dda59c669f,
+    type: 2}
+  pooledAmount: 1
+--- !u!4 &244149065
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 244149063}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 24.77, y: -2.16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1683010177}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &278512351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,6 +2110,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114438205146622082, guid: 2b5db025b46f0c14d941f772841ca3d9,
+        type: 2}
+      propertyPath: bouncePool
+      value: 
+      objectReference: {fileID: 244149064}
+    - target: {fileID: 114438205146622082, guid: 2b5db025b46f0c14d941f772841ca3d9,
+        type: 2}
+      propertyPath: spawnpointBounce
+      value: 
+      objectReference: {fileID: 244149065}
     - target: {fileID: 114438205146622082, guid: 2b5db025b46f0c14d941f772841ca3d9,
         type: 2}
       propertyPath: projectilePools.Array.data[0]
@@ -5105,6 +5219,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1603261086}
+  - {fileID: 244149065}
+  - {fileID: 121331856}
   - {fileID: 1786301780}
   m_Father: {fileID: 193504551}
   m_RootOrder: 2
@@ -5664,7 +5780,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1683010177}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1863207953
 GameObject:

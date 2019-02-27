@@ -167,8 +167,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   healthTriggerPhase2: 1000
-  queueEnvironmental: 0
-  environmentalTimer: 10
   introDuration1: 1
   introDuration2: 1
   idleMinTime: 3
@@ -194,6 +192,11 @@ MonoBehaviour:
   randomSpawnAttack4: 0
   randomSpawnAttack5: 0
   randomSpawnAttack6: 0
+  queueEnvironmental: 0
+  environmentalTimer: 10
+  bouncePool: {fileID: 0}
+  spawnpointBounce: {fileID: 0}
+  bounceTrigger: 0
   projectilePools:
   - {fileID: 0}
   - {fileID: 0}

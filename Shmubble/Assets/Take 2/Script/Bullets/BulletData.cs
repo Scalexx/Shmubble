@@ -17,7 +17,7 @@ public class BulletData : MonoBehaviour {
     public bool destroyOnTouch;
     [Tooltip("Destroys other projectile when colliding.")]
     public bool destroyOtherOnTouch;
-    [Tooltip("Estimated time the projectile needs to leave the screen (Boss Idle).")]
+    [Tooltip("Estimated time the projectile needs to leave the screen (Boss Idle wait time).")]
     public float stopTimer;
 
     [Space(10)]
@@ -91,6 +91,7 @@ public class BulletData : MonoBehaviour {
         if (isHoming)
         {
             useHoming = true;
+            stopTimer = stopHomingTimer + stopTimer;
         }
 
         rb = GetComponent<Rigidbody>();

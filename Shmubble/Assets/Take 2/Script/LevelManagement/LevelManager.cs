@@ -18,6 +18,8 @@ public class LevelManager : MonoBehaviour {
     [Header("Boss")]
     [Tooltip("Amount of HP to trigger environmental attacks.")]
     public float healthTriggerEnvironmental;
+    [Tooltip("Amount of HP to trigger phase 3.")]
+    public int healthTriggerPhaseFinal;
 
     [Header("Special move")]
     [Tooltip("Charge it needs to do the EX attack.")]
@@ -66,10 +68,13 @@ public class LevelManager : MonoBehaviour {
     private void Awake ()
     {
         Instance = this;
+
         healthTrigger1 = health / 4;
+        healthTrigger2 = 1;
 
         Cursor.visible = false;
-        healthTrigger2 = 1;
+
+        bossTransform.GetComponent<Boss>().healthTriggerPhaseFinal = healthTriggerPhaseFinal;
 
         healthBar.GetComponent<Slider>().maxValue = health;
         exBar.GetComponent<Slider>().maxValue = specialMaxCharge;
@@ -144,6 +149,11 @@ public class LevelManager : MonoBehaviour {
         if (damageDealt < specialMaxCharge)
         {
             DamageDealt(damage);
+        }
+
+        if (bossHealth <= healthTriggerEnvironmental && !bossTransform.GetComponent<Boss>().queueEnvironmental)
+        {
+            bossTransform.GetComponent<Boss>().queueEnvironmental = true;
         }
 
         if (bossHealth <= 0)

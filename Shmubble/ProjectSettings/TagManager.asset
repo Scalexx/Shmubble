@@ -10,6 +10,7 @@ TagManager:
   - ProjectileBoss
   - Projectile
   - OutOfBoundsFar
+  - Bounce
   layers:
   - Default
   - TransparentFX

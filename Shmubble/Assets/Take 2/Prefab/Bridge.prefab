@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 65113088499169198}
   - component: {fileID: 65032261461266354}
   m_Layer: 10
-  m_Name: AreaDenial
+  m_Name: Bridge
   m_TagString: Bounce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
