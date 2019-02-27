@@ -67,8 +67,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090545465977256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.35, y: -0.26, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 10.35, y: 1.5, z: 0}
+  m_LocalScale: {x: 2, y: 5, z: 2}
   m_Children:
   - {fileID: 4092219268960696}
   m_Father: {fileID: 0}
@@ -166,14 +166,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  healthTriggerPhase2: 1000
+  environmentalState: 1
+  healthTriggerPhaseFinal: 0
   introDuration1: 1
   introDuration2: 1
   idleMinTime: 3
   idleMaxTime: 6
-  shotsToFireAttack1: 1
-  shotsToFireAttack2: 1
-  shotsToFireAttack3: 1
+  shotsToFireAttack1: 15
+  shotsToFireAttack2: 8
+  shotsToFireAttack3: 5
   shotsToFireAttack4: 1
   shotsToFireAttack5: 1
   shotsToFireAttack6: 1
@@ -192,11 +193,6 @@ MonoBehaviour:
   randomSpawnAttack4: 0
   randomSpawnAttack5: 0
   randomSpawnAttack6: 0
-  queueEnvironmental: 0
-  environmentalTimer: 10
-  bouncePool: {fileID: 0}
-  spawnpointBounce: {fileID: 0}
-  bounceTrigger: 0
   projectilePools:
   - {fileID: 0}
   - {fileID: 0}
@@ -204,3 +200,31 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  queueEnvironmental: 0
+  waitBeforeAttackTimer: 2
+  spawnPointsEnv1:
+  - {fileID: 0}
+  spawnPointsEnv2:
+  - {fileID: 0}
+  spawnPointsEnv3:
+  - {fileID: 0}
+  spawnPointsEnv4: []
+  spawnPointsEnv5: []
+  spawnPointsEnv6: []
+  randomSpawnEnv1: 0
+  randomSpawnEnv2: 0
+  randomSpawnEnv3: 0
+  randomSpawnEnv4: 0
+  randomSpawnEnv5: 0
+  randomSpawnEnv6: 0
+  environmentalPools:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  bounceTimer: 10
+  bouncePool: {fileID: 0}
+  spawnpointBounce: {fileID: 0}
+  bounceTrigger: 0

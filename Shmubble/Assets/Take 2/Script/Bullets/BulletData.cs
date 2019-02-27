@@ -83,6 +83,7 @@ public class BulletData : MonoBehaviour {
         if (useHoming)
         {
             isHoming = true;
+            stopTimer = stopHomingTimer + stopTimer;
         }
     }
 
@@ -91,7 +92,6 @@ public class BulletData : MonoBehaviour {
         if (isHoming)
         {
             useHoming = true;
-            stopTimer = stopHomingTimer + stopTimer;
         }
 
         rb = GetComponent<Rigidbody>();

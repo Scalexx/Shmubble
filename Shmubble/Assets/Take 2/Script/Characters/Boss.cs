@@ -16,6 +16,7 @@ public class Boss : MonoBehaviour {
     }
 
     public State state = State.INTRO;
+    public State environmentalState = State.ATTACK_1;
 
     [HideInInspector]
     public int healthTriggerPhaseFinal;
@@ -82,33 +83,76 @@ public class Boss : MonoBehaviour {
     public bool randomSpawnAttack6;
 
     [Space(10)]
-    [Tooltip("The GameObject with the Object Pool on it.")]
+    [Tooltip("The GameObjects with the Object Pool on it.")]
     public ObjectPooler[] projectilePools;
 
     [Header("Environmental")]
+    [Tooltip("Checks if environmental attacks can be spawned (Phase 2).")]
+    public bool queueEnvironmental;
+    [Tooltip("How much the boss should wait between starting the environmental attack and the normal attack.")]
+    public float waitBeforeAttackTimer;
+    private float waitBeforeAttackPeriod;
+    private bool environmentalEntered;
+
+    [Space(10)]
+    [Tooltip("The GameObjects the bullets can spawn from during the first environmental attack.")]
+    public List<Transform> spawnPointsEnv1 = new List<Transform>();
+    [Tooltip("The GameObjects the bullets can spawn from during the second environmental attack.")]
+    public List<Transform> spawnPointsEnv2 = new List<Transform>();
+    [Tooltip("The GameObjects the bullets can spawn from during the third environmental attack.")]
+    public List<Transform> spawnPointsEnv3 = new List<Transform>();
+    [Tooltip("The GameObjects the bullets can spawn from during the fourth environmental attack.")]
+    public List<Transform> spawnPointsEnv4 = new List<Transform>();
+    [Tooltip("The GameObjects the bullets can spawn from during the fifth environmental attack.")]
+    public List<Transform> spawnPointsEnv5 = new List<Transform>();
+    [Tooltip("The GameObjects the bullets can spawn from during the sixth environmental attack.")]
+    public List<Transform> spawnPointsEnv6 = new List<Transform>();
+    int spawnPointIntEnv;
+    Transform spawnPointEnv;
+
+    [Space(10)]
+    [Tooltip("Chooses whether the bullets spawn from random points in the list during the first environmental attack.")]
+    public bool randomSpawnEnv1;
+    [Tooltip("Chooses whether the bullets spawn from random points in the list during the second environmental attack.")]
+    public bool randomSpawnEnv2;
+    [Tooltip("Chooses whether the bullets spawn from random points in the list during the third environmental attack.")]
+    public bool randomSpawnEnv3;
+    [Tooltip("Chooses whether the bullets spawn from random points in the list during the fourth environmental attack.")]
+    public bool randomSpawnEnv4;
+    [Tooltip("Chooses whether the bullets spawn from random points in the list during the fifth environmental attack.")]
+    public bool randomSpawnEnv5;
+    [Tooltip("Chooses whether the bullets spawn from random points in the list during the sixth environmental attack.")]
+    public bool randomSpawnEnv6;
+
+    [Space(10)]
+    [Tooltip("The Gameobjects with the Object Pool on it.")]
+    public List<ObjectPooler> environmentalPools = new List<ObjectPooler>();
+    
+    [Space(10)]
     [Tooltip("Amount of time between bounce attacks.")]
-    public float environmentalTimer;
-    private float environmentalPeriod;
+    public float bounceTimer;
+    private float bouncePeriod;
     [Tooltip("The GameObject with the Object Pool on it.")]
     public ObjectPooler bouncePool;
     [Tooltip("The GameObject the bounce object spawns from.")]
     public Transform spawnpointBounce;
 
-    [Tooltip("Checks if environmental attacks can be spawned (Phase 2).")]
-    public bool queueEnvironmental;
     [Tooltip("Checks if the bounce attack has passed the trigger for the boss to respawn.")]
     public bool bounceTrigger;
 
     float timeBetweenShots;
+    float timeBetweenShotsEnv;
     int projectileChoice;
+    int environmentalChoice;
     float waitTime;
 
     private int rand;
 
     void Start () {
         time = introDuration1;
-        environmentalPeriod = environmentalTimer;
+        bouncePeriod = bounceTimer;
         startIdleMinTime = idleMinTime;
+        waitBeforeAttackPeriod = waitBeforeAttackTimer;
 	}
 	
 	void Update () {
@@ -129,13 +173,13 @@ public class Boss : MonoBehaviour {
 
         if (queueEnvironmental)
         {
-            if (environmentalPeriod <= 0)
+            if (bouncePeriod <= 0)
             {
                 attacksMax = 4;
             }
             else
             {
-                environmentalPeriod -= Time.deltaTime;
+                bouncePeriod -= Time.deltaTime;
                 attacksMax = 3;
             }
         }
@@ -159,6 +203,7 @@ public class Boss : MonoBehaviour {
                     time -= Time.deltaTime;
                 }
                 break;
+
             case State.IDLE:
                 // do idle stuff
                 // play idle animation
@@ -171,6 +216,7 @@ public class Boss : MonoBehaviour {
                 else
                 {
                     shotsFired = 0;
+                    waitTime = 0;
 
                     if (time <= 0)
                     {
@@ -215,81 +261,139 @@ public class Boss : MonoBehaviour {
                     }
                 }          
                 break;
+
             case State.ATTACK_1:
                 // do attack stuff
-                projectileChoice = 0;
-                if (shotsFired < shotsToFireAttack1)
+                if (queueEnvironmental)
                 {
-                    if (randomSpawnAttack1)
+                    if (!environmentalEntered)
                     {
-                        spawnPointInt = Random.Range(0, spawnPointsAttack1.Count);
+                        HandleEnvironmentalState();
+                        environmentalEntered = true;
                     }
+                }
 
-                    if (spawnPointInt < spawnPointsAttack1.Count)
+                projectileChoice = 0;
+                if (waitBeforeAttackPeriod <= 0)
+                {
+                    if (shotsFired < shotsToFireAttack1)
                     {
-                        spawnPoint = spawnPointsAttack1[spawnPointInt];
-                        HandleShoot();
+                        if (randomSpawnAttack1)
+                        {
+                            spawnPointInt = Random.Range(0, spawnPointsAttack1.Count);
+                        }
+
+                        if (spawnPointInt < spawnPointsAttack1.Count)
+                        {
+                            spawnPoint = spawnPointsAttack1[spawnPointInt];
+                            HandleShoot();
+                        }
+                        else
+                        {
+                            spawnPointInt = 0;
+                        }
                     }
                     else
                     {
-                        spawnPointInt = 0;
+                        environmentalState = State.IDLE;
+                        state = State.IDLE;
                     }
                 }
                 else
                 {
-                    state = State.IDLE;
+                    waitBeforeAttackPeriod -= Time.deltaTime;
                 }
+                
                 break;
+
             case State.ATTACK_2:
                 // do attack stuff
-                projectileChoice = 1;
-                if (shotsFired < shotsToFireAttack2)
+                if (queueEnvironmental)
                 {
-                    if (randomSpawnAttack2)
+                    if (!environmentalEntered)
                     {
-                        spawnPointInt = Random.Range(0, spawnPointsAttack2.Count);
+                        HandleEnvironmentalState();
+                        environmentalEntered = true;
                     }
+                }
 
-                    if (spawnPointInt < spawnPointsAttack2.Count)
+                projectileChoice = 1;
+                if (waitBeforeAttackPeriod <= 0)
+                {
+                    if (shotsFired < shotsToFireAttack2)
                     {
-                        spawnPoint = spawnPointsAttack2[spawnPointInt];
-                        HandleShoot();
+                        if (randomSpawnAttack2)
+                        {
+                            spawnPointInt = Random.Range(0, spawnPointsAttack2.Count);
+                        }
+
+                        if (spawnPointInt < spawnPointsAttack2.Count)
+                        {
+                            spawnPoint = spawnPointsAttack2[spawnPointInt];
+                            HandleShoot();
+                        }
+                        else
+                        {
+                            spawnPointInt = 0;
+                        }
                     }
                     else
                     {
-                        spawnPointInt = 0;
+                        environmentalState = State.IDLE;
+                        state = State.IDLE;
                     }
                 }
                 else
                 {
-                    state = State.IDLE;
+                    waitBeforeAttackPeriod -= Time.deltaTime;
                 }
+                
                 break;
+
             case State.ATTACK_3:
                 // do attack stuff
-                projectileChoice = 2;
-                if (shotsFired < shotsToFireAttack3)
+                if (queueEnvironmental)
                 {
-                    if (randomSpawnAttack3)
+                    if (!environmentalEntered)
                     {
-                        spawnPointInt = Random.Range(0, spawnPointsAttack3.Count);
+                        HandleEnvironmentalState();
+                        environmentalEntered = true;
                     }
-                    
-                    if (spawnPointInt < spawnPointsAttack3.Count)
+                }
+
+                projectileChoice = 2;
+                if (waitBeforeAttackPeriod <= 0)
+                {
+                    if (shotsFired < shotsToFireAttack3)
                     {
-                        spawnPoint = spawnPointsAttack3[spawnPointInt];
-                        HandleShoot();
+                        if (randomSpawnAttack3)
+                        {
+                            spawnPointInt = Random.Range(0, spawnPointsAttack3.Count);
+                        }
+
+                        if (spawnPointInt < spawnPointsAttack3.Count)
+                        {
+                            spawnPoint = spawnPointsAttack3[spawnPointInt];
+                            HandleShoot();
+                        }
+                        else
+                        {
+                            spawnPointInt = 0;
+                        }
                     }
                     else
                     {
-                        spawnPointInt = 0;
+                        environmentalState = State.IDLE;
+                        state = State.IDLE;
                     }
                 }
                 else
                 {
-                    state = State.IDLE;
+                    waitBeforeAttackPeriod -= Time.deltaTime;
                 }
+                
                 break;
+
             case State.BOUNCE:
                 // play bounce animation
                 // do bounce stuff
@@ -302,12 +406,80 @@ public class Boss : MonoBehaviour {
                 if (bounceTrigger)
                 {
                     // play intro
-                    environmentalPeriod = environmentalTimer;
+                    bouncePeriod = bounceTimer;
                     state = State.IDLE;
                     bounceTrigger = false;
                 }
                 break;
         }
+
+        switch (environmentalState) {
+            case State.IDLE:
+                environmentalEntered = false;
+                if (queueEnvironmental)
+                {
+                    waitBeforeAttackPeriod = waitBeforeAttackTimer;
+                }
+                break;
+
+            case State.ATTACK_1:
+                // play environmental animation
+                environmentalChoice = 0;
+                if (randomSpawnEnv1)
+                {
+                    spawnPointIntEnv = Random.Range(0, spawnPointsEnv1.Count);
+                }
+
+                if (spawnPointIntEnv < spawnPointsEnv1.Count)
+                {
+                    spawnPointEnv = spawnPointsEnv1[spawnPointIntEnv];
+                    HandleEnvironmental();
+                }
+                else
+                {
+                    spawnPointIntEnv = 0;
+                }
+                break;
+
+            case State.ATTACK_2:
+                // play environmental animation
+                environmentalChoice = 1;
+                if (randomSpawnEnv2)
+                {
+                    spawnPointIntEnv = Random.Range(0, spawnPointsEnv2.Count);
+                }
+
+                if (spawnPointIntEnv < spawnPointsEnv2.Count)
+                {
+                    spawnPointEnv = spawnPointsEnv2[spawnPointIntEnv];
+                    HandleEnvironmental();
+                }
+                else
+                {
+                    spawnPointIntEnv = 0;
+                }
+                break;
+
+            case State.ATTACK_3:
+                // play environmental animation
+                environmentalChoice = 2;
+                if (randomSpawnEnv3)
+                {
+                    spawnPointIntEnv = Random.Range(0, spawnPointsEnv3.Count);
+                }
+
+                if (spawnPointIntEnv < spawnPointsEnv3.Count)
+                {
+                    spawnPointEnv = spawnPointsEnv3[spawnPointIntEnv];
+                    HandleEnvironmental();
+                }
+                else
+                {
+                    spawnPointIntEnv = 0;
+                }
+
+                break;   
+            }
     }
 
     void Phase2()
@@ -455,6 +627,23 @@ public class Boss : MonoBehaviour {
         }
     }
 
+    public void HandleEnvironmentalState()
+    {
+        int rand = Random.Range(0, 3);
+        if (rand == 0)
+        {
+            environmentalState = State.ATTACK_1;
+        }
+        else if (rand == 1)
+        {
+            environmentalState = State.ATTACK_2;
+        }
+        else if (rand == 2)
+        {
+            environmentalState = State.ATTACK_3;
+        }
+    }
+
     public void HandleShoot()
     {
         if (timeBetweenShots <= 0)
@@ -481,6 +670,33 @@ public class Boss : MonoBehaviour {
         else
         {
             timeBetweenShots -= Time.deltaTime;
+        }
+    }
+
+    public void HandleEnvironmental()
+    {
+        if (timeBetweenShotsEnv <= 0)
+        {
+            GameObject newProjectile = environmentalPools[environmentalChoice].GetPooledObject();
+
+            newProjectile.transform.position = spawnPointEnv.position;
+            newProjectile.transform.rotation = spawnPointEnv.rotation;
+            newProjectile.SetActive(true);
+
+            BulletData temp = newProjectile.GetComponent<BulletData>();
+            if (temp != null)
+            {
+                timeBetweenShotsEnv = newProjectile.GetComponent<BulletData>().timeBetweenShots;
+            }
+            else
+            {
+                timeBetweenShotsEnv = 1;
+            }
+            spawnPointIntEnv++;
+        }
+        else
+        {
+            timeBetweenShotsEnv -= Time.deltaTime;
         }
     }
 

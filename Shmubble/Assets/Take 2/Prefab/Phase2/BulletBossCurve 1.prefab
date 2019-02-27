@@ -114,9 +114,10 @@ MonoBehaviour:
   speed: 7
   damage: 1
   velocity: {x: 0, y: 0, z: 0}
-  timeBetweenShots: 1
+  timeBetweenShots: 0.5
   destroyOnTouch: 0
   destroyOtherOnTouch: 0
+  stopTimer: 0
   useCurve: 1
   useXCurve: 1
   trajectoryCurveX:
