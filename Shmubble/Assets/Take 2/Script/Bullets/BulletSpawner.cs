@@ -8,7 +8,7 @@ public class BulletSpawner : MonoBehaviour {
     float timeBetweenShots;
     int projectileChoice;
 
-    public List<GameObject> projectiles = new List<GameObject>();
+    public ObjectPooler projectilePool;
 
 	void Start () {
         if(spawnPoints.Count == 0)
@@ -20,8 +20,14 @@ public class BulletSpawner : MonoBehaviour {
 	void Update () {
 		if (timeBetweenShots <= 0)
         {
-            Instantiate(projectiles[projectileChoice], spawnPoints[0].position, spawnPoints[0].rotation);
-            timeBetweenShots = projectiles[projectileChoice].GetComponent<BulletData>().timeBetweenShots;
+            GameObject newProjectile = projectilePool.GetPooledObject();
+
+            newProjectile.transform.position = spawnPoints[projectileChoice].position;
+            newProjectile.transform.rotation = spawnPoints[projectileChoice].rotation;
+            newProjectile.SetActive(true);
+
+            timeBetweenShots = newProjectile.GetComponent<BulletData>().timeBetweenShots;
+            projectileChoice = Random.Range(0, spawnPoints.Count);
         }
         else
         {

@@ -167,17 +167,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   healthTriggerPhase2: 1000
+  queueEnvironmental: 0
+  environmentalTimer: 10
   introDuration1: 1
   introDuration2: 1
   idleMinTime: 3
   idleMaxTime: 6
-  spawnPoint: {fileID: 4092219268960696}
-  shotsToFireAttack1: 10
-  shotsToFireAttack2: 8
-  shotsToFireAttack3: 5
-  shotsToFireAttack4: 4
-  shotsToFireAttack5: 2
-  shotsToFireAttack6: 8
+  shotsToFireAttack1: 1
+  shotsToFireAttack2: 1
+  shotsToFireAttack3: 1
+  shotsToFireAttack4: 1
+  shotsToFireAttack5: 1
+  shotsToFireAttack6: 1
+  spawnPointsAttack1:
+  - {fileID: 4092219268960696}
+  spawnPointsAttack2:
+  - {fileID: 4092219268960696}
+  spawnPointsAttack3:
+  - {fileID: 4092219268960696}
+  spawnPointsAttack4: []
+  spawnPointsAttack5: []
+  spawnPointsAttack6: []
+  randomSpawnAttack1: 0
+  randomSpawnAttack2: 0
+  randomSpawnAttack3: 0
+  randomSpawnAttack4: 0
+  randomSpawnAttack5: 0
+  randomSpawnAttack6: 0
   projectilePools:
   - {fileID: 0}
   - {fileID: 0}

@@ -11,6 +11,7 @@ public class Boss : MonoBehaviour {
         ATTACK_1,
         ATTACK_2,
         ATTACK_3,
+        BOUNCE,
         DEATH
     }
 
@@ -20,12 +21,21 @@ public class Boss : MonoBehaviour {
     [Tooltip ("Amount of HP to trigger phase 2.")]
     public int healthTriggerPhase2;
 
+    [Header("Environmental")]
+    public bool queueEnvironmental;
+    public float environmentalTimer;
+    [Tooltip("The GameObject with the Object Pool on it.")]
+    public ObjectPooler bouncePool;
+    public Transform spawnpointBounce;
+    private float environmentalPeriod;
+
     [Header("Intro")]
     [Tooltip("Intro duration for phase 1.")]
     public float introDuration1 = 1.0f;
     [Tooltip("Intro duration for phase 2.")]
     public float introDuration2 = 1.0f;
     private float time;
+    private int attacksMax = 3;
 
     [Header("Idle")]
     [Tooltip("Minimum amount of time in the Idle state.")]
@@ -81,6 +91,7 @@ public class Boss : MonoBehaviour {
 
     float timeBetweenShots;
     int projectileChoice;
+    float waitTime;
     
     [Space(10)]
     [Tooltip("The GameObject with the Object Pool on it.")]
@@ -90,6 +101,7 @@ public class Boss : MonoBehaviour {
 
     void Start () {
         time = introDuration1;
+        environmentalPeriod = environmentalTimer;
 	}
 	
 	void Update () {
@@ -102,9 +114,23 @@ public class Boss : MonoBehaviour {
         {
             Phase2();
         }
+
         if (LevelManager.Instance.bossHealth <= 0)
         {
             state = State.DEATH;
+        }
+
+        if (queueEnvironmental)
+        {
+            if (environmentalPeriod <= 0)
+            {
+                attacksMax = 4;
+            }
+            else
+            {
+                environmentalPeriod -= Time.deltaTime;
+                attacksMax = 3;
+            }
         }
     }
 
@@ -137,11 +163,11 @@ public class Boss : MonoBehaviour {
                 else
                 {
                     shotsFired = 0;
-                    
+
                     if (time <= 0)
                     {
                         // choose attack to do
-                        int rand = Random.Range(0, 3);
+                        int rand = Random.Range(0, attacksMax);
                         if (rand == 0)
                         {
                             if (shotsToFireAttack1 > 1)
@@ -167,6 +193,11 @@ public class Boss : MonoBehaviour {
                                 spawnPointInt = 0;
                             }
                             state = State.ATTACK_3;
+                            entered = false;
+                        }
+                        else if (rand == 3)
+                        {
+                            state = State.BOUNCE;
                             entered = false;
                         }
                     }
@@ -251,6 +282,16 @@ public class Boss : MonoBehaviour {
                     state = State.IDLE;
                 }
                 break;
+            case State.BOUNCE:
+                // play bounce animation
+                // do bounce stuff
+                spawnPoint = spawnpointBounce;
+                HandleBounce();
+
+                // play intro
+                environmentalPeriod = environmentalTimer;
+                state = State.IDLE;
+                break;
         }
     }
 
@@ -286,7 +327,7 @@ public class Boss : MonoBehaviour {
                     if (time <= 0)
                     {
                         // choose attack to do
-                        int rand = Random.Range(0, 3);
+                        int rand = Random.Range(0, attacksMax);
                         if (rand == 0)
                         {
                             state = State.ATTACK_1;
@@ -413,6 +454,7 @@ public class Boss : MonoBehaviour {
             if (temp != null)
             {
                 timeBetweenShots = newProjectile.GetComponent<BulletData>().timeBetweenShots;
+                idleMinTime = newProjectile.GetComponent<BulletData>().stopTimer;
             }
             else
             {
@@ -425,6 +467,15 @@ public class Boss : MonoBehaviour {
         {
             timeBetweenShots -= Time.deltaTime;
         }
+    }
+
+    public void HandleBounce()
+    {
+        GameObject newProjectile = bouncePool.GetPooledObject();
+
+        newProjectile.transform.position = spawnPoint.position;
+        newProjectile.transform.rotation = spawnPoint.rotation;
+        newProjectile.SetActive(true);
     }
 }
 

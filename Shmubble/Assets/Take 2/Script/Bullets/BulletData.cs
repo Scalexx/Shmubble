@@ -17,6 +17,8 @@ public class BulletData : MonoBehaviour {
     public bool destroyOnTouch;
     [Tooltip("Destroys other projectile when colliding.")]
     public bool destroyOtherOnTouch;
+    [Tooltip("Estimated time the projectile needs to leave the screen (Boss Idle).")]
+    public float stopTimer;
 
     [Space(10)]
     [Header("Curve movement")]
