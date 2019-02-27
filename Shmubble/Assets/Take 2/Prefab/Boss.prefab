@@ -170,47 +170,52 @@ MonoBehaviour:
   healthTriggerPhaseFinal: 0
   introDuration1: 1
   introDuration2: 1
-  idleMinTime: 3
-  idleMaxTime: 6
+  idleMinTime: 1
+  idleMaxTime: 4
+  idleMinTimeFinal: 4
+  idleMaxTimeFinal: 6
+  idleMinTimeEnv: 2
+  idleMaxTimeEnv: 4
   shotsToFireAttack1: 15
   shotsToFireAttack2: 8
   shotsToFireAttack3: 5
-  shotsToFireAttack4: 1
-  shotsToFireAttack5: 1
-  shotsToFireAttack6: 1
   spawnPointsAttack1:
   - {fileID: 4092219268960696}
   spawnPointsAttack2:
   - {fileID: 4092219268960696}
   spawnPointsAttack3:
   - {fileID: 4092219268960696}
-  spawnPointsAttack4: []
-  spawnPointsAttack5: []
-  spawnPointsAttack6: []
+  spawnPointsAttack4:
+  - {fileID: 4092219268960696}
   randomSpawnAttack1: 0
   randomSpawnAttack2: 0
   randomSpawnAttack3: 0
   randomSpawnAttack4: 0
-  randomSpawnAttack5: 0
-  randomSpawnAttack6: 0
   projectilePools:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   queueEnvironmental: 0
   waitBeforeAttackTimer: 2
+  shotsToFireEnv1Min: 5
+  shotsToFireEnv1Max: 8
+  shotsToFireEnv2Min: 3
+  shotsToFireEnv2Max: 4
+  shotsToFireEnv3Min: 8
+  shotsToFireEnv3Max: 10
   spawnPointsEnv1:
   - {fileID: 0}
   spawnPointsEnv2:
   - {fileID: 0}
   spawnPointsEnv3:
   - {fileID: 0}
-  spawnPointsEnv4: []
-  spawnPointsEnv5: []
-  spawnPointsEnv6: []
+  spawnPointsEnv4:
+  - {fileID: 0}
+  spawnPointsEnv5:
+  - {fileID: 0}
+  spawnPointsEnv6:
+  - {fileID: 0}
   randomSpawnEnv1: 0
   randomSpawnEnv2: 0
   randomSpawnEnv3: 0

@@ -172,6 +172,14 @@ public class LevelManager : MonoBehaviour {
     public void SpecialDone (float damage)
     {
         tValue = 0;
+        if (health <= healthTrigger2)
+        {
+            damage = damage * 2;
+        }
+        else if (health <= healthTrigger1)
+        {
+            damage = damage * 1.25f;
+        }
         damageDealt = 0 - damage ;
     }
 

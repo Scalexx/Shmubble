@@ -27,14 +27,29 @@ public class Boss : MonoBehaviour {
     [Tooltip("Intro duration for phase 2.")]
     public float introDuration2 = 1.0f;
     private float time;
+    private float timeEnv;
     private int attacksMax = 3;
 
     [Header("Idle")]
     [Tooltip("Minimum amount of time in the Idle state.")]
     public float idleMinTime;
-    private float startIdleMinTime;
     [Tooltip("Maximum amount of time in the Idle state.")]
     public float idleMaxTime;
+    private float startIdleMinTime;
+    
+    [Space(10)]
+    [Tooltip("Minimum amount of time in the Idle state for the final phase.")]
+    public float idleMinTimeFinal;
+    [Tooltip("Maximum amount of time in the Idle state for the final phase.")]
+    public float idleMaxTimeFinal;
+    private float startIdleMinTimeFinal;
+
+    [Space(10)]
+    [Tooltip("Minimum amount of time in the Idle state of the environment attacks in the final phase.")]
+    public float idleMinTimeEnv;
+    [Tooltip("Maximum amount of time in the Idle state of the environment attacks in the final phase.")]
+    public float idleMaxTimeEnv;
+    private float startIdleMinTimeEnv;
     private bool entered;
 
     [Header("Attacks")]
@@ -44,12 +59,6 @@ public class Boss : MonoBehaviour {
     public int shotsToFireAttack2;
     [Tooltip("Amount of shots to fire with the third attack of the projectilePool.")]
     public int shotsToFireAttack3;
-    [Tooltip("Amount of shots to fire with the fourth attack of the projectilePool.")]
-    public int shotsToFireAttack4;
-    [Tooltip("Amount of shots to fire with the fifth attack of the projectilePool.")]
-    public int shotsToFireAttack5;
-    [Tooltip("Amount of shots to fire with the sixth attack of the projectilePool.")]
-    public int shotsToFireAttack6;
     int shotsFired;
 
     [Space(10)]
@@ -59,12 +68,8 @@ public class Boss : MonoBehaviour {
     public List<Transform> spawnPointsAttack2 = new List<Transform>();
     [Tooltip("The GameObjects the bullets can spawn from during the third attack.")]
     public List<Transform> spawnPointsAttack3 = new List<Transform>();
-    [Tooltip("The GameObjects the bullets can spawn from during the fourth attack.")]
+    [Tooltip("The GameObjects the bullets can spawn from during the fourth attack (final phase projectile attack).")]
     public List<Transform> spawnPointsAttack4 = new List<Transform>();
-    [Tooltip("The GameObjects the bullets can spawn from during the fifth attack.")]
-    public List<Transform> spawnPointsAttack5 = new List<Transform>();
-    [Tooltip("The GameObjects the bullets can spawn from during the sixth attack.")]
-    public List<Transform> spawnPointsAttack6 = new List<Transform>();
     int spawnPointInt;
     Transform spawnPoint;
 
@@ -75,12 +80,8 @@ public class Boss : MonoBehaviour {
     public bool randomSpawnAttack2;
     [Tooltip("Chooses whether the bullets spawn from random points in the list during the third attack.")]
     public bool randomSpawnAttack3;
-    [Tooltip("Chooses whether the bullets spawn from random points in the list during the fourth attack.")]
+    [Tooltip("Chooses whether the bullets spawn from random points in the list during the fourth attack (final phase projectile attack).")]
     public bool randomSpawnAttack4;
-    [Tooltip("Chooses whether the bullets spawn from random points in the list during the fifth attack.")]
-    public bool randomSpawnAttack5;
-    [Tooltip("Chooses whether the bullets spawn from random points in the list during the sixth attack.")]
-    public bool randomSpawnAttack6;
 
     [Space(10)]
     [Tooltip("The GameObjects with the Object Pool on it.")]
@@ -93,6 +94,21 @@ public class Boss : MonoBehaviour {
     public float waitBeforeAttackTimer;
     private float waitBeforeAttackPeriod;
     private bool environmentalEntered;
+
+    [Space(10)]
+    [Tooltip("Minimum amount of shots to fire with the first environmental attack of the final phase.")]
+    public int shotsToFireEnv1Min;
+    [Tooltip("Maximum amount of shots to fire with the first environmental attack of the final phase.")]
+    public int shotsToFireEnv1Max;
+    [Tooltip("Minimum amount of shots to fire with the second environmental attack of the final phase.")]
+    public int shotsToFireEnv2Min;
+    [Tooltip("Maximum amount of shots to fire with the first environmental attack of the final phase.")]
+    public int shotsToFireEnv2Max;
+    [Tooltip("Minumum amount of shots to fire with the third environmental attack of the final phase.")]
+    public int shotsToFireEnv3Min;
+    [Tooltip("Maximum amount of shots to fire with the first environmental attack of the final phase.")]
+    public int shotsToFireEnv3Max;
+    private int shotsFiredEnv;
 
     [Space(10)]
     [Tooltip("The GameObjects the bullets can spawn from during the first environmental attack.")]
@@ -152,6 +168,8 @@ public class Boss : MonoBehaviour {
         time = introDuration1;
         bouncePeriod = bounceTimer;
         startIdleMinTime = idleMinTime;
+        startIdleMinTimeFinal = idleMinTimeFinal;
+        startIdleMinTimeEnv = idleMinTimeEnv;
         waitBeforeAttackPeriod = waitBeforeAttackTimer;
 	}
 	
@@ -159,7 +177,6 @@ public class Boss : MonoBehaviour {
         if (LevelManager.Instance.bossHealth > healthTriggerPhaseFinal)
         {
             Phase1();
-            
         }
         else if (LevelManager.Instance.bossHealth <= healthTriggerPhaseFinal)
         {
@@ -499,17 +516,20 @@ public class Boss : MonoBehaviour {
                     time -= Time.deltaTime;
                 }
                 break;
+
             case State.IDLE:
                 // do idle stuff
                 // play idle animation
                 if (entered == false)
                 {
-                    time = Random.Range(idleMinTime, idleMaxTime);
+                    idleMinTimeFinal = startIdleMinTimeFinal + waitTime;
+                    time = Random.Range(idleMinTimeFinal, idleMaxTimeFinal);
                     entered = true;
                 }
                 else
                 {
                     shotsFired = 0;
+                    waitTime = 0;
 
                     if (time <= 0)
                     {
@@ -518,15 +538,21 @@ public class Boss : MonoBehaviour {
                         if (rand == 0)
                         {
                             state = State.ATTACK_1;
+                            time = Random.Range(3, 5);
                             entered = false;
                         }
                         else if (rand == 1)
                         {
                             state = State.ATTACK_2;
+                            time = Random.Range(3, 5);
                             entered = false;
                         }
                         else if (rand == 2)
                         {
+                            if (shotsToFireAttack3 > 1)
+                            {
+                                spawnPointInt = 0;
+                            }
                             state = State.ATTACK_3;
                             entered = false;
                         }
@@ -537,10 +563,42 @@ public class Boss : MonoBehaviour {
                     }
                 }
                 break;
+
             case State.ATTACK_1:
+                // do animation stuff
+                // AnimationClip.length
+                
+                if (time <= 0)
+                {
+                    state = State.IDLE;
+                }
+                else
+                {
+                    time -= Time.deltaTime;
+                }
+
+                break;
+
+            case State.ATTACK_2:
+                // do animation stuff
+                // AnimationClip.length
+
+                if (time <= 0)
+                {
+                    state = State.IDLE;
+                }
+                else
+                {
+                    time -= Time.deltaTime;
+                }
+
+                break;
+
+            case State.ATTACK_3:
                 // do attack stuff
                 projectileChoice = 3;
-                if (shotsFired < shotsToFireAttack4)
+
+                if (shotsFired < 1)
                 {
                     if (randomSpawnAttack4)
                     {
@@ -561,60 +619,136 @@ public class Boss : MonoBehaviour {
                 {
                     state = State.IDLE;
                 }
-                break;
-            case State.ATTACK_2:
-                // do attack stuff
-                projectileChoice = 4;
-                if (shotsFired < shotsToFireAttack5)
-                {
-                    if (randomSpawnAttack5)
-                    {
-                        spawnPointInt = Random.Range(0, spawnPointsAttack5.Count);
-                    }
 
-                    if (spawnPointInt < spawnPointsAttack5.Count)
-                    {
-                        spawnPoint = spawnPointsAttack5[spawnPointInt];
-                        HandleShoot();
-                    }
-                    else
-                    {
-                        spawnPointInt = 0;
-                    }
-                }
-                else
-                {
-                    state = State.IDLE;
-                }
                 break;
-            case State.ATTACK_3:
-                // do attack stuff
-                projectileChoice = 5;
-                if (shotsFired < shotsToFireAttack4)
-                {
-                    if (randomSpawnAttack6)
-                    {
-                        spawnPointInt = Random.Range(0, spawnPointsAttack6.Count);
-                    }
 
-                    if (spawnPointInt < spawnPointsAttack6.Count)
-                    {
-                        spawnPoint = spawnPointsAttack6[spawnPointInt];
-                        HandleShoot();
-                    }
-                    else
-                    {
-                        spawnPointInt = 0;
-                    }
-                }
-                else
-                {
-                    state = State.IDLE;
-                }
-                break;
             case State.DEATH:
                 // death animation
                 LevelManager.Instance.Win();
+                break;
+
+        }
+
+        switch (environmentalState)
+        {
+            case State.IDLE:
+                if (environmentalEntered == false)
+                {
+                    idleMinTimeEnv = startIdleMinTimeEnv;
+                    timeEnv = Random.Range(idleMinTimeEnv, idleMaxTimeEnv);
+                    environmentalEntered = true;
+                }
+                else
+                {
+                    if (timeEnv <= 0)
+                    {
+                        // choose environment attack to do
+                        int envRand = Random.Range(0, 3);
+                        if (envRand == 0)
+                        {
+                            environmentalState = State.ATTACK_1;
+                            environmentalEntered = false;
+                        }
+                        else if (envRand == 1)
+                        {
+                            environmentalState = State.ATTACK_2;
+                            environmentalEntered = false;
+                        }
+                        else if (envRand == 2)
+                        {
+                            environmentalState = State.ATTACK_3;
+                            environmentalEntered = false;
+                        }
+                    }
+                    else
+                    {
+                        timeEnv -= Time.deltaTime;
+                    }
+                }
+                break;
+
+            case State.ATTACK_1:
+                environmentalChoice = 3;
+                int rand1 = Random.Range(shotsToFireEnv1Min, shotsToFireEnv1Max);
+                if (shotsFiredEnv < rand1)
+                {
+                    if (randomSpawnEnv4)
+                    {
+                        spawnPointIntEnv = Random.Range(0, spawnPointsEnv4.Count);
+                    }
+
+                    if (spawnPointIntEnv < spawnPointsEnv4.Count)
+                    {
+                        spawnPointEnv = spawnPointsEnv4[spawnPointIntEnv];
+                        HandleEnvironmental();
+                        shotsFiredEnv++;
+                    }
+                    else
+                    {
+                        spawnPointIntEnv = 0;
+                    }
+                }
+                else
+                {
+                    environmentalState = State.IDLE;
+                }
+                
+                break;
+
+            case State.ATTACK_2:
+                environmentalChoice = 4;
+                int rand2 = Random.Range(shotsToFireEnv2Min, shotsToFireEnv2Max);
+                if (shotsFiredEnv < rand2)
+                {
+                    if (randomSpawnEnv5)
+                    {
+                        spawnPointIntEnv = Random.Range(0, spawnPointsEnv5.Count);
+                    }
+
+                    if (spawnPointIntEnv < spawnPointsEnv5.Count)
+                    {
+                        spawnPointEnv = spawnPointsEnv5[spawnPointIntEnv];
+                        HandleEnvironmental();
+                        shotsFiredEnv++;
+                    }
+                    else
+                    {
+                        spawnPointIntEnv = 0;
+                    }
+                }
+                else
+                {
+                    environmentalState = State.IDLE;
+                }
+                
+                break;
+
+            case State.ATTACK_3:
+                environmentalChoice = 5;
+                int rand3 = Random.Range(shotsToFireEnv3Min, shotsToFireEnv3Max);
+                if (shotsFired < rand3)
+                {
+                    if (randomSpawnEnv6)
+                    {
+                        spawnPointIntEnv = Random.Range(0, spawnPointsEnv6.Count);
+                    }
+
+                    if (spawnPointIntEnv < spawnPointsEnv6.Count)
+                    {
+                        spawnPointEnv = spawnPointsEnv6[spawnPointIntEnv];
+                        HandleEnvironmental();
+                        shotsFiredEnv++;
+                    }
+                    else
+                    {
+                        spawnPointIntEnv = 0;
+                    }
+                }
+                else
+                {
+                    environmentalState = State.IDLE;
+                }
+
                 break;
         }
     }
