@@ -31,6 +31,7 @@ public class Boss : MonoBehaviour {
     [Header("Idle")]
     [Tooltip("Minimum amount of time in the Idle state.")]
     public float idleMinTime;
+    private float startIdleMinTime;
     [Tooltip("Maximum amount of time in the Idle state.")]
     public float idleMaxTime;
     private bool entered;
@@ -92,9 +93,10 @@ public class Boss : MonoBehaviour {
     public ObjectPooler bouncePool;
     [Tooltip("The GameObject the bounce object spawns from.")]
     public Transform spawnpointBounce;
-    [HideInInspector]
+
+    [Tooltip("Checks if environmental attacks can be spawned (Phase 2).")]
     public bool queueEnvironmental;
-    [HideInInspector]
+    [Tooltip("Checks if the bounce attack has passed the trigger for the boss to respawn.")]
     public bool bounceTrigger;
 
     float timeBetweenShots;
@@ -106,6 +108,7 @@ public class Boss : MonoBehaviour {
     void Start () {
         time = introDuration1;
         environmentalPeriod = environmentalTimer;
+        startIdleMinTime = idleMinTime;
 	}
 	
 	void Update () {
@@ -161,7 +164,7 @@ public class Boss : MonoBehaviour {
                 // play idle animation
                 if (entered == false)
                 {
-                    idleMinTime = idleMinTime + waitTime;
+                    idleMinTime = startIdleMinTime + waitTime;
                     time = Random.Range(idleMinTime, idleMaxTime);
                     entered = true;
                 }
