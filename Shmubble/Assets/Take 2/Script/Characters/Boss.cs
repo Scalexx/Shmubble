@@ -634,6 +634,7 @@ public class Boss : MonoBehaviour {
             case State.IDLE:
                 if (environmentalEntered == false)
                 {
+                    shotsFiredEnv = 0;
                     idleMinTimeEnv = startIdleMinTimeEnv;
                     timeEnv = Random.Range(idleMinTimeEnv, idleMaxTimeEnv);
                     environmentalEntered = true;
@@ -681,7 +682,6 @@ public class Boss : MonoBehaviour {
                     {
                         spawnPointEnv = spawnPointsEnv4[spawnPointIntEnv];
                         HandleEnvironmental();
-                        shotsFiredEnv++;
                     }
                     else
                     {
@@ -709,7 +709,6 @@ public class Boss : MonoBehaviour {
                     {
                         spawnPointEnv = spawnPointsEnv5[spawnPointIntEnv];
                         HandleEnvironmental();
-                        shotsFiredEnv++;
                     }
                     else
                     {
@@ -726,7 +725,7 @@ public class Boss : MonoBehaviour {
             case State.ATTACK_3:
                 environmentalChoice = 5;
                 int rand3 = Random.Range(shotsToFireEnv3Min, shotsToFireEnv3Max);
-                if (shotsFired < rand3)
+                if (shotsFiredEnv < rand3)
                 {
                     if (randomSpawnEnv6)
                     {
@@ -737,7 +736,6 @@ public class Boss : MonoBehaviour {
                     {
                         spawnPointEnv = spawnPointsEnv6[spawnPointIntEnv];
                         HandleEnvironmental();
-                        shotsFiredEnv++;
                     }
                     else
                     {
@@ -824,9 +822,18 @@ public class Boss : MonoBehaviour {
             }
             else
             {
-                timeBetweenShotsEnv = 1;
+                Laser laser = newProjectile.GetComponent<Laser>();
+                if (laser != null)
+                {
+                    timeBetweenShotsEnv = laser.timeBetweenShots;
+                }
+                else
+                {
+                    timeBetweenShotsEnv = 1;
+                }
             }
             spawnPointIntEnv++;
+            shotsFiredEnv++;
         }
         else
         {

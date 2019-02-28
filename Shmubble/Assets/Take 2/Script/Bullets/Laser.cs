@@ -10,6 +10,8 @@ public class Laser : MonoBehaviour
     public float beamRotationSpeed = 400.0f;
     public float beamExtendSpeed = 10.0f;
 
+    public float timeBetweenShots;
+
     public float laserTime;
     float laserPeriod;
 
@@ -19,7 +21,6 @@ public class Laser : MonoBehaviour
     void OnEnable()
     {
         laserPeriod = laserTime;
-        transform.localPosition = Vector3.zero;
         transform.localScale = new Vector3(0, size.y, size.z);
     }
 
