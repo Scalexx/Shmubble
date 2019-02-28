@@ -56,8 +56,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1642067136370556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40, y: 3.9745345, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 10}
+  m_LocalPosition: {x: -37.732853, y: 35.012127, z: -92.60468}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4965896338761484}
   m_Father: {fileID: 0}
@@ -116,7 +116,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1642067136370556}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 309f09f7387e7ba409c9dfa481fb1939, type: 3}
 --- !u!54 &54487281033393328
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -142,8 +142,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4.9241085, y: 0.40342587, z: 0.37956494}
+  m_Center: {x: 2.246472, y: 7.7819653, z: -0.0014940898}
 --- !u!65 &65520902910739730
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -154,8 +154,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 1.25, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5.0409117, y: 0.59769505, z: 1}
+  m_Center: {x: 2.181305, y: 7.8017683, z: 0}
 --- !u!114 &114168673363553312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,10 +169,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 40
   damage: 4
-  velocity: {x: -1, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: -1}
   timeBetweenShots: 5
   destroyOnTouch: 0
   destroyOtherOnTouch: 0
+  stopTimer: 0
   useCurve: 0
   useXCurve: 0
   trajectoryCurveX:
