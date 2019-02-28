@@ -2128,7 +2128,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4857930203846120, guid: 2b5db025b46f0c14d941f772841ca3d9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: -0.26
       objectReference: {fileID: 0}
     - target: {fileID: 4857930203846120, guid: 2b5db025b46f0c14d941f772841ca3d9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2196,11 +2196,19 @@ Prefab:
       objectReference: {fileID: 1202998061}
     - target: {fileID: 4857930203846120, guid: 2b5db025b46f0c14d941f772841ca3d9, type: 2}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 1090545465977256, guid: 2b5db025b46f0c14d941f772841ca3d9, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857930203846120, guid: 2b5db025b46f0c14d941f772841ca3d9, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857930203846120, guid: 2b5db025b46f0c14d941f772841ca3d9, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b5db025b46f0c14d941f772841ca3d9, type: 2}
@@ -2502,7 +2510,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400006, guid: c84c6c6d33ca7564e970b33606fa52d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.98
+      value: 6.38
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: c84c6c6d33ca7564e970b33606fa52d8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2736,7 +2744,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400006, guid: c84c6c6d33ca7564e970b33606fa52d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.72
+      value: 23.69
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: c84c6c6d33ca7564e970b33606fa52d8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3043,7 +3051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &951429759
 Transform:
   m_ObjectHideFlags: 0
@@ -3081,8 +3089,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 953746467}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.2, y: 4.13, z: 0}
-  m_LocalScale: {x: 3, y: 4.5, z: 3}
+  m_LocalPosition: {x: -10.2, y: -0.17, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2016073169}
   - {fileID: 805908913}
@@ -3813,15 +3821,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4340601524913464, guid: 7b54674ca2316e24f89e43115d10b45e, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4340601524913464, guid: 7b54674ca2316e24f89e43115d10b45e, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4340601524913464, guid: 7b54674ca2316e24f89e43115d10b45e, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b54674ca2316e24f89e43115d10b45e, type: 2}
@@ -4870,9 +4878,9 @@ MonoBehaviour:
   smoothSpeed: 0.2
   bounds: 1
   stopPanningWhenBound: 0
-  minBounds: {x: -9, y: 1, z: -17.5}
-  maxBounds: {x: 12, y: 10, z: -17.5}
-  offset: {x: 0, y: 1, z: -17.5}
+  minBounds: {x: -9, y: 1, z: -10}
+  maxBounds: {x: 12, y: 10, z: -10}
+  offset: {x: 0, y: 1, z: -10}
 --- !u!1 &1573237130
 GameObject:
   m_ObjectHideFlags: 0
@@ -5128,7 +5136,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1603261084}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 40, y: -21, z: 9.5}
+  m_LocalPosition: {x: 40, y: -6, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1683010177}
