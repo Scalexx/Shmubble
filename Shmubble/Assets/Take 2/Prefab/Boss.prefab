@@ -67,8 +67,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090545465977256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.35, y: 1.5, z: 0}
-  m_LocalScale: {x: 2, y: 5, z: 2}
+  m_LocalPosition: {x: 10.35, y: 0.69, z: 0}
+  m_LocalScale: {x: 2, y: 4, z: 2}
   m_Children:
   - {fileID: 4092219268960696}
   m_Father: {fileID: 0}
@@ -186,7 +186,7 @@ MonoBehaviour:
   spawnPointsAttack3:
   - {fileID: 4092219268960696}
   spawnPointsAttack4:
-  - {fileID: 4092219268960696}
+  - {fileID: 0}
   randomSpawnAttack1: 0
   randomSpawnAttack2: 0
   randomSpawnAttack3: 0
@@ -206,15 +206,24 @@ MonoBehaviour:
   shotsToFireEnv3Max: 10
   spawnPointsEnv1:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   spawnPointsEnv2:
   - {fileID: 0}
   spawnPointsEnv3:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   spawnPointsEnv4:
   - {fileID: 0}
   spawnPointsEnv5:
   - {fileID: 0}
   spawnPointsEnv6:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   randomSpawnEnv1: 0
   randomSpawnEnv2: 0
