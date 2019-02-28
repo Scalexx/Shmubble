@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+	private bool check;
 
     private float inputDirection;               //x value of moveVector
     private float verticalVelocity;             //y value of moveVector
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour {
     [Tooltip ("Layer to check when the player is grounded.")]
     public LayerMask groundLayer;
     private bool crouch;
+	private bool jumping;
 
     [Tooltip("Damage the player takes when touching the boss.")]
     public float bossTouchDamage;
@@ -42,6 +44,7 @@ public class Player : MonoBehaviour {
     private float currentDashTime;
     private Vector3 moveDirection;
     private float dir;
+	private bool dashing;
 
     [Header("Invulnerability")]
     [Tooltip("How long you stay invulnerable to damage.")]
@@ -70,6 +73,15 @@ public class Player : MonoBehaviour {
         controller = GetComponent<CharacterController>();
         currentDashTime = maxDashTime;
     }
+
+	void Update() {
+	if (Input.GetButtonDown("Jump")) {
+		jumping = true;
+	}
+	if (Input.GetButtonDown("Dash")) {
+		dashing = true;
+	}
+	}
 	
 	void FixedUpdate () {
         if (knockBackTimer <= 0)
@@ -101,20 +113,23 @@ public class Player : MonoBehaviour {
                     verticalVelocity = 0;
                     secondJump = true;
 
-                    if (Input.GetButtonDown("Jump"))
+                    if (jumping)
                     {
+			check = true;
                         verticalVelocity = jumpHeight;
+			jumping = false;
                     }
                 }
                 else
                 {
-                    if (Input.GetButtonDown("Jump"))
+                    if (jumping)
                     {
                         if (secondJump)
                         {
                             verticalVelocity = jumpHeight;
                             secondJump = false;
                         }
+			jumping = false;
                     }
 
                     verticalVelocity -= gravity * Time.deltaTime;
@@ -192,11 +207,13 @@ public class Player : MonoBehaviour {
 
         if (Physics.Raycast(leftRayStart, Vector3.down, (controller.height / 2) + 0.1f, groundLayer, QueryTriggerInteraction.Ignore))
         { 
+		check = false;
             return true;
         }
 
         if (Physics.Raycast(rightRayStart, Vector3.down, (controller.height / 2) + 0.1f, groundLayer, QueryTriggerInteraction.Ignore))
         {
+		check = false;
             return true;
         }
 
@@ -205,11 +222,12 @@ public class Player : MonoBehaviour {
 
     private void HandleDash ()
     {
-        if (Input.GetButtonDown("Dash"))
+        if (dashing)
         {
             dir = dashSpeed * lastMotion.x;
             currentDashTime = 0.0f;
             verticalVelocity = 0;
+		dashing = false;
         }
         if (currentDashTime < maxDashTime)
         {
