@@ -60,6 +60,7 @@ public class Boss : MonoBehaviour {
     [Tooltip("Amount of shots to fire with the third attack of the projectilePool.")]
     public int shotsToFireAttack3;
     int shotsFired;
+    private bool attackEntered;
 
     [Space(10)]
     [Tooltip("The GameObjects the bullets can spawn from during the first attack.")]
@@ -156,6 +157,7 @@ public class Boss : MonoBehaviour {
     [Tooltip("Checks if the bounce attack has passed the trigger for the boss to respawn.")]
     public bool bounceTrigger;
 
+    Animator animator;
     float timeBetweenShots;
     float timeBetweenShotsEnv;
     int projectileChoice;
@@ -165,6 +167,7 @@ public class Boss : MonoBehaviour {
     private int rand;
 
     void Start () {
+        animator = this.GetComponent<Animator>();
         time = introDuration1;
         bouncePeriod = bounceTimer;
         startIdleMinTime = idleMinTime;
@@ -208,10 +211,11 @@ public class Boss : MonoBehaviour {
         {
             case State.INTRO:
                 // do intro stuff
-                
+                animator.SetBool("Idle", true);
 
                 if (time <= 0)
                 {
+                    
                     state = State.IDLE;
                     time = introDuration2;
                 }
@@ -222,8 +226,11 @@ public class Boss : MonoBehaviour {
                 break;
 
             case State.IDLE:
+                bounceTrigger = false;
+                animator.SetBool("Bounce", false);
                 // do idle stuff
                 // play idle animation
+                animator.SetBool("Idle", true);
                 if (entered == false)
                 {
                     idleMinTime = startIdleMinTime + waitTime;
@@ -234,6 +241,7 @@ public class Boss : MonoBehaviour {
                 {
                     shotsFired = 0;
                     waitTime = 0;
+                    
 
                     if (time <= 0)
                     {
@@ -247,6 +255,7 @@ public class Boss : MonoBehaviour {
                             }
                             state = State.ATTACK_1;
                             entered = false;
+                            animator.SetBool("Idle", false);
                         }
                         else if (rand == 1)
                         {
@@ -256,6 +265,7 @@ public class Boss : MonoBehaviour {
                             }
                             state = State.ATTACK_2;
                             entered = false;
+                            animator.SetBool("Idle", false);
                         }
                         else if (rand == 2)
                         {
@@ -265,11 +275,13 @@ public class Boss : MonoBehaviour {
                             }
                             state = State.ATTACK_3;
                             entered = false;
+                            animator.SetBool("Idle", false);
                         }
                         else if (rand == 3)
                         {
                             state = State.BOUNCE;
                             entered = false;
+                            animator.SetBool("Idle", false);
                         }
                     }
                     else
@@ -293,6 +305,13 @@ public class Boss : MonoBehaviour {
                 projectileChoice = 0;
                 if (waitBeforeAttackPeriod <= 0)
                 {
+                    if (!attackEntered)
+                    {
+                        animator.SetTrigger("Attack");
+                        animator.SetBool("Idle", true);
+                        attackEntered = true;
+                    }
+                    
                     if (shotsFired < shotsToFireAttack1)
                     {
                         if (randomSpawnAttack1)
@@ -312,6 +331,7 @@ public class Boss : MonoBehaviour {
                     }
                     else
                     {
+                        attackEntered = false;
                         environmentalState = State.IDLE;
                         state = State.IDLE;
                     }
@@ -337,6 +357,13 @@ public class Boss : MonoBehaviour {
                 projectileChoice = 1;
                 if (waitBeforeAttackPeriod <= 0)
                 {
+                    if (!attackEntered)
+                    {
+                        animator.SetTrigger("Attack");
+                        animator.SetBool("Idle", true);
+                        attackEntered = true;
+                    }
+
                     if (shotsFired < shotsToFireAttack2)
                     {
                         if (randomSpawnAttack2)
@@ -356,6 +383,7 @@ public class Boss : MonoBehaviour {
                     }
                     else
                     {
+                        attackEntered = false;
                         environmentalState = State.IDLE;
                         state = State.IDLE;
                     }
@@ -381,6 +409,13 @@ public class Boss : MonoBehaviour {
                 projectileChoice = 2;
                 if (waitBeforeAttackPeriod <= 0)
                 {
+                    if (!attackEntered)
+                    {
+                        animator.SetTrigger("Attack");
+                        animator.SetBool("Idle", true);
+                        attackEntered = true;
+                    }
+
                     if (shotsFired < shotsToFireAttack3)
                     {
                         if (randomSpawnAttack3)
@@ -400,6 +435,7 @@ public class Boss : MonoBehaviour {
                     }
                     else
                     {
+                        attackEntered = false;
                         environmentalState = State.IDLE;
                         state = State.IDLE;
                     }
@@ -413,6 +449,7 @@ public class Boss : MonoBehaviour {
 
             case State.BOUNCE:
                 // play bounce animation
+                animator.SetBool("Bounce", true);
                 // do bounce stuff
                 if (shotsFired < 1)
                 {
@@ -423,9 +460,10 @@ public class Boss : MonoBehaviour {
                 if (bounceTrigger)
                 {
                     // play intro
+                    animator.SetTrigger("BounceTrigger");
                     bouncePeriod = bounceTimer;
+                    animator.SetBool("Idle", true);
                     state = State.IDLE;
-                    bounceTrigger = false;
                 }
                 break;
         }
@@ -441,6 +479,7 @@ public class Boss : MonoBehaviour {
 
             case State.ATTACK_1:
                 // play environmental animation
+                
                 environmentalChoice = 0;
                 if (randomSpawnEnv1)
                 {
@@ -494,7 +533,6 @@ public class Boss : MonoBehaviour {
                 {
                     spawnPointIntEnv = 0;
                 }
-
                 break;   
             }
     }
@@ -761,6 +799,7 @@ public class Boss : MonoBehaviour {
 
     public void HandleEnvironmentalState()
     {
+        animator.SetTrigger("EnvironmentalAttack");
         int rand = Random.Range(0, 3);
         if (rand == 0)
         {
@@ -774,6 +813,7 @@ public class Boss : MonoBehaviour {
         {
             environmentalState = State.ATTACK_3;
         }
+        
     }
 
     public void HandleShoot()

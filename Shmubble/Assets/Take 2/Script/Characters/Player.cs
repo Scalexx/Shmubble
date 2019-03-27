@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-	private bool check;
 
     private float inputDirection;               //x value of moveVector
     private float verticalVelocity;             //y value of moveVector
@@ -115,9 +114,8 @@ public class Player : MonoBehaviour {
 
                     if (jumping)
                     {
-			check = true;
                         verticalVelocity = jumpHeight;
-			jumping = false;
+			            jumping = false;
                     }
                 }
                 else
@@ -129,7 +127,7 @@ public class Player : MonoBehaviour {
                             verticalVelocity = jumpHeight;
                             secondJump = false;
                         }
-			jumping = false;
+			            jumping = false;
                     }
 
                     verticalVelocity -= gravity * Time.deltaTime;
@@ -207,13 +205,11 @@ public class Player : MonoBehaviour {
 
         if (Physics.Raycast(leftRayStart, Vector3.down, (controller.height / 2) + 0.1f, groundLayer, QueryTriggerInteraction.Ignore))
         { 
-		check = false;
             return true;
         }
 
         if (Physics.Raycast(rightRayStart, Vector3.down, (controller.height / 2) + 0.1f, groundLayer, QueryTriggerInteraction.Ignore))
         {
-		check = false;
             return true;
         }
 
@@ -227,7 +223,7 @@ public class Player : MonoBehaviour {
             dir = dashSpeed * lastMotion.x;
             currentDashTime = 0.0f;
             verticalVelocity = 0;
-		dashing = false;
+		    dashing = false;
         }
         if (currentDashTime < maxDashTime)
         {
