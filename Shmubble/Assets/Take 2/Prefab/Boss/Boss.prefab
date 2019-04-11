@@ -25,13 +25,14 @@ GameObject:
   - component: {fileID: 65771309584455412}
   - component: {fileID: 65170887679658610}
   - component: {fileID: 114438205146622082}
+  - component: {fileID: 95333380891810402}
   m_Layer: 9
   m_Name: Boss
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1433391177042048
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +155,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 1.2, z: 1.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95333380891810402
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1090545465977256}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b25a980260b184149a9158f7fbe147e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114438205146622082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -176,6 +194,15 @@ MonoBehaviour:
   idleMaxTimeFinal: 6
   idleMinTimeEnv: 2
   idleMaxTimeEnv: 4
+  anticipationEffectAttack1: {fileID: 0}
+  anticipationEffectAttack2: {fileID: 0}
+  anticipationEffectAttack3: {fileID: 0}
+  anticipationEffectAttack4: {fileID: 0}
+  anticipationTimer: 0
+  anticipationTimerFinal: 0
+  anticipationEnv1: {fileID: 0}
+  anticipationTimerEnv1: 0
+  anticipationTimerEnv2: 0
   shotsToFireAttack1: 15
   shotsToFireAttack2: 8
   shotsToFireAttack3: 5
