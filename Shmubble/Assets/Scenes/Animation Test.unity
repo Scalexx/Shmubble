@@ -538,6 +538,18 @@ Prefab:
       propertyPath: spawnpointBounce
       value: 
       objectReference: {fileID: 244149065}
+    - target: {fileID: 4126044008578624, guid: 70c0c1a568d015f4f9bf6a013ef3928c, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126044008578624, guid: 70c0c1a568d015f4f9bf6a013ef3928c, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126044008578624, guid: 70c0c1a568d015f4f9bf6a013ef3928c, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70c0c1a568d015f4f9bf6a013ef3928c, type: 2}
   m_IsPrefabParent: 0
