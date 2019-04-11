@@ -2180,13 +2180,20 @@ MonoBehaviour:
   idleMaxTimeFinal: 6
   idleMinTimeEnv: 2
   idleMaxTimeEnv: 4
-  anticipationEffectAttack1: {fileID: 0}
-  anticipationEffectAttack2: {fileID: 0}
-  anticipationEffectAttack3: {fileID: 0}
+  anticipationEffectAttack1: {fileID: 1056836681276468, guid: 63cb45d0ec039ee45ab0a6129d0df924,
+    type: 2}
+  anticipationEffectAttack2: {fileID: 1056836681276468, guid: 363586930b07c7e4788dfdde7b0ddf5f,
+    type: 2}
+  anticipationEffectAttack3: {fileID: 1056836681276468, guid: 267cd3e03977a324bbf1b11ad743b936,
+    type: 2}
   anticipationEffectAttack4: {fileID: 0}
-  anticipationTimer: 0
+  anticipationTimer: 1
   anticipationTimerFinal: 0
   anticipationEnv1: {fileID: 0}
+  cameraShakeMagnitude: 1
+  cameraShakeRoughness: 10
+  cameraShakeFadeIn: 0.1
+  cameraShakeFadeOut: 5
   anticipationTimerEnv1: 0
   anticipationTimerEnv2: 0
   shotsToFireAttack1: 15

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class Boss : MonoBehaviour {
 
@@ -67,11 +68,19 @@ public class Boss : MonoBehaviour {
     public float anticipationTimer;
     [Tooltip("Amount of time the boss waits before it shoots during the final phase.")]
     public float anticipationTimerFinal;
+    float anticipationPeriod;
 
     [Space(10)]
     [Tooltip("Gameobject which spawns to indicate the first environmental attack.")]
     public GameObject anticipationEnv1;
-    // screenshake earthquake?
+    [Tooltip("The intensity of the shake.")]
+    public float cameraShakeMagnitude;
+    [Tooltip("How rough the shake is. Lower values are slow and smooth, higher values are fast and jarring.")]
+    public float cameraShakeRoughness;
+    [Tooltip("The time for the shake to fade in.")]
+    public float cameraShakeFadeIn;
+    [Tooltip("The time for the shake to fade out. Higher values make the shake last longer.")]
+    public float cameraShakeFadeOut;
 
     [Space(10)]
     [Tooltip("Amount of time the first environmental attack waits before it spawns the objects.")]
@@ -295,7 +304,7 @@ public class Boss : MonoBehaviour {
                 }
 
                 projectileChoice = 0;
-                HandleAttack(shotsToFireAttack1, randomSpawnAttack1, spawnPointsAttack1);
+                HandleAttack(shotsToFireAttack1, randomSpawnAttack1, spawnPointsAttack1, anticipationEffectAttack1, anticipationTimer);
                 
                 break;
 
@@ -311,7 +320,7 @@ public class Boss : MonoBehaviour {
                 }
 
                 projectileChoice = 1;
-                HandleAttack(shotsToFireAttack2, randomSpawnAttack2, spawnPointsAttack2);
+                HandleAttack(shotsToFireAttack2, randomSpawnAttack2, spawnPointsAttack2, anticipationEffectAttack2, anticipationTimer);
                 
                 break;
 
@@ -327,7 +336,7 @@ public class Boss : MonoBehaviour {
                 }
 
                 projectileChoice = 2;
-                HandleAttack(shotsToFireAttack3, randomSpawnAttack3, spawnPointsAttack3);
+                HandleAttack(shotsToFireAttack3, randomSpawnAttack3, spawnPointsAttack3, anticipationEffectAttack3, anticipationTimer);
                 
                 break;
 
@@ -700,44 +709,55 @@ public class Boss : MonoBehaviour {
         }
         else if (rand == 2)
         {
+            CameraShaker.Instance.ShakeOnce(cameraShakeMagnitude, cameraShakeRoughness, cameraShakeFadeIn, cameraShakeFadeOut);
             environmentalState = State.ATTACK_3;
         }
         
     }
 
-    public void HandleAttack(int shotsToFire, bool randomSpawn, List<Transform> spawnPoints)
+    public void HandleAttack(int shotsToFire, bool randomSpawn, List<Transform> spawnPoints, GameObject anticipationEffect, float anticipationTimerEffect)
     {
         if (waitBeforeAttackPeriod <= 0)
         {
             if (!attackEntered)
             {
+                anticipationPeriod = anticipationTimerEffect;
                 animator.SetTrigger("Attack");
+                Instantiate(anticipationEffect);
+
                 animator.SetBool("Idle", true);
                 attackEntered = true;
             }
 
-            if (shotsFired < shotsToFire)
+            if (anticipationPeriod <= 0)
             {
-                if (randomSpawn)
+                if (shotsFired < shotsToFire)
                 {
-                    spawnPointInt = Random.Range(0, spawnPoints.Count);
-                }
+                    if (randomSpawn)
+                    {
+                        spawnPointInt = Random.Range(0, spawnPoints.Count);
+                    }
 
-                if (spawnPointInt < spawnPoints.Count)
-                {
-                    spawnPoint = spawnPoints[spawnPointInt];
-                    HandleShoot();
+                    if (spawnPointInt < spawnPoints.Count)
+                    {
+                        spawnPoint = spawnPoints[spawnPointInt];
+                        HandleShoot();
+                    }
+                    else
+                    {
+                        spawnPointInt = 0;
+                    }
                 }
                 else
                 {
-                    spawnPointInt = 0;
+                    attackEntered = false;
+                    environmentalState = State.IDLE;
+                    state = State.IDLE;
                 }
             }
             else
             {
-                attackEntered = false;
-                environmentalState = State.IDLE;
-                state = State.IDLE;
+                anticipationPeriod -= Time.deltaTime;
             }
         }
         else
