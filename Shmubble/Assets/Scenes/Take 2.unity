@@ -1287,7 +1287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 341872772}
   m_Layer: 0
-  m_Name: EnvironmentalSpawnPoint6
+  m_Name: EnvironmentalSpawnPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1304,7 +1304,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1786301780}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &350511198
 GameObject:
@@ -1374,6 +1374,34 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 350511198}
+--- !u!1 &385266714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 385266715}
+  m_Layer: 0
+  m_Name: EnvironmentalSpawnPointLaser5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &385266715
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 385266714}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 8.69, y: 9, z: 0}
+  m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1786301780}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &419970590
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,7 +1651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 503818766}
   m_Layer: 0
-  m_Name: EnvironmentalSpawnPoint2
+  m_Name: EnvironmentalSpawnPointBoulder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1636,11 +1664,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 503818765}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -5, y: 9, z: 0}
+  m_LocalPosition: {x: 10.22, y: 9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1786301780}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &505264354
 GameObject:
@@ -1943,6 +1971,34 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 605685848}
+--- !u!1 &612402212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 612402213}
+  m_Layer: 0
+  m_Name: EnvironmentalSpawnPointLaser4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &612402213
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 612402212}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 3.61, y: 9, z: 0}
+  m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1786301780}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &635715627
 GameObject:
   m_ObjectHideFlags: 0
@@ -2318,7 +2374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &756470829
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2607,7 +2663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &794873058
 Transform:
   m_ObjectHideFlags: 0
@@ -2664,7 +2720,7 @@ GameObject:
   m_Component:
   - component: {fileID: 821817985}
   m_Layer: 0
-  m_Name: EnvironmentalSpawnPoint7
+  m_Name: EnvironmentalSpawnPointBoulder5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2677,7 +2733,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 821817984}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 11, y: 9, z: 0}
+  m_LocalPosition: {x: 26.22, y: 9, z: 0}
   m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 1}
   m_Children: []
   m_Father: {fileID: 1786301780}
@@ -2768,7 +2824,7 @@ GameObject:
   m_Component:
   - component: {fileID: 889711960}
   m_Layer: 0
-  m_Name: EnvironmentalSpawnPoint5
+  m_Name: EnvironmentalSpawnPointBoulder4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2781,11 +2837,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 889711959}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 7, y: 9, z: 0}
+  m_LocalPosition: {x: 22.22, y: 9, z: 0}
   m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 1}
   m_Children: []
   m_Father: {fileID: 1786301780}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &904638574
 GameObject:
@@ -2914,6 +2970,77 @@ Transform:
   m_PrefabParentObject: {fileID: 4659499273696338, guid: 5b642252d04a2b14c9ae020863aabd8a,
     type: 2}
   m_PrefabInternal: {fileID: 2070067646}
+--- !u!1 &942491071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 942491073}
+  - component: {fileID: 942491072}
+  m_Layer: 5
+  m_Name: CameraHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &942491072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 942491071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab8353b5ebd32545867da143199a814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultPosInfluence: {x: 0.15, y: 0.15, z: 0.15}
+  DefaultRotInfluence: {x: 0, y: 0, z: 0}
+--- !u!4 &942491073
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 942491071}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1573116756}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &949206859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 949206860}
+  m_Layer: 0
+  m_Name: EnvironmentalSpawnPointLaser3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &949206860
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 949206859}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.69000053, y: 9, z: 0}
+  m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1786301780}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &951429758
 GameObject:
   m_ObjectHideFlags: 0
@@ -4255,7 +4382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1447071267
 Transform:
   m_ObjectHideFlags: 0
@@ -4751,11 +4878,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1573116751}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 942491073}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1573116757
@@ -4964,6 +5091,34 @@ Transform:
   m_Father: {fileID: 157156480}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1602835363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1602835364}
+  m_Layer: 0
+  m_Name: EnvironmentalSpawnPointLaser2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1602835364
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1602835363}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -3.3099995, y: 9, z: 0}
+  m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1786301780}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &1603261084
 GameObject:
   m_ObjectHideFlags: 0
@@ -5153,7 +5308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1628008162}
   m_Layer: 0
-  m_Name: EnvironmentalSpawnPoint4
+  m_Name: EnvironmentalSpawnPointBoulder3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5166,11 +5321,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1628008161}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 3, y: 9, z: 0}
+  m_LocalPosition: {x: 18.22, y: 9, z: 0}
   m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 1}
   m_Children: []
   m_Father: {fileID: 1786301780}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &1632245265
 GameObject:
@@ -5422,6 +5577,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: spawnPointsEnv1.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4126044008578624, guid: 70c0c1a568d015f4f9bf6a013ef3928c, type: 2}
       propertyPath: m_LocalPosition.x
       value: 10.1
@@ -5498,22 +5658,22 @@ Prefab:
         type: 2}
       propertyPath: spawnPointsEnv1.Array.data[0]
       value: 
-      objectReference: {fileID: 503818766}
+      objectReference: {fileID: 2096917037}
     - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
         type: 2}
       propertyPath: spawnPointsEnv1.Array.data[1]
       value: 
-      objectReference: {fileID: 2078282382}
+      objectReference: {fileID: 1602835364}
     - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
         type: 2}
       propertyPath: spawnPointsEnv1.Array.data[2]
       value: 
-      objectReference: {fileID: 1628008162}
+      objectReference: {fileID: 949206860}
     - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
         type: 2}
       propertyPath: spawnPointsEnv1.Array.data[3]
       value: 
-      objectReference: {fileID: 889711960}
+      objectReference: {fileID: 612402213}
     - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
         type: 2}
       propertyPath: spawnPointsEnv2.Array.data[0]
@@ -5609,6 +5769,36 @@ Prefab:
       propertyPath: spawnpointBounce
       value: 
       objectReference: {fileID: 244149065}
+    - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: shotsToFireAttack2
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: cameraShakeMagnitude
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: cameraShakeRoughness
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: cameraShakeFadeIn
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: cameraShakeFadeOut
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: spawnPointsEnv1.Array.data[4]
+      value: 
+      objectReference: {fileID: 385266715}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70c0c1a568d015f4f9bf6a013ef3928c, type: 2}
   m_IsPrefabParent: 0
@@ -6167,12 +6357,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1998326749}
+  - {fileID: 341872772}
   - {fileID: 503818766}
   - {fileID: 2078282382}
   - {fileID: 1628008162}
   - {fileID: 889711960}
-  - {fileID: 341872772}
   - {fileID: 821817985}
+  - {fileID: 2096917037}
+  - {fileID: 1602835364}
+  - {fileID: 949206860}
+  - {fileID: 612402213}
+  - {fileID: 385266715}
   m_Father: {fileID: 1683010177}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7327,7 +7522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2078282382}
   m_Layer: 0
-  m_Name: EnvironmentalSpawnPoint3
+  m_Name: EnvironmentalSpawnPointBoulder2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7340,11 +7535,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2078282381}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1, y: 9, z: 0}
+  m_LocalPosition: {x: 14.219999, y: 9, z: 0}
   m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 1}
   m_Children: []
   m_Father: {fileID: 1786301780}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &2082677927
 GameObject:
@@ -7377,6 +7572,34 @@ Transform:
   m_Father: {fileID: 193504551}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2096917036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2096917037}
+  m_Layer: 0
+  m_Name: EnvironmentalSpawnPointLaser1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2096917037
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2096917036}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -6.25, y: 9, z: 0}
+  m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1786301780}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &2137098403
 GameObject:
   m_ObjectHideFlags: 0
