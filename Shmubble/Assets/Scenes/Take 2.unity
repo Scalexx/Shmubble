@@ -5815,6 +5815,29 @@ Prefab:
       propertyPath: anticipationTimerEnv1
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: attackEffect1
+      value: 
+      objectReference: {fileID: 1464249523629184, guid: 4ddeb7b867783c846a3cce6577ededfd,
+        type: 2}
+    - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: attackEffect2
+      value: 
+      objectReference: {fileID: 1464249523629184, guid: 75475ae60143872468031dfd87429fe3,
+        type: 2}
+    - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: attackEffect3
+      value: 
+      objectReference: {fileID: 1464249523629184, guid: 9aa9904c0fc4c61498216ad9e8c18c5a,
+        type: 2}
+    - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: spawnPointEffect
+      value: 
+      objectReference: {fileID: 1097066694}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70c0c1a568d015f4f9bf6a013ef3928c, type: 2}
   m_IsPrefabParent: 0

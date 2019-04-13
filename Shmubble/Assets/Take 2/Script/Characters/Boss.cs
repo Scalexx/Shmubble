@@ -53,6 +53,13 @@ public class Boss : MonoBehaviour {
     private float startIdleMinTimeEnv;
     private bool entered;
 
+    [Header("Attack Effects")]
+    public GameObject attackEffect1;
+    public GameObject attackEffect2;
+    public GameObject attackEffect3;
+    public Transform spawnPointEffect;
+    GameObject attackEffectActive;
+
     [Header("Anticipation")]
     [Tooltip("The effect that plays before shooting during the first attack.")]
     public GameObject anticipationEffectAttack1;
@@ -62,6 +69,7 @@ public class Boss : MonoBehaviour {
     public GameObject anticipationEffectAttack3;
     [Tooltip("The effect that plays before shooting during the fourth attack (final phase).")]
     public GameObject anticipationEffectAttack4;
+    GameObject anticipationEffectActive;
 
     [Space(10)]
     [Tooltip("Amount of time the boss waits before it shoots during the first phases.")]
@@ -307,7 +315,7 @@ public class Boss : MonoBehaviour {
                 }
 
                 projectileChoice = 0;
-                HandleAttack(shotsToFireAttack1, randomSpawnAttack1, spawnPointsAttack1, anticipationEffectAttack1, anticipationTimer);
+                HandleAttack(shotsToFireAttack1, randomSpawnAttack1, spawnPointsAttack1, anticipationEffectAttack1, anticipationTimer, attackEffect1);
                 
                 break;
 
@@ -323,7 +331,7 @@ public class Boss : MonoBehaviour {
                 }
 
                 projectileChoice = 1;
-                HandleAttack(shotsToFireAttack2, randomSpawnAttack2, spawnPointsAttack2, anticipationEffectAttack2, anticipationTimer);
+                HandleAttack(shotsToFireAttack2, randomSpawnAttack2, spawnPointsAttack2, anticipationEffectAttack2, anticipationTimer, attackEffect2);
                 
                 break;
 
@@ -339,7 +347,7 @@ public class Boss : MonoBehaviour {
                 }
 
                 projectileChoice = 2;
-                HandleAttack(shotsToFireAttack3, randomSpawnAttack3, spawnPointsAttack3, anticipationEffectAttack3, anticipationTimer);
+                HandleAttack(shotsToFireAttack3, randomSpawnAttack3, spawnPointsAttack3, anticipationEffectAttack3, anticipationTimer, attackEffect3);
                 
                 break;
 
@@ -718,7 +726,7 @@ public class Boss : MonoBehaviour {
         
     }
 
-    public void HandleAttack(int shotsToFire, bool randomSpawn, List<Transform> spawnPoints, GameObject anticipationEffect, float anticipationTimerEffect)
+    public void HandleAttack(int shotsToFire, bool randomSpawn, List<Transform> spawnPoints, GameObject anticipationEffect, float anticipationTimerEffect, GameObject attackEffect)
     {
         if (waitBeforeAttackPeriod <= 0)
         {
@@ -726,7 +734,8 @@ public class Boss : MonoBehaviour {
             {
                 anticipationPeriod = anticipationTimerEffect;
                 animator.SetTrigger("Attack");
-                Instantiate(anticipationEffect);
+                anticipationEffectActive = Instantiate(anticipationEffect, gameObject.transform.position, anticipationEffect.transform.rotation);
+                attackEffectActive = Instantiate(attackEffect, spawnPointEffect.position, attackEffect.transform.rotation);
 
                 animator.SetBool("Idle", true);
                 attackEntered = true;
@@ -753,6 +762,12 @@ public class Boss : MonoBehaviour {
                 }
                 else
                 {
+                    Destroy(anticipationEffectActive);
+                    anticipationEffectActive = null;
+
+                    Destroy(attackEffectActive);
+                    attackEffectActive = null;
+
                     attackEntered = false;
                     environmentalState = State.IDLE;
                     state = State.IDLE;
@@ -824,7 +839,7 @@ public class Boss : MonoBehaviour {
             {
                 if (anticipationEnv != null)
                 {
-                    Instantiate(anticipationEnv, spawnPointEnv.position + effectOffset, Quaternion.Euler(12.7f, 180, 0));
+                    Instantiate(anticipationEnv, spawnPointEnv.position + effectOffset, anticipationEnv.transform.rotation);
                 }
                 anticipationEnvPeriod = anticipationTimerEnv;
                 anticipationDone = true;
