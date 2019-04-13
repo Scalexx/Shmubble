@@ -73,6 +73,8 @@ public class Boss : MonoBehaviour {
     [Space(10)]
     [Tooltip("Gameobject which spawns to indicate the first environmental attack.")]
     public GameObject anticipationEnv1;
+    bool anticipationDone;
+    public Vector3 effectOffset;
     [Tooltip("The intensity of the shake.")]
     public float cameraShakeMagnitude;
     [Tooltip("How rough the shake is. Lower values are slow and smooth, higher values are fast and jarring.")]
@@ -87,6 +89,7 @@ public class Boss : MonoBehaviour {
     public float anticipationTimerEnv1;
     [Tooltip("Amount of time the second environmental attack waits before it spawns the objects.")]
     public float anticipationTimerEnv2;
+    float anticipationEnvPeriod;
 
     [Header("Attacks")]
     [Tooltip("Amount of shots to fire with the first attack of the projectilePool.")]
@@ -373,21 +376,21 @@ public class Boss : MonoBehaviour {
             case State.ATTACK_1:
                 // play environmental animation
                 environmentalChoice = 0;
-                HandleEnvironmentalAttack(randomSpawnEnv1, spawnPointsEnv1);
+                HandleEnvironmentalAttack(randomSpawnEnv1, spawnPointsEnv1, anticipationTimerEnv1, anticipationEnv1);
 
                 break;
 
             case State.ATTACK_2:
                 // play environmental animation
                 environmentalChoice = 1;
-                HandleEnvironmentalAttack(randomSpawnEnv2, spawnPointsEnv2);
+                HandleEnvironmentalAttack(randomSpawnEnv2, spawnPointsEnv2, 0f, null);
 
                 break;
 
             case State.ATTACK_3:
                 // play environmental animation
                 environmentalChoice = 2;
-                HandleEnvironmentalAttack(randomSpawnEnv3, spawnPointsEnv3);
+                HandleEnvironmentalAttack(randomSpawnEnv3, spawnPointsEnv3, 0f, null);
 
                 break;   
             }
@@ -575,7 +578,7 @@ public class Boss : MonoBehaviour {
                     if (spawnPointIntEnv < spawnPointsEnv4.Count)
                     {
                         spawnPointEnv = spawnPointsEnv4[spawnPointIntEnv];
-                        HandleEnvironmental();
+                        HandleEnvironmental(0f, null);
                     }
                     else
                     {
@@ -602,7 +605,7 @@ public class Boss : MonoBehaviour {
                     if (spawnPointIntEnv < spawnPointsEnv5.Count)
                     {
                         spawnPointEnv = spawnPointsEnv5[spawnPointIntEnv];
-                        HandleEnvironmental();
+                        HandleEnvironmental(0f, null);
                     }
                     else
                     {
@@ -629,7 +632,7 @@ public class Boss : MonoBehaviour {
                     if (spawnPointIntEnv < spawnPointsEnv6.Count)
                     {
                         spawnPointEnv = spawnPointsEnv6[spawnPointIntEnv];
-                        HandleEnvironmental();
+                        HandleEnvironmental(0f, null);
                     }
                     else
                     {
@@ -766,7 +769,7 @@ public class Boss : MonoBehaviour {
         }
     }
 
-    public void HandleEnvironmentalAttack(bool randomSpawn, List<Transform> spawnPoints)
+    public void HandleEnvironmentalAttack(bool randomSpawn, List<Transform> spawnPoints, float environmentalTimer, GameObject environmentalEffect)
     {
         if (randomSpawn)
         {
@@ -776,7 +779,7 @@ public class Boss : MonoBehaviour {
         if (spawnPointIntEnv < spawnPoints.Count)
         {
             spawnPointEnv = spawnPoints[spawnPointIntEnv];
-            HandleEnvironmental();
+            HandleEnvironmental(environmentalTimer, environmentalEffect);
         }
         else
         {
@@ -813,35 +816,52 @@ public class Boss : MonoBehaviour {
         }
     }
 
-    public void HandleEnvironmental()
+    public void HandleEnvironmental(float anticipationTimerEnv, GameObject anticipationEnv)
     {
         if (timeBetweenShotsEnv <= 0)
         {
-            GameObject newProjectile = environmentalPools[environmentalChoice].GetPooledObject();
-
-            newProjectile.transform.position = spawnPointEnv.position;
-            newProjectile.transform.rotation = spawnPointEnv.rotation;
-            newProjectile.SetActive(true);
-
-            BulletData temp = newProjectile.GetComponent<BulletData>();
-            if (temp != null)
+            if (!anticipationDone)
             {
-                timeBetweenShotsEnv = newProjectile.GetComponent<BulletData>().timeBetweenShots;
-            }
-            else
-            {
-                Laser laser = newProjectile.GetComponent<Laser>();
-                if (laser != null)
+                if (anticipationEnv != null)
                 {
-                    timeBetweenShotsEnv = laser.timeBetweenShots;
+                    Instantiate(anticipationEnv, spawnPointEnv.position + effectOffset, Quaternion.Euler(12.7f, 180, 0));
+                }
+                anticipationEnvPeriod = anticipationTimerEnv;
+                anticipationDone = true;
+            }
+            if (anticipationEnvPeriod <= 0)
+            {
+                GameObject newProjectile = environmentalPools[environmentalChoice].GetPooledObject();
+
+                newProjectile.transform.position = spawnPointEnv.position;
+                newProjectile.transform.rotation = spawnPointEnv.rotation;
+                newProjectile.SetActive(true);
+
+                BulletData temp = newProjectile.GetComponent<BulletData>();
+                if (temp != null)
+                {
+                    timeBetweenShotsEnv = newProjectile.GetComponent<BulletData>().timeBetweenShots;
                 }
                 else
                 {
-                    timeBetweenShotsEnv = 1;
+                    Laser laser = newProjectile.GetComponent<Laser>();
+                    if (laser != null)
+                    {
+                        timeBetweenShotsEnv = laser.timeBetweenShots;
+                    }
+                    else
+                    {
+                        timeBetweenShotsEnv = 1;
+                    }
                 }
+                spawnPointIntEnv++;
+                shotsFiredEnv++;
+                anticipationDone = false;
             }
-            spawnPointIntEnv++;
-            shotsFiredEnv++;
+            else
+            {
+                anticipationEnvPeriod -= Time.deltaTime;
+            }
         }
         else
         {

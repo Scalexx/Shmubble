@@ -5799,6 +5799,22 @@ Prefab:
       propertyPath: spawnPointsEnv1.Array.data[4]
       value: 
       objectReference: {fileID: 385266715}
+    - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: anticipationEnv1
+      value: 
+      objectReference: {fileID: 1717200254852826, guid: 84ecc0e1de2893b4ab9bd2a92978ba96,
+        type: 2}
+    - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: effectOffset.y
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: anticipationTimerEnv1
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70c0c1a568d015f4f9bf6a013ef3928c, type: 2}
   m_IsPrefabParent: 0
