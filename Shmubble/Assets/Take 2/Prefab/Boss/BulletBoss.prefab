@@ -135,6 +135,7 @@ MonoBehaviour:
   timeBetweenShots: 1
   destroyOnTouch: 1
   destroyOtherOnTouch: 0
+  destroyOnCollisionGround: 0
   stopTimer: 0
   destroyEffect: {fileID: 1406793801915058, guid: ee199ad70c0bf1543b07a747827e03c3,
     type: 2}

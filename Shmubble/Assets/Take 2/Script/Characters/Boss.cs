@@ -384,8 +384,6 @@ public class Boss : MonoBehaviour {
 
             case State.ATTACK_1:
                 // play environmental animation
-                print("Doing first attack");
-
                 environmentalChoice = 0;
                 HandleEnvironmentalAttack(randomSpawnEnv1, spawnPointsEnv1, anticipationTimerEnv1, anticipationEnv1, attackInt);
 
@@ -393,8 +391,6 @@ public class Boss : MonoBehaviour {
 
             case State.ATTACK_2:
                 // play environmental animation
-                print("Doing second attack");
-
                 environmentalChoice = 1;
                 HandleEnvironmentalAttack(randomSpawnEnv2, spawnPointsEnv2, 0f, null, attackInt);
 
@@ -402,8 +398,6 @@ public class Boss : MonoBehaviour {
 
             case State.ATTACK_3:
                 // play environmental animation
-                print("Doing third attack");
-
                 environmentalChoice = 2;
                 HandleEnvironmentalAttack(randomSpawnEnv3, spawnPointsEnv3, 0f, null, attackInt);
 
