@@ -107,6 +107,7 @@ public class Boss : MonoBehaviour {
     [Tooltip("Amount of shots to fire with the third attack of the projectilePool.")]
     public int shotsToFireAttack3;
     int shotsFired;
+    int attackInt;
     private bool attackEntered;
 
     [Space(10)]
@@ -304,7 +305,7 @@ public class Boss : MonoBehaviour {
                 break;
 
             case State.ATTACK_1:
-                // do attack stuff
+                // do attack stuff 
                 if (queueEnvironmental)
                 {
                     if (!environmentalEntered)
@@ -383,22 +384,28 @@ public class Boss : MonoBehaviour {
 
             case State.ATTACK_1:
                 // play environmental animation
+                print("Doing first attack");
+
                 environmentalChoice = 0;
-                HandleEnvironmentalAttack(randomSpawnEnv1, spawnPointsEnv1, anticipationTimerEnv1, anticipationEnv1);
+                HandleEnvironmentalAttack(randomSpawnEnv1, spawnPointsEnv1, anticipationTimerEnv1, anticipationEnv1, attackInt);
 
                 break;
 
             case State.ATTACK_2:
                 // play environmental animation
+                print("Doing second attack");
+
                 environmentalChoice = 1;
-                HandleEnvironmentalAttack(randomSpawnEnv2, spawnPointsEnv2, 0f, null);
+                HandleEnvironmentalAttack(randomSpawnEnv2, spawnPointsEnv2, 0f, null, attackInt);
 
                 break;
 
             case State.ATTACK_3:
                 // play environmental animation
+                print("Doing third attack");
+
                 environmentalChoice = 2;
-                HandleEnvironmentalAttack(randomSpawnEnv3, spawnPointsEnv3, 0f, null);
+                HandleEnvironmentalAttack(randomSpawnEnv3, spawnPointsEnv3, 0f, null, attackInt);
 
                 break;   
             }
@@ -674,6 +681,7 @@ public class Boss : MonoBehaviour {
             {
                 spawnPointInt = 0;
             }
+            attackInt = shotsToFireAttack1;
             state = State.ATTACK_1;
             entered = false;
             animator.SetBool("Idle", false);
@@ -684,6 +692,7 @@ public class Boss : MonoBehaviour {
             {
                 spawnPointInt = 0;
             }
+            attackInt = shotsToFireAttack2;
             state = State.ATTACK_2;
             entered = false;
             animator.SetBool("Idle", false);
@@ -694,6 +703,7 @@ public class Boss : MonoBehaviour {
             {
                 spawnPointInt = 0;
             }
+            attackInt = shotsToFireAttack3;
             state = State.ATTACK_3;
             entered = false;
             animator.SetBool("Idle", false);
@@ -769,7 +779,6 @@ public class Boss : MonoBehaviour {
                     attackEffectActive = null;
 
                     attackEntered = false;
-                    environmentalState = State.IDLE;
                     state = State.IDLE;
                 }
             }
@@ -784,21 +793,28 @@ public class Boss : MonoBehaviour {
         }
     }
 
-    public void HandleEnvironmentalAttack(bool randomSpawn, List<Transform> spawnPoints, float environmentalTimer, GameObject environmentalEffect)
+    public void HandleEnvironmentalAttack(bool randomSpawn, List<Transform> spawnPoints, float environmentalTimer, GameObject environmentalEffect, int shotsToFireAttack)
     {
-        if (randomSpawn)
+        if (shotsFired < shotsToFireAttack - 1)
         {
-            spawnPointIntEnv = Random.Range(0, spawnPoints.Count);
-        }
+            if (randomSpawn)
+            {
+                spawnPointIntEnv = Random.Range(0, spawnPoints.Count);
+            }
 
-        if (spawnPointIntEnv < spawnPoints.Count)
-        {
-            spawnPointEnv = spawnPoints[spawnPointIntEnv];
-            HandleEnvironmental(environmentalTimer, environmentalEffect);
+            if (spawnPointIntEnv < spawnPoints.Count)
+            {
+                spawnPointEnv = spawnPoints[spawnPointIntEnv];
+                HandleEnvironmental(environmentalTimer, environmentalEffect);
+            }
+            else
+            {
+                spawnPointIntEnv = 0;
+            }
         }
         else
         {
-            spawnPointIntEnv = 0;
+            anticipationDone = true;
         }
     }
 
@@ -871,6 +887,10 @@ public class Boss : MonoBehaviour {
                 }
                 spawnPointIntEnv++;
                 shotsFiredEnv++;
+                if (state == State.IDLE)
+                {
+                    environmentalState = State.IDLE;
+                }
                 anticipationDone = false;
             }
             else

@@ -17,6 +17,8 @@ public class BulletData : MonoBehaviour {
     public bool destroyOnTouch;
     [Tooltip("Destroys other projectile when colliding.")]
     public bool destroyOtherOnTouch;
+    [Tooltip("Destroys the projectile when colliding with the ground.")]
+    public bool destroyOnCollisionGround;
     [Tooltip("Estimated time the projectile needs to leave the screen (Boss Idle wait time).")]
     public float stopTimer;
     [Tooltip("Gameobject that spawns once the bullet is destroyed.")]
@@ -187,7 +189,7 @@ public class BulletData : MonoBehaviour {
             }
             gameObject.SetActive(false);
         }
-        if (hit.gameObject.layer == 10)
+        if (destroyOnCollisionGround && hit.gameObject.layer == 10)
         {
             if (destroyEffect != null)
             {
