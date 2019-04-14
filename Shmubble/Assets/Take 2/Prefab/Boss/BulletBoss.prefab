@@ -133,9 +133,11 @@ MonoBehaviour:
   damage: 4
   velocity: {x: 1, y: 0, z: 0}
   timeBetweenShots: 1
-  destroyOnTouch: 0
+  destroyOnTouch: 1
   destroyOtherOnTouch: 0
   stopTimer: 0
+  destroyEffect: {fileID: 1406793801915058, guid: ee199ad70c0bf1543b07a747827e03c3,
+    type: 2}
   useCurve: 0
   useXCurve: 0
   trajectoryCurveX:

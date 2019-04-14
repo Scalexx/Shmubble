@@ -398,7 +398,15 @@ public class Player : MonoBehaviour {
                 }
                 else
                 {
-                    damaged = bossTouchDamage;
+                    SplashDamage splashDamage = hit.gameObject.GetComponent<SplashDamage>();
+                    if (splashDamage != null)
+                    {
+                        damaged = splashDamage.damage;
+                    }
+                    else
+                    {
+                        damaged = bossTouchDamage;
+                    }
                 }
             }
             LevelManager.Instance.GetDamaged(damaged);

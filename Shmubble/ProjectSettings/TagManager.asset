@@ -11,6 +11,7 @@ TagManager:
   - Projectile
   - OutOfBoundsFar
   - Bounce
+  - Ground
   layers:
   - Default
   - TransparentFX
