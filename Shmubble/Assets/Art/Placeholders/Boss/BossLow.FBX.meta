@@ -1,0 +1,322 @@
+fileFormatVersion: 2
+guid: 00f0e6ab84c9ecc48952e8b31c383fa1
+timeCreated: 1555352592
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Body_Low
+    100002: //RootNode
+    100004: Cape_Low
+    100006: Dress_Low
+    100008: Eyelashes
+    100010: Eyes_Low
+    100012: Hair_Low
+    100014: HairPearls_Low
+    100016: Marigold
+    100018: Marigold00
+    100020: Marigold01
+    100022: Marigold02
+    100024: Marigold03
+    100026: Marigold04
+    100028: Marigold05
+    100030: Marigold06
+    100032: Marigold07
+    100034: Marigold08
+    100036: Marigold09
+    100038: Marigold10
+    100040: Marigold11
+    100042: Marigold12
+    100044: Marigold13
+    100046: Medallion_Low001
+    100048: Medallion_Low002
+    100050: Medallion_Low003
+    100052: Medallion_Low004
+    100054: Medallion_Low005
+    100056: Medallion_Low006
+    100058: Medallion_Low007
+    100060: NeckPiece_Low
+    100062: PearlBelts_Low
+    100064: Skull_Low001
+    100066: Skull_Low002
+    100068: Skull_Low003
+    100070: Skull_Low004
+    100072: Skull_Low005
+    100074: Skull_Low006
+    100076: Skull_Low007
+    100078: Sombrero_Low
+    100080: Spikes_Low
+    400000: Body_Low
+    400002: //RootNode
+    400004: Cape_Low
+    400006: Dress_Low
+    400008: Eyelashes
+    400010: Eyes_Low
+    400012: Hair_Low
+    400014: HairPearls_Low
+    400016: Marigold
+    400018: Marigold00
+    400020: Marigold01
+    400022: Marigold02
+    400024: Marigold03
+    400026: Marigold04
+    400028: Marigold05
+    400030: Marigold06
+    400032: Marigold07
+    400034: Marigold08
+    400036: Marigold09
+    400038: Marigold10
+    400040: Marigold11
+    400042: Marigold12
+    400044: Marigold13
+    400046: Medallion_Low001
+    400048: Medallion_Low002
+    400050: Medallion_Low003
+    400052: Medallion_Low004
+    400054: Medallion_Low005
+    400056: Medallion_Low006
+    400058: Medallion_Low007
+    400060: NeckPiece_Low
+    400062: PearlBelts_Low
+    400064: Skull_Low001
+    400066: Skull_Low002
+    400068: Skull_Low003
+    400070: Skull_Low004
+    400072: Skull_Low005
+    400074: Skull_Low006
+    400076: Skull_Low007
+    400078: Sombrero_Low
+    400080: Spikes_Low
+    2100000: 02 - Default
+    2100002: 03 - Default
+    2100004: No Name
+    2100006: Marigold
+    2100008: Female Base Mesh_default
+    2100010: 08 - Default
+    2300000: Body_Low
+    2300002: Cape_Low
+    2300004: Dress_Low
+    2300006: Eyelashes
+    2300008: Eyes_Low
+    2300010: Hair_Low
+    2300012: HairPearls_Low
+    2300014: Marigold00
+    2300016: Marigold01
+    2300018: Marigold02
+    2300020: Marigold03
+    2300022: Marigold04
+    2300024: Marigold05
+    2300026: Marigold06
+    2300028: Marigold07
+    2300030: Marigold08
+    2300032: Marigold09
+    2300034: Marigold10
+    2300036: Marigold11
+    2300038: Marigold12
+    2300040: Marigold13
+    2300042: Medallion_Low001
+    2300044: Medallion_Low002
+    2300046: Medallion_Low003
+    2300048: Medallion_Low004
+    2300050: Medallion_Low005
+    2300052: Medallion_Low006
+    2300054: Medallion_Low007
+    2300056: NeckPiece_Low
+    2300058: PearlBelts_Low
+    2300060: Skull_Low001
+    2300062: Skull_Low002
+    2300064: Skull_Low003
+    2300066: Skull_Low004
+    2300068: Skull_Low005
+    2300070: Skull_Low006
+    2300072: Skull_Low007
+    2300074: Sombrero_Low
+    2300076: Spikes_Low
+    3300000: Body_Low
+    3300002: Cape_Low
+    3300004: Dress_Low
+    3300006: Eyelashes
+    3300008: Eyes_Low
+    3300010: Hair_Low
+    3300012: HairPearls_Low
+    3300014: Marigold00
+    3300016: Marigold01
+    3300018: Marigold02
+    3300020: Marigold03
+    3300022: Marigold04
+    3300024: Marigold05
+    3300026: Marigold06
+    3300028: Marigold07
+    3300030: Marigold08
+    3300032: Marigold09
+    3300034: Marigold10
+    3300036: Marigold11
+    3300038: Marigold12
+    3300040: Marigold13
+    3300042: Medallion_Low001
+    3300044: Medallion_Low002
+    3300046: Medallion_Low003
+    3300048: Medallion_Low004
+    3300050: Medallion_Low005
+    3300052: Medallion_Low006
+    3300054: Medallion_Low007
+    3300056: NeckPiece_Low
+    3300058: PearlBelts_Low
+    3300060: Skull_Low001
+    3300062: Skull_Low002
+    3300064: Skull_Low003
+    3300066: Skull_Low004
+    3300068: Skull_Low005
+    3300070: Skull_Low006
+    3300072: Skull_Low007
+    3300074: Sombrero_Low
+    3300076: Spikes_Low
+    4300000: Dress_Low
+    4300002: Sombrero_Low
+    4300004: Spikes_Low
+    4300006: Marigold00
+    4300008: Marigold01
+    4300010: Marigold02
+    4300012: Marigold10
+    4300014: Marigold12
+    4300016: Marigold11
+    4300018: Marigold13
+    4300020: Marigold09
+    4300022: Marigold05
+    4300024: Marigold03
+    4300026: Marigold04
+    4300028: Marigold06
+    4300030: Marigold07
+    4300032: Marigold08
+    4300034: PearlBelts_Low
+    4300036: Body_Low
+    4300038: Eyelashes
+    4300040: Hair_Low
+    4300042: Cape_Low
+    4300044: Eyes_Low
+    4300046: NeckPiece_Low
+    4300048: HairPearls_Low
+    4300050: Medallion_Low001
+    4300052: Skull_Low001
+    4300054: Medallion_Low002
+    4300056: Skull_Low002
+    4300058: Medallion_Low003
+    4300060: Skull_Low003
+    4300062: Medallion_Low004
+    4300064: Skull_Low004
+    4300066: Medallion_Low005
+    4300068: Skull_Low005
+    4300070: Medallion_Low006
+    4300072: Skull_Low006
+    4300074: Medallion_Low007
+    4300076: Skull_Low007
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 02 - Default
+    second: {fileID: 2100000, guid: 3d033cdd952c91948952c6494ccecceb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 03 - Default
+    second: {fileID: 2100000, guid: f8a3db688b7b54d4aa90ca5de332f7a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 08 - Default
+    second: {fileID: 2100000, guid: ae9a7271c9ade8d4fab16f6d076369b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Female Base Mesh_default
+    second: {fileID: 2100000, guid: 457978a4f2f22374993b84006131a8ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Marigold
+    second: {fileID: 2100000, guid: 27f7f54930161104b95cdfe378359764, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: efc9d8cd3f756ad4f86b17e9d4a4cced, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
