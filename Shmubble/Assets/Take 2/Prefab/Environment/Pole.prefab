@@ -90,7 +90,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 791a2eb2610b46840a1ba84521f5499b, type: 2}
+  - {fileID: 2100000, guid: 7998cbd4b69b7394c92eaf00e7c0b132, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,7 +116,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1642067136370556}
-  m_Mesh: {fileID: 4300000, guid: 309f09f7387e7ba409c9dfa481fb1939, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 8df26f6309a121a4b9e52fcfac3b57c5, type: 3}
 --- !u!54 &54487281033393328
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -173,7 +173,9 @@ MonoBehaviour:
   timeBetweenShots: 5
   destroyOnTouch: 0
   destroyOtherOnTouch: 0
+  destroyOnCollisionGround: 0
   stopTimer: 0
+  destroyEffect: {fileID: 0}
   useCurve: 0
   useXCurve: 0
   trajectoryCurveX:
