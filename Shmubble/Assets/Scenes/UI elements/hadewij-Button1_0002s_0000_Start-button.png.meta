@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: ac76ba06dc4382f40b61bea7772ae041
-timeCreated: 1555420168
+guid: 2b8300b9678f01e47b52b8c35518adc5
+timeCreated: 1555429458
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -34,9 +34,9 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapU: 1
-    wrapV: 1
-    wrapW: -1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -44,12 +44,12 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: 0.5148368, y: 0.6175954}
-  spriteBorder: {x: 1457, y: 1235, z: 1353, w: 730}
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 20, y: 17, z: 21, w: 13}
   spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: 0
+  spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
   maxTextureSizeSet: 0
@@ -57,7 +57,7 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -67,7 +67,7 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - buildTarget: Standalone
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -80,18 +80,11 @@ TextureImporter:
     serializedVersion: 2
     sprites: []
     outline:
-    - - {x: -464.8069, y: 154.42139}
-      - {x: 566.8845, y: 152.04749}
-      - {x: 566.8843, y: 351.5819}
-      - {x: 51.52539, y: 349.208}
-      - {x: -464.807, y: 349.208}
-    physicsShape:
-    - - {x: -468.74997, y: 356.24997}
-      - {x: -468.74997, y: 151.87498}
-      - {x: -464.99997, y: 148.12498}
-      - {x: 566.25, y: 148.12498}
-      - {x: 573.75, y: 151.87498}
-      - {x: 573.75, y: 356.24997}
+    - - {x: 512.3131, y: -96.529106}
+      - {x: 514.1808, y: 98.26456}
+      - {x: -510.44528, y: 97.77425}
+      - {x: -510.82278, y: -97.15167}
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
