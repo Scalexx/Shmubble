@@ -45,7 +45,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 13, y: 13, z: 15, w: 10}
   spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -79,7 +79,11 @@ TextureImporter:
   spriteSheet:
     serializedVersion: 2
     sprites: []
-    outline: []
+    outline:
+    - - {x: 514.8292, y: -96.27161}
+      - {x: 515.286, y: 95.57202}
+      - {x: -517.1502, y: 96.43622}
+      - {x: -517.9856, y: -96.19342}
     physicsShape: []
   spritePackingTag: 
   userData: 
