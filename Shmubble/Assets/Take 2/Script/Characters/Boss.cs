@@ -209,6 +209,10 @@ public class Boss : MonoBehaviour {
     [Tooltip("Animation of the canvas before the final phase.")]
     public Animation canvasAnim;
 
+    public GameObject bossPhase1;
+    public GameObject bossPhaseFinal;
+    public Animator animatorPhase1;
+    public Animator animatorPhaseFinal;
     Animator animator;
     float timeBetweenShots;
     float timeBetweenShotsEnv;
@@ -222,7 +226,7 @@ public class Boss : MonoBehaviour {
     private int rand;
 
     void Start () {
-        animator = this.GetComponent<Animator>();
+        animator = animatorPhase1;
         time = introDuration1;
         bouncePeriod = bounceTimer;
         startIdleMinTime = idleMinTime;
@@ -239,6 +243,9 @@ public class Boss : MonoBehaviour {
         {
             if (!phase2Entered)
             {
+                bossPhase1.SetActive(false);
+                bossPhaseFinal.SetActive(true);
+
                 canvasAnim.Play("Canvas");
                 phase2Entered = true;
             }
