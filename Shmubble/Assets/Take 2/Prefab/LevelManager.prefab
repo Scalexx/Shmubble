@@ -747,7 +747,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1128355671426230}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 24.77, y: -2.16, z: 0}
+  m_LocalPosition: {x: 30, y: -5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4078935853883368}
@@ -1196,7 +1196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ce61d7d0dad564086bcd1cc1be96c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 1539728126334674, guid: ea4b6219e15dd784784c54dda59c669f,
+  pooledObject: {fileID: 1891135837267112, guid: ea4b6219e15dd784784c54dda59c669f,
     type: 2}
   pooledAmount: 1
 --- !u!114 &114171955745025992
