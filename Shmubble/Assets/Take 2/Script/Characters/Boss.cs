@@ -317,14 +317,16 @@ public class Boss : MonoBehaviour {
                     shotsFired = 0;
                     waitTime = 0;
                     
-
-                    if (time <= 0)
+                    if (environmentalState == State.IDLE)
                     {
-                        HandleAttackState();
-                    }
-                    else
-                    {
-                        time -= Time.deltaTime;
+                        if (time <= 0)
+                        {
+                            HandleAttackState();
+                        }
+                        else
+                        {
+                            time -= Time.deltaTime;
+                        }
                     }
                 }          
                 break;
@@ -755,6 +757,7 @@ public class Boss : MonoBehaviour {
 
     public void HandleEnvironmentalState()
     {
+        envIdleEntered = false;
         animator.SetTrigger("EnvironmentalAttack");
         int rand = Random.Range(0, 3);
         if (rand == 0)

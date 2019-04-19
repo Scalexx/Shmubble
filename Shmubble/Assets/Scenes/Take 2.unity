@@ -560,6 +560,10 @@ Prefab:
       propertyPath: exProjectilePool
       value: 
       objectReference: {fileID: 1553318}
+    - target: {fileID: 4340601524913464, guid: 7b54674ca2316e24f89e43115d10b45e, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b54674ca2316e24f89e43115d10b45e, type: 2}
   m_IsPrefabParent: 0
