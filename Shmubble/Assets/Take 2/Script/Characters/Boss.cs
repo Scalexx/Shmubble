@@ -108,6 +108,7 @@ public class Boss : MonoBehaviour {
     public int shotsToFireAttack3;
     int shotsFired;
     int attackInt;
+    bool attackStateEntered;
     private bool attackEntered;
 
     [Space(10)]
@@ -205,12 +206,18 @@ public class Boss : MonoBehaviour {
     [Tooltip("Checks if the bounce attack has passed the trigger for the boss to respawn.")]
     public bool bounceTrigger;
 
+    [Tooltip("Animation of the canvas before the final phase.")]
+    public Animation canvasAnim;
+
     Animator animator;
     float timeBetweenShots;
     float timeBetweenShotsEnv;
     int projectileChoice;
     int environmentalChoice;
     float waitTime;
+    bool finalPhaseTrigger;
+    bool phase2Entered;
+    bool envIdleEntered;
 
     private int rand;
 
@@ -224,12 +231,18 @@ public class Boss : MonoBehaviour {
 	}
 	
 	void Update () {
-        if (LevelManager.Instance.bossHealth > healthTriggerPhaseFinal)
+        if (!finalPhaseTrigger)
         {
             Phase1();
         }
-        else if (LevelManager.Instance.bossHealth <= healthTriggerPhaseFinal)
+        else
         {
+            if (!phase2Entered)
+            {
+                canvasAnim.Play("Canvas");
+                phase2Entered = true;
+            }
+            
             Phase2();
         }
 
@@ -273,6 +286,11 @@ public class Boss : MonoBehaviour {
                 break;
 
             case State.IDLE:
+                if (LevelManager.Instance.bossHealth <= healthTriggerPhaseFinal)
+                {
+                    finalPhaseTrigger = true;
+                    break;
+                }
                 bounceTrigger = false;
                 animator.SetBool("Bounce", false);
 
@@ -305,15 +323,19 @@ public class Boss : MonoBehaviour {
                 break;
 
             case State.ATTACK_1:
-                // do attack stuff 
-                if (queueEnvironmental)
+                // do attack stuff
+                if (!attackStateEntered)
                 {
-                    if (!environmentalEntered)
+                    if (queueEnvironmental)
                     {
-                        HandleEnvironmentalState();
-                        environmentalEntered = true;
+                        if (!environmentalEntered)
+                        {
+                            HandleEnvironmentalState();
+                            environmentalEntered = true;
+                        }
                     }
-                }
+                    attackStateEntered = true;
+                } 
 
                 projectileChoice = 0;
                 HandleAttack(shotsToFireAttack1, randomSpawnAttack1, spawnPointsAttack1, anticipationEffectAttack1, anticipationTimer, attackEffect1);
@@ -322,13 +344,17 @@ public class Boss : MonoBehaviour {
 
             case State.ATTACK_2:
                 // do attack stuff
-                if (queueEnvironmental)
+                if (!attackStateEntered)
                 {
-                    if (!environmentalEntered)
+                    if (queueEnvironmental)
                     {
-                        HandleEnvironmentalState();
-                        environmentalEntered = true;
+                        if (!environmentalEntered)
+                        {
+                            HandleEnvironmentalState();
+                            environmentalEntered = true;
+                        }
                     }
+                    attackStateEntered = true;
                 }
 
                 projectileChoice = 1;
@@ -338,13 +364,17 @@ public class Boss : MonoBehaviour {
 
             case State.ATTACK_3:
                 // do attack stuff
-                if (queueEnvironmental)
+                if (!attackStateEntered)
                 {
-                    if (!environmentalEntered)
+                    if (queueEnvironmental)
                     {
-                        HandleEnvironmentalState();
-                        environmentalEntered = true;
+                        if (!environmentalEntered)
+                        {
+                            HandleEnvironmentalState();
+                            environmentalEntered = true;
+                        }
                     }
+                    attackStateEntered = true;
                 }
 
                 projectileChoice = 2;
@@ -376,10 +406,16 @@ public class Boss : MonoBehaviour {
         switch (environmentalState) {
             case State.IDLE:
                 environmentalEntered = false;
-                if (queueEnvironmental)
+                
+                if (state == State.IDLE)
                 {
-                    waitBeforeAttackPeriod = waitBeforeAttackTimer;
+                    if (queueEnvironmental && !envIdleEntered)
+                    {
+                        waitBeforeAttackPeriod = waitBeforeAttackTimer;
+                        envIdleEntered = true;
+                    }
                 }
+                
                 break;
 
             case State.ATTACK_1:
@@ -773,6 +809,7 @@ public class Boss : MonoBehaviour {
                     attackEffectActive = null;
 
                     attackEntered = false;
+                    attackStateEntered = false;
                     state = State.IDLE;
                 }
             }

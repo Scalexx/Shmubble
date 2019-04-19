@@ -891,7 +891,7 @@ MonoBehaviour:
   health: 20
   bossHealth: 2000
   healthTriggerEnvironmental: 1999
-  healthTriggerPhaseFinal: 800
+  healthTriggerPhaseFinal: 1900
   specialMaxCharge: 100
   damageDealt: 0
   outOfBoundsDamage: 5
@@ -2135,11 +2135,11 @@ Animation:
   m_GameObject: {fileID: 654713326}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 614478b59451a504cb860624af864dfa, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 614478b59451a504cb860624af864dfa, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!1001 &664190790
@@ -6080,6 +6080,11 @@ Prefab:
       propertyPath: spawnPointEffect
       value: 
       objectReference: {fileID: 1097066694}
+    - target: {fileID: 114658423999008568, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: canvasAnim
+      value: 
+      objectReference: {fileID: 654713332}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70c0c1a568d015f4f9bf6a013ef3928c, type: 2}
   m_IsPrefabParent: 0
