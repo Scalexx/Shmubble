@@ -205,6 +205,12 @@ public class Boss : MonoBehaviour {
 
     [Tooltip("Checks if the bounce attack has passed the trigger for the boss to respawn.")]
     public bool bounceTrigger;
+    [Tooltip("Timer of the animation that plays before the boss disappears.")]
+    public float bounceAnimTimer;
+    float bounceAnimPeriod;
+    [Tooltip("Timer of the animation that plays when the boss returns.")]
+    public float bounceAnimTimerReturn;
+    float bounceAnimPeriodReturn;
 
     [Tooltip("Animation of the canvas before the final phase.")]
     public Animation canvasAnim;
@@ -229,6 +235,8 @@ public class Boss : MonoBehaviour {
         animator = animatorPhase1;
         time = introDuration1;
         bouncePeriod = bounceTimer;
+        bounceAnimPeriodReturn = bounceAnimTimerReturn;
+        bounceAnimPeriod = bounceAnimTimer;
         startIdleMinTime = idleMinTime;
         startIdleMinTimeFinal = idleMinTimeFinal;
         startIdleMinTimeEnv = idleMinTimeEnv;
@@ -245,6 +253,7 @@ public class Boss : MonoBehaviour {
             {
                 bossPhase1.SetActive(false);
                 bossPhaseFinal.SetActive(true);
+                animator = animatorPhaseFinal;
 
                 canvasAnim.Play("Canvas");
                 phase2Entered = true;
@@ -298,37 +307,51 @@ public class Boss : MonoBehaviour {
                     finalPhaseTrigger = true;
                     break;
                 }
-                bounceTrigger = false;
-                animator.SetBool("Bounce", false);
-
-                // do idle stuff
-
-                // play idle animation
-                animator.SetBool("Idle", true);
-
-                if (entered == false)
+                
+                if (bounceTrigger)
                 {
-                    idleMinTime = startIdleMinTime + waitTime;
-                    time = Random.Range(idleMinTime, idleMaxTime);
-                    entered = true;
-                }
+                    if (bounceAnimPeriodReturn <= 0)
+                    {
+                        bounceTrigger = false;
+                        bounceAnimPeriodReturn = bounceAnimTimerReturn;
+                    }
+                    else
+                    {
+                        bounceAnimPeriodReturn -= Time.deltaTime;
+                    }
+                } 
                 else
                 {
-                    shotsFired = 0;
-                    waitTime = 0;
-                    
-                    if (environmentalState == State.IDLE)
+                    // do idle stuff
+
+                    // play idle animation
+                    animator.SetBool("Idle", true);
+
+                    if (entered == false)
                     {
-                        if (time <= 0)
+                        idleMinTime = startIdleMinTime + waitTime;
+                        time = Random.Range(idleMinTime, idleMaxTime);
+                        entered = true;
+                    }
+                    else
+                    {
+                        shotsFired = 0;
+                        waitTime = 0;
+
+                        if (environmentalState == State.IDLE)
                         {
-                            HandleAttackState();
-                        }
-                        else
-                        {
-                            time -= Time.deltaTime;
+                            if (time <= 0)
+                            {
+                                HandleAttackState();
+                            }
+                            else
+                            {
+                                time -= Time.deltaTime;
+                            }
                         }
                     }
-                }          
+                }
+                          
                 break;
 
             case State.ATTACK_1:
@@ -394,6 +417,15 @@ public class Boss : MonoBehaviour {
             case State.BOUNCE:
                 // play bounce animation
                 animator.SetBool("Bounce", true);
+                if (bounceAnimPeriod <= 0)
+                {
+                    bossPhase1.SetActive(false);
+                }
+                else
+                {
+                    bounceAnimPeriod -= Time.deltaTime;
+                }
+
                 // do bounce stuff
                 if (shotsFired < 1)
                 {
@@ -403,11 +435,14 @@ public class Boss : MonoBehaviour {
 
                 if (bounceTrigger)
                 {
-                    // play intro
+                    bossPhase1.SetActive(true);
+                    // play return animation
                     animator.SetTrigger("BounceTrigger");
                     bouncePeriod = bounceTimer;
-                    animator.SetBool("Idle", true);
+                    bounceAnimPeriod = bounceAnimTimer;
+                    
                     state = State.IDLE;
+                    animator.SetBool("Idle", true);
                 }
                 break;
         }

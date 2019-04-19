@@ -988,7 +988,7 @@ GameObject:
   - component: {fileID: 65558030591250836}
   m_Layer: 9
   m_Name: BossPhaseFinal
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4424,7 +4424,7 @@ MonoBehaviour:
   healthTriggerPhaseFinal: 0
   introDuration1: 4
   introDuration2: 1
-  idleMinTime: 1
+  idleMinTime: 2
   idleMaxTime: 4
   idleMinTimeFinal: 4
   idleMaxTimeFinal: 6
@@ -4522,6 +4522,8 @@ MonoBehaviour:
   bouncePool: {fileID: 0}
   spawnpointBounce: {fileID: 0}
   bounceTrigger: 0
+  bounceAnimTimer: 1.2
+  bounceAnimTimerReturn: 4
   canvasAnim: {fileID: 0}
   bossPhase1: {fileID: 1559575541996832}
   bossPhaseFinal: {fileID: 1391709924858358}
