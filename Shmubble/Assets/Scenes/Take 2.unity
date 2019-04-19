@@ -890,8 +890,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   bossHealth: 2000
-  healthTriggerEnvironmental: 1999
-  healthTriggerPhaseFinal: 1900
+  healthTriggerEnvironmental: 1500
+  healthTriggerPhaseFinal: 800
   specialMaxCharge: 100
   damageDealt: 0
   outOfBoundsDamage: 5
@@ -1273,7 +1273,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 314654011}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 7.49, y: -1.25, z: 0}
+  m_LocalPosition: {x: 13.39, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1583834996}
