@@ -108,6 +108,7 @@ public class Boss : MonoBehaviour {
     public int shotsToFireAttack3;
     int shotsFired;
     int attackInt;
+    private int lastAttackState = -1;
     bool attackStateEntered;
     private bool attackEntered;
 
@@ -144,6 +145,7 @@ public class Boss : MonoBehaviour {
     public float waitBeforeAttackTimer;
     private float waitBeforeAttackPeriod;
     private bool environmentalEntered;
+    private int lastEnvState = -1;
 
     [Space(10)]
     [Tooltip("Minimum amount of shots to fire with the first environmental attack of the final phase.")]
@@ -229,6 +231,7 @@ public class Boss : MonoBehaviour {
     bool phase2Entered;
     bool envIdleEntered;
 
+    List<int> randNumber = new List<int>();
     private int rand;
 
     void Start () {
@@ -342,7 +345,8 @@ public class Boss : MonoBehaviour {
                         {
                             if (time <= 0)
                             {
-                                HandleAttackState();
+                                rand = generateRandomNumber(0, attacksMax, lastAttackState);
+                                HandleAttackState(rand);
                             }
                             else
                             {
@@ -356,6 +360,8 @@ public class Boss : MonoBehaviour {
 
             case State.ATTACK_1:
                 // do attack stuff
+                lastAttackState = 0;
+
                 if (!attackStateEntered)
                 {
                     if (queueEnvironmental)
@@ -376,6 +382,8 @@ public class Boss : MonoBehaviour {
 
             case State.ATTACK_2:
                 // do attack stuff
+                lastAttackState = 1;
+
                 if (!attackStateEntered)
                 {
                     if (queueEnvironmental)
@@ -396,6 +404,8 @@ public class Boss : MonoBehaviour {
 
             case State.ATTACK_3:
                 // do attack stuff
+                lastAttackState = 2;
+
                 if (!attackStateEntered)
                 {
                     if (queueEnvironmental)
@@ -416,6 +426,8 @@ public class Boss : MonoBehaviour {
 
             case State.BOUNCE:
                 // play bounce animation
+                lastAttackState = 3;
+
                 animator.SetBool("Bounce", true);
                 if (bounceAnimPeriod <= 0)
                 {
@@ -463,6 +475,8 @@ public class Boss : MonoBehaviour {
                 break;
 
             case State.ATTACK_1:
+                lastEnvState = 0;
+
                 // play environmental animation
                 environmentalChoice = 0;
                 HandleEnvironmentalAttack(randomSpawnEnv1, spawnPointsEnv1, anticipationTimerEnv1, anticipationEnv1, attackInt);
@@ -470,6 +484,8 @@ public class Boss : MonoBehaviour {
                 break;
 
             case State.ATTACK_2:
+                lastEnvState = 1;
+
                 // play environmental animation
                 environmentalChoice = 1;
                 HandleEnvironmentalAttack(randomSpawnEnv2, spawnPointsEnv2, 0f, null, attackInt);
@@ -477,6 +493,8 @@ public class Boss : MonoBehaviour {
                 break;
 
             case State.ATTACK_3:
+                lastEnvState = 2;
+
                 // play environmental animation
                 environmentalChoice = 2;
                 HandleEnvironmentalAttack(randomSpawnEnv3, spawnPointsEnv3, 0f, null, attackInt);
@@ -745,10 +763,24 @@ public class Boss : MonoBehaviour {
         }
     }
 
-    public void HandleAttackState()
+    private int generateRandomNumber(int min, int max, int last)
+    {
+        int result = Random.Range(min, max);
+
+        if (result == last)
+        {
+
+            return generateRandomNumber(min, max, last);
+
+        }
+
+        last = result;
+        return result;
+    }
+
+    public void HandleAttackState(int rand)
     {
         // choose attack to do
-        int rand = Random.Range(0, attacksMax);
         if (rand == 0)
         {
             if (shotsToFireAttack1 > 1)
@@ -794,7 +826,7 @@ public class Boss : MonoBehaviour {
     {
         envIdleEntered = false;
         animator.SetTrigger("EnvironmentalAttack");
-        int rand = Random.Range(0, 3);
+        int rand = generateRandomNumber(0, 3, lastEnvState);
         if (rand == 0)
         {
             environmentalState = State.ATTACK_1;
