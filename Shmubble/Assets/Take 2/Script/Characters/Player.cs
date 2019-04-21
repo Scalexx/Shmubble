@@ -49,8 +49,8 @@ public class Player : MonoBehaviour {
     [Tooltip("How long you stay invulnerable to damage.")]
     public float invulnerabilityPeriod;
     float invulnerabilityTimer = 0;
-    [Tooltip("The mesh renderer of the player. The renderer has to be assigned in the inspector.")]
-    public Renderer playerRenderer;
+    [Tooltip("The mesh renderers of the player. The renderers has to be assigned in the inspector.")]
+    public List<Renderer> playerRenderers = new List<Renderer>();
     [Tooltip("How fast the player blinks when hit.")]
     public float flashPeriod;
     private float flashTimer;
@@ -171,12 +171,18 @@ public class Player : MonoBehaviour {
             flashTimer -= Time.deltaTime;
             if (flashTimer <= 0)
             {
-                playerRenderer.enabled = !playerRenderer.enabled;
-                flashTimer = flashPeriod;
+                for (int i = 0; i < playerRenderers.Count; i++)
+                {
+                    playerRenderers[i].enabled = !playerRenderers[i].enabled;
+                    flashTimer = flashPeriod;
+                }
             }
             if (invulnerabilityTimer <= 0)
             {
-                playerRenderer.enabled = true;
+                for (int i = 0; i < playerRenderers.Count; i++)
+                {
+                    playerRenderers[i].enabled = !playerRenderers[i].enabled;
+                }
             }
         }
         if (Input.GetButton("Shoot") || Input.GetAxis("Shoot") > 0)
@@ -433,8 +439,11 @@ public class Player : MonoBehaviour {
     {
         invulnerabilityTimer = invulnerabilityPeriod;
 
-        playerRenderer.enabled = false;
-        flashTimer = flashPeriod;
+        for (int i = 0; i < playerRenderers.Count; i++)
+        {
+            playerRenderers[i].enabled = false;
+            flashTimer = flashPeriod;
+        }
     }
 }
 

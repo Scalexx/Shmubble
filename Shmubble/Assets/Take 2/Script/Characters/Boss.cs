@@ -214,13 +214,20 @@ public class Boss : MonoBehaviour {
     public float bounceAnimTimerReturn;
     float bounceAnimPeriodReturn;
 
+    [Header("Extras")]
     [Tooltip("Animation of the canvas before the final phase.")]
     public Animation canvasAnim;
 
+    [Space(10)]
+    [Tooltip("The gameobject of the boss which shows during the first phases.")]
     public GameObject bossPhase1;
+    [Tooltip("The gameobject of the boss which shows during the final phase.")]
     public GameObject bossPhaseFinal;
+    [Tooltip("The animator attached to the boss during the first phases.")]
     public Animator animatorPhase1;
+    [Tooltip("The animator attached to the boss during the final phase.")]
     public Animator animatorPhaseFinal;
+
     Animator animator;
     float timeBetweenShots;
     float timeBetweenShotsEnv;
@@ -231,7 +238,6 @@ public class Boss : MonoBehaviour {
     bool phase2Entered;
     bool envIdleEntered;
 
-    List<int> randNumber = new List<int>();
     private int rand;
 
     void Start () {
