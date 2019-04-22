@@ -1234,6 +1234,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1510482572404352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4106254560392558}
+  m_Layer: 9
+  m_Name: OffsetCameraBoss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1529228869813010
 GameObject:
   m_ObjectHideFlags: 1
@@ -2521,6 +2536,19 @@ Transform:
   m_Father: {fileID: 4737338695602156}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4106254560392558
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1510482572404352}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.83, y: 0, z: -0.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4765138832558148}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4112038512644258
 Transform:
   m_ObjectHideFlags: 1
@@ -3801,11 +3829,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1251975680984586}
   m_LocalRotation: {x: 0, y: -0.91176206, z: 0, w: 0.41071895}
-  m_LocalPosition: {x: 13.5, y: -0.93, z: 0.0072709}
+  m_LocalPosition: {x: 13.5, y: -1.08, z: 0.0072709}
   m_LocalScale: {x: 1.35, y: 1.35, z: 1.35}
   m_Children:
   - {fileID: 4467461196684126}
   - {fileID: 4001031530354526}
+  - {fileID: 4106254560392558}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -131.5, z: 0}
@@ -4424,6 +4453,7 @@ MonoBehaviour:
   healthTriggerPhaseFinal: 0
   introDuration1: 4
   introDuration2: 1
+  introParticle: {fileID: 0}
   idleMinTime: 2
   idleMaxTime: 4
   idleMinTimeFinal: 4
@@ -4444,7 +4474,7 @@ MonoBehaviour:
   anticipationEffectAttack3: {fileID: 1056836681276468, guid: 267cd3e03977a324bbf1b11ad743b936,
     type: 2}
   anticipationEffectAttack4: {fileID: 0}
-  anticipationTimer: 1
+  anticipationTimer: 3.1
   anticipationTimerFinal: 0
   anticipationEnv1: {fileID: 1717200254852826, guid: 84ecc0e1de2893b4ab9bd2a92978ba96,
     type: 2}

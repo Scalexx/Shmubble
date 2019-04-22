@@ -1227,6 +1227,7 @@ MonoBehaviour:
   spawnPosition: {fileID: 4920722134060372}
   playerTransform: {fileID: 0}
   bossTransform: {fileID: 0}
+  camAnim: {fileID: 0}
 --- !u!114 &114186222585005656
 MonoBehaviour:
   m_ObjectHideFlags: 1

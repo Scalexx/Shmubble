@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using EZCameraShake;
 
 public class LevelManager : MonoBehaviour {
 
@@ -64,6 +65,8 @@ public class LevelManager : MonoBehaviour {
     [Tooltip("The boss gameobject.")]
     public Transform bossTransform;
 
+    public Animation camAnim;
+
     // Called before Start ()
     private void Awake ()
     {
@@ -83,6 +86,7 @@ public class LevelManager : MonoBehaviour {
 
     void Update ()
     {
+        camAnim.Play();
         if (healthBar.GetComponent<Slider>().value != health)
         {
             tValue += speedBar * Time.unscaledDeltaTime;

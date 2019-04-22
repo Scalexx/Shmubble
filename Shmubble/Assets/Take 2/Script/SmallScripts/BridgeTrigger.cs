@@ -13,5 +13,6 @@ public class BridgeTrigger : MonoBehaviour {
             boss.bounceTrigger = true;
         }
     }
-
 }
+
+// no bugs plz
