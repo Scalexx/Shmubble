@@ -28,8 +28,6 @@ public class Boss : MonoBehaviour {
     [Tooltip("Intro duration for phase 2.")]
     public float introDuration2 = 1.0f;
 
-    public GameObject introParticle;
-
     private float time;
     private float timeEnv;
     private int attacksMax = 3;
@@ -264,6 +262,7 @@ public class Boss : MonoBehaviour {
             if (!phase2Entered)
             {
                 bossPhase1.SetActive(false);
+                state = State.INTRO;
                 bossPhaseFinal.SetActive(true);
                 animator = animatorPhaseFinal;
 
@@ -299,7 +298,8 @@ public class Boss : MonoBehaviour {
         {
             case State.INTRO:
                 // do intro stuff
-                HandleIntro();
+                bossPhase1.SetActive(true);
+                animator.SetTrigger("Intro");
 
                 animator.SetBool("Idle", true);
 
@@ -521,7 +521,7 @@ public class Boss : MonoBehaviour {
         {
             case State.INTRO:
                 // do intro stuff
-
+                animator.SetTrigger("Intro");
 
                 if (time <= 0)
                 {
@@ -773,12 +773,6 @@ public class Boss : MonoBehaviour {
         {
             LevelManager.Instance.DamageBoss(hit.gameObject.GetComponent<BulletData>().damage);
         }
-    }
-
-    void HandleIntro()
-    {
-        bossPhase1.SetActive(true);
-        animator.SetTrigger("Intro");
     }
 
     private int generateRandomNumber(int min, int max, int last)

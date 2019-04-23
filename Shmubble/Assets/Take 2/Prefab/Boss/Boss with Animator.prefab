@@ -4452,7 +4452,7 @@ MonoBehaviour:
   environmentalState: 1
   healthTriggerPhaseFinal: 0
   introDuration1: 4
-  introDuration2: 1
+  introDuration2: 4
   introParticle: {fileID: 0}
   idleMinTime: 2
   idleMaxTime: 4
