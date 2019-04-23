@@ -4453,7 +4453,6 @@ MonoBehaviour:
   healthTriggerPhaseFinal: 0
   introDuration1: 4
   introDuration2: 4
-  introParticle: {fileID: 0}
   idleMinTime: 2
   idleMaxTime: 4
   idleMinTimeFinal: 4
@@ -4487,12 +4486,41 @@ MonoBehaviour:
   anticipationTimerEnv2: 0
   shotsToFireAttack1: 15
   shotsToFireAttack2: 5
-  shotsToFireAttack3: 5
+  shotsToFireAttack3: 60
   spawnPointsAttack1:
   - {fileID: 0}
   spawnPointsAttack2:
   - {fileID: 0}
   spawnPointsAttack3:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   spawnPointsAttack4:
   - {fileID: 0}
@@ -4535,7 +4563,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  randomSpawnEnv1: 0
+  randomSpawnEnv1: 1
   randomSpawnEnv2: 0
   randomSpawnEnv3: 0
   randomSpawnEnv4: 0
