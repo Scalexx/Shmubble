@@ -250,6 +250,9 @@ MonoBehaviour:
   smoothCamera: {fileID: 114479383816141196}
   multipleTargets: {fileID: 114384474216578494}
   moveTo: {x: 5, y: 0, z: -12.5}
+  introParticle: {fileID: 0}
+  introTimerFull: 7
+  queueBossTimer: 5
 --- !u!124 &124585652627393696
 Behaviour:
   m_ObjectHideFlags: 1
