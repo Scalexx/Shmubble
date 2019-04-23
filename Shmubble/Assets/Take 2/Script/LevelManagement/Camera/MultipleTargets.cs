@@ -8,11 +8,13 @@ public class MultipleTargets : MonoBehaviour {
     [Tooltip("Targets for the camera.")]
     public List<Transform> targets;
 
+    [Space(10)]
     [Tooltip("Offset for the camera.")]
     public Vector3 offset;
     [Tooltip("Amount of time it will take to reach the target position. Lower numbers means it will move faster.")]
     public float smoothTime = .5f;
 
+    [Space(10)]
     [Tooltip("The furthest the camera will be. This value will change the Field of View of the camera.")]
     public float minZoom;
     [Tooltip("The closest the camera will be. This value will change the Field of View of the camera.")]

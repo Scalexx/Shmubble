@@ -64,10 +64,13 @@ public class Player : MonoBehaviour {
     public float knockBackPeriod;
     private float knockBackTimer;
 
+    [HideInInspector]
     public bool takenOver;
-
+    [HideInInspector]
     public bool lockMovement;
+    [HideInInspector]
     public bool allowDisable;
+    [HideInInspector]
     public bool disableShoot;
 
     private Vector3 moveVector;
@@ -89,7 +92,7 @@ public class Player : MonoBehaviour {
 		    dashing = true;
 	    }
 
-        EXshoot = (Input.GetButton("EX Shoot"));
+        EXshoot = Input.GetButton("EX Shoot");
 
         if (disableShoot)
         {

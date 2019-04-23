@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class IntroParticle : MonoBehaviour {
 
+    [Tooltip("The vfx prefab.")]
     public GameObject vfx;
+    [Tooltip("The gameobject the vfx prefab spawns from.")]
     public Transform startPoint;
+    [Tooltip("The gameobject the vfx prefab goes to.")]
     public Transform endPoint;
 
     void Start()

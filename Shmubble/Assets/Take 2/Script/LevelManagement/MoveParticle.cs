@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class MoveParticle : MonoBehaviour {
 
+    [Tooltip("The speed at which the object moves.")]
     public float speed;
+    [Tooltip("The prefab of the impact effect.")]
     public GameObject impactPrefab;
+    [Tooltip("All the trail particles which will need to stay once the gameobject is destroyed.")]
     public List<GameObject> trails;
 
-    public Boss boss;
+    Boss boss;
 
     void Start()
     {

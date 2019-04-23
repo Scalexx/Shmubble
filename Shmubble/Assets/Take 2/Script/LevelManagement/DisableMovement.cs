@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DisableMovement : MonoBehaviour {
 
+    [Tooltip("The amount of time that the player can't move.")]
     public float introTimer;
     private float introPeriod;
     Player playerScript;

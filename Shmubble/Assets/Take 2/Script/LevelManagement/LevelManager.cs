@@ -66,8 +66,11 @@ public class LevelManager : MonoBehaviour {
     [Tooltip("The boss gameobject.")]
     public Transform bossTransform;
 
+    [Header("Extras")]
+    [Tooltip("The animation of the camera's constant shaking.")]
     public Animation camAnim;
 
+    [HideInInspector]
     public int spawnPointNumber;
 
     // Called before Start ()
