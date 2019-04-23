@@ -17,6 +17,10 @@ public class SmoothCamera : MonoBehaviour {
     [Range(0, 1)]
     public float smoothSpeed = 0.125f;
 
+    [Space(10)]
+    [Tooltip("How fast the camera rotates to its target rotation.")]
+    public float smoothSpeedRotation = 3f;
+
     [Header("Movement restrictions")]
     [Tooltip("Gives camera bounds.")]
     public bool bounds;
@@ -55,7 +59,8 @@ public class SmoothCamera : MonoBehaviour {
         }
         if (cameraPanning)
         {
-            transform.LookAt(lookAt);
+            Vector3 relativePos = lookAt.position - transform.position;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(relativePos), Time.deltaTime * smoothSpeedRotation);
         }
         if (bounds)
         {
