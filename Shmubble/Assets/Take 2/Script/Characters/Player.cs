@@ -32,6 +32,8 @@ public class Player : MonoBehaviour {
     public ObjectPooler projectilePool;
     [Tooltip("The GameObject with the EX Projectile Object Pool on it.")]
     public ObjectPooler exProjectilePool;
+    private bool shooting;
+    private bool EXshoot;
 
     [Header("Dash")]
     [Tooltip ("Dash distance. Relates to the amount of time it stays in the dash.")]
@@ -66,6 +68,7 @@ public class Player : MonoBehaviour {
 
     public bool lockMovement;
     public bool allowDisable;
+    public bool disableShoot;
 
     private Vector3 moveVector;
     private Vector3 lastMotion;
@@ -85,6 +88,22 @@ public class Player : MonoBehaviour {
         {
 		    dashing = true;
 	    }
+
+        EXshoot = (Input.GetButton("EX Shoot"));
+
+        if (disableShoot)
+        {
+            shooting = false;
+        }
+        else if (Input.GetButton("Shoot") || Input.GetAxis("Shoot") > 0)
+        {
+            shooting = true;
+        }
+        else
+        {
+            shooting = false;
+        }
+
         if (allowDisable)
         {
             lockMovement = true;
@@ -202,11 +221,11 @@ public class Player : MonoBehaviour {
                 }
             }
         }
-        if (Input.GetButton("Shoot") || Input.GetAxis("Shoot") > 0)
+        if (shooting)
         {
             HandleShoot();
         }
-        if (Input.GetButton("EX Shoot"))
+        if (EXshoot)
         {
             if (LevelManager.Instance.damageDealt >= LevelManager.Instance.specialMaxCharge)
             {

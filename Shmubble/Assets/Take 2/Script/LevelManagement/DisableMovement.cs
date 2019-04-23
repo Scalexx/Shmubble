@@ -18,12 +18,14 @@ public class DisableMovement : MonoBehaviour {
             playerScript = GetComponent<Player>();
             introPeriod = introTimer;
             playerScript.allowDisable = true;
+            playerScript.disableShoot = true;
             entered = true;
         }
 
         if (introPeriod <= 0)
         {
             playerScript.allowDisable = false;
+            playerScript.disableShoot = false;
         }
         else
         {
