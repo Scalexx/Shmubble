@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 81175076386766464}
   - component: {fileID: 114479383816141196}
   - component: {fileID: 114384474216578494}
+  - component: {fileID: 111249463450693090}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -169,6 +170,21 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1282604718025114}
   m_Enabled: 1
+--- !u!111 &111249463450693090
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1282604718025114}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: a55463afa50d7b74bba1b496631121d5, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: a55463afa50d7b74bba1b496631121d5, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!111 &111320887615535614
 Animation:
   m_ObjectHideFlags: 1
@@ -230,10 +246,10 @@ MonoBehaviour:
   lookAt: {fileID: 0}
   smooth: 1
   cameraPanning: 1
-  smoothSpeed: 0.2
+  smoothSpeed: 0.15
   bounds: 1
   stopPanningWhenBound: 0
-  minBounds: {x: -17, y: 1, z: -7.5}
+  minBounds: {x: -16, y: 1, z: -7.5}
   maxBounds: {x: 12, y: 10, z: -7.5}
   offset: {x: 0, y: 1, z: -7.5}
 --- !u!114 &114566568249318924

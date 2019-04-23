@@ -31,6 +31,8 @@ public class SmoothCamera : MonoBehaviour {
     [Tooltip("Offset position.")]
     public Vector3 offset;
 
+    private Vector3 velocity;
+
     void FixedUpdate()
     {
         Vector3 desiredPosition = Vector3.zero;
@@ -45,7 +47,7 @@ public class SmoothCamera : MonoBehaviour {
 
         if(smooth)
         {
-            transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+            transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
         }
         else
         {
