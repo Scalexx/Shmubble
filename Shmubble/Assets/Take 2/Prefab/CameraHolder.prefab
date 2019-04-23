@@ -253,6 +253,7 @@ MonoBehaviour:
   minBounds: {x: -16, y: 1, z: -7.5}
   maxBounds: {x: 12, y: 10, z: -7.5}
   offset: {x: 0, y: 1, z: -7.5}
+  offsetRotation: {x: 0, y: 0.5, z: 0}
 --- !u!114 &114566568249318924
 MonoBehaviour:
   m_ObjectHideFlags: 1

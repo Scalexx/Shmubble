@@ -34,6 +34,8 @@ public class SmoothCamera : MonoBehaviour {
     [Space(20)]
     [Tooltip("Offset position.")]
     public Vector3 offset;
+    [Tooltip("Offset rotation")]
+    public Vector3 offsetRotation;
 
     private Vector3 velocity;
 
@@ -59,7 +61,7 @@ public class SmoothCamera : MonoBehaviour {
         }
         if (cameraPanning)
         {
-            Vector3 relativePos = lookAt.position - transform.position;
+            Vector3 relativePos = lookAt.position - transform.position + offsetRotation;
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(relativePos), Time.deltaTime * smoothSpeedRotation);
         }
         if (bounds)
