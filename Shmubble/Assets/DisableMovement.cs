@@ -11,23 +11,19 @@ public class DisableMovement : MonoBehaviour {
     [HideInInspector]
     public bool entered;
 
-    void Start()
-    {
-        
-    }
     void Update()
     {
         if (!entered)
         {
             playerScript = GetComponent<Player>();
             introPeriod = introTimer;
-            playerScript.enabled = false;
+            playerScript.allowDisable = true;
             entered = true;
         }
 
         if (introPeriod <= 0)
         {
-            playerScript.enabled = true;
+            playerScript.allowDisable = false;
         }
         else
         {

@@ -64,6 +64,9 @@ public class Player : MonoBehaviour {
 
     public bool takenOver;
 
+    public bool lockMovement;
+    public bool allowDisable;
+
     private Vector3 moveVector;
     private Vector3 lastMotion;
     private CharacterController controller;
@@ -74,12 +77,26 @@ public class Player : MonoBehaviour {
     }
 
 	void Update() {
-	if (Input.GetButtonDown("Jump")) {
-		jumping = true;
-	}
-	if (Input.GetButtonDown("Dash")) {
-		dashing = true;
-	}
+	    if (Input.GetButtonDown("Jump"))
+        {
+		    jumping = true;
+	    }
+	    if (Input.GetButtonDown("Dash"))
+        {
+		    dashing = true;
+	    }
+        if (allowDisable)
+        {
+            lockMovement = true;
+        }
+        else if (Input.GetButton("Lock Movement"))
+        {
+            lockMovement = true;
+        }
+        else
+        {
+            lockMovement = false;
+        }
 	}
 	
 	void FixedUpdate () {
@@ -87,7 +104,7 @@ public class Player : MonoBehaviour {
         {
             inputDirection = Input.GetAxis("Horizontal") * speed;
 
-            if (IsControllerGrounded() && Input.GetButton("Lock Movement"))
+            if (IsControllerGrounded() && lockMovement)
             {
                 moveVector.x = 0;
                 moveVector.y -= gravity * Time.deltaTime;
