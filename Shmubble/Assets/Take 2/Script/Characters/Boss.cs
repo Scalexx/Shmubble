@@ -177,6 +177,7 @@ public class Boss : MonoBehaviour {
     [Tooltip("The GameObjects the bullets can spawn from during the sixth environmental attack.")]
     public List<Transform> spawnPointsEnv6 = new List<Transform>();
     int spawnPointIntEnv;
+    int lastSpawnEnvInt;
     Transform spawnPointEnv;
 
     [Space(10)]
@@ -192,6 +193,7 @@ public class Boss : MonoBehaviour {
     public bool randomSpawnEnv5;
     [Tooltip("Chooses whether the bullets spawn from random points in the list during the sixth environmental attack.")]
     public bool randomSpawnEnv6;
+    private bool randomSpawnEnvChosen;
 
     [Space(10)]
     [Tooltip("The Gameobjects with the Object Pool on it.")]
@@ -697,7 +699,7 @@ public class Boss : MonoBehaviour {
                     if (spawnPointIntEnv < spawnPointsEnv4.Count)
                     {
                         spawnPointEnv = spawnPointsEnv4[spawnPointIntEnv];
-                        HandleEnvironmental(0f, null);
+                        HandleEnvironmental(0f, null, spawnPointEnv);
                     }
                     else
                     {
@@ -724,7 +726,7 @@ public class Boss : MonoBehaviour {
                     if (spawnPointIntEnv < spawnPointsEnv5.Count)
                     {
                         spawnPointEnv = spawnPointsEnv5[spawnPointIntEnv];
-                        HandleEnvironmental(0f, null);
+                        HandleEnvironmental(0f, null, spawnPointEnv);
                     }
                     else
                     {
@@ -751,7 +753,7 @@ public class Boss : MonoBehaviour {
                     if (spawnPointIntEnv < spawnPointsEnv6.Count)
                     {
                         spawnPointEnv = spawnPointsEnv6[spawnPointIntEnv];
-                        HandleEnvironmental(0f, null);
+                        HandleEnvironmental(0f, null, spawnPointEnv);
                     }
                     else
                     {
@@ -917,15 +919,16 @@ public class Boss : MonoBehaviour {
     {
         if (shotsFired < shotsToFireAttack - 1)
         {
-            if (randomSpawn)
+            if (randomSpawn && !randomSpawnEnvChosen)
             {
-                spawnPointIntEnv = Random.Range(0, spawnPoints.Count);
+                spawnPointIntEnv = generateRandomNumber(0, spawnPoints.Count, lastSpawnEnvInt);
+                randomSpawnEnvChosen = true;
             }
 
             if (spawnPointIntEnv < spawnPoints.Count)
             {
                 spawnPointEnv = spawnPoints[spawnPointIntEnv];
-                HandleEnvironmental(environmentalTimer, environmentalEffect);
+                HandleEnvironmental(environmentalTimer, environmentalEffect, spawnPointEnv);
             }
             else
             {
@@ -967,7 +970,7 @@ public class Boss : MonoBehaviour {
         }
     }
 
-    public void HandleEnvironmental(float anticipationTimerEnv, GameObject anticipationEnv)
+    public void HandleEnvironmental(float anticipationTimerEnv, GameObject anticipationEnv, Transform spawnPoint)
     {
         if (timeBetweenShotsEnv <= 0)
         {
@@ -975,7 +978,8 @@ public class Boss : MonoBehaviour {
             {
                 if (anticipationEnv != null)
                 {
-                    Instantiate(anticipationEnv, spawnPointEnv.position + effectOffset, anticipationEnv.transform.rotation);
+                    Vector3 temp = spawnPoint.position + effectOffset;
+                    Instantiate(anticipationEnv, temp, anticipationEnv.transform.rotation);
                 }
                 anticipationEnvPeriod = anticipationTimerEnv;
                 anticipationDone = true;
@@ -984,8 +988,8 @@ public class Boss : MonoBehaviour {
             {
                 GameObject newProjectile = environmentalPools[environmentalChoice].GetPooledObject();
 
-                newProjectile.transform.position = spawnPointEnv.position;
-                newProjectile.transform.rotation = spawnPointEnv.rotation;
+                newProjectile.transform.position = spawnPoint.position;
+                newProjectile.transform.rotation = spawnPoint.rotation;
                 newProjectile.SetActive(true);
 
                 BulletData temp = newProjectile.GetComponent<BulletData>();
@@ -1012,6 +1016,7 @@ public class Boss : MonoBehaviour {
                     environmentalState = State.IDLE;
                 }
                 anticipationDone = false;
+                randomSpawnEnvChosen = false;
             }
             else
             {
