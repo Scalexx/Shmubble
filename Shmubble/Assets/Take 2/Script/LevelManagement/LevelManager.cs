@@ -57,8 +57,8 @@ public class LevelManager : MonoBehaviour {
     public PauseMenu pauseMenu;
 
     [Header("Spawn")]
-    [Tooltip("The spawn location of the player at the start and when going out of bounds.")]
-    public Transform spawnPosition;
+    [Tooltip("The spawn locations of the player when going out of bounds.")]
+    public List<Transform> spawnPositions;
 
     [Header("Scene subjects")]
     [Tooltip("The player gameobject.")]
@@ -67,6 +67,8 @@ public class LevelManager : MonoBehaviour {
     public Transform bossTransform;
 
     public Animation camAnim;
+
+    public int spawnPointNumber;
 
     // Called before Start ()
     private void Awake ()
@@ -122,7 +124,7 @@ public class LevelManager : MonoBehaviour {
         }
 
         // Out of bounds
-        playerTransform.position = spawnPosition.position;
+        playerTransform.position = spawnPositions[spawnPointNumber].position;
         playerTransform.GetComponent<Player>().Invulnerable();
         GetDamaged(outOfBoundsDam);
     }
