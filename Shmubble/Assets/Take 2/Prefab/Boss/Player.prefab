@@ -2234,6 +2234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introTimer: 3
+  entered: 0
 --- !u!114 &114888668478743008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2266,6 +2267,8 @@ MonoBehaviour:
   knockBackForce: 15
   knockBackPeriod: 0.2
   takenOver: 0
+  lockMovement: 0
+  allowDisable: 0
 --- !u!137 &137410864065380428
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

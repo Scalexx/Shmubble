@@ -31,6 +31,7 @@ public class LevelManager : MonoBehaviour {
     [Header("Out of bounds")]
     [Tooltip("Amount of damage done to the player when going out of bounds.")]
     public float outOfBoundsDamage;
+    float outOfBoundsDam;
 
     [Header("UI")]
     [Tooltip("Healthbar gameobject.")]
@@ -111,10 +112,19 @@ public class LevelManager : MonoBehaviour {
 
     public void OutOfBounds()
     {
+        if (bossTransform.GetComponent<Boss>().enabled == true)
+        {
+            outOfBoundsDam = outOfBoundsDamage;
+        }
+        else
+        {
+            outOfBoundsDam = 0f;
+        }
+
         // Out of bounds
         playerTransform.position = spawnPosition.position;
         playerTransform.GetComponent<Player>().Invulnerable();
-        GetDamaged(outOfBoundsDamage);
+        GetDamaged(outOfBoundsDam);
     }
 
     public void GetDamaged (float damage)

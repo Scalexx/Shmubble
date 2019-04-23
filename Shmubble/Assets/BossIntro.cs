@@ -23,7 +23,6 @@ public class BossIntro : MonoBehaviour {
         {
             playerDisable.entered = false;
             playerDisable.introTimer = introTimerFull;
-            playerDisable.enabled = true;
 
             introPeriod = introTimerFull;
             smoothCamera.enabled = false;
@@ -45,7 +44,6 @@ public class BossIntro : MonoBehaviour {
             if (introPeriod <= 0)
             {
                 HUDAnim.Play("HUDin");
-                playerDisable.enabled = false;
                 multipleTargets.enabled = true;
                 smooth = false;
                 Destroy(gameObject);
