@@ -2269,6 +2269,7 @@ MonoBehaviour:
   takenOver: 0
   lockMovement: 0
   allowDisable: 0
+  disableShoot: 0
 --- !u!137 &137410864065380428
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -2316,6 +2316,10 @@ MonoBehaviour:
   damageDealt: 0
   outOfBoundsDamage: 5
   healthBar: {fileID: 0}
+  healthBarFillArea: {fileID: 0}
+  healthBarFillColor1: {r: 0.6156863, g: 0.7882353, b: 0.47843137, a: 1}
+  healthBarFillColor2: {r: 0.8161765, g: 0.5351502, b: 0.23405059, a: 1}
+  healthBarFillColor3: {r: 0.74264705, g: 0.049145762, b: 0.049145762, a: 1}
   exBar: {fileID: 0}
   speedBar: 2
   gameOver: {fileID: 0}

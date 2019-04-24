@@ -36,6 +36,10 @@ public class LevelManager : MonoBehaviour {
     [Header("UI")]
     [Tooltip("Healthbar gameobject.")]
     public Slider healthBar;
+    public Image healthBarFillArea;
+    public Color healthBarFillColor1;
+    public Color healthBarFillColor2;
+    public Color healthBarFillColor3;
     [Tooltip("EXbar gameobject.")]
     public Slider exBar;
     float tValue;
@@ -93,10 +97,23 @@ public class LevelManager : MonoBehaviour {
     void Update ()
     {
         camAnim.Play();
-        if (healthBar.GetComponent<Slider>().value != health)
+        var healthBarValue = healthBar.GetComponent<Slider>().value;
+        if (healthBarValue != health)
         {
             tValue += speedBar * Time.unscaledDeltaTime;
             healthBar.GetComponent<Slider>().value = Mathf.SmoothStep(healthBar.GetComponent<Slider>().value, health, tValue);
+            if (healthBarValue > healthTrigger1)
+            {
+                healthBarFillArea.color = healthBarFillColor1;
+            }
+            else if (healthBarValue <= healthTrigger1)
+            {
+                healthBarFillArea.color = healthBarFillColor2;
+            }
+            else
+            {
+                healthBarFillArea.color = healthBarFillColor3;
+            }
         }
         if (exBar.GetComponent<Slider>().value != damageDealt)
         {
