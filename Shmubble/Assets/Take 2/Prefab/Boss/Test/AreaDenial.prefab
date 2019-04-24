@@ -190,7 +190,9 @@ MonoBehaviour:
   timeBetweenShots: 10
   destroyOnTouch: 0
   destroyOtherOnTouch: 0
+  destroyOnCollisionGround: 0
   stopTimer: 0
+  destroyEffect: {fileID: 0}
   useCurve: 0
   useXCurve: 0
   trajectoryCurveX:

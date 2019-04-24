@@ -4459,18 +4459,18 @@ MonoBehaviour:
   idleMaxTimeFinal: 6
   idleMinTimeEnv: 2
   idleMaxTimeEnv: 4
-  attackEffect1: {fileID: 1464249523629184, guid: 4ddeb7b867783c846a3cce6577ededfd,
+  attackEffect1: {fileID: 1399407284844446, guid: 92fc1be414f3c2047af4eb2a251dff26,
     type: 2}
-  attackEffect2: {fileID: 1464249523629184, guid: 75475ae60143872468031dfd87429fe3,
+  attackEffect2: {fileID: 1166548021354220, guid: 75475ae60143872468031dfd87429fe3,
     type: 2}
-  attackEffect3: {fileID: 1464249523629184, guid: 9aa9904c0fc4c61498216ad9e8c18c5a,
+  attackEffect3: {fileID: 1771078944604200, guid: 323728943b52f0d40977f8fd0bf15ce6,
     type: 2}
   spawnPointEffect: {fileID: 0}
-  anticipationEffectAttack1: {fileID: 1056836681276468, guid: 63cb45d0ec039ee45ab0a6129d0df924,
+  anticipationEffectAttack1: {fileID: 1177865260295994, guid: 7f930ebe4a1e809418af6f7cf796e81e,
     type: 2}
-  anticipationEffectAttack2: {fileID: 1056836681276468, guid: 363586930b07c7e4788dfdde7b0ddf5f,
+  anticipationEffectAttack2: {fileID: 1350745948332316, guid: 0211887471d56a846a01e09019fdb3c0,
     type: 2}
-  anticipationEffectAttack3: {fileID: 1056836681276468, guid: 267cd3e03977a324bbf1b11ad743b936,
+  anticipationEffectAttack3: {fileID: 1385419175392460, guid: b66b8d3c62ee1cd4cb6b66358b70820d,
     type: 2}
   anticipationEffectAttack4: {fileID: 0}
   anticipationTimer: 3.1

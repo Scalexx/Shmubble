@@ -699,42 +699,6 @@ Prefab:
       propertyPath: canvasAnim
       value: 
       objectReference: {fileID: 654713332}
-    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
-        type: 2}
-      propertyPath: attackEffect1
-      value: 
-      objectReference: {fileID: 1771643376070456, guid: 93212b3a9d7fc0f4ca40d1308018c185,
-        type: 2}
-    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
-        type: 2}
-      propertyPath: attackEffect2
-      value: 
-      objectReference: {fileID: 1627320832593534, guid: 75475ae60143872468031dfd87429fe3,
-        type: 2}
-    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
-        type: 2}
-      propertyPath: attackEffect3
-      value: 
-      objectReference: {fileID: 1973157130503298, guid: 9aa9904c0fc4c61498216ad9e8c18c5a,
-        type: 2}
-    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
-        type: 2}
-      propertyPath: anticipationEffectAttack1
-      value: 
-      objectReference: {fileID: 1177865260295994, guid: 7f930ebe4a1e809418af6f7cf796e81e,
-        type: 2}
-    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
-        type: 2}
-      propertyPath: anticipationEffectAttack2
-      value: 
-      objectReference: {fileID: 1350745948332316, guid: 0211887471d56a846a01e09019fdb3c0,
-        type: 2}
-    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
-        type: 2}
-      propertyPath: anticipationEffectAttack3
-      value: 
-      objectReference: {fileID: 1385419175392460, guid: b66b8d3c62ee1cd4cb6b66358b70820d,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70c0c1a568d015f4f9bf6a013ef3928c, type: 2}
   m_IsPrefabParent: 0
@@ -1476,7 +1440,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1913594899032892, guid: d0ad52518ecb37646b4beb1a9a91e191, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1662340053034856, guid: d0ad52518ecb37646b4beb1a9a91e191, type: 2}
       propertyPath: m_IsActive
