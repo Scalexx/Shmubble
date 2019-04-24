@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 44df1a06b95d71b42be199b835a3679d
-timeCreated: 1556142416
+guid: fb98988f8bffe1440a6a6c93ff2ef143
+timeCreated: 1556147302
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -55,7 +55,7 @@ ModelImporter:
     4300016: TrainWheel.006
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
