@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4078344016883774}
   m_Layer: 0
-  m_Name: TopGlow 1
+  m_Name: AttackEffect 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
