@@ -115,7 +115,7 @@ MonoBehaviour:
   damage: 4
   velocity: {x: 0, y: 0, z: 0}
   timeBetweenShots: 0.1
-  destroyOnTouch: 1
+  destroyOnTouch: 0
   destroyOtherOnTouch: 0
   destroyOnCollisionGround: 0
   stopTimer: 0
