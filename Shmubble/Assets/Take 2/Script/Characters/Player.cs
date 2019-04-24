@@ -14,7 +14,6 @@ public class Player : MonoBehaviour {
     public float jumpHeight;
     [Tooltip ("How fast the character falls back down.")]
     public float gravity = 25.0f;
-    private bool secondJump = false;
     [Tooltip ("Layer to check when the player is grounded.")]
     public LayerMask groundLayer;
     private bool crouch;
@@ -149,7 +148,6 @@ public class Player : MonoBehaviour {
                 if (IsControllerGrounded())
                 {
                     verticalVelocity = 0;
-                    secondJump = true;
 
                     if (jumping)
                     {
@@ -159,16 +157,7 @@ public class Player : MonoBehaviour {
                 }
                 else
                 {
-                    if (jumping)
-                    {
-                        if (secondJump)
-                        {
-                            verticalVelocity = jumpHeight;
-                            secondJump = false;
-                        }
-			            jumping = false;
-                    }
-
+                    jumping = false;
                     verticalVelocity -= gravity * Time.deltaTime;
                 }
                 if (takenOver)
