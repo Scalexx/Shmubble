@@ -181,7 +181,7 @@ public class BulletData : MonoBehaviour {
             }
             gameObject.SetActive(false);
         }
-        else if (gameObject.CompareTag("Projectile") && hit.gameObject.CompareTag("Boss"))
+        if (gameObject.CompareTag("Projectile") && hit.gameObject.CompareTag("Boss"))
         {
             if (destroyEffect != null)
             {

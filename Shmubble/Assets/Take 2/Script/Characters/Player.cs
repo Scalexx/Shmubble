@@ -82,11 +82,9 @@ public class Player : MonoBehaviour {
     }
 
 	void Update() {
-	    if (Input.GetButtonDown("Jump"))
-        {
-		    jumping = true;
-	    }
-	    if (Input.GetButtonDown("Dash"))
+        jumping = Input.GetButton("Jump");
+
+        if (Input.GetButtonDown("Dash"))
         {
 		    dashing = true;
 	    }
@@ -152,12 +150,10 @@ public class Player : MonoBehaviour {
                     if (jumping)
                     {
                         verticalVelocity = jumpHeight;
-			            jumping = false;
                     }
                 }
                 else
                 {
-                    jumping = false;
                     verticalVelocity -= gravity * Time.deltaTime;
                 }
                 if (takenOver)
