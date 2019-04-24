@@ -1188,6 +1188,11 @@ Prefab:
       propertyPath: camAnim
       value: 
       objectReference: {fileID: 1651912188}
+    - target: {fileID: 114171955745025992, guid: fa75b19d678c1f948b6df428d9ef8325,
+        type: 2}
+      propertyPath: playerBulletMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 627b3e118cb4f0141a669234915ee9d6, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa75b19d678c1f948b6df428d9ef8325, type: 2}
   m_IsPrefabParent: 0

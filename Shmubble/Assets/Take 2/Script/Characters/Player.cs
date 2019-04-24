@@ -181,6 +181,18 @@ public class Player : MonoBehaviour {
                 }
                 
                 moveVector.y = verticalVelocity;
+
+                if (shooting)
+                {
+                    HandleShoot();
+                }
+                if (EXshoot)
+                {
+                    if (LevelManager.Instance.damageDealt >= LevelManager.Instance.specialMaxCharge)
+                    {
+                        HandleExShoot();
+                    }
+                }
             }
         }
         else
@@ -222,17 +234,6 @@ public class Player : MonoBehaviour {
                 {
                     playerRenderers[i].enabled = !playerRenderers[i].enabled;
                 }
-            }
-        }
-        if (shooting)
-        {
-            HandleShoot();
-        }
-        if (EXshoot)
-        {
-            if (LevelManager.Instance.damageDealt >= LevelManager.Instance.specialMaxCharge)
-            {
-                HandleExShoot();
             }
         }
     }

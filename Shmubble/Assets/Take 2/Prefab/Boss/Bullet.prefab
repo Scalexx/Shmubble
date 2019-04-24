@@ -58,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 791a2eb2610b46840a1ba84521f5499b, type: 2}
+  - {fileID: 2100000, guid: 627b3e118cb4f0141a669234915ee9d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -117,7 +117,9 @@ MonoBehaviour:
   timeBetweenShots: 0.2
   destroyOnTouch: 0
   destroyOtherOnTouch: 0
+  destroyOnCollisionGround: 0
   stopTimer: 0
+  destroyEffect: {fileID: 0}
   useCurve: 0
   useXCurve: 0
   trajectoryCurveX:

@@ -36,10 +36,20 @@ public class LevelManager : MonoBehaviour {
     [Header("UI")]
     [Tooltip("Healthbar gameobject.")]
     public Slider healthBar;
+    [Tooltip("Healthbar fill area object.")]
     public Image healthBarFillArea;
+    public Material playerBulletMaterial;
+
+
+    [Space(10)]
+    [Tooltip("Color of the healthbar when it's full.")]
     public Color healthBarFillColor1;
+    [Tooltip("Color of the healthbar when it's at 25%.")]
     public Color healthBarFillColor2;
+    [Tooltip("Color of the healthbar when at 1 HP.")]
     public Color healthBarFillColor3;
+
+    [Space(10)]
     [Tooltip("EXbar gameobject.")]
     public Slider exBar;
     float tValue;
@@ -92,6 +102,8 @@ public class LevelManager : MonoBehaviour {
         healthBar.GetComponent<Slider>().maxValue = health;
         exBar.GetComponent<Slider>().maxValue = specialMaxCharge;
         gameOverProgressBar.maxValue = bossHealth;
+
+        playerBulletMaterial.color = healthBarFillColor1;
     }
 
     void Update ()
@@ -101,18 +113,22 @@ public class LevelManager : MonoBehaviour {
         if (healthBarValue != health)
         {
             tValue += speedBar * Time.unscaledDeltaTime;
-            healthBar.GetComponent<Slider>().value = Mathf.SmoothStep(healthBar.GetComponent<Slider>().value, health, tValue);
+            healthBar.GetComponent<Slider>().value = Mathf.SmoothStep(healthBarValue, health, tValue);
+
             if (healthBarValue > healthTrigger1)
             {
-                healthBarFillArea.color = healthBarFillColor1;
+                healthBarFillArea.color = Color.Lerp(healthBarFillArea.color, healthBarFillColor1, tValue);
+                playerBulletMaterial.color = Color.Lerp(playerBulletMaterial.color, healthBarFillColor1, tValue);
             }
             else if (healthBarValue <= healthTrigger1)
             {
-                healthBarFillArea.color = healthBarFillColor2;
+                healthBarFillArea.color = Color.Lerp(healthBarFillArea.color, healthBarFillColor2, tValue);
+                playerBulletMaterial.color = Color.Lerp(playerBulletMaterial.color, healthBarFillColor2, tValue);
             }
             else
             {
-                healthBarFillArea.color = healthBarFillColor3;
+                healthBarFillArea.color = Color.Lerp(healthBarFillArea.color, healthBarFillColor3, tValue);
+                playerBulletMaterial.color = Color.Lerp(playerBulletMaterial.color, healthBarFillColor3, tValue);
             }
         }
         if (exBar.GetComponent<Slider>().value != damageDealt)
