@@ -28,6 +28,7 @@ public class BossIntro : MonoBehaviour {
     [Tooltip("The gameobject which handles the intro particle.")]
     public GameObject introParticle;
 
+    bool entered;
     float introPeriod;
     bool smooth;
     private Vector3 velocity;
@@ -36,16 +37,22 @@ public class BossIntro : MonoBehaviour {
     {
         if (hit.gameObject.CompareTag("Player"))
         {
+            entered = true;
+        }
+    }
+    void Update()
+    {
+        if (entered)
+        {
             playerDisable.entered = false;
             playerDisable.introTimer = introTimerFull;
 
             introPeriod = introTimerFull;
             smoothCamera.enabled = false;
             smooth = true;
+            entered = false;
         }
-    }
-    void Update()
-    {
+
         if (smooth)
         {
             smoothCamera.gameObject.transform.position = Vector3.SmoothDamp(smoothCamera.gameObject.transform.position, moveTo, ref velocity, 1f);
