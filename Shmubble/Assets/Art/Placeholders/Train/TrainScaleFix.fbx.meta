@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: fb98988f8bffe1440a6a6c93ff2ef143
-timeCreated: 1556147302
+guid: 9997ad8b39b1b714b9eb748ecf3c8f90
+timeCreated: 1556148688
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -53,9 +53,14 @@ ModelImporter:
     4300012: TrainWheel.005
     4300014: TrainWheel.007
     4300016: TrainWheel.006
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: c3efed7419c7db24a8fcf220500ce104, type: 2}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
