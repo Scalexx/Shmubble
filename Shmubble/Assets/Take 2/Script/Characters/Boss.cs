@@ -865,7 +865,9 @@ public class Boss : MonoBehaviour {
             {
                 anticipationPeriod = anticipationTimerEffect;
                 animator.SetTrigger("Attack");
+                
                 anticipationEffectActive = Instantiate(anticipationEffect, gameObject.transform.position, anticipationEffect.transform.rotation);
+                
                 attackEffectActive = Instantiate(attackEffect, spawnPointEffect.position, attackEffect.transform.rotation);
 
                 animator.SetBool("Idle", true);
@@ -896,7 +898,22 @@ public class Boss : MonoBehaviour {
                     Destroy(anticipationEffectActive);
                     anticipationEffectActive = null;
 
-                    Destroy(attackEffectActive);
+                    float timer;
+                    var ps = attackEffectActive.GetComponent<ParticleSystem>();
+                    if (ps != null)
+                    {
+                        ps.Stop();
+                        timer = ps.main.duration + ps.main.startLifetime.constantMax;
+                        Destroy(ps.gameObject, timer);
+                    }
+                    else
+                    {
+                        var psChild = attackEffectActive.transform.GetChild(0).GetComponent<ParticleSystem>();
+                        psChild.Stop();
+                        timer = psChild.main.duration + psChild.main.startLifetime.constantMax;
+                        Destroy(psChild.gameObject, timer);
+                    }
+                    Destroy(attackEffectActive, timer);
                     attackEffectActive = null;
 
                     attackEntered = false;
