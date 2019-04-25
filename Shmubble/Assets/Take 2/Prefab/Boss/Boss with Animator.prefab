@@ -4587,6 +4587,7 @@ MonoBehaviour:
   - {fileID: 137922227101186510}
   - {fileID: 137789225980971454}
   - {fileID: 137439658318692064}
+  flashColor: {r: 0.047058824, g: 0.2784314, b: 0.2784314, a: 0.101960786}
   flashLength: 0.05
   canvasAnim: {fileID: 0}
   bossPhase1: {fileID: 1559575541996832}
