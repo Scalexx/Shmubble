@@ -123,21 +123,34 @@ public class BulletData : MonoBehaviour {
         }
 
         curveTimer = 0;
+        stopHomingPeriod = stopHomingTimer;
 
         if (gameObject.CompareTag ("ProjectileBoss"))
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
-            gameObject.layer = 9;
+            if (target != null)
+            {
+                gameObject.layer = 9;
+            }
+            else
+            {
+                return;
+            }
         }
         else if (gameObject.CompareTag("Projectile"))
         {
             target = GameObject.FindGameObjectWithTag("Boss").transform;
-            gameObject.layer = 8;
+            if (target != null)
+            {
+                gameObject.layer = 8;
+            }
+            else
+            {
+                return;
+            }
         }
         targetPos = target.position;
         velocityTarget = (targetPos - transform.position).normalized;
-
-        stopHomingPeriod = stopHomingTimer;
     }
 
     void FixedUpdate ()
@@ -245,10 +258,14 @@ public class BulletData : MonoBehaviour {
     void HomingMovement()
     {
         Vector3 direction = Vector3.zero;
-        if (stopHomingPeriod >= 0)
+        if (stopHomingPeriod >= 0 && target != null)
         {
             direction = target.position - rb.position;
             direction.Normalize();
+        }
+        else
+        {
+            return;
         }
         Vector3 rotateAmount = Vector3.Cross(transform.right, direction);
         rb.angularVelocity = rotateAmount * angleChangingSpeed;

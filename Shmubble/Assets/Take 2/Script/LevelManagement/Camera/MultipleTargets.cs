@@ -24,6 +24,7 @@ public class MultipleTargets : MonoBehaviour {
 
     private Camera cam;
     private Vector3 velocity;
+    private Bounds bounds;
 
     void Start()
     {
@@ -77,13 +78,17 @@ public class MultipleTargets : MonoBehaviour {
 
     Bounds GetBounds()
     {
-        var bounds = new Bounds(targets[0].position, Vector3.zero);
-        if (bounds!= null)
+        if (targets[0] != null)
         {
+            bounds = new Bounds(targets[0].position, Vector3.zero);
             for (int i = 0; i < targets.Count; i++)
             {
                 bounds.Encapsulate(targets[i].position);
             }
+        }
+        else
+        {
+            targets.RemoveAt(0);
         }
 
         return bounds;
