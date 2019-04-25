@@ -196,7 +196,8 @@ public class BulletData : MonoBehaviour {
     {
         if (destroyEffect != null)
         {
-            Instantiate(destroyEffect, gameObject.transform.position, destroyEffect.transform.rotation);
+            var impactVFX = Instantiate(destroyEffect, transform.position, destroyEffect.transform.rotation) as GameObject;
+            Destroy(impactVFX, 5);
         }
 
         if (trails.Count > 0)
