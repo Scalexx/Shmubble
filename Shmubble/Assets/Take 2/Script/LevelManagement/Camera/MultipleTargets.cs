@@ -78,9 +78,12 @@ public class MultipleTargets : MonoBehaviour {
     Bounds GetBounds()
     {
         var bounds = new Bounds(targets[0].position, Vector3.zero);
-        for (int i = 0; i < targets.Count; i++)
+        if (bounds!= null)
         {
-            bounds.Encapsulate(targets[i].position);
+            for (int i = 0; i < targets.Count; i++)
+            {
+                bounds.Encapsulate(targets[i].position);
+            }
         }
 
         return bounds;

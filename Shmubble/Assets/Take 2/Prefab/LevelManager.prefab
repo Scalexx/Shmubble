@@ -2351,6 +2351,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
+  healthTrigger1: 0
+  healthTrigger2: 0
   bossHealth: 2000
   healthTriggerEnvironmental: 1999
   healthTriggerPhaseFinal: 1900
@@ -2359,13 +2361,14 @@ MonoBehaviour:
   outOfBoundsDamage: 5
   healthBar: {fileID: 0}
   healthBarFillArea: {fileID: 0}
-  playerBulletMaterial: {fileID: 2100000, guid: 627b3e118cb4f0141a669234915ee9d6,
-    type: 2}
   healthBarFillColor1: {r: 0.6156863, g: 0.7882353, b: 0.47843137, a: 1}
   healthBarFillColor2: {r: 0.8161765, g: 0.5351502, b: 0.23405059, a: 1}
   healthBarFillColor3: {r: 0.74264705, g: 0.049145762, b: 0.049145762, a: 1}
   exBar: {fileID: 0}
+  tValue: 0
+  perc: 0
   speedBar: 2
+  totalTimeBar: 0.5
   gameOver: {fileID: 0}
   gameOverProgressBar: {fileID: 0}
   winScreen: {fileID: 0}

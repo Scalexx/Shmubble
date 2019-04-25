@@ -21,8 +21,6 @@ public class BulletData : MonoBehaviour {
     public bool destroyOnCollisionGround;
     [Tooltip("Estimated time the projectile needs to leave the screen (Boss Idle wait time).")]
     public float stopTimer;
-    [Tooltip("Gameobject that spawns once the bullet is destroyed.")]
-    public GameObject destroyEffect;
 
     [Space(10)]
     [Header("Curve movement")]
@@ -77,6 +75,13 @@ public class BulletData : MonoBehaviour {
     public bool useTarget;
     Vector3 targetPos;
     Vector3 velocityTarget;
+
+    [Space(10)]
+    [Header("Effects")]
+    [Tooltip("All the trail particles which will need to stay once the gameobject is destroyed.")]
+    public List<GameObject> trails;
+    [Tooltip("Gameobject that spawns once the bullet is destroyed.")]
+    public GameObject destroyEffect;
 
     Rigidbody rb;
     bool solidObject;
@@ -175,28 +180,38 @@ public class BulletData : MonoBehaviour {
         }
         else if (destroyOnTouch && target.gameObject.layer == hit.gameObject.layer)
         {
-            if (destroyEffect != null)
-            {
-                Instantiate(destroyEffect, gameObject.transform.position, destroyEffect.transform.rotation);
-            }
-            gameObject.SetActive(false);
+            DestroyMe();
         }
         if (gameObject.CompareTag("Projectile") && hit.gameObject.CompareTag("Boss"))
         {
-            if (destroyEffect != null)
-            {
-                Instantiate(destroyEffect, gameObject.transform.position, destroyEffect.transform.rotation);
-            }
-            gameObject.SetActive(false);
+            DestroyMe();
         }
         if (destroyOnCollisionGround && hit.gameObject.layer == 10)
         {
-            if (destroyEffect != null)
-            {
-                Instantiate(destroyEffect, gameObject.transform.position, destroyEffect.transform.rotation);
-            }
-            gameObject.SetActive(false);
+            DestroyMe();
         }
+    }
+
+    void DestroyMe()
+    {
+        if (destroyEffect != null)
+        {
+            Instantiate(destroyEffect, gameObject.transform.position, destroyEffect.transform.rotation);
+        }
+
+        if (trails.Count > 0)
+        {
+            for (int i = 0; i < trails.Count; i++)
+            {
+                var ps = trails[i].GetComponent<ParticleSystem>();
+                if (ps != null)
+                {
+                    ps.Stop();
+                }
+            }
+        }
+
+        gameObject.SetActive(false);
     }
 
     void CurveMovement()

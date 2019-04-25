@@ -316,6 +316,21 @@ Prefab:
       propertyPath: lookAt
       value: 
       objectReference: {fileID: 1379962273}
+    - target: {fileID: 20227051415476022, guid: a970bbf5276071944b0a1c16d5ed1807,
+        type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0.0467128
+      objectReference: {fileID: 0}
+    - target: {fileID: 20227051415476022, guid: a970bbf5276071944b0a1c16d5ed1807,
+        type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0.12004997
+      objectReference: {fileID: 0}
+    - target: {fileID: 20227051415476022, guid: a970bbf5276071944b0a1c16d5ed1807,
+        type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0.2352941
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a970bbf5276071944b0a1c16d5ed1807, type: 2}
   m_IsPrefabParent: 0
@@ -1179,6 +1194,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114956091310146346, guid: fa75b19d678c1f948b6df428d9ef8325,
+        type: 2}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 282284857}
     - target: {fileID: 114171955745025992, guid: fa75b19d678c1f948b6df428d9ef8325,
         type: 2}
       propertyPath: healthBar
@@ -1229,11 +1249,6 @@ Prefab:
       propertyPath: camAnim
       value: 
       objectReference: {fileID: 1651912188}
-    - target: {fileID: 114956091310146346, guid: fa75b19d678c1f948b6df428d9ef8325,
-        type: 2}
-      propertyPath: boss
-      value: 
-      objectReference: {fileID: 282284857}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa75b19d678c1f948b6df428d9ef8325, type: 2}
   m_IsPrefabParent: 0
@@ -1454,15 +1469,10 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 224339492355203746, guid: d0ad52518ecb37646b4beb1a9a91e191,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -60
-      objectReference: {fileID: 0}
     - target: {fileID: 224496819084828488, guid: d0ad52518ecb37646b4beb1a9a91e191,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -157
+      value: -156.99976
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0ad52518ecb37646b4beb1a9a91e191, type: 2}

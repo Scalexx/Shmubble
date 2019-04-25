@@ -166,17 +166,16 @@ public class Player : MonoBehaviour {
                 }
                 
                 moveVector.y = verticalVelocity;
-
-                if (shooting)
+            }
+            if (shooting)
+            {
+                HandleShoot();
+            }
+            if (EXshoot)
+            {
+                if (LevelManager.Instance.damageDealt >= LevelManager.Instance.specialMaxCharge)
                 {
-                    HandleShoot();
-                }
-                if (EXshoot)
-                {
-                    if (LevelManager.Instance.damageDealt >= LevelManager.Instance.specialMaxCharge)
-                    {
-                        HandleExShoot();
-                    }
+                    HandleExShoot();
                 }
             }
         }

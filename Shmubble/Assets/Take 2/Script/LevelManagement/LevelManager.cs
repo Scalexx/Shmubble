@@ -11,8 +11,10 @@ public class LevelManager : MonoBehaviour {
     [Header("Health")]
     [Tooltip("Health of the player.")]
     public float health = 3;
-    private float healthTrigger1;
-    private float healthTrigger2;
+    [HideInInspector]
+    public float healthTrigger1;
+    [HideInInspector]
+    public float healthTrigger2;
     [Tooltip("Health of the boss.")]
     public float bossHealth = 1200;
 
@@ -38,7 +40,6 @@ public class LevelManager : MonoBehaviour {
     public Slider healthBar;
     [Tooltip("Healthbar fill area object.")]
     public Image healthBarFillArea;
-    public Material playerBulletMaterial;
 
 
     [Space(10)]
@@ -52,9 +53,14 @@ public class LevelManager : MonoBehaviour {
     [Space(10)]
     [Tooltip("EXbar gameobject.")]
     public Slider exBar;
-    float tValue;
+    [HideInInspector]
+    public float tValue;
+    [HideInInspector]
+    public float perc;
     [Tooltip("How fast the bars change their value.")]
     public float speedBar;
+    [Tooltip("Amount of time for the bars to reach its new value.")]
+    public float totalTimeBar;
 
     [Space(10)]
     [Tooltip("Game Over screen object.")]
@@ -102,8 +108,6 @@ public class LevelManager : MonoBehaviour {
         healthBar.GetComponent<Slider>().maxValue = health;
         exBar.GetComponent<Slider>().maxValue = specialMaxCharge;
         gameOverProgressBar.maxValue = bossHealth;
-
-        playerBulletMaterial.color = healthBarFillColor1;
     }
 
     void Update ()
@@ -113,28 +117,41 @@ public class LevelManager : MonoBehaviour {
         if (healthBarValue != health)
         {
             tValue += speedBar * Time.unscaledDeltaTime;
-            healthBar.GetComponent<Slider>().value = Mathf.SmoothStep(healthBarValue, health, tValue);
 
-            if (healthBarValue > healthTrigger1)
+            if (tValue > totalTimeBar)
             {
-                healthBarFillArea.color = Color.Lerp(healthBarFillArea.color, healthBarFillColor1, tValue);
-                playerBulletMaterial.color = Color.Lerp(playerBulletMaterial.color, healthBarFillColor1, tValue);
+                tValue = totalTimeBar;   
             }
-            else if (healthBarValue <= healthTrigger1)
+
+            perc = tValue / totalTimeBar;
+
+            healthBar.GetComponent<Slider>().value = Mathf.SmoothStep(healthBarValue, health, perc);
+
+            if (health > healthTrigger1)
             {
-                healthBarFillArea.color = Color.Lerp(healthBarFillArea.color, healthBarFillColor2, tValue);
-                playerBulletMaterial.color = Color.Lerp(playerBulletMaterial.color, healthBarFillColor2, tValue);
+                healthBarFillArea.color = Color.Lerp(healthBarFillArea.color, healthBarFillColor1, perc);
             }
-            else
+            else if (health <= healthTrigger1 && health > healthTrigger2)
             {
-                healthBarFillArea.color = Color.Lerp(healthBarFillArea.color, healthBarFillColor3, tValue);
-                playerBulletMaterial.color = Color.Lerp(playerBulletMaterial.color, healthBarFillColor3, tValue);
+                healthBarFillArea.color = Color.Lerp(healthBarFillArea.color, healthBarFillColor2, perc);
+            }
+            else if (health <= healthTrigger2)
+            {
+                healthBarFillArea.color = Color.Lerp(healthBarFillArea.color, healthBarFillColor3, perc);
             }
         }
         if (exBar.GetComponent<Slider>().value != damageDealt)
         {
             tValue += speedBar * Time.unscaledDeltaTime;
-            exBar.GetComponent<Slider>().value = Mathf.SmoothStep(exBar.GetComponent<Slider>().value, damageDealt, tValue);
+
+            if (tValue > totalTimeBar)
+            {
+                tValue = totalTimeBar;
+            }
+
+            perc = tValue / totalTimeBar;
+
+            exBar.GetComponent<Slider>().value = Mathf.SmoothStep(exBar.GetComponent<Slider>().value, damageDealt, perc);
         }
     }
 
