@@ -4582,6 +4582,12 @@ MonoBehaviour:
   bounceTrigger: 0
   bounceAnimTimer: 1.2
   bounceAnimTimerReturn: 4
+  bossRenderers:
+  - {fileID: 137704743156480222}
+  - {fileID: 137922227101186510}
+  - {fileID: 137789225980971454}
+  - {fileID: 137439658318692064}
+  flashLength: 0.05
   canvasAnim: {fileID: 0}
   bossPhase1: {fileID: 1559575541996832}
   bossPhaseFinal: {fileID: 1391709924858358}
@@ -4601,7 +4607,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100002, guid: 9e79383d02b35db479b2cf68fe527663, type: 3}
+  - {fileID: 2100000, guid: 33aff14e370fc9d479ff0c6d3cc4d222, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4699,7 +4705,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9e79383d02b35db479b2cf68fe527663, type: 3}
+  - {fileID: 2100000, guid: 1320857941dab124293f9e9138c1b108, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4797,7 +4803,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9e79383d02b35db479b2cf68fe527663, type: 3}
+  - {fileID: 2100000, guid: 1320857941dab124293f9e9138c1b108, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4895,7 +4901,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100002, guid: 9e79383d02b35db479b2cf68fe527663, type: 3}
+  - {fileID: 2100000, guid: 33aff14e370fc9d479ff0c6d3cc4d222, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
