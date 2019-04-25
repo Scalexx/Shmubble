@@ -217,6 +217,15 @@ public class Boss : MonoBehaviour {
     public float bounceAnimTimerReturn;
     float bounceAnimPeriodReturn;
 
+    [Header("Effects")]
+    [Tooltip("The mesh renderers of the boss. The renderers has to be assigned in the inspector.")]
+    public List<Renderer> bossRenderers = new List<Renderer>();
+    public Color flashColor;
+    public float flashLength;
+    private float flashPeriod;
+    bool flashing;
+    private List<Color> normalColor = new List<Color>();
+
     [Header("Extras")]
     [Tooltip("Animation of the canvas before the final phase.")]
     public Animation canvasAnim;
@@ -252,9 +261,31 @@ public class Boss : MonoBehaviour {
         startIdleMinTime = idleMinTime;
         startIdleMinTimeFinal = idleMinTimeFinal;
         startIdleMinTimeEnv = idleMinTimeEnv;
+        flashPeriod = flashLength;
+
+        for(int i = 0; i < bossRenderers.Count; i++)
+        {
+            normalColor.Add(bossRenderers[i].material.GetColor("_EmissionColor"));
+        }
 	}
 	
 	void Update () {
+        if (flashing)
+        {
+            if (flashPeriod <= 0)
+            {
+                for (int i = 0; i < bossRenderers.Count; i++)
+                {
+                    bossRenderers[i].material.SetColor("_EmissionColor", normalColor[i]);
+                    flashing = false;
+                }
+            }
+            else
+            {
+                flashPeriod -= Time.deltaTime;
+            }
+        }
+
         if (!finalPhaseTrigger)
         {
             Phase1();
@@ -774,6 +805,7 @@ public class Boss : MonoBehaviour {
         if (hit.gameObject.layer == 8)
         {
             LevelManager.Instance.DamageBoss(hit.gameObject.GetComponent<BulletData>().damage);
+            Flasher();
         }
     }
 
@@ -1055,6 +1087,17 @@ public class Boss : MonoBehaviour {
         newProjectile.SetActive(true);
 
         shotsFired++;
+    }
+
+    public void Flasher()
+    {
+        for (int i = 0; i < bossRenderers.Count; i++)
+        {
+            bossRenderers[i].material.SetColor("_EmissionColor", flashColor);
+            flashPeriod = flashLength;
+        }
+
+        flashing = true;
     }
 }
 

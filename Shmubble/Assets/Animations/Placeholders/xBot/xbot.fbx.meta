@@ -153,7 +153,17 @@ ModelImporter:
     9500000: //RootNode
     13700000: Beta_Joints
     13700002: Beta_Surface
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Beta_Joints_MAT
+    second: {fileID: 2100000, guid: 1320857941dab124293f9e9138c1b108, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: asdf1_Beta_HighLimbsGeoSG2
+    second: {fileID: 2100000, guid: 33aff14e370fc9d479ff0c6d3cc4d222, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
