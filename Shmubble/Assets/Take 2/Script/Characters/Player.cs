@@ -414,31 +414,27 @@ public class Player : MonoBehaviour {
             Knockback(hitDirection);
 
             BulletData bulletDamage = hit.gameObject.GetComponent<BulletData>();
+            Laser laserDamage = hit.GetComponent<Laser>();
+            SplashDamage splashDamage = hit.gameObject.GetComponent<SplashDamage>();
             float damaged;
+
             if (bulletDamage != null)
             {
                 damaged = bulletDamage.damage;
             }
+            else if (laserDamage != null)
+            {
+                damaged = laserDamage.damage;
+            }
+            else if (splashDamage != null)
+            {
+                damaged = splashDamage.damage;
+            }
             else
             {
-                Laser laserDamage = hit.GetComponent<Laser>();
-                if (laserDamage != null)
-                {
-                    damaged = laserDamage.damage;
-                }
-                else
-                {
-                    SplashDamage splashDamage = hit.gameObject.GetComponent<SplashDamage>();
-                    if (splashDamage != null)
-                    {
-                        damaged = splashDamage.damage;
-                    }
-                    else
-                    {
-                        damaged = bossTouchDamage;
-                    }
-                }
+                damaged = bossTouchDamage;
             }
+
             LevelManager.Instance.GetDamaged(damaged);
             Invulnerable();
         }

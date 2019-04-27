@@ -6,7 +6,8 @@ public class BulletData : MonoBehaviour {
 
     [Header("Basic parameters")]
     [Tooltip("Speed of the projectile.")]
-    public float speed;
+    public float startSpeed;
+    float speed;
     [Tooltip("Damage of the projectile.")]
     public float damage = 1;
     [Tooltip("Velocity of the projectile in local space. Controls all straight movement. 1 is forward, -1 is backwards.")]
@@ -79,10 +80,13 @@ public class BulletData : MonoBehaviour {
     [Space(10)]
     [Header("Effects")]
     [Tooltip("All the trail particles which will need to stay once the gameobject is destroyed.")]
-    public List<GameObject> trails;
+    public List<GameObject> trails = new List<GameObject>();
+    List<GameObject> myTrails = new List<GameObject>();
     [Tooltip("Gameobject that spawns once the bullet is destroyed.")]
     public GameObject destroyEffect;
+    GameObject destroyEffectSpawned;
 
+    bool enteredTarget;
     Rigidbody rb;
     bool solidObject;
     string bounds;
@@ -98,6 +102,13 @@ public class BulletData : MonoBehaviour {
 
     void OnEnable ()
     {
+        myTrails.Clear();
+
+        if (useTarget)
+        {
+            
+        }
+
         if (isHoming)
         {
             useHoming = true;
@@ -151,6 +162,21 @@ public class BulletData : MonoBehaviour {
         }
         targetPos = target.position;
         velocityTarget = (targetPos - transform.position).normalized;
+
+        speed = startSpeed;
+
+        if (trails.Count > 0 && myTrails.Count == 0)
+        {
+            for (int i = 0; i < trails.Count; i++)
+            {
+                var trailObject = Instantiate(trails[i], transform.position + trails[i].transform.position, transform.rotation);
+                myTrails.Add(trailObject);
+                myTrails[i].transform.parent = gameObject.transform;
+            }
+        }
+
+        enteredTarget = false;
+        destroyEffectSpawned = null;
     }
 
     void FixedUpdate ()
@@ -161,6 +187,15 @@ public class BulletData : MonoBehaviour {
         }
         if (useTarget)
         {
+            if (!enteredTarget)
+            {
+                Vector3 direction = targetPos - transform.position;
+                Quaternion rotation = Quaternion.LookRotation(direction);
+                transform.rotation = rotation;
+
+                enteredTarget = true;
+            }
+
             rb.velocity = velocityTarget * speed;
         }
         else if (solidObject)
@@ -182,7 +217,7 @@ public class BulletData : MonoBehaviour {
     {
         if (hit.gameObject.CompareTag(bounds))
         {
-            gameObject.SetActive(false);
+            DestroyMe();
         }
         else if (destroyOtherOnTouch)
         {
@@ -193,34 +228,46 @@ public class BulletData : MonoBehaviour {
         }
         else if (destroyOnTouch && target.gameObject.layer == hit.gameObject.layer)
         {
+            Impact();
             DestroyMe();
         }
-        if (gameObject.CompareTag("Projectile") && hit.gameObject.CompareTag("Boss"))
+        else if (gameObject.CompareTag("Projectile") && hit.gameObject.CompareTag("Boss"))
         {
+            Impact();
             DestroyMe();
         }
-        if (destroyOnCollisionGround && hit.gameObject.layer == 10)
+        else if (destroyOnCollisionGround && hit.gameObject.layer == 10)
         {
+            Impact();
             DestroyMe();
+        }
+    }
+
+    void Impact()
+    {
+        if (destroyEffect != null && destroyEffectSpawned == null)
+        {
+            var impactVFX = Instantiate(destroyEffect, transform.position, destroyEffect.transform.rotation) as GameObject;
+            destroyEffectSpawned = impactVFX;
+
+            Destroy(impactVFX, 5);
         }
     }
 
     void DestroyMe()
     {
-        if (destroyEffect != null)
-        {
-            var impactVFX = Instantiate(destroyEffect, transform.position, destroyEffect.transform.rotation) as GameObject;
-            Destroy(impactVFX, 5);
-        }
+        speed = 0;
 
         if (trails.Count > 0)
         {
             for (int i = 0; i < trails.Count; i++)
             {
-                var ps = trails[i].GetComponent<ParticleSystem>();
+                myTrails[i].transform.parent = null;
+                var ps = myTrails[i].GetComponent<ParticleSystem>();
                 if (ps != null)
                 {
                     ps.Stop();
+                    Destroy(ps.gameObject, ps.main.duration + ps.main.startLifetime.constantMax);
                 }
             }
         }

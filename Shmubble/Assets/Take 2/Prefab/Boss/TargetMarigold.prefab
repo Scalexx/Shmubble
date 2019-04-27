@@ -9,21 +9,21 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1723027501008808}
+  m_RootGameObject: {fileID: 1299512369071886}
   m_IsPrefabParent: 1
---- !u!1 &1723027501008808
+--- !u!1 &1299512369071886
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4386714688838186}
-  - component: {fileID: 33828484309119432}
-  - component: {fileID: 135388853420932064}
-  - component: {fileID: 23799858658706680}
-  - component: {fileID: 54709078412833586}
-  - component: {fileID: 114365011639748746}
+  - component: {fileID: 4053794425752998}
+  - component: {fileID: 33614383637541192}
+  - component: {fileID: 135183290302443142}
+  - component: {fileID: 23433135893117262}
+  - component: {fileID: 54113124082234892}
+  - component: {fileID: 114519465714725534}
   m_Layer: 9
   m_Name: TargetMarigold
   m_TagString: ProjectileBoss
@@ -31,25 +31,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4386714688838186
+--- !u!4 &4053794425752998
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1723027501008808}
+  m_GameObject: {fileID: 1299512369071886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -12, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23799858658706680
+--- !u!23 &23433135893117262
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1723027501008808}
+  m_GameObject: {fileID: 1299512369071886}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -78,19 +78,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33828484309119432
+--- !u!33 &33614383637541192
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1723027501008808}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54709078412833586
+  m_GameObject: {fileID: 1299512369071886}
+  m_Mesh: {fileID: 0}
+--- !u!54 &54113124082234892
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1723027501008808}
+  m_GameObject: {fileID: 1299512369071886}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -100,27 +100,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114365011639748746
+--- !u!114 &114519465714725534
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1723027501008808}
+  m_GameObject: {fileID: 1299512369071886}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 530662a7a8be3ab4a808ab3a2bfc7892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  startSpeed: 15
   damage: 1
   velocity: {x: 0, y: 0, z: 0}
-  timeBetweenShots: 1
+  timeBetweenShots: 1.5
   destroyOnTouch: 1
   destroyOtherOnTouch: 0
   destroyOnCollisionGround: 1
   stopTimer: 0
-  destroyEffect: {fileID: 1406793801915058, guid: ee199ad70c0bf1543b07a747827e03c3,
-    type: 2}
   useCurve: 0
   useXCurve: 1
   trajectoryCurveX:
@@ -174,15 +172,24 @@ MonoBehaviour:
   angleChangingSpeed: 4
   stopHomingTimer: 0
   useTarget: 1
---- !u!135 &135388853420932064
+  trails:
+  - {fileID: 1761204282207802, guid: 1249d74fa5ab2154199065ba9f145e17, type: 2}
+  - {fileID: 1134013020229218, guid: 1249d74fa5ab2154199065ba9f145e17, type: 2}
+  - {fileID: 1503521484781500, guid: 1249d74fa5ab2154199065ba9f145e17, type: 2}
+  - {fileID: 1520093397375142, guid: 1249d74fa5ab2154199065ba9f145e17, type: 2}
+  - {fileID: 1598780593984872, guid: 1249d74fa5ab2154199065ba9f145e17, type: 2}
+  - {fileID: 1545975154030288, guid: 1249d74fa5ab2154199065ba9f145e17, type: 2}
+  destroyEffect: {fileID: 1615602485190336, guid: d55ce293e34f75c4aaeb05299e9970ce,
+    type: 2}
+--- !u!135 &135183290302443142
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1723027501008808}
+  m_GameObject: {fileID: 1299512369071886}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: 0}
