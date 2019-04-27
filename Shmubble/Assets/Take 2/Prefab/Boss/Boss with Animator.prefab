@@ -4466,7 +4466,7 @@ MonoBehaviour:
   attackEffect3: {fileID: 1771078944604200, guid: 323728943b52f0d40977f8fd0bf15ce6,
     type: 2}
   spawnPointEffect: {fileID: 0}
-  anticipationEffectAttack1: {fileID: 1177865260295994, guid: 7f930ebe4a1e809418af6f7cf796e81e,
+  anticipationEffectAttack1: {fileID: 1698325963664536, guid: 2dae7b191a1928f4fb902bf461784034,
     type: 2}
   anticipationEffectAttack2: {fileID: 1350745948332316, guid: 0211887471d56a846a01e09019fdb3c0,
     type: 2}
