@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530662a7a8be3ab4a808ab3a2bfc7892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  startSpeed: 15
   damage: 35
   velocity: {x: 1, y: 0, z: 0}
   timeBetweenShots: 0.2
@@ -119,7 +119,6 @@ MonoBehaviour:
   destroyOtherOnTouch: 1
   destroyOnCollisionGround: 0
   stopTimer: 0
-  destroyEffect: {fileID: 0}
   useCurve: 0
   useXCurve: 0
   trajectoryCurveX:
@@ -173,6 +172,8 @@ MonoBehaviour:
   angleChangingSpeed: 4
   stopHomingTimer: 0
   useTarget: 0
+  trails: []
+  destroyEffect: {fileID: 0}
 --- !u!135 &135388853420932064
 SphereCollider:
   m_ObjectHideFlags: 1
