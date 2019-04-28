@@ -338,7 +338,6 @@ public class Boss : MonoBehaviour {
 
                 if (time <= 0)
                 {
-                    
                     state = State.IDLE;
                     time = introDuration2;
                 }
@@ -377,14 +376,13 @@ public class Boss : MonoBehaviour {
                     if (entered == false)
                     {
                         animator.ResetTrigger("Intro");
-                        idleMinTime = startIdleMinTime + waitTime;
-                        time = Random.Range(idleMinTime, idleMaxTime);
+                        startIdleMinTime = idleMinTime + waitTime;
+                        time = Random.Range(startIdleMinTime, idleMaxTime);
                         entered = true;
                     }
                     else
                     {
                         shotsFired = 0;
-                        waitTime = 0;
 
                         if (environmentalState == State.IDLE)
                         {
@@ -571,8 +569,8 @@ public class Boss : MonoBehaviour {
                 // play idle animation
                 if (entered == false)
                 {
-                    idleMinTimeFinal = startIdleMinTimeFinal + waitTime;
-                    time = Random.Range(idleMinTimeFinal, idleMaxTimeFinal);
+                    startIdleMinTimeFinal = idleMinTimeFinal + waitTime;
+                    time = Random.Range(startIdleMinTimeFinal, idleMaxTimeFinal);
                     entered = true;
                 }
                 else
@@ -684,8 +682,8 @@ public class Boss : MonoBehaviour {
                 if (environmentalEntered == false)
                 {
                     shotsFiredEnv = 0;
-                    idleMinTimeEnv = startIdleMinTimeEnv;
-                    timeEnv = Random.Range(idleMinTimeEnv, idleMaxTimeEnv);
+                    startIdleMinTimeEnv = idleMinTimeEnv;
+                    timeEnv = Random.Range(startIdleMinTimeEnv, idleMaxTimeEnv);
                     environmentalEntered = true;
                 }
                 else
@@ -835,7 +833,7 @@ public class Boss : MonoBehaviour {
             }
             attackInt = shotsToFireAttack1;
             state = State.ATTACK_1;
-            entered = false;
+            
             animator.SetBool("Idle", false);
         }
         else if (rand == 1)
@@ -846,7 +844,7 @@ public class Boss : MonoBehaviour {
             }
             attackInt = shotsToFireAttack2;
             state = State.ATTACK_2;
-            entered = false;
+            
             animator.SetBool("Idle", false);
         }
         else if (rand == 2)
@@ -857,13 +855,13 @@ public class Boss : MonoBehaviour {
             }
             attackInt = shotsToFireAttack3;
             state = State.ATTACK_3;
-            entered = false;
+            
             animator.SetBool("Idle", false);
         }
         else if (rand == 3)
         {
             state = State.BOUNCE;
-            entered = false;
+            
             animator.SetBool("Idle", false);
         }
     }
@@ -940,14 +938,23 @@ public class Boss : MonoBehaviour {
                     }
                     else
                     {
-                        var psChild = attackEffectActive.transform.GetChild(0).GetComponent<ParticleSystem>();
-                        psChild.Stop();
-                        timer = psChild.main.duration + psChild.main.startLifetime.constantMax;
-                        Destroy(psChild.gameObject, timer);
+                        Transform[] children = attackEffectActive.GetComponentsInChildren<Transform>();
+                        ParticleSystem psChild;
+                        foreach (Transform child in children)
+                        {
+                            child.transform.parent = null;
+                            psChild = child.GetComponent<ParticleSystem>();
+                            if (psChild != null)
+                            {
+                                psChild.Stop();
+                                Destroy(psChild.gameObject, psChild.main.duration + psChild.main.startLifetime.constantMax);
+                            }
+                        }
                     }
-                    Destroy(attackEffectActive, timer);
+                    Destroy(attackEffectActive);
                     attackEffectActive = null;
 
+                    entered = false;
                     attackEntered = false;
                     attackStateEntered = false;
                     state = State.IDLE;

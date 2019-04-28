@@ -118,7 +118,7 @@ MonoBehaviour:
   destroyOnTouch: 1
   destroyOtherOnTouch: 0
   destroyOnCollisionGround: 1
-  stopTimer: 0
+  stopTimer: 3
   useCurve: 0
   useXCurve: 1
   trajectoryCurveX:
