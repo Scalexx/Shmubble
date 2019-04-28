@@ -104,11 +104,6 @@ public class BulletData : MonoBehaviour {
     {
         myTrails.Clear();
 
-        if (useTarget)
-        {
-            
-        }
-
         if (isHoming)
         {
             useHoming = true;
@@ -309,13 +304,15 @@ public class BulletData : MonoBehaviour {
         {
             direction = target.position - rb.position;
             direction.Normalize();
+            Vector3 rotateAmount = Vector3.Cross(transform.right, direction);
+            rb.angularVelocity = rotateAmount * angleChangingSpeed;
         }
         else
         {
+            rb.angularVelocity = Vector3.zero;
             return;
         }
-        Vector3 rotateAmount = Vector3.Cross(transform.right, direction);
-        rb.angularVelocity = rotateAmount * angleChangingSpeed;
+        
         velocity = transform.right.normalized;
         rb.velocity = transform.right * speed;
     }
