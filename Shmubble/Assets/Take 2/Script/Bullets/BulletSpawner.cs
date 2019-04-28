@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletSpawner : MonoBehaviour {
 
     public List<Transform> spawnPoints = new List<Transform>();
+    public float timeBetweenNewSpawn;
     float timeBetweenShots;
     int projectileChoice;
 
@@ -26,7 +27,16 @@ public class BulletSpawner : MonoBehaviour {
             newProjectile.transform.rotation = spawnPoints[projectileChoice].rotation;
             newProjectile.SetActive(true);
 
-            timeBetweenShots = newProjectile.GetComponent<BulletData>().timeBetweenShots;
+            BulletData bulletData = newProjectile.GetComponent<BulletData>();
+            if (bulletData != null)
+            {
+                timeBetweenShots = bulletData.timeBetweenShots;
+            }
+            else
+            {
+                timeBetweenShots = timeBetweenNewSpawn;
+            }
+            
             projectileChoice = Random.Range(0, spawnPoints.Count);
         }
         else
@@ -35,3 +45,5 @@ public class BulletSpawner : MonoBehaviour {
         }
 	}
 }
+
+// no bugs plz
