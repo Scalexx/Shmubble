@@ -106,7 +106,7 @@ MonoBehaviour:
   startSpeed: 7
   damage: 1
   velocity: {x: 1, y: 0, z: 0}
-  timeBetweenShots: 1
+  timeBetweenShots: 1.5
   destroyOnTouch: 1
   destroyOtherOnTouch: 0
   destroyOnCollisionGround: 1
@@ -173,7 +173,7 @@ MonoBehaviour:
   - {fileID: 1611030388626812, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
   - {fileID: 1197865795242120, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
   - {fileID: 1507497637061944, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
-  destroyEffect: {fileID: 1406793801915058, guid: ee199ad70c0bf1543b07a747827e03c3,
+  destroyEffect: {fileID: 1343271718141610, guid: b479a852855b9854caa086b93227db6e,
     type: 2}
 --- !u!135 &135388853420932064
 SphereCollider:
