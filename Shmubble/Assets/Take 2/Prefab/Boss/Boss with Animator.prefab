@@ -4461,7 +4461,7 @@ MonoBehaviour:
   idleMaxTimeEnv: 4
   attackEffect1: {fileID: 1911562061970202, guid: 065631829a9a55c4696009461e0928c8,
     type: 2}
-  attackEffect2: {fileID: 1166548021354220, guid: 75475ae60143872468031dfd87429fe3,
+  attackEffect2: {fileID: 1225693437318078, guid: a58e0261206aa5b49b3b9a641235d241,
     type: 2}
   attackEffect3: {fileID: 1771078944604200, guid: 323728943b52f0d40977f8fd0bf15ce6,
     type: 2}

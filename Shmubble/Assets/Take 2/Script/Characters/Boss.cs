@@ -938,16 +938,28 @@ public class Boss : MonoBehaviour {
                     }
                     else
                     {
-                        Transform[] children = attackEffectActive.GetComponentsInChildren<Transform>();
+                        Transform par = attackEffectActive.transform;
+                        int childCount = par.childCount - 1;
                         ParticleSystem psChild;
-                        foreach (Transform child in children)
+
+                        for (int i = childCount; i > 0; i--)
                         {
-                            child.transform.parent = null;
-                            psChild = child.GetComponent<ParticleSystem>();
+                            Transform childX = par.GetChild(i);
+
+                            childX.transform.parent = null;
+                            psChild = childX.GetComponent<ParticleSystem>();
                             if (psChild != null)
                             {
                                 psChild.Stop();
                                 Destroy(psChild.gameObject, psChild.main.duration + psChild.main.startLifetime.constantMax);
+                            }
+                            else
+                            {
+                                if (childX.GetComponent<Animation>() != null)
+                                {
+                                    childX.GetComponent<Animation>().Play("SkullShrink");
+                                    Destroy(childX.gameObject, 1f);
+                                }
                             }
                         }
                     }

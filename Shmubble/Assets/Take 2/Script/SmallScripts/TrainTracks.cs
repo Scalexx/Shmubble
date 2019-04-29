@@ -5,9 +5,10 @@ using UnityEngine;
 public class TrainTracks : MonoBehaviour {
 
     public float speed;
+    public Vector3 direction;
 
-	void Update () {
-        transform.Translate(-speed * Time.deltaTime, 0, 0);
+	void FixedUpdate () {
+        transform.Translate(direction * speed * Time.deltaTime);
 	}
 
     void OnTriggerExit(Collider hit)

@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4386714688838186}
-  - component: {fileID: 33828484309119432}
   - component: {fileID: 135388853420932064}
   - component: {fileID: 23799858658706680}
   - component: {fileID: 54709078412833586}
@@ -39,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1723027501008808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -78,13 +77,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33828484309119432
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1723027501008808}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54709078412833586
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -118,7 +110,7 @@ MonoBehaviour:
   destroyOnTouch: 1
   destroyOtherOnTouch: 0
   destroyOnCollisionGround: 1
-  stopTimer: 0
+  stopTimer: 5
   useCurve: 0
   useXCurve: 0
   trajectoryCurveX:
@@ -172,7 +164,15 @@ MonoBehaviour:
   angleChangingSpeed: 4
   stopHomingTimer: 5
   useTarget: 0
-  trails: []
+  trails:
+  - {fileID: 1014842738944592, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
+  - {fileID: 1197865795242120, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
+  - {fileID: 1257183579102160, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
+  - {fileID: 1655000729487984, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
+  - {fileID: 1379128433194108, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
+  - {fileID: 1611030388626812, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
+  - {fileID: 1197865795242120, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
+  - {fileID: 1507497637061944, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
   destroyEffect: {fileID: 1406793801915058, guid: ee199ad70c0bf1543b07a747827e03c3,
     type: 2}
 --- !u!135 &135388853420932064
@@ -185,5 +185,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: 0}

@@ -164,7 +164,7 @@ public class BulletData : MonoBehaviour {
         {
             for (int i = 0; i < trails.Count; i++)
             {
-                var trailObject = Instantiate(trails[i], transform.position + trails[i].transform.position, transform.rotation);
+                var trailObject = Instantiate(trails[i], transform.position + trails[i].transform.position, transform.rotation * trails[i].transform.rotation);
                 myTrails.Add(trailObject);
                 myTrails[i].transform.parent = gameObject.transform;
             }

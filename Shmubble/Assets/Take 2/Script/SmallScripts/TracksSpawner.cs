@@ -13,7 +13,7 @@ public class TracksSpawner : MonoBehaviour
 
     void Start()
     {
-
+        trackWidth = projectilePool.pooledObject.GetComponent<BoxCollider>().size.y * 0.5f;
     }
 
     void Update()
@@ -27,7 +27,6 @@ public class TracksSpawner : MonoBehaviour
             GameObject newProjectile = projectilePool.GetPooledObject();
 
             newProjectile.transform.position = generationPoint.transform.position;
-            newProjectile.transform.rotation = generationPoint.transform.rotation;
 
             generationPoint.transform.parent = newProjectile.transform;
 
