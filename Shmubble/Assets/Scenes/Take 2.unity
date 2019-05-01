@@ -137,6 +137,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: ambience.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4529990364524108, guid: 3defac20ff58ce24b90b8b92ba3325d8, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -172,6 +177,62 @@ Prefab:
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: ambience.Array.data[1].volume
+      value: 0.804
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[2].pitch
+      value: 0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[1].pitch
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: ambience.Array.data[0].pitch
+      value: 0.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: ambience.Array.data[1].pitch
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: ambience.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: ambience.Array.data[2].name
+      value: BackgroundMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: ambience.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 36c1fdc9e35df7b4d95d9cbc1f9a10db, type: 3}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: ambience.Array.data[2].mixer
+      value: 
+      objectReference: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f,
+        type: 2}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: ambience.Array.data[2].volume
+      value: 0.868
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: ambience.Array.data[2].pitch
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: ambience.Array.data[2].loop
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
