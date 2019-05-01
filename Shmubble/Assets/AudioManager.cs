@@ -16,8 +16,6 @@ public class AudioManager : MonoBehaviour {
 
     public Sound[] ambience;
 
-    public string TrainSound { get; private set; }
-
     void Awake()
     {
         if (instance == null)
@@ -77,7 +75,12 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
-   
+    void Start()
+    {
+        PlayAmbientSound("TrainSound");
+        PlayAmbientSound("WindSound");
+    }
+
     public void PlayPlayerSound(string name)
     {
         Sound s = Array.Find(player, sound => sound.name == name);

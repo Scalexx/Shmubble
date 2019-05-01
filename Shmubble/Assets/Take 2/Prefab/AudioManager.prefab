@@ -168,6 +168,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: []
-  boss: []
-  environment: []
-  ambience: []
+  boss:
+  - name: SkullAttack
+    clip: {fileID: 8300000, guid: 92f9f0a0d87d38846997f1fb54f9e43b, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    volume: 0.96
+    pitch: 0.94
+    loop: 0
+    source: {fileID: 0}
+  - name: SkullTrail
+    clip: {fileID: 8300000, guid: 3b2f4282a30ade64d9c2fa9dab4974f5, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: SkullImpact
+    clip: {fileID: 8300000, guid: bec1a97d2c513b042a11c31c35c5bc96, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  environment:
+  - name: 
+    clip: {fileID: 0}
+    mixer: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    mixer: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  ambience:
+  - name: TrainSound
+    clip: {fileID: 8300000, guid: d424a7ca2fa1ab9468382f261b05d4a8, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    volume: 1
+    pitch: -0.02
+    loop: 1
+    source: {fileID: 0}
+  - name: WindSound
+    clip: {fileID: 8300000, guid: d6b0ed01109ffbc488e577a9ef81ef52, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    volume: 1
+    pitch: 0
+    loop: 1
+    source: {fileID: 0}

@@ -259,7 +259,7 @@ public class BulletData : MonoBehaviour {
             DestroyMe();
         }
 
-        AudioManager.instance.StopPlaying(trailSound);
+        //AudioManager.instance.StopPlaying(trailSound);
     }
 
     void Impact()
