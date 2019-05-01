@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour {
 
     public Sound[] ambience;
 
+    public string TrainSound { get; private set; }
 
     void Awake()
     {
@@ -76,6 +77,7 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
+   
     public void PlayPlayerSound(string name)
     {
         Sound s = Array.Find(player, sound => sound.name == name);
