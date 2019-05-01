@@ -4533,6 +4533,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  attackSound1: MarigoldAttack
+  attackSound2: SkullAttack
+  attackSound3: FireWaveAttack
+  trailSoundAttack1: MarigoldTrail
+  trailSoundAttack2: SkullTrail
+  trailSoundAttack3: FireWaveTrail
+  impactSoundAttack1: MarigoldImpact
+  impactSoundAttack2: SkullImpact
+  impactSoundAttack3: FireWaveImpact
   queueEnvironmental: 0
   waitBeforeAttackTimer: 5
   shotsToFireEnv1Min: 5

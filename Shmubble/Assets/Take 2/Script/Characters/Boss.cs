@@ -139,6 +139,32 @@ public class Boss : MonoBehaviour {
     [Tooltip("The GameObjects with the Object Pool on it.")]
     public ObjectPooler[] projectilePools;
 
+    [Space(10)]
+    [Tooltip("The name of the sound to play during the first attack.")]
+    public string attackSound1;
+    [Tooltip("The name of the sound to play during the second attack.")]
+    public string attackSound2;
+    [Tooltip("The name of the sound to play during the third attack.")]
+    public string attackSound3;
+
+    [Space(10)]
+    [Tooltip("The name of the sound to play as trail sound of the bullet of the first attack.")]
+    public string trailSoundAttack1;
+    [Tooltip("The name of the sound to play as trail sound of the bullet of the second attack.")]
+    public string trailSoundAttack2;
+    [Tooltip("The name of the sound to play as trail sound of the bullet of the third attack.")]
+    public string trailSoundAttack3;
+    private string currentTrailSound;
+
+    [Space(10)]
+    [Tooltip("The name of the sound to play as impact sound of the bullet of the first attack.")]
+    public string impactSoundAttack1;
+    [Tooltip("The name of the sound to play as impact sound of the bullet of the second attack.")]
+    public string impactSoundAttack2;
+    [Tooltip("The name of the sound to play as impact sound of the bullet of the third attack.")]
+    public string impactSoundAttack3;
+    private string currentImpactSound;
+
     [Header("Environmental")]
     [Tooltip("Checks if environmental attacks can be spawned (Phase 2).")]
     public bool queueEnvironmental;
@@ -405,6 +431,9 @@ public class Boss : MonoBehaviour {
                 // do attack stuff
                 lastAttackState = 0;
 
+                currentTrailSound = trailSoundAttack1;
+                currentImpactSound = impactSoundAttack1;
+
                 if (!attackStateEntered)
                 {
                     if (queueEnvironmental)
@@ -419,13 +448,16 @@ public class Boss : MonoBehaviour {
                 } 
 
                 projectileChoice = 0;
-                HandleAttack(shotsToFireAttack1, randomSpawnAttack1, spawnPointsAttack1, anticipationEffectAttack1, anticipationTimer, attackEffect1);
+                HandleAttack(shotsToFireAttack1, randomSpawnAttack1, spawnPointsAttack1, anticipationEffectAttack1, anticipationTimer, attackEffect1, attackSound1);
                 
                 break;
 
             case State.ATTACK_2:
                 // do attack stuff
                 lastAttackState = 1;
+
+                currentTrailSound = trailSoundAttack2;
+                currentImpactSound = impactSoundAttack2;
 
                 if (!attackStateEntered)
                 {
@@ -441,13 +473,16 @@ public class Boss : MonoBehaviour {
                 }
 
                 projectileChoice = 1;
-                HandleAttack(shotsToFireAttack2, randomSpawnAttack2, spawnPointsAttack2, anticipationEffectAttack2, anticipationTimer, attackEffect2);
+                HandleAttack(shotsToFireAttack2, randomSpawnAttack2, spawnPointsAttack2, anticipationEffectAttack2, anticipationTimer, attackEffect2, attackSound2);
                 
                 break;
 
             case State.ATTACK_3:
                 // do attack stuff
                 lastAttackState = 2;
+
+                currentTrailSound = trailSoundAttack2;
+                currentImpactSound = impactSoundAttack2;
 
                 if (!attackStateEntered)
                 {
@@ -463,7 +498,7 @@ public class Boss : MonoBehaviour {
                 }
 
                 projectileChoice = 2;
-                HandleAttack(shotsToFireAttack3, randomSpawnAttack3, spawnPointsAttack3, anticipationEffectAttack3, anticipationTimer, attackEffect3);
+                HandleAttack(shotsToFireAttack3, randomSpawnAttack3, spawnPointsAttack3, anticipationEffectAttack3, anticipationTimer, attackEffect3, attackSound3);
                 
                 break;
 
@@ -887,12 +922,14 @@ public class Boss : MonoBehaviour {
         
     }
 
-    public void HandleAttack(int shotsToFire, bool randomSpawn, List<Transform> spawnPoints, GameObject anticipationEffect, float anticipationTimerEffect, GameObject attackEffect)
+    public void HandleAttack(int shotsToFire, bool randomSpawn, List<Transform> spawnPoints, GameObject anticipationEffect, float anticipationTimerEffect, GameObject attackEffect, string attackSound)
     {
         if (waitBeforeAttackPeriod <= 0)
         {
             if (!attackEntered)
             {
+                AudioManager.instance.PlayBossSound(attackSound);
+
                 anticipationPeriod = anticipationTimerEffect;
                 animator.SetTrigger("Attack");
                 
@@ -966,6 +1003,7 @@ public class Boss : MonoBehaviour {
                     Destroy(attackEffectActive);
                     attackEffectActive = null;
 
+                    AudioManager.instance.StopPlaying(attackSound);
                     entered = false;
                     attackEntered = false;
                     attackStateEntered = false;
@@ -1017,6 +1055,9 @@ public class Boss : MonoBehaviour {
 
             newProjectile.transform.position = spawnPoint.position;
             newProjectile.transform.rotation = spawnPoint.rotation;
+
+            newProjectile.GetComponent<BulletData>().trailSound = currentTrailSound;
+            newProjectile.GetComponent<BulletData>().impactSound = currentImpactSound;
             newProjectile.SetActive(true);
 
             BulletData temp = newProjectile.GetComponent<BulletData>();

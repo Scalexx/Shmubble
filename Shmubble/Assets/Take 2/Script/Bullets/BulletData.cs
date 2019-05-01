@@ -86,6 +86,11 @@ public class BulletData : MonoBehaviour {
     public GameObject destroyEffect;
     GameObject destroyEffectSpawned;
 
+    [HideInInspector]
+    public string trailSound;
+    [HideInInspector]
+    public string impactSound;
+
     bool enteredTarget;
     Rigidbody rb;
     bool solidObject;
@@ -133,6 +138,8 @@ public class BulletData : MonoBehaviour {
 
         if (gameObject.CompareTag ("ProjectileBoss"))
         {
+            AudioManager.instance.PlayBossSound(trailSound);
+
             target = GameObject.FindGameObjectWithTag("Player").transform;
             if (target != null)
             {
@@ -145,6 +152,8 @@ public class BulletData : MonoBehaviour {
         }
         else if (gameObject.CompareTag("Projectile"))
         {
+            AudioManager.instance.PlayPlayerSound(trailSound);
+
             target = GameObject.FindGameObjectWithTag("Boss").transform;
             if (target != null)
             {
@@ -223,19 +232,34 @@ public class BulletData : MonoBehaviour {
         }
         else if (destroyOnTouch && target.gameObject.layer == hit.gameObject.layer)
         {
+            if (target.gameObject.layer == 9)
+            {
+                AudioManager.instance.PlayBossSound(impactSound);
+            }
+            else
+            {
+                AudioManager.instance.PlayPlayerSound(impactSound);
+            }
+            
             Impact();
             DestroyMe();
         }
         else if (gameObject.CompareTag("Projectile") && hit.gameObject.CompareTag("Boss"))
         {
+            AudioManager.instance.PlayPlayerSound(impactSound);
+
             Impact();
             DestroyMe();
         }
         else if (destroyOnCollisionGround && hit.gameObject.layer == 10)
         {
+            AudioManager.instance.PlayBossSound(impactSound);
+
             Impact();
             DestroyMe();
         }
+
+        AudioManager.instance.StopPlaying(trailSound);
     }
 
     void Impact()

@@ -278,6 +278,8 @@ public class Player : MonoBehaviour {
 
             newProjectile.transform.position = spawnPoint.position;
             newProjectile.transform.rotation = spawnPoint.rotation;
+
+            //add sounds
             newProjectile.SetActive(true);
 
             timeBetweenShots = newProjectile.GetComponent<BulletData>().timeBetweenShots;
@@ -296,6 +298,8 @@ public class Player : MonoBehaviour {
 
         newProjectile.transform.position = spawnPoint.position;
         newProjectile.transform.rotation = spawnPoint.rotation;
+
+        //add sounds
         newProjectile.SetActive(true);
 
         float damage = newProjectile.GetComponent<BulletData>().damage;

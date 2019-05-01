@@ -119,6 +119,24 @@ public class AudioManager : MonoBehaviour {
         }
         s.source.Play();
     }
+
+    public void StopPlaying (string name)
+    {
+        Sound s = Array.Find(player, sound => sound.name == name);
+        Sound o = Array.Find(boss, sound => sound.name == name);
+        Sound u = Array.Find(environment, sound => sound.name == name);
+        Sound n = Array.Find(ambience, sound => sound.name == name);
+
+        if (s != null || o != null || u != null || n != null)
+        {
+            s.source.Stop();
+        }
+        else
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+    }
 }
 
 // no bugs plz
