@@ -177,7 +177,7 @@ Prefab:
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: ambience.Array.data[1].volume
-      value: 0.804
+      value: 0.88
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
@@ -187,7 +187,7 @@ Prefab:
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: boss.Array.data[1].pitch
-      value: 0.66
+      value: 0.89
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
@@ -223,7 +223,7 @@ Prefab:
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: ambience.Array.data[2].volume
-      value: 0.868
+      value: 0.508
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
