@@ -139,6 +139,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
+      propertyPath: boss.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
       propertyPath: environment.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -279,6 +284,42 @@ Prefab:
         type: 2}
       propertyPath: boss.Array.data[8].pitch
       value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: ambience.Array.data[2].priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[9].name
+      value: BossIntro
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[9].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 08de0201b8270a249a2a49f724e0033f, type: 3}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[9].mixer
+      value: 
+      objectReference: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f,
+        type: 2}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[9].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[9].pitch
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[9].priority
+      value: 256
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3defac20ff58ce24b90b8b92ba3325d8, type: 2}
