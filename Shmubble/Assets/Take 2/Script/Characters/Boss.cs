@@ -481,8 +481,8 @@ public class Boss : MonoBehaviour {
                 // do attack stuff
                 lastAttackState = 2;
 
-                currentTrailSound = trailSoundAttack2;
-                currentImpactSound = impactSoundAttack2;
+                currentTrailSound = trailSoundAttack3;
+                currentImpactSound = impactSoundAttack3;
 
                 if (!attackStateEntered)
                 {
