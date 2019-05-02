@@ -963,7 +963,7 @@ public class Boss : MonoBehaviour {
                         int childCount = par.childCount - 1;
                         ParticleSystem psChild;
 
-                        for (int i = childCount; i > 0; i--)
+                        for (int i = childCount; i > -1; i--)
                         {
                             Transform childX = par.GetChild(i);
 

@@ -4479,9 +4479,9 @@ MonoBehaviour:
     type: 2}
   effectOffset: {x: 0, y: -6, z: 0}
   cameraShakeMagnitude: 10
-  cameraShakeRoughness: 30
-  cameraShakeFadeIn: 0.1
-  cameraShakeFadeOut: 10
+  cameraShakeRoughness: 40
+  cameraShakeFadeIn: 5
+  cameraShakeFadeOut: 35
   anticipationTimerEnv1: 3
   anticipationTimerEnv2: 0
   shotsToFireAttack1: 10
