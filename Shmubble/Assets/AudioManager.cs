@@ -133,7 +133,7 @@ public class AudioManager : MonoBehaviour {
             return;
         }
 
-        s.source.Play();
+        s.source.PlayOneShot(s.source.clip);
     }
 
     public void StopPlaying (string name)
