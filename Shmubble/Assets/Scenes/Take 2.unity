@@ -213,7 +213,7 @@ Prefab:
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: environment.Array.data[2].pitch
-      value: 0.44
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
@@ -264,7 +264,7 @@ Prefab:
         type: 2}
       propertyPath: boss.Array.data[6].clip
       value: 
-      objectReference: {fileID: 8300000, guid: ce0bf54b691144f46a410ad32c0af254, type: 3}
+      objectReference: {fileID: 8300000, guid: 020ceb8019d2496438ff9412acef889e, type: 3}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: boss.Array.data[7].clip
@@ -288,7 +288,7 @@ Prefab:
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: ambience.Array.data[2].priority
-      value: 0
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
@@ -320,6 +320,11 @@ Prefab:
         type: 2}
       propertyPath: boss.Array.data[9].priority
       value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[6].pitch
+      value: 0.32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3defac20ff58ce24b90b8b92ba3325d8, type: 2}
@@ -941,6 +946,21 @@ Prefab:
       propertyPath: canvasAnim
       value: 
       objectReference: {fileID: 654713332}
+    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: cameraShakeFadeOut
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: cameraShakeFadeIn
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: cameraShakeRoughness
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70c0c1a568d015f4f9bf6a013ef3928c, type: 2}
   m_IsPrefabParent: 0
