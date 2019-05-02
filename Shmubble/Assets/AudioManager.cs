@@ -89,6 +89,7 @@ public class AudioManager : MonoBehaviour {
             Debug.LogWarning("Sound: " + name + "not found in Player list!");
             return;
         }
+
         s.source.Play();
     }
 
@@ -100,6 +101,7 @@ public class AudioManager : MonoBehaviour {
             Debug.LogWarning("Sound: " + name + "not found in Boss list!");
             return;
         }
+
         s.source.Play();
     }
 
@@ -111,6 +113,7 @@ public class AudioManager : MonoBehaviour {
             Debug.LogWarning("Sound: " + name + "not found in Environment list!");
             return;
         }
+
         s.source.Play();
     }
 
@@ -122,6 +125,7 @@ public class AudioManager : MonoBehaviour {
             Debug.LogWarning("Sound: " + name + "not found in Ambience list!");
             return;
         }
+
         s.source.Play();
     }
 
@@ -140,6 +144,107 @@ public class AudioManager : MonoBehaviour {
         {
             Debug.LogWarning("Sound: " + name + " not found!");
             return;
+        }
+    }
+
+    public void PauseSounds ()
+    {
+        foreach (Sound s in player)
+        {
+            if (s.source.isPlaying)
+            {
+                s.paused = true;
+                s.source.Pause();
+            }
+        }
+
+        foreach (Sound s in boss)
+        {
+            if (s.source.isPlaying)
+            {
+                s.paused = true;
+                s.source.Pause();
+            }
+        }
+
+        foreach (Sound s in environment)
+        {
+            if (s.source.isPlaying)
+            {
+                s.paused = true;
+                s.source.Pause();
+            }
+        }
+
+        foreach (Sound s in ambience)
+        {
+            if (s.source.isPlaying)
+            {
+                s.paused = true;
+                s.source.Pause();
+            }
+        }
+    }
+
+    public void UnpauseSounds ()
+    {
+        foreach (Sound s in player)
+        {
+            if (s.paused)
+            {
+                s.paused = false;
+                s.source.Play();
+            }
+        }
+
+        foreach (Sound s in boss)
+        {
+            if (s.paused)
+            {
+                s.paused = false;
+                s.source.Play();
+            }
+        }
+
+        foreach (Sound s in environment)
+        {
+            if (s.paused)
+            {
+                s.paused = false;
+                s.source.Play();
+            }
+        }
+
+        foreach (Sound s in ambience)
+        {
+            if (s.paused)
+            {
+                s.paused = false;
+                s.source.Play();
+            }
+        }
+    }
+
+    public void StopAllSounds()
+    {
+        foreach (Sound s in player)
+        {
+            s.source.Stop();
+        }
+
+        foreach (Sound s in boss)
+        {
+            s.source.Stop();
+        }
+
+        foreach (Sound s in environment)
+        {
+            s.source.Stop();
+        }
+
+        foreach (Sound s in ambience)
+        {
+            s.source.Stop();
         }
     }
 }

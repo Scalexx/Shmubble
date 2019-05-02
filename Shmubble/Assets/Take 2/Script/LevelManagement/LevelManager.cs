@@ -161,6 +161,7 @@ public class LevelManager : MonoBehaviour {
         Time.timeScale = 0f;
         Cursor.visible = true;
         pauseMenu.someoneDied = true;
+        AudioManager.instance.StopPlaying("BackgroundMusic");
 
         winScreen.SetActive(true);
     }
@@ -258,6 +259,7 @@ public class LevelManager : MonoBehaviour {
         Cursor.visible = true;
         Time.timeScale = 0f;
         pauseMenu.someoneDied = true;
+        AudioManager.instance.StopPlaying("BackgroundMusic");
 
         gameOver.SetActive(true);
     }

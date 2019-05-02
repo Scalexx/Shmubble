@@ -74,6 +74,11 @@ public class Menu : MonoBehaviour {
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
+    public void StopMusic()
+    {
+        AudioManager.instance.StopAllSounds();
+    }
+
 }
 
 // no bugs plz

@@ -11,6 +11,14 @@ public class PauseMenu : MonoBehaviour {
 
     public bool someoneDied = false;
 
+    [HideInInspector]
+    public Boss boss;
+
+    void Start()
+    {
+        boss = FindObjectOfType<Boss>();
+    }
+
     void Update ()
     {
         if (!someoneDied)
@@ -19,10 +27,14 @@ public class PauseMenu : MonoBehaviour {
             {
                 if (gameIsPaused)
                 {
+                    AudioManager.instance.UnpauseSounds();
+
                     Resume();
                 }
                 else
                 {
+                    AudioManager.instance.PauseSounds();
+
                     Pause();
                 }
             }
