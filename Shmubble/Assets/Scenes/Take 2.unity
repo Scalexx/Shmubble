@@ -139,6 +139,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
+      propertyPath: boss.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
       propertyPath: ambience.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -177,7 +182,7 @@ Prefab:
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: ambience.Array.data[1].volume
-      value: 0.88
+      value: 0.772
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
@@ -192,7 +197,7 @@ Prefab:
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: ambience.Array.data[0].pitch
-      value: 0.61
+      value: 2.02
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
@@ -213,28 +218,196 @@ Prefab:
         type: 2}
       propertyPath: ambience.Array.data[2].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 36c1fdc9e35df7b4d95d9cbc1f9a10db, type: 3}
+      objectReference: {fileID: 8300000, guid: 76ea74954aa3b0341be9bbb2d07981f0, type: 3}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: ambience.Array.data[2].mixer
       value: 
-      objectReference: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f,
+      objectReference: {fileID: 243466873696253682, guid: 71d52175cabfac9448c9b8f41e20668f,
         type: 2}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: ambience.Array.data[2].volume
-      value: 0.508
+      value: 0.444
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: ambience.Array.data[2].pitch
-      value: 0.4
+      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: ambience.Array.data[2].loop
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[3].name
+      value: FireWave
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e6d726316de16841b5765cccf774d7d, type: 3}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[3].mixer
+      value: 
+      objectReference: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f,
+        type: 2}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[3].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[3].pitch
+      value: 0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[4].name
+      value: FireTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e811936a23b7fae4f86558024fc68f4c, type: 3}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[4].mixer
+      value: 
+      objectReference: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f,
+        type: 2}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[4].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[4].pitch
+      value: 0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[5].name
+      value: FireImpact
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e2e6ddb29bffdb74db088c223d448d83, type: 3}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[5].mixer
+      value: 
+      objectReference: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f,
+        type: 2}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[5].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[5].pitch
+      value: 0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[6].name
+      value: MarigoldAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a74941263315a034e92bbabb59322b31, type: 3}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[6].mixer
+      value: 
+      objectReference: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f,
+        type: 2}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[6].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[6].pitch
+      value: 0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[7].name
+      value: MarigoldTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e811936a23b7fae4f86558024fc68f4c, type: 3}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[7].mixer
+      value: 
+      objectReference: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f,
+        type: 2}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[7].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[7].pitch
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[8].name
+      value: MarigoldImpact
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e2e6ddb29bffdb74db088c223d448d83, type: 3}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[8].mixer
+      value: 
+      objectReference: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f,
+        type: 2}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[8].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[8].pitch
+      value: 0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: ambience.Array.data[1].mixer
+      value: 
+      objectReference: {fileID: 243466873696253682, guid: 71d52175cabfac9448c9b8f41e20668f,
+        type: 2}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: ambience.Array.data[0].mixer
+      value: 
+      objectReference: {fileID: 243466873696253682, guid: 71d52175cabfac9448c9b8f41e20668f,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3defac20ff58ce24b90b8b92ba3325d8, type: 2}
   m_IsPrefabParent: 0
