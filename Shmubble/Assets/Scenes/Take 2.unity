@@ -235,6 +235,26 @@ Prefab:
       propertyPath: ambience.Array.data[2].volume
       value: 0.292
       objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d9f8cff668ea29d4c8a2be35e53eddaf, type: 3}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[1].pitch
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[1].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[0].loop
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3defac20ff58ce24b90b8b92ba3325d8, type: 2}
   m_IsPrefabParent: 0
