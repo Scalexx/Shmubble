@@ -245,7 +245,7 @@ public class BulletData : MonoBehaviour {
         }
         else if (destroyOnTouch && target.gameObject.layer == hit.gameObject.layer)
         {
-            if (target.gameObject.layer == 9)
+            if (gameObject.layer == 9)
             {
                 AudioManager.instance.PlayBossSound(impactSound);
             }
