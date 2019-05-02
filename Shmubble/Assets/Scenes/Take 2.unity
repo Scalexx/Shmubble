@@ -137,16 +137,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: ambience.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4529990364524108, guid: 3defac20ff58ce24b90b8b92ba3325d8, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -177,251 +167,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4529990364524108, guid: 3defac20ff58ce24b90b8b92ba3325d8, type: 2}
       propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: ambience.Array.data[1].volume
-      value: 0.772
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[2].pitch
-      value: 0.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[1].pitch
-      value: 0.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: ambience.Array.data[0].pitch
-      value: 2.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: ambience.Array.data[1].pitch
-      value: 0.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: ambience.Array.data[0].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: ambience.Array.data[2].name
-      value: BackgroundMusic
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: ambience.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 76ea74954aa3b0341be9bbb2d07981f0, type: 3}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: ambience.Array.data[2].mixer
-      value: 
-      objectReference: {fileID: 243466873696253682, guid: 71d52175cabfac9448c9b8f41e20668f,
-        type: 2}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: ambience.Array.data[2].volume
-      value: 0.368
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: ambience.Array.data[2].pitch
-      value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: ambience.Array.data[2].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[3].name
-      value: FireWaveAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[3].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: b550e3e7e08434b4896dc4cacb4f98c1, type: 3}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[3].mixer
-      value: 
-      objectReference: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f,
-        type: 2}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[3].volume
-      value: 0.992
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[3].pitch
-      value: 1.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[4].name
-      value: FireWaveTrail
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[4].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 88f51b3ddb048794ab2f6fc166f203f0, type: 3}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[4].mixer
-      value: 
-      objectReference: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f,
-        type: 2}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[4].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[4].pitch
-      value: 0.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[5].name
-      value: FireWaveImpact
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[5].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: e2e6ddb29bffdb74db088c223d448d83, type: 3}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[5].mixer
-      value: 
-      objectReference: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f,
-        type: 2}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[5].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[5].pitch
-      value: 0.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[6].name
-      value: MarigoldAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[6].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: a74941263315a034e92bbabb59322b31, type: 3}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[6].mixer
-      value: 
-      objectReference: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f,
-        type: 2}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[6].volume
-      value: 0.812
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[6].pitch
-      value: 1.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[7].name
-      value: MarigoldTrail
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[7].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: e811936a23b7fae4f86558024fc68f4c, type: 3}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[7].mixer
-      value: 
-      objectReference: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f,
-        type: 2}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[7].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[7].pitch
-      value: 1.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[8].name
-      value: MarigoldImpact
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[8].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: e2e6ddb29bffdb74db088c223d448d83, type: 3}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[8].mixer
-      value: 
-      objectReference: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f,
-        type: 2}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[8].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[8].pitch
-      value: 1.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: ambience.Array.data[1].mixer
-      value: 
-      objectReference: {fileID: 243466873696253682, guid: 71d52175cabfac9448c9b8f41e20668f,
-        type: 2}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: ambience.Array.data[0].mixer
-      value: 
-      objectReference: {fileID: 243466873696253682, guid: 71d52175cabfac9448c9b8f41e20668f,
-        type: 2}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[0].volume
-      value: 0.856
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[1].volume
-      value: 0.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
-        type: 2}
-      propertyPath: boss.Array.data[4].loop
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3defac20ff58ce24b90b8b92ba3325d8, type: 2}
@@ -544,52 +290,6 @@ Animation:
   m_PrefabParentObject: {fileID: 111721316034280806, guid: d0ad52518ecb37646b4beb1a9a91e191,
     type: 2}
   m_PrefabInternal: {fileID: 1963256400}
---- !u!1001 &655975414
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4885240374013564, guid: 16dc23857e642c942ad673e000389c96, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -17.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4885240374013564, guid: 16dc23857e642c942ad673e000389c96, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4885240374013564, guid: 16dc23857e642c942ad673e000389c96, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4885240374013564, guid: 16dc23857e642c942ad673e000389c96, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4885240374013564, guid: 16dc23857e642c942ad673e000389c96, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4885240374013564, guid: 16dc23857e642c942ad673e000389c96, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4885240374013564, guid: 16dc23857e642c942ad673e000389c96, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4885240374013564, guid: 16dc23857e642c942ad673e000389c96, type: 2}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1929489057012888, guid: 16dc23857e642c942ad673e000389c96, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 16dc23857e642c942ad673e000389c96, type: 2}
-  m_IsPrefabParent: 0
 --- !u!4 &663402853 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4332602099456282, guid: fa75b19d678c1f948b6df428d9ef8325,
@@ -1099,6 +799,11 @@ Prefab:
       propertyPath: cameraShakeMagnitude
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: envAttackSound1
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70c0c1a568d015f4f9bf6a013ef3928c, type: 2}
   m_IsPrefabParent: 0
@@ -1531,13 +1236,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4618526737904612, guid: fa75b19d678c1f948b6df428d9ef8325, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114956091310146346, guid: fa75b19d678c1f948b6df428d9ef8325,
-        type: 2}
-      propertyPath: boss
-      value: 
-      objectReference: {fileID: 282284857}
     - target: {fileID: 114171955745025992, guid: fa75b19d678c1f948b6df428d9ef8325,
         type: 2}
       propertyPath: healthBar
@@ -1588,22 +1288,11 @@ Prefab:
       propertyPath: camAnim
       value: 
       objectReference: {fileID: 1651912188}
-    - target: {fileID: 4078935853883368, guid: fa75b19d678c1f948b6df428d9ef8325, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4546352760785034, guid: fa75b19d678c1f948b6df428d9ef8325, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4712388472183440, guid: fa75b19d678c1f948b6df428d9ef8325, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4990299343954060, guid: fa75b19d678c1f948b6df428d9ef8325, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
+    - target: {fileID: 114956091310146346, guid: fa75b19d678c1f948b6df428d9ef8325,
+        type: 2}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 282284857}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa75b19d678c1f948b6df428d9ef8325, type: 2}
   m_IsPrefabParent: 0

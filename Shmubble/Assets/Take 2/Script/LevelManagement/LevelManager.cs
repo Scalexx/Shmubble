@@ -108,6 +108,12 @@ public class LevelManager : MonoBehaviour {
         healthBar.GetComponent<Slider>().maxValue = health;
         exBar.GetComponent<Slider>().maxValue = specialMaxCharge;
         gameOverProgressBar.maxValue = bossHealth;
+
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayAmbientSound("TrainSound");
+            AudioManager.instance.PlayAmbientSound("WindSound");
+        }
     }
 
     void Update ()
@@ -161,7 +167,7 @@ public class LevelManager : MonoBehaviour {
         Time.timeScale = 0f;
         Cursor.visible = true;
         pauseMenu.someoneDied = true;
-        AudioManager.instance.StopPlaying("BackgroundMusic");
+        AudioManager.instance.StopAllSounds();
 
         winScreen.SetActive(true);
     }
@@ -259,7 +265,7 @@ public class LevelManager : MonoBehaviour {
         Cursor.visible = true;
         Time.timeScale = 0f;
         pauseMenu.someoneDied = true;
-        AudioManager.instance.StopPlaying("BackgroundMusic");
+        AudioManager.instance.StopAllSounds();
 
         gameOver.SetActive(true);
     }

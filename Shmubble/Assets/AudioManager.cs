@@ -77,8 +77,14 @@ public class AudioManager : MonoBehaviour {
 
     void Start()
     {
-        PlayAmbientSound("TrainSound");
-        PlayAmbientSound("WindSound");
+        if (!ambience[0].source.isPlaying)
+        {
+            AudioManager.instance.PlayAmbientSound("TrainSound");
+        }
+        if (!ambience[1].source.isPlaying)
+        {
+            AudioManager.instance.PlayAmbientSound("WindSound");
+        }
     }
 
     public void PlayPlayerSound(string name)
@@ -193,7 +199,7 @@ public class AudioManager : MonoBehaviour {
             if (s.paused)
             {
                 s.paused = false;
-                s.source.Play();
+                s.source.UnPause();
             }
         }
 
@@ -202,7 +208,7 @@ public class AudioManager : MonoBehaviour {
             if (s.paused)
             {
                 s.paused = false;
-                s.source.Play();
+                s.source.UnPause();
             }
         }
 
@@ -211,7 +217,7 @@ public class AudioManager : MonoBehaviour {
             if (s.paused)
             {
                 s.paused = false;
-                s.source.Play();
+                s.source.UnPause();
             }
         }
 
@@ -220,7 +226,7 @@ public class AudioManager : MonoBehaviour {
             if (s.paused)
             {
                 s.paused = false;
-                s.source.Play();
+                s.source.UnPause();
             }
         }
     }

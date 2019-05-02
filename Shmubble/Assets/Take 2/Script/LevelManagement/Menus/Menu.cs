@@ -17,7 +17,10 @@ public class Menu : MonoBehaviour {
     {
         resolutions = Screen.resolutions;
 
-        resolutionDropDown.ClearOptions();
+        if (resolutionDropDown != null)
+        {
+            resolutionDropDown.ClearOptions();
+        }
 
         List<string> options = new List<string>();
 
@@ -33,9 +36,12 @@ public class Menu : MonoBehaviour {
             }
         }
 
-        resolutionDropDown.AddOptions(options);
-        resolutionDropDown.value = currentResolutionIndex;
-        resolutionDropDown.RefreshShownValue();
+        if (resolutionDropDown != null)
+        {
+            resolutionDropDown.AddOptions(options);
+            resolutionDropDown.value = currentResolutionIndex;
+            resolutionDropDown.RefreshShownValue();
+        }
     }
 
     public void LoadScene (string sceneToLoad)

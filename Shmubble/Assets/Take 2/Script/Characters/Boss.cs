@@ -147,24 +147,6 @@ public class Boss : MonoBehaviour {
     [Tooltip("The name of the sound to play during the third attack.")]
     public string attackSound3;
 
-    [Space(10)]
-    [Tooltip("The name of the sound to play as trail sound of the bullet of the first attack.")]
-    public string trailSoundAttack1;
-    [Tooltip("The name of the sound to play as trail sound of the bullet of the second attack.")]
-    public string trailSoundAttack2;
-    [Tooltip("The name of the sound to play as trail sound of the bullet of the third attack.")]
-    public string trailSoundAttack3;
-    private string currentTrailSound;
-
-    [Space(10)]
-    [Tooltip("The name of the sound to play as impact sound of the bullet of the first attack.")]
-    public string impactSoundAttack1;
-    [Tooltip("The name of the sound to play as impact sound of the bullet of the second attack.")]
-    public string impactSoundAttack2;
-    [Tooltip("The name of the sound to play as impact sound of the bullet of the third attack.")]
-    public string impactSoundAttack3;
-    private string currentImpactSound;
-
     [Header("Environmental")]
     [Tooltip("Checks if environmental attacks can be spawned (Phase 2).")]
     public bool queueEnvironmental;
@@ -224,7 +206,15 @@ public class Boss : MonoBehaviour {
     [Space(10)]
     [Tooltip("The Gameobjects with the Object Pool on it.")]
     public List<ObjectPooler> environmentalPools = new List<ObjectPooler>();
-    
+
+    [Space(10)]
+    [Tooltip("The name of the sound to play during the first attack.")]
+    public string envAttackSound1;
+    [Tooltip("The name of the sound to play during the second attack.")]
+    public string envAttackSound2;
+    [Tooltip("The name of the sound to play during the third attack.")]
+    public string envAttackSound3;
+
     [Space(10)]
     [Tooltip("Amount of time between bounce attacks.")]
     public float bounceTimer;
@@ -431,9 +421,6 @@ public class Boss : MonoBehaviour {
                 // do attack stuff
                 lastAttackState = 0;
 
-                currentTrailSound = trailSoundAttack1;
-                currentImpactSound = impactSoundAttack1;
-
                 if (!attackStateEntered)
                 {
                     if (queueEnvironmental)
@@ -456,9 +443,6 @@ public class Boss : MonoBehaviour {
                 // do attack stuff
                 lastAttackState = 1;
 
-                currentTrailSound = trailSoundAttack2;
-                currentImpactSound = impactSoundAttack2;
-
                 if (!attackStateEntered)
                 {
                     if (queueEnvironmental)
@@ -480,9 +464,6 @@ public class Boss : MonoBehaviour {
             case State.ATTACK_3:
                 // do attack stuff
                 lastAttackState = 2;
-
-                currentTrailSound = trailSoundAttack3;
-                currentImpactSound = impactSoundAttack3;
 
                 if (!attackStateEntered)
                 {
@@ -557,6 +538,7 @@ public class Boss : MonoBehaviour {
 
                 // play environmental animation
                 environmentalChoice = 0;
+                AudioManager.instance.PlayEnvironmentSound(envAttackSound1);
                 HandleEnvironmentalAttack(randomSpawnEnv1, spawnPointsEnv1, anticipationTimerEnv1, anticipationEnv1, attackInt);
 
                 break;
@@ -566,6 +548,7 @@ public class Boss : MonoBehaviour {
 
                 // play environmental animation
                 environmentalChoice = 1;
+                AudioManager.instance.PlayEnvironmentSound(envAttackSound2);
                 HandleEnvironmentalAttack(randomSpawnEnv2, spawnPointsEnv2, 0f, null, attackInt);
 
                 break;
@@ -575,6 +558,7 @@ public class Boss : MonoBehaviour {
 
                 // play environmental animation
                 environmentalChoice = 2;
+                AudioManager.instance.PlayEnvironmentSound(envAttackSound3);
                 HandleEnvironmentalAttack(randomSpawnEnv3, spawnPointsEnv3, 0f, null, attackInt);
 
                 break;   
@@ -1056,8 +1040,6 @@ public class Boss : MonoBehaviour {
             newProjectile.transform.position = spawnPoint.position;
             newProjectile.transform.rotation = spawnPoint.rotation;
 
-            newProjectile.GetComponent<BulletData>().trailSound = currentTrailSound;
-            newProjectile.GetComponent<BulletData>().impactSound = currentImpactSound;
             newProjectile.SetActive(true);
 
             BulletData temp = newProjectile.GetComponent<BulletData>();

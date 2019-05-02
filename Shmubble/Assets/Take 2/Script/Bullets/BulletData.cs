@@ -86,11 +86,13 @@ public class BulletData : MonoBehaviour {
     public GameObject destroyEffect;
     GameObject destroyEffectSpawned;
 
-    [HideInInspector]
+    [Space(10)]
+    [Tooltip("The name of the sound that plays throughout the bullet's lifetime.")]
     public string trailSound;
-    [HideInInspector]
+    [Tooltip("The name of the sound that plays on impact.")]
     public string impactSound;
 
+    bool firstTime = true;
     bool enteredTarget;
     Rigidbody rb;
     bool solidObject;
@@ -138,7 +140,10 @@ public class BulletData : MonoBehaviour {
 
         if (gameObject.CompareTag ("ProjectileBoss"))
         {
-            AudioManager.instance.PlayBossSound(trailSound);
+            if (!firstTime)
+            {
+                AudioManager.instance.PlayBossSound(trailSound);
+            }
 
             target = GameObject.FindGameObjectWithTag("Player").transform;
             if (target != null)
@@ -152,7 +157,10 @@ public class BulletData : MonoBehaviour {
         }
         else if (gameObject.CompareTag("Projectile"))
         {
-            AudioManager.instance.PlayPlayerSound(trailSound);
+            if (!firstTime)
+            {
+                AudioManager.instance.PlayPlayerSound(trailSound);
+            }
 
             target = GameObject.FindGameObjectWithTag("Boss").transform;
             if (target != null)
@@ -181,6 +189,11 @@ public class BulletData : MonoBehaviour {
 
         enteredTarget = false;
         destroyEffectSpawned = null;
+
+        if (firstTime)
+        {
+            firstTime = false;
+        }
     }
 
     void FixedUpdate ()

@@ -172,24 +172,75 @@ MonoBehaviour:
   - name: SkullAttack
     clip: {fileID: 8300000, guid: 92f9f0a0d87d38846997f1fb54f9e43b, type: 3}
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
-    volume: 0.96
+    volume: 0.856
     pitch: 0.94
     loop: 0
     source: {fileID: 0}
+    paused: 0
   - name: SkullTrail
     clip: {fileID: 8300000, guid: 3b2f4282a30ade64d9c2fa9dab4974f5, type: 3}
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
-    volume: 1
-    pitch: 0
+    volume: 0.84
+    pitch: 0.89
     loop: 0
     source: {fileID: 0}
+    paused: 0
   - name: SkullImpact
     clip: {fileID: 8300000, guid: bec1a97d2c513b042a11c31c35c5bc96, type: 3}
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     volume: 1
-    pitch: 0
+    pitch: 0.69
     loop: 0
     source: {fileID: 0}
+    paused: 0
+  - name: FireWaveAttack
+    clip: {fileID: 8300000, guid: b550e3e7e08434b4896dc4cacb4f98c1, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    volume: 0.992
+    pitch: 1.13
+    loop: 0
+    source: {fileID: 0}
+    paused: 0
+  - name: FireWaveTrail
+    clip: {fileID: 8300000, guid: 88f51b3ddb048794ab2f6fc166f203f0, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    volume: 1
+    pitch: 0.27
+    loop: 0
+    source: {fileID: 0}
+    paused: 0
+  - name: FireWaveImpact
+    clip: {fileID: 8300000, guid: e2e6ddb29bffdb74db088c223d448d83, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    volume: 1
+    pitch: 0.69
+    loop: 0
+    source: {fileID: 0}
+    paused: 0
+  - name: MarigoldAttack
+    clip: {fileID: 8300000, guid: a74941263315a034e92bbabb59322b31, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    volume: 0.812
+    pitch: 1.16
+    loop: 0
+    source: {fileID: 0}
+    paused: 0
+  - name: MarigoldTrail
+    clip: {fileID: 8300000, guid: e811936a23b7fae4f86558024fc68f4c, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    volume: 1
+    pitch: 1.28
+    loop: 0
+    source: {fileID: 0}
+    paused: 0
+  - name: MarigoldImpact
+    clip: {fileID: 8300000, guid: e2e6ddb29bffdb74db088c223d448d83, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    volume: 1
+    pitch: 1.26
+    loop: 0
+    source: {fileID: 0}
+    paused: 0
   environment:
   - name: 
     clip: {fileID: 0}
@@ -198,6 +249,7 @@ MonoBehaviour:
     pitch: 0
     loop: 0
     source: {fileID: 0}
+    paused: 0
   - name: 
     clip: {fileID: 0}
     mixer: {fileID: 0}
@@ -205,18 +257,29 @@ MonoBehaviour:
     pitch: 0
     loop: 0
     source: {fileID: 0}
+    paused: 0
   ambience:
   - name: TrainSound
     clip: {fileID: 8300000, guid: d424a7ca2fa1ab9468382f261b05d4a8, type: 3}
-    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    mixer: {fileID: 243466873696253682, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     volume: 1
-    pitch: -0.02
+    pitch: 2.02
     loop: 1
     source: {fileID: 0}
+    paused: 0
   - name: WindSound
     clip: {fileID: 8300000, guid: d6b0ed01109ffbc488e577a9ef81ef52, type: 3}
-    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
-    volume: 1
-    pitch: 0
+    mixer: {fileID: 243466873696253682, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    volume: 0.772
+    pitch: 0.38
     loop: 1
     source: {fileID: 0}
+    paused: 0
+  - name: BackgroundMusic
+    clip: {fileID: 8300000, guid: 76ea74954aa3b0341be9bbb2d07981f0, type: 3}
+    mixer: {fileID: 243466873696253682, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    volume: 0.368
+    pitch: 0.95
+    loop: 1
+    source: {fileID: 0}
+    paused: 0

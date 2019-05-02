@@ -173,6 +173,8 @@ MonoBehaviour:
   - {fileID: 1545975154030288, guid: 1249d74fa5ab2154199065ba9f145e17, type: 2}
   destroyEffect: {fileID: 1615602485190336, guid: d55ce293e34f75c4aaeb05299e9970ce,
     type: 2}
+  trailSound: MarigoldTrail
+  impactSound: MarigoldImpact
 --- !u!135 &135183290302443142
 SphereCollider:
   m_ObjectHideFlags: 1

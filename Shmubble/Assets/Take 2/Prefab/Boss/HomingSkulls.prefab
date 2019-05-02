@@ -256,8 +256,8 @@ MonoBehaviour:
   - {fileID: 1507497637061944, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
   destroyEffect: {fileID: 1343271718141610, guid: b479a852855b9854caa086b93227db6e,
     type: 2}
-  trailSound: 
-  impactSound: 
+  trailSound: SkullTrail
+  impactSound: SkullImpact
 --- !u!135 &135388853420932064
 SphereCollider:
   m_ObjectHideFlags: 1
