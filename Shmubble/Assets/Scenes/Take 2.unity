@@ -949,12 +949,12 @@ Prefab:
     - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
         type: 2}
       propertyPath: cameraShakeFadeOut
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
         type: 2}
       propertyPath: cameraShakeFadeIn
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
         type: 2}
