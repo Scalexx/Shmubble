@@ -167,7 +167,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca414b7514195f438871076f95b397d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: []
+  player:
+  - name: PlayerAttack
+    clip: {fileID: 0}
+    mixer: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+    paused: 0
+  - name: PlayerSpecialAttack
+    clip: {fileID: 0}
+    mixer: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+    paused: 0
+  - name: PlayerHitSkull
+    clip: {fileID: 8300000, guid: a5381fbdcb989d64d99b2f7de33d2b6a, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    volume: 1
+    pitch: 0.47
+    loop: 0
+    source: {fileID: 0}
+    paused: 0
+  - name: PlayerHitFireWave
+    clip: {fileID: 0}
+    mixer: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+    paused: 0
+  - name: PlayerHitMarigold
+    clip: {fileID: 0}
+    mixer: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+    paused: 0
   boss:
   - name: SkullAttack
     clip: {fileID: 8300000, guid: 92f9f0a0d87d38846997f1fb54f9e43b, type: 3}
@@ -242,19 +282,19 @@ MonoBehaviour:
     source: {fileID: 0}
     paused: 0
   environment:
-  - name: 
-    clip: {fileID: 0}
-    mixer: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: EarthQuakeRumble
+    clip: {fileID: 8300000, guid: e643f668dc9b4734abd26f69c4218f42, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    volume: 1
+    pitch: 0.47
     loop: 0
     source: {fileID: 0}
     paused: 0
-  - name: 
-    clip: {fileID: 0}
-    mixer: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: EarthQuakeImpact
+    clip: {fileID: 8300000, guid: a5381fbdcb989d64d99b2f7de33d2b6a, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    volume: 1
+    pitch: 0.44
     loop: 0
     source: {fileID: 0}
     paused: 0

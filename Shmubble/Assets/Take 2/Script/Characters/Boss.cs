@@ -538,7 +538,6 @@ public class Boss : MonoBehaviour {
 
                 // play environmental animation
                 environmentalChoice = 0;
-                AudioManager.instance.PlayEnvironmentSound(envAttackSound1);
                 HandleEnvironmentalAttack(randomSpawnEnv1, spawnPointsEnv1, anticipationTimerEnv1, anticipationEnv1, attackInt);
 
                 break;
@@ -548,7 +547,6 @@ public class Boss : MonoBehaviour {
 
                 // play environmental animation
                 environmentalChoice = 1;
-                AudioManager.instance.PlayEnvironmentSound(envAttackSound2);
                 HandleEnvironmentalAttack(randomSpawnEnv2, spawnPointsEnv2, 0f, null, attackInt);
 
                 break;
@@ -558,7 +556,6 @@ public class Boss : MonoBehaviour {
 
                 // play environmental animation
                 environmentalChoice = 2;
-                AudioManager.instance.PlayEnvironmentSound(envAttackSound3);
                 HandleEnvironmentalAttack(randomSpawnEnv3, spawnPointsEnv3, 0f, null, attackInt);
 
                 break;   
@@ -892,14 +889,17 @@ public class Boss : MonoBehaviour {
         int rand = generateRandomNumber(0, 3, lastEnvState);
         if (rand == 0)
         {
+            AudioManager.instance.PlayEnvironmentSound(envAttackSound1);
             environmentalState = State.ATTACK_1;
         }
         else if (rand == 1)
         {
+            AudioManager.instance.PlayEnvironmentSound(envAttackSound2);
             environmentalState = State.ATTACK_2;
         }
         else if (rand == 2)
         {
+            AudioManager.instance.PlayEnvironmentSound(envAttackSound3);
             CameraShaker.Instance.ShakeOnce(cameraShakeMagnitude, cameraShakeRoughness, cameraShakeFadeIn, cameraShakeFadeOut);
             environmentalState = State.ATTACK_3;
         }
@@ -987,7 +987,6 @@ public class Boss : MonoBehaviour {
                     Destroy(attackEffectActive);
                     attackEffectActive = null;
 
-                    //AudioManager.instance.StopPlaying(attackSound);
                     entered = false;
                     attackEntered = false;
                     attackStateEntered = false;
