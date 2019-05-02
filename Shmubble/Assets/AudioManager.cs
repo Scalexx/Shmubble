@@ -36,6 +36,7 @@ public class AudioManager : MonoBehaviour {
             s.source.clip = s.clip;
             s.source.outputAudioMixerGroup = s.mixer;
 
+            s.source.priority = s.priority;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
@@ -47,6 +48,7 @@ public class AudioManager : MonoBehaviour {
             s.source.clip = s.clip;
             s.source.outputAudioMixerGroup = s.mixer;
 
+            s.source.priority = s.priority;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
@@ -58,6 +60,7 @@ public class AudioManager : MonoBehaviour {
             s.source.clip = s.clip;
             s.source.outputAudioMixerGroup = s.mixer;
 
+            s.source.priority = s.priority;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
@@ -69,6 +72,7 @@ public class AudioManager : MonoBehaviour {
             s.source.clip = s.clip;
             s.source.outputAudioMixerGroup = s.mixer;
 
+            s.source.priority = s.priority;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
@@ -133,7 +137,7 @@ public class AudioManager : MonoBehaviour {
             return;
         }
 
-        s.source.PlayOneShot(s.source.clip);
+        s.source.Play();
     }
 
     public void StopPlaying (string name)
