@@ -96,7 +96,7 @@ public class AudioManager : MonoBehaviour {
             return;
         }
 
-        s.source.Play();
+        s.source.PlayOneShot(s.source.clip);
     }
 
     public void PlayBossSound(string name)
@@ -109,7 +109,7 @@ public class AudioManager : MonoBehaviour {
             return;
         }
 
-        s.source.Play();
+        s.source.PlayOneShot(s.source.clip);
     }
 
     public void PlayEnvironmentSound(string name)
@@ -121,7 +121,7 @@ public class AudioManager : MonoBehaviour {
             return;
         }
 
-        s.source.Play();
+        s.source.PlayOneShot(s.source.clip);
     }
 
     public void PlayAmbientSound(string name)
