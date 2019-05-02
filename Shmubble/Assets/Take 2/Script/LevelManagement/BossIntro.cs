@@ -28,6 +28,7 @@ public class BossIntro : MonoBehaviour {
     [Tooltip("The gameobject which handles the intro particle.")]
     public GameObject introParticle;
 
+    bool introDone;
     bool entered;
     float introPeriod;
     bool smooth;
@@ -61,8 +62,12 @@ public class BossIntro : MonoBehaviour {
 
             if (introPeriod <= queueBossTimer)
             {
-                AudioManager.instance.PlayBossSound("BossIntro");
-                introParticle.SetActive(true);
+                if (!introDone)
+                {
+                    AudioManager.instance.PlayBossSound("BossIntro");
+                    introParticle.SetActive(true);
+                    introDone = true;
+                }
             }
 
             if (introPeriod <= 0)
