@@ -219,6 +219,8 @@ MonoBehaviour:
   trails: []
   destroyEffect: {fileID: 1406793801915058, guid: ee199ad70c0bf1543b07a747827e03c3,
     type: 2}
+  trailSound: 
+  impactSound: EarthQuakeImpact
 --- !u!135 &135388853420932064
 SphereCollider:
   m_ObjectHideFlags: 1
