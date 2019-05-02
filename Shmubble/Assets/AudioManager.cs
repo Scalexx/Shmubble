@@ -79,7 +79,6 @@ public class AudioManager : MonoBehaviour {
     {
         PlayAmbientSound("TrainSound");
         PlayAmbientSound("WindSound");
-        PlayAmbientSound("BackgroundMusic");
     }
 
     public void PlayPlayerSound(string name)

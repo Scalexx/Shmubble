@@ -38,6 +38,7 @@ public class BossIntro : MonoBehaviour {
         if (hit.gameObject.CompareTag("Player"))
         {
             entered = true;
+            AudioManager.instance.PlayAmbientSound("BackgroundMusic");
         }
     }
     void Update()

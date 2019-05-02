@@ -1003,7 +1003,7 @@ public class Boss : MonoBehaviour {
                     Destroy(attackEffectActive);
                     attackEffectActive = null;
 
-                    AudioManager.instance.StopPlaying(attackSound);
+                    //AudioManager.instance.StopPlaying(attackSound);
                     entered = false;
                     attackEntered = false;
                     attackStateEntered = false;
