@@ -172,6 +172,8 @@ MonoBehaviour:
   - {fileID: 1265843911726482, guid: a69ffd08d555de3439016433171daf89, type: 2}
   destroyEffect: {fileID: 1974376218560494, guid: 7c2a5d03f2c335941b828c0a85f9c9fe,
     type: 2}
+  trailSound: PlayerAttackTrail
+  impactSound: PlayerAttackImpact
 --- !u!135 &135132464617773920
 SphereCollider:
   m_ObjectHideFlags: 1
