@@ -260,6 +260,26 @@ Prefab:
       propertyPath: boss.Array.data[6].clip
       value: 
       objectReference: {fileID: 8300000, guid: ce0bf54b691144f46a410ad32c0af254, type: 3}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c8f04b9273c2ca4dbadb9b3ea083cc3, type: 3}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[7].pitch
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 984bd2ff7dccf774da038317b026869c, type: 3}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[8].pitch
+      value: 0.64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3defac20ff58ce24b90b8b92ba3325d8, type: 2}
   m_IsPrefabParent: 0
