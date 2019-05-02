@@ -228,12 +228,12 @@ Prefab:
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: ambience.Array.data[2].volume
-      value: 0.444
+      value: 0.368
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: ambience.Array.data[2].pitch
-      value: 0.67
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
@@ -243,13 +243,13 @@ Prefab:
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: boss.Array.data[3].name
-      value: FireWave
+      value: FireWaveAttack
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: boss.Array.data[3].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 3e6d726316de16841b5765cccf774d7d, type: 3}
+      objectReference: {fileID: 8300000, guid: b550e3e7e08434b4896dc4cacb4f98c1, type: 3}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: boss.Array.data[3].mixer
@@ -259,23 +259,23 @@ Prefab:
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: boss.Array.data[3].volume
-      value: 1
+      value: 0.992
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: boss.Array.data[3].pitch
-      value: 0.69
+      value: 1.13
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: boss.Array.data[4].name
-      value: FireTrail
+      value: FireWaveTrail
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: boss.Array.data[4].clip
       value: 
-      objectReference: {fileID: 8300000, guid: e811936a23b7fae4f86558024fc68f4c, type: 3}
+      objectReference: {fileID: 8300000, guid: 88f51b3ddb048794ab2f6fc166f203f0, type: 3}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: boss.Array.data[4].mixer
@@ -290,12 +290,12 @@ Prefab:
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: boss.Array.data[4].pitch
-      value: 0.69
+      value: 0.27
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: boss.Array.data[5].name
-      value: FireImpact
+      value: FireWaveImpact
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
@@ -337,12 +337,12 @@ Prefab:
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: boss.Array.data[6].volume
-      value: 1
+      value: 0.812
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: boss.Array.data[6].pitch
-      value: 0.54
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
@@ -394,7 +394,7 @@ Prefab:
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
       propertyPath: boss.Array.data[8].pitch
-      value: 0.69
+      value: 1.26
       objectReference: {fileID: 0}
     - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
         type: 2}
@@ -408,6 +408,21 @@ Prefab:
       value: 
       objectReference: {fileID: 243466873696253682, guid: 71d52175cabfac9448c9b8f41e20668f,
         type: 2}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[0].volume
+      value: 0.856
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[1].volume
+      value: 0.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[4].loop
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3defac20ff58ce24b90b8b92ba3325d8, type: 2}
   m_IsPrefabParent: 0
@@ -1074,6 +1089,16 @@ Prefab:
       propertyPath: canvasAnim
       value: 
       objectReference: {fileID: 654713332}
+    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: cameraShakeRoughness
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: cameraShakeMagnitude
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70c0c1a568d015f4f9bf6a013ef3928c, type: 2}
   m_IsPrefabParent: 0
