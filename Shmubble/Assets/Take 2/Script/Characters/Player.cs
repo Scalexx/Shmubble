@@ -31,6 +31,8 @@ public class Player : MonoBehaviour {
     public ObjectPooler projectilePool;
     [Tooltip("The GameObject with the EX Projectile Object Pool on it.")]
     public ObjectPooler exProjectilePool;
+    public string attackSound;
+    public string exAttackSound;
     private bool shooting;
     private bool EXshoot;
 
@@ -274,6 +276,8 @@ public class Player : MonoBehaviour {
 
         if(timeBetweenShots <= 0)
         {
+            AudioManager.instance.PlayPlayerSound(attackSound);
+
             GameObject newProjectile = projectilePool.GetPooledObject();
 
             newProjectile.transform.position = spawnPoint.position;
@@ -292,6 +296,7 @@ public class Player : MonoBehaviour {
 
     private void HandleExShoot()
     {
+        AudioManager.instance.PlayPlayerSound(exAttackSound);
         HandleDirection();
 
         GameObject newProjectile = exProjectilePool.GetPooledObject();

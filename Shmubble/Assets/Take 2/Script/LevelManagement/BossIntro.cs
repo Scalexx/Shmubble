@@ -61,6 +61,7 @@ public class BossIntro : MonoBehaviour {
 
             if (introPeriod <= queueBossTimer)
             {
+                AudioManager.instance.PlayBossSound("BossIntro");
                 introParticle.SetActive(true);
             }
 
