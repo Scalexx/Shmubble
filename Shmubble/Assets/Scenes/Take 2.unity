@@ -137,6 +137,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: environment.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4529990364524108, guid: 3defac20ff58ce24b90b8b92ba3325d8, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -173,6 +178,62 @@ Prefab:
         type: 2}
       propertyPath: environment.Array.data[0].pitch
       value: 2.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: ambience.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 76ea74954aa3b0341be9bbb2d07981f0, type: 3}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: environment.Array.data[2].name
+      value: EarthQuakeTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: environment.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e643f668dc9b4734abd26f69c4218f42, type: 3}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: environment.Array.data[2].mixer
+      value: 
+      objectReference: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f,
+        type: 2}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: environment.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: environment.Array.data[2].pitch
+      value: 0.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f8610e4d4dac91c4aa2ab4369acb981c, type: 3}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[0].pitch
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: boss.Array.data[0].volume
+      value: 0.724
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: ambience.Array.data[2].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+        type: 2}
+      propertyPath: ambience.Array.data[2].volume
+      value: 0.292
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3defac20ff58ce24b90b8b92ba3325d8, type: 2}
