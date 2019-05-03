@@ -4463,14 +4463,14 @@ MonoBehaviour:
     type: 2}
   attackEffect2: {fileID: 1225693437318078, guid: a58e0261206aa5b49b3b9a641235d241,
     type: 2}
-  attackEffect3: {fileID: 1771078944604200, guid: 323728943b52f0d40977f8fd0bf15ce6,
+  attackEffect3: {fileID: 1621880714300184, guid: eae19490a3f8d734e8e62b02171919e6,
     type: 2}
   spawnPointEffect: {fileID: 0}
   anticipationEffectAttack1: {fileID: 1415261180325394, guid: 2dae7b191a1928f4fb902bf461784034,
     type: 2}
   anticipationEffectAttack2: {fileID: 1977053028725040, guid: 1f30669a76b317844943b580e6b4232b,
     type: 2}
-  anticipationEffectAttack3: {fileID: 1385419175392460, guid: b66b8d3c62ee1cd4cb6b66358b70820d,
+  anticipationEffectAttack3: {fileID: 1051888575060262, guid: 4df14b75d27038548a661bf9689f0586,
     type: 2}
   anticipationEffectAttack4: {fileID: 0}
   anticipationTimer: 3.1

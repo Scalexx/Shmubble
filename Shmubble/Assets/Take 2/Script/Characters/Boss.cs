@@ -978,7 +978,14 @@ public class Boss : MonoBehaviour {
                             {
                                 if (childX.GetComponent<Animation>() != null)
                                 {
-                                    childX.GetComponent<Animation>().Play("SkullShrink");
+                                    if (childX.GetComponent<Projector>() != null)
+                                    {
+                                        childX.GetComponent<Animation>().Play("Projector");
+                                    }
+                                    else
+                                    {
+                                        childX.GetComponent<Animation>().Play("SkullShrink");
+                                    }
                                     Destroy(childX.gameObject, 1f);
                                 }
                             }
