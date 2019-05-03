@@ -271,9 +271,9 @@ MonoBehaviour:
   - name: FireWaveAttack
     clip: {fileID: 8300000, guid: b550e3e7e08434b4896dc4cacb4f98c1, type: 3}
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
-    priority: 0
+    priority: 206
     volume: 0.992
-    pitch: 1.13
+    pitch: 0.26
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -282,16 +282,16 @@ MonoBehaviour:
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 0
     volume: 1
-    pitch: 0.27
+    pitch: 0.54
     loop: 0
     source: {fileID: 0}
     paused: 0
   - name: FireWaveImpact
     clip: {fileID: 8300000, guid: e2e6ddb29bffdb74db088c223d448d83, type: 3}
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
-    priority: 0
+    priority: 256
     volume: 1
-    pitch: 0.69
+    pitch: 0.38
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -381,7 +381,7 @@ MonoBehaviour:
   - name: BackgroundMusic
     clip: {fileID: 8300000, guid: 76ea74954aa3b0341be9bbb2d07981f0, type: 3}
     mixer: {fileID: 243466873696253682, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
-    priority: 256
+    priority: 0
     volume: 0.52
     pitch: 1.24
     loop: 1
