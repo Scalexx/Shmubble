@@ -169,11 +169,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player:
   - name: PlayerAttack
-    clip: {fileID: 8300000, guid: db6e7184c368a074c8af09052029b0f8, type: 3}
+    clip: {fileID: 8300000, guid: 4b1adbdeb2fd13e4e9744c260c9e7be0, type: 3}
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 256
-    volume: 0.8
-    pitch: 0.33
+    volume: 0.507
+    pitch: 0.54
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -214,20 +214,20 @@ MonoBehaviour:
     source: {fileID: 0}
     paused: 0
   - name: PlayerAttackTrail
-    clip: {fileID: 8300000, guid: db6e7184c368a074c8af09052029b0f8, type: 3}
+    clip: {fileID: 8300000, guid: d1b370ea73b70194eb2c01a00f164fc4, type: 3}
     mixer: {fileID: 0}
     priority: 0
-    volume: 0.8
-    pitch: 0.64
+    volume: 0.464
+    pitch: 1.54
     loop: 0
     source: {fileID: 0}
     paused: 0
   - name: PlayerAttackImpact
-    clip: {fileID: 8300000, guid: e2e6ddb29bffdb74db088c223d448d83, type: 3}
+    clip: {fileID: 8300000, guid: ecaca550541dc7649847498b9ab5b7f4, type: 3}
     mixer: {fileID: 0}
     priority: 0
     volume: 0.8
-    pitch: 0.59
+    pitch: 1.1
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 0
     volume: 0.6
-    pitch: 1.6
+    pitch: 1.23
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -254,8 +254,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d9f8cff668ea29d4c8a2be35e53eddaf, type: 3}
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 0
-    volume: 0.6
-    pitch: 1.19
+    volume: 0.668
+    pitch: 0.68
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 206
     volume: 0.992
-    pitch: 0.26
+    pitch: 0.38
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -282,16 +282,16 @@ MonoBehaviour:
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 0
     volume: 1
-    pitch: 0.54
+    pitch: 2.07
     loop: 0
     source: {fileID: 0}
     paused: 0
   - name: FireWaveImpact
-    clip: {fileID: 8300000, guid: e2e6ddb29bffdb74db088c223d448d83, type: 3}
+    clip: {fileID: 8300000, guid: ff55110bc6dadfd4e8cfa02aaf335173, type: 3}
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 256
     volume: 1
-    pitch: 0.38
+    pitch: 2.54
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -382,8 +382,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 76ea74954aa3b0341be9bbb2d07981f0, type: 3}
     mixer: {fileID: 243466873696253682, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 0
-    volume: 0.52
-    pitch: 1.24
+    volume: 0.236
+    pitch: 1.08
     loop: 1
     source: {fileID: 0}
     paused: 0
