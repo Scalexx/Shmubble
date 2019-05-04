@@ -1013,27 +1013,23 @@ public class Boss : MonoBehaviour {
 
     public void HandleEnvironmentalAttack(bool randomSpawn, List<Transform> spawnPoints, float environmentalTimer, GameObject environmentalEffect, int shotsToFireAttack)
     {
-        if (shotsFired < shotsToFireAttack - 1)
+        if (randomSpawn && !randomSpawnEnvChosen)
         {
-            if (randomSpawn && !randomSpawnEnvChosen)
-            {
-                spawnPointIntEnv = generateRandomNumber(0, spawnPoints.Count, lastSpawnEnvInt);
-                randomSpawnEnvChosen = true;
-            }
+            spawnPointIntEnv = generateRandomNumber(0, spawnPoints.Count, lastSpawnEnvInt);
+            randomSpawnEnvChosen = true;
+        }
 
-            if (spawnPointIntEnv < spawnPoints.Count)
+        if (spawnPointIntEnv < spawnPoints.Count)
+        {
+            spawnPointEnv = spawnPoints[spawnPointIntEnv];
+            if (shotsFired < shotsToFireAttack - 1)
             {
-                spawnPointEnv = spawnPoints[spawnPointIntEnv];
                 HandleEnvironmental(environmentalTimer, environmentalEffect, spawnPointEnv);
-            }
-            else
-            {
-                spawnPointIntEnv = 0;
             }
         }
         else
         {
-            anticipationDone = true;
+            spawnPointIntEnv = 0;
         }
     }
 

@@ -18,10 +18,15 @@ public class Laser : MonoBehaviour
     public Vector3 size;
     Vector3 currentSize;
 
+    public GameObject effects;
+    GameObject effectActive;
+
     void OnEnable()
     {
         laserPeriod = laserTime;
         transform.localScale = new Vector3(0, size.y, size.z);
+
+        effectActive = Instantiate(effects, gameObject.transform.parent.transform.position, gameObject.transform.parent.transform.rotation);
     }
 
     void Update()
@@ -46,8 +51,49 @@ public class Laser : MonoBehaviour
     {
         if (hit.CompareTag("OutOfBoundsFar"))
         {
-            gameObject.SetActive(false);
+            DestroyMe();
         }
+    }
+
+    void DestroyMe()
+    {
+        float timer;
+        var ps = effectActive.GetComponent<ParticleSystem>();
+        if (ps != null)
+        {
+            ps.Stop();
+            timer = ps.main.duration + ps.main.startLifetime.constantMax;
+            Destroy(ps.gameObject, timer);
+        }
+        else
+        {
+            Transform par = effectActive.transform;
+            int childCount = par.childCount - 1;
+            ParticleSystem psChild;
+
+            for (int i = childCount; i > -1; i--)
+            {
+                Transform childX = par.GetChild(i);
+
+                childX.transform.parent = null;
+                psChild = childX.GetComponent<ParticleSystem>();
+                if (psChild != null)
+                {
+                    psChild.Stop();
+                    Destroy(psChild.gameObject, psChild.main.duration + psChild.main.startLifetime.constantMax);
+                }
+                else
+                {
+                    Destroy(childX.gameObject);
+                }
+            }
+        }
+
+        Destroy(effectActive);
+        effectActive = null;
+
+        gameObject.SetActive(false);
+        gameObject.transform.parent.transform.gameObject.SetActive(false);
     }
 }
 
