@@ -2980,6 +2980,16 @@ Prefab:
       propertyPath: cameraShakeFadeOut
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: cameraShakeMagnitude
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: cameraShakeRoughness
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70c0c1a568d015f4f9bf6a013ef3928c, type: 2}
   m_IsPrefabParent: 0
