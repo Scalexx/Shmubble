@@ -186,15 +186,21 @@ public class Player : MonoBehaviour {
             lockMovement = false;
         }
 
-        if (!lockMovement)
+        if (lockMovement)
         {
-            animator.SetFloat("InputX", Input.GetAxis("Horizontal"));
-            animator.SetFloat("InputY", Input.GetAxis("Vertical"));
+            animator.SetBool("Jumping", false);
+            animator.SetBool("Dashing", false);
+            animator.SetFloat("InputX", 0f);
+            animator.SetFloat("InputY", 0f);
+        }
+        else if (crouch)
+        {
+            animator.SetFloat("InputX", 0f);
         }
         else
         {
-            animator.SetFloat("InputX", 0f);
-            animator.SetFloat("InputY", 0f);
+            animator.SetFloat("InputX", Input.GetAxis("Horizontal"));
+            animator.SetFloat("InputY", Input.GetAxis("Vertical"));
         }
     }
 	
