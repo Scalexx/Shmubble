@@ -69,6 +69,10 @@ public class Player : MonoBehaviour {
 
     public float downTime;
     public float waitTillShoot;
+
+    public GameObject muzzleEffect;
+    GameObject muzzleEffectActive;
+
     float waitShoot;
     float downPeriod;
 
@@ -231,10 +235,12 @@ public class Player : MonoBehaviour {
 
                 if (IsControllerGrounded())
                 {
+                    animator.SetBool("Falling", false);
                     verticalVelocity = 0;
 
                     if (jumping)
                     {
+                        animator.SetBool("Falling", true);
                         verticalVelocity = jumpHeight;
                     }
                 }
@@ -352,6 +358,9 @@ public class Player : MonoBehaviour {
 
             newProjectile.transform.position = spawnPoint.position;
             newProjectile.transform.rotation = spawnPoint.rotation;
+
+            muzzleEffectActive = Instantiate(muzzleEffect, spawnPoint.position, spawnPoint.rotation);
+            Destroy(muzzleEffectActive, 0.3f);
 
             //add sounds
             newProjectile.SetActive(true);
