@@ -172,9 +172,12 @@ public class BulletData : MonoBehaviour {
                 return;
             }
         }
-        targetPos = target.position;
-        velocityTarget = (targetPos - transform.position).normalized;
-
+        if (target != null)
+        {
+            targetPos = target.position;
+            velocityTarget = (targetPos - transform.position).normalized;
+        }
+        
         speed = startSpeed;
 
         if (trails.Count > 0 && myTrails.Count == 0)
@@ -241,6 +244,11 @@ public class BulletData : MonoBehaviour {
             if (hit.gameObject.CompareTag("ProjectileBoss") || hit.gameObject.CompareTag("Projectile"))
             {
                 hit.gameObject.SetActive(false);
+            }
+            if (hit.gameObject.layer == target.gameObject.layer)
+            {
+                Impact();
+                DestroyMe();
             }
         }
         else if (destroyOnTouch && target.gameObject.layer == hit.gameObject.layer)

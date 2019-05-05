@@ -20,6 +20,8 @@ public class DisableMovement : MonoBehaviour {
             introPeriod = introTimer;
             playerScript.allowDisable = true;
             playerScript.disableShoot = true;
+            playerScript.disableJump = true;
+            playerScript.disableDash = true;
             entered = true;
         }
 
@@ -27,6 +29,8 @@ public class DisableMovement : MonoBehaviour {
         {
             playerScript.allowDisable = false;
             playerScript.disableShoot = false;
+            playerScript.disableJump = false;
+            playerScript.disableDash = false;
         }
         else
         {

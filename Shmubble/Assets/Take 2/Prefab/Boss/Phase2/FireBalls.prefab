@@ -9,55 +9,55 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1558642793252984}
+  m_RootGameObject: {fileID: 1299512369071886}
   m_IsPrefabParent: 1
---- !u!1 &1558642793252984
+--- !u!1 &1299512369071886
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4759500623883262}
-  - component: {fileID: 135132464617773920}
-  - component: {fileID: 23757912769574226}
-  - component: {fileID: 54998898794094522}
-  - component: {fileID: 114429311707615140}
-  m_Layer: 8
-  m_Name: Bullet
-  m_TagString: Projectile
+  - component: {fileID: 4053794425752998}
+  - component: {fileID: 135183290302443142}
+  - component: {fileID: 23433135893117262}
+  - component: {fileID: 54113124082234892}
+  - component: {fileID: 114519465714725534}
+  m_Layer: 9
+  m_Name: FireBalls
+  m_TagString: ProjectileBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4759500623883262
+--- !u!4 &4053794425752998
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1558642793252984}
+  m_GameObject: {fileID: 1299512369071886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -12, y: 2, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23757912769574226
+--- !u!23 &23433135893117262
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1558642793252984}
+  m_GameObject: {fileID: 1299512369071886}
   m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 535275dd6e5cfac4eb8bdbefdbb21b77, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,12 +77,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &54998898794094522
+--- !u!54 &54113124082234892
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1558642793252984}
+  m_GameObject: {fileID: 1299512369071886}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -92,27 +92,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114429311707615140
+--- !u!114 &114519465714725534
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1558642793252984}
+  m_GameObject: {fileID: 1299512369071886}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 530662a7a8be3ab4a808ab3a2bfc7892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startSpeed: 15
-  damage: 4
-  velocity: {x: 1, y: 0, z: 0}
-  timeBetweenShots: 0.3
-  destroyOnTouch: 0
+  damage: 1
+  velocity: {x: 0, y: 0, z: 0}
+  timeBetweenShots: 1.5
+  destroyOnTouch: 1
   destroyOtherOnTouch: 0
-  destroyOnCollisionGround: 0
-  stopTimer: 0
+  destroyOnCollisionGround: 1
+  stopTimer: 3
   useCurve: 0
-  useXCurve: 0
+  useXCurve: 1
   trajectoryCurveX:
     serializedVersion: 2
     m_Curve:
@@ -124,26 +124,26 @@ MonoBehaviour:
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 0
+      value: 1.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  useYCurve: 0
+  useYCurve: 1
   trajectoryCurveY:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 0.6
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 0
+      value: -0.6
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -160,29 +160,30 @@ MonoBehaviour:
   animationSpeedMultiplier: 1
   curveMaxY: 1
   useHoming: 0
-  target: {fileID: 0}
+  target: {fileID: 4340601524913464, guid: 7b54674ca2316e24f89e43115d10b45e, type: 2}
   angleChangingSpeed: 4
   stopHomingTimer: 0
-  useTarget: 0
+  useTarget: 1
   trails:
-  - {fileID: 1345766342408710, guid: a69ffd08d555de3439016433171daf89, type: 2}
-  - {fileID: 1982270434233846, guid: a69ffd08d555de3439016433171daf89, type: 2}
-  - {fileID: 1034142173238668, guid: a69ffd08d555de3439016433171daf89, type: 2}
-  - {fileID: 1936858884588478, guid: a69ffd08d555de3439016433171daf89, type: 2}
-  - {fileID: 1265843911726482, guid: a69ffd08d555de3439016433171daf89, type: 2}
-  destroyEffect: {fileID: 1974376218560494, guid: 7c2a5d03f2c335941b828c0a85f9c9fe,
+  - {fileID: 1761204282207802, guid: 1249d74fa5ab2154199065ba9f145e17, type: 2}
+  - {fileID: 1134013020229218, guid: 1249d74fa5ab2154199065ba9f145e17, type: 2}
+  - {fileID: 1503521484781500, guid: 1249d74fa5ab2154199065ba9f145e17, type: 2}
+  - {fileID: 1520093397375142, guid: 1249d74fa5ab2154199065ba9f145e17, type: 2}
+  - {fileID: 1598780593984872, guid: 1249d74fa5ab2154199065ba9f145e17, type: 2}
+  - {fileID: 1545975154030288, guid: 1249d74fa5ab2154199065ba9f145e17, type: 2}
+  destroyEffect: {fileID: 1615602485190336, guid: d55ce293e34f75c4aaeb05299e9970ce,
     type: 2}
-  trailSound: PlayerAttackTrail
-  impactSound: PlayerAttackImpact
---- !u!135 &135132464617773920
+  trailSound: MarigoldTrail
+  impactSound: MarigoldImpact
+--- !u!135 &135183290302443142
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1558642793252984}
+  m_GameObject: {fileID: 1299512369071886}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: 0}

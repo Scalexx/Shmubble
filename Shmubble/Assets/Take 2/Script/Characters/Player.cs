@@ -65,6 +65,13 @@ public class Player : MonoBehaviour {
     public float knockBackPeriod;
     private float knockBackTimer;
 
+    public Animator animator;
+
+    public float downTime;
+    public float waitTillShoot;
+    float waitShoot;
+    float downPeriod;
+
     [HideInInspector]
     public bool takenOver;
     [HideInInspector]
@@ -73,6 +80,10 @@ public class Player : MonoBehaviour {
     public bool allowDisable;
     [HideInInspector]
     public bool disableShoot;
+    [HideInInspector]
+    public bool disableJump;
+    [HideInInspector]
+    public bool disableDash;
 
     private Vector3 moveVector;
     private Vector3 lastMotion;
@@ -81,29 +92,85 @@ public class Player : MonoBehaviour {
 	void Start () {
         controller = GetComponent<CharacterController>();
         currentDashTime = maxDashTime;
+        downPeriod = downTime;
     }
 
 	void Update() {
-        jumping = Input.GetButton("Jump");
+        if (disableJump)
+        {
+            animator.SetBool("Jumping", false);
+            jumping = false;
+        }
+        else
+        {
+            jumping = Input.GetButton("Jump");
+        }
 
-        if (Input.GetButtonDown("Dash"))
+        if (disableDash)
+        {
+            animator.SetBool("Dashing", false);
+            dashing = false;
+        }
+        else if (Input.GetButtonDown("Dash"))
         {
 		    dashing = true;
 	    }
 
-        EXshoot = Input.GetButton("EX Shoot");
+        animator.SetBool("Jumping", jumping);
+        animator.SetBool("Dashing", dashing);
+
+        if (Input.GetButton("EX Shoot") && LevelManager.Instance.damageDealt >= LevelManager.Instance.specialMaxCharge)
+        {
+            waitShoot = waitTillShoot;
+            downPeriod = downTime;
+            EXshoot = true;
+        }
+
+        if (EXshoot)
+        {
+            if (downPeriod <= 0)
+            {
+                allowDisable = false;
+                disableShoot = false;
+            }
+            else
+            {
+                animator.SetBool("Special", true);
+                downPeriod -= Time.deltaTime;
+                allowDisable = true;
+                disableShoot = true;
+            }
+
+            if (waitShoot <= 0)
+            {
+                HandleExShoot();
+            }
+            else
+            {
+                waitShoot -= Time.deltaTime;
+            }
+        }
 
         if (disableShoot)
         {
+            animator.SetBool("Attacking", false);
             shooting = false;
         }
         else if (Input.GetButton("Shoot") || Input.GetAxis("Shoot") > 0)
         {
+            animator.SetBool("Attacking", true);
             shooting = true;
         }
         else
         {
+            timeBetweenShots = 0;
+            animator.SetBool("Attacking", false);
             shooting = false;
+        }
+
+        if (shooting)
+        {
+            HandleShoot();
         }
 
         if (allowDisable)
@@ -118,7 +185,18 @@ public class Player : MonoBehaviour {
         {
             lockMovement = false;
         }
-	}
+
+        if (!lockMovement)
+        {
+            animator.SetFloat("InputX", Input.GetAxis("Horizontal"));
+            animator.SetFloat("InputY", Input.GetAxis("Vertical"));
+        }
+        else
+        {
+            animator.SetFloat("InputX", 0f);
+            animator.SetFloat("InputY", 0f);
+        }
+    }
 	
 	void FixedUpdate () {
         if (knockBackTimer <= 0)
@@ -168,17 +246,6 @@ public class Player : MonoBehaviour {
                 }
                 
                 moveVector.y = verticalVelocity;
-            }
-            if (shooting)
-            {
-                HandleShoot();
-            }
-            if (EXshoot)
-            {
-                if (LevelManager.Instance.damageDealt >= LevelManager.Instance.specialMaxCharge)
-                {
-                    HandleExShoot();
-                }
             }
         }
         else
@@ -273,11 +340,8 @@ public class Player : MonoBehaviour {
     {
         HandleDirection();
 
-
         if(timeBetweenShots <= 0)
         {
-            AudioManager.instance.PlayPlayerSound(attackSound);
-
             GameObject newProjectile = projectilePool.GetPooledObject();
 
             newProjectile.transform.position = spawnPoint.position;
@@ -285,6 +349,7 @@ public class Player : MonoBehaviour {
 
             //add sounds
             newProjectile.SetActive(true);
+            AudioManager.instance.PlayPlayerSound(attackSound);
 
             timeBetweenShots = newProjectile.GetComponent<BulletData>().timeBetweenShots;
         }
@@ -310,6 +375,9 @@ public class Player : MonoBehaviour {
         float damage = newProjectile.GetComponent<BulletData>().damage;
 
         LevelManager.Instance.SpecialDone(damage);
+
+        animator.SetBool("Special", false);
+        EXshoot = false;
     }
 
     // Delete this function later when Animations are added as it will serve the same purpose
