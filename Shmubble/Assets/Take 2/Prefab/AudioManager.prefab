@@ -178,11 +178,11 @@ MonoBehaviour:
     source: {fileID: 0}
     paused: 0
   - name: PlayerSpecialAttack
-    clip: {fileID: 0}
-    mixer: {fileID: 0}
-    priority: 0
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 38103b453271c054bb2f53fa14d89170, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    priority: 199
+    volume: 1
+    pitch: 0.37
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -218,7 +218,7 @@ MonoBehaviour:
     mixer: {fileID: 0}
     priority: 0
     volume: 0.464
-    pitch: 1.54
+    pitch: 1.437
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
     mixer: {fileID: 0}
     priority: 0
     volume: 0.8
-    pitch: 1.1
+    pitch: 1.82
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -240,13 +240,31 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
     paused: 0
+  - name: PlayersSpecialTrail
+    clip: {fileID: 8300000, guid: 38103b453271c054bb2f53fa14d89170, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    priority: 256
+    volume: 1
+    pitch: 0.71
+    loop: 0
+    source: {fileID: 0}
+    paused: 0
+  - name: PlayerSpecialImpact
+    clip: {fileID: 8300000, guid: 0ddca22a5f93a3847b73e0ac8b32898e, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    priority: 0
+    volume: 0.996
+    pitch: 0.85
+    loop: 0
+    source: {fileID: 0}
+    paused: 0
   boss:
   - name: SkullAttack
     clip: {fileID: 8300000, guid: f8610e4d4dac91c4aa2ab4369acb981c, type: 3}
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 0
     volume: 0.6
-    pitch: 1.23
+    pitch: 0.726
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -255,7 +273,7 @@ MonoBehaviour:
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 0
     volume: 0.668
-    pitch: 0.68
+    pitch: 0.335
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -264,7 +282,7 @@ MonoBehaviour:
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 0
     volume: 0.6
-    pitch: 0.69
+    pitch: 0.518
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -273,7 +291,7 @@ MonoBehaviour:
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 206
     volume: 0.992
-    pitch: 0.38
+    pitch: 0.293
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -300,7 +318,7 @@ MonoBehaviour:
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 0
     volume: 0.6
-    pitch: 0.32
+    pitch: 0.223
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -309,7 +327,7 @@ MonoBehaviour:
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 0
     volume: 0.6
-    pitch: 0.31
+    pitch: 0.612
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -318,7 +336,7 @@ MonoBehaviour:
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 0
     volume: 0.6
-    pitch: 0.64
+    pitch: 0.526
     loop: 0
     source: {fileID: 0}
     paused: 0
