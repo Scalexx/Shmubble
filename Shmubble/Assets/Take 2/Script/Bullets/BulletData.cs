@@ -245,7 +245,12 @@ public class BulletData : MonoBehaviour {
             {
                 hit.gameObject.SetActive(false);
             }
-            if (hit.gameObject.layer == target.gameObject.layer)
+            if (hit.gameObject.CompareTag("Player") && gameObject.CompareTag("ProjectileBoss"))
+            {
+                Impact();
+                DestroyMe();
+            }
+            if (hit.gameObject.CompareTag("Boss") && gameObject.CompareTag("Projectile"))
             {
                 Impact();
                 DestroyMe();

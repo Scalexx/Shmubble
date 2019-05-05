@@ -84,7 +84,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1723027501008808}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 0}
 --- !u!54 &54709078412833586
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -172,7 +172,12 @@ MonoBehaviour:
   angleChangingSpeed: 4
   stopHomingTimer: 0
   useTarget: 0
-  trails: []
+  trails:
+  - {fileID: 1634705530940796, guid: 973f9a45b13b2b340943907fea66e055, type: 2}
+  - {fileID: 1098691874345346, guid: 973f9a45b13b2b340943907fea66e055, type: 2}
+  - {fileID: 1983125911072578, guid: 973f9a45b13b2b340943907fea66e055, type: 2}
+  - {fileID: 1835993496446582, guid: 973f9a45b13b2b340943907fea66e055, type: 2}
+  - {fileID: 1743997722895298, guid: 973f9a45b13b2b340943907fea66e055, type: 2}
   destroyEffect: {fileID: 0}
   trailSound: PlayerSpecialTrail
   impactSound: PlayerSpecialImpact

@@ -25,6 +25,7 @@ public class Player : MonoBehaviour {
     [Header("Shooting")]
     [Tooltip("The GameObject the bullet spawns from.")]
     public Transform spawnPoint;
+    public Transform spawnPointEX;
     float timeBetweenShots;
     int projectileChoice;
     [Tooltip("The GameObject with the Projectile Object Pool on it.")]
@@ -196,6 +197,7 @@ public class Player : MonoBehaviour {
             animator.SetBool("Dashing", false);
             animator.SetFloat("InputX", 0f);
             animator.SetFloat("InputY", 0f);
+            animator.SetBool("Falling", false);
         }
         else if (crouch)
         {
@@ -381,8 +383,8 @@ public class Player : MonoBehaviour {
 
         GameObject newProjectile = exProjectilePool.GetPooledObject();
 
-        newProjectile.transform.position = spawnPoint.position;
-        newProjectile.transform.rotation = spawnPoint.rotation;
+        newProjectile.transform.position = spawnPointEX.position;
+        newProjectile.transform.rotation = spawnPointEX.rotation;
 
         //add sounds
         newProjectile.SetActive(true);
@@ -483,6 +485,7 @@ public class Player : MonoBehaviour {
         }
 
         spawnPoint.eulerAngles = new Vector3(0, 0, zRotation);
+        spawnPointEX.eulerAngles = new Vector3(0, 0, zRotation);
     }
 
     void OnTriggerEnter (Collider hit)
