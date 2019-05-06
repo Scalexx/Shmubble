@@ -260,7 +260,6 @@ public class BulletData : MonoBehaviour {
 
     void OnTriggerEnter (Collider hit)
     {
-        print(gameObject.name + " collided with " + hit.gameObject.name);
         if (hit.gameObject.CompareTag(bounds))
         {
             DestroyMe();

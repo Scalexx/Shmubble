@@ -11,7 +11,7 @@ public class IntroParticle : MonoBehaviour {
     [Tooltip("The gameobject the vfx prefab goes to.")]
     public Transform endPoint;
 
-    void Start()
+    void OnEnable()
     {
         var startPos = startPoint.position;
         GameObject vfxObj = Instantiate(vfx, startPos, Quaternion.identity) as GameObject;

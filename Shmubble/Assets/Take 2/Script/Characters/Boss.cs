@@ -246,6 +246,9 @@ public class Boss : MonoBehaviour {
     [Tooltip("Animation of the canvas before the final phase.")]
     public Animation canvasAnim;
 
+    public GameObject introParticle;
+    GameObject startPointParticle;
+
     [Space(10)]
     [Tooltip("The gameobject of the boss which shows during the first phases.")]
     public GameObject bossPhase1;
@@ -265,10 +268,14 @@ public class Boss : MonoBehaviour {
     bool finalPhaseTrigger;
     bool phase2Entered;
     bool envIdleEntered;
+    [HideInInspector]
+    public bool bossHitGround;
 
     private int rand;
 
     void Start () {
+        introParticle.SetActive(false);
+        startPointParticle = introParticle.transform.GetChild(0).gameObject;
         animator = animatorPhase1;
         time = introDuration1;
         bouncePeriod = bounceTimer;
@@ -490,6 +497,9 @@ public class Boss : MonoBehaviour {
                 animator.SetBool("Bounce", true);
                 if (bounceAnimPeriod <= 0)
                 {
+                    introParticle.GetComponent<IntroParticle>().startPoint = introParticle.transform;
+                    introParticle.GetComponent<IntroParticle>().endPoint = startPointParticle.transform;
+                    introParticle.SetActive(true);
                     bossPhase1.SetActive(false);
                 }
                 else
@@ -506,14 +516,25 @@ public class Boss : MonoBehaviour {
 
                 if (bounceTrigger)
                 {
+                    introParticle.SetActive(false);
+                    introParticle.GetComponent<IntroParticle>().startPoint = startPointParticle.transform;
+                    introParticle.GetComponent<IntroParticle>().endPoint = introParticle.transform;
+                    introParticle.SetActive(true);
+                    bounceTrigger = false;               
+                }
+
+                if (bossHitGround)
+                {
                     bossPhase1.SetActive(true);
                     // play return animation
                     animator.SetTrigger("BounceTrigger");
                     bouncePeriod = bounceTimer;
                     bounceAnimPeriod = bounceAnimTimer;
-                    
+
+                    introParticle.SetActive(false);
                     state = State.IDLE;
                     animator.SetBool("Idle", true);
+                    bossHitGround = false;
                 }
                 break;
         }

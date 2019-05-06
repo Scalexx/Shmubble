@@ -21,6 +21,8 @@ public class MoveParticle : MonoBehaviour {
     void FixedUpdate()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+        Destroy(gameObject, 10f);
     }
 
     private void OnCollisionEnter(Collision hit)
@@ -28,6 +30,10 @@ public class MoveParticle : MonoBehaviour {
         if (!boss.enabled)
         {
             boss.enabled = true;
+        }
+        else
+        {
+            boss.bossHitGround = true;
         }
 
         speed = 0;
