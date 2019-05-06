@@ -1897,6 +1897,14 @@ Prefab:
       propertyPath: boss
       value: 
       objectReference: {fileID: 282284857}
+    - target: {fileID: 1908314521065668, guid: fa75b19d678c1f948b6df428d9ef8325, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513810360976352, guid: fa75b19d678c1f948b6df428d9ef8325, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa75b19d678c1f948b6df428d9ef8325, type: 2}
   m_IsPrefabParent: 0
