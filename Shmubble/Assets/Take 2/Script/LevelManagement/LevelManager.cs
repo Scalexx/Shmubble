@@ -30,6 +30,12 @@ public class LevelManager : MonoBehaviour {
     [Tooltip("Damage dealt by player.")]
     public float damageDealt;
 
+    public SmoothCamera smoothCamera;
+    public MultipleTargets multipleTargets;
+
+    public float deathTimer;
+    float deathPeriod;
+
     [Header("Out of bounds")]
     [Tooltip("Amount of damage done to the player when going out of bounds.")]
     public float outOfBoundsDamage;
@@ -97,6 +103,9 @@ public class LevelManager : MonoBehaviour {
     [HideInInspector]
     public int spawnPointNumber;
 
+    GameObject cameraObject;
+    bool gameOverEntered;
+
     // Called before Start ()
     private void Awake ()
     {
@@ -125,6 +134,26 @@ public class LevelManager : MonoBehaviour {
 
     void Update ()
     {
+        if (gameOverEntered)
+        {
+            if (deathPeriod > 0)
+            {
+                
+                deathPeriod -= Time.unscaledDeltaTime;
+            }
+            else
+            {
+                GameOver();
+                return;
+            }
+        }
+
+        if (deathPeriod > 0)
+        {
+            Vector3 relativePos = playerTransform.position - cameraObject.transform.position;
+            cameraObject.transform.rotation = Quaternion.Lerp(cameraObject.transform.rotation, Quaternion.LookRotation(relativePos), Time.fixedUnscaledDeltaTime * 0.25f);
+        }
+
         camAnim.Play();
         var healthBarValue = healthBar.GetComponent<Slider>().value;
         if (healthBarValue != health)
@@ -191,8 +220,12 @@ public class LevelManager : MonoBehaviour {
         }
 
         // Out of bounds
-        playerTransform.position = spawnPositions[spawnPointNumber].position;
-        playerTransform.GetComponent<Player>().Invulnerable();
+        if (outOfBoundsDam < health)
+        {
+            playerTransform.position = spawnPositions[spawnPointNumber].position;
+            playerTransform.GetComponent<Player>().Invulnerable();
+        }
+
         GetDamaged(outOfBoundsDam);
     }
 
@@ -261,13 +294,26 @@ public class LevelManager : MonoBehaviour {
 
     public void GameOver()
     {
-        Destroy(playerTransform.gameObject);
-        Cursor.visible = true;
-        Time.timeScale = 0f;
-        pauseMenu.someoneDied = true;
-        AudioManager.instance.StopAllSounds();
+        if (!gameOverEntered)
+        {
+            multipleTargets.enabled = false;
+            cameraObject = multipleTargets.gameObject; 
 
-        gameOver.SetActive(true);
+            deathPeriod = deathTimer;
+            Time.timeScale = 0f;
+            gameOverEntered = true;
+        }
+
+        if (deathPeriod <= 0)
+        {
+            playerTransform.GetComponent<Player>().enabled = false;
+            playerTransform.GetComponent<Player>().animator.enabled = false;
+            Cursor.visible = true;
+            pauseMenu.someoneDied = true;
+            AudioManager.instance.StopAllSounds();
+
+            gameOver.SetActive(true);
+        }
     }
 }
 

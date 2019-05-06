@@ -3176,6 +3176,9 @@ MonoBehaviour:
   healthTriggerPhaseFinal: 1900
   specialMaxCharge: 100
   damageDealt: 0
+  smoothCamera: {fileID: 0}
+  multipleTargets: {fileID: 0}
+  deathTimer: 3.7
   outOfBoundsDamage: 5
   healthBar: {fileID: 0}
   healthBarFillArea: {fileID: 0}

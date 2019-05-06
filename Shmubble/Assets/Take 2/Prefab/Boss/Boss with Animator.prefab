@@ -5219,7 +5219,7 @@ MonoBehaviour:
   - {fileID: 137051552605258300}
   - {fileID: 137932039536443968}
   - {fileID: 137088581403854056}
-  flashColor: {r: 0.047058824, g: 0.2784314, b: 0.2784314, a: 0.101960786}
+  flashColor: {r: 0.078431375, g: 0.3372549, b: 0.3372549, a: 0.09019608}
   flashLength: 0.05
   canvasAnim: {fileID: 0}
   introParticle: {fileID: 0}
@@ -5227,6 +5227,8 @@ MonoBehaviour:
   bossPhaseFinal: {fileID: 1852249592027236}
   animatorPhase1: {fileID: 95867828397304506}
   animatorPhaseFinal: {fileID: 95808742821887020}
+  leavesGroundEffect: {fileID: 1605261702052584, guid: 483268215dd509f4081e693b59d02a41,
+    type: 2}
   bossHitGround: 0
 --- !u!137 &137051552605258300
 SkinnedMeshRenderer:

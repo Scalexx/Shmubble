@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSpeed: 4.5
-  damage: 1
+  damage: 5
   velocity: {x: 1, y: -2, z: 0}
   timeBetweenShots: 1
   destroyOnTouch: 1
@@ -216,6 +216,8 @@ MonoBehaviour:
   angleChangingSpeed: 4
   stopHomingTimer: 0
   useTarget: 0
+  useSelfKill: 0
+  selfKillTimer: 0
   trails: []
   destroyEffect: {fileID: 1385911722583376, guid: aac94a975e74c474aa7cc5d51e48c6ae,
     type: 2}

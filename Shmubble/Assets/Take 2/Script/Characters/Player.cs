@@ -78,6 +78,7 @@ public class Player : MonoBehaviour {
     public GameObject effect;
     GameObject effectActive;
 
+    public float waitDeath;
     float waitShoot;
     float downPeriod;
 
@@ -95,6 +96,7 @@ public class Player : MonoBehaviour {
     public bool disableDash;
 
     bool done;
+    bool deathDone;
     bool antDone;
     bool flasher;
 
@@ -109,6 +111,36 @@ public class Player : MonoBehaviour {
     }
 
 	void Update() {
+        if (LevelManager.Instance.health <= 0)
+        {
+            flasher = false;
+
+            allowDisable = true;
+            disableShoot = true;
+            animator.SetBool("Jumping", false);
+            animator.SetBool("Dashing", false);
+            animator.SetFloat("InputX", 0f);
+            animator.SetFloat("InputY", 0f);
+            animator.SetBool("Falling", false);
+            animator.SetBool("Attacking", false);
+
+            animator.SetBool("Hit", true);
+
+            if (waitDeath <= 0)
+            {
+                animator.SetBool("Hit", false);
+                if (!deathDone)
+                {
+                    animator.SetTrigger("Death");
+                    deathDone = true;
+                }
+            }
+            else
+            {
+                waitDeath -= Time.fixedUnscaledDeltaTime;
+            }
+        }
+
         if (disableJump)
         {
             animator.SetBool("Jumping", false);
@@ -341,9 +373,9 @@ public class Player : MonoBehaviour {
 
         if (invulnerabilityTimer > 0)
         {
-            invulnerabilityTimer -= Time.deltaTime;
+            invulnerabilityTimer -= Time.fixedUnscaledDeltaTime;
 
-            flashTimer -= Time.deltaTime;
+            flashTimer -= Time.fixedUnscaledDeltaTime;
             if (flashTimer <= 0 && flasher)
             {
                 for (int i = 0; i < playerRenderers.Count; i++)
@@ -554,8 +586,16 @@ public class Player : MonoBehaviour {
                 damaged = bossTouchDamage;
             }
 
-            LevelManager.Instance.GetDamaged(damaged);
-            Invulnerable();
+            if (LevelManager.Instance.health > damaged)
+            {
+                LevelManager.Instance.GetDamaged(damaged);
+                Invulnerable();
+            }
+            else
+            {
+                flasher = false;
+                LevelManager.Instance.GetDamaged(damaged);
+            }
         }
     }
 

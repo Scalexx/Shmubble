@@ -39,7 +39,7 @@ public class SmoothCamera : MonoBehaviour {
 
     private Vector3 velocity;
 
-    void FixedUpdate()
+    void Update()
     {
         Vector3 desiredPosition = Vector3.zero;
         if (lookAt != null)

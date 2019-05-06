@@ -226,6 +226,7 @@ public class Boss : MonoBehaviour {
 
     [Tooltip("Checks if the bounce attack has passed the trigger for the boss to respawn.")]
     public bool bounceTrigger;
+    bool bounceTriggerEntered;
     [Tooltip("Timer of the animation that plays before the boss disappears.")]
     public float bounceAnimTimer;
     float bounceAnimPeriod;
@@ -514,13 +515,13 @@ public class Boss : MonoBehaviour {
                     HandleBounce();
                 }
 
-                if (bounceTrigger)
+                if (bounceTrigger && !bounceTriggerEntered)
                 {
                     introParticle.SetActive(false);
                     introParticle.GetComponent<IntroParticle>().startPoint = startPointParticle.transform;
                     introParticle.GetComponent<IntroParticle>().endPoint = introParticle.transform;
                     introParticle.SetActive(true);
-                    bounceTrigger = false;               
+                    bounceTriggerEntered = true;               
                 }
 
                 if (bossHitGround)
@@ -534,7 +535,6 @@ public class Boss : MonoBehaviour {
                     bounceAnimPeriod = bounceAnimTimer;
 
                     introParticle.SetActive(false);
-                    waitTime = 10f;
                     state = State.IDLE;
                     animator.gameObject.transform.localPosition = Vector3.zero;
                     animator.gameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
