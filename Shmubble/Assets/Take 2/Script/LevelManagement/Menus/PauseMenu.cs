@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour {
     public static bool gameIsPaused = false;
 
     public GameObject pauseMenuUI;
+    public GameObject settingsMenuUI;
 
     public bool someoneDied = false;
 
@@ -25,7 +26,12 @@ public class PauseMenu : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (gameIsPaused)
+                if (gameIsPaused && settingsMenuUI.activeSelf)
+                {
+                    pauseMenuUI.SetActive(true);
+                    settingsMenuUI.SetActive(false);
+                }
+                else if (gameIsPaused)
                 {
                     AudioManager.instance.UnpauseSounds();
 

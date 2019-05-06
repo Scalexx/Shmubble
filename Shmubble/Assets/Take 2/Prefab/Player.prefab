@@ -4138,6 +4138,7 @@ MonoBehaviour:
   waitTillShoot: 1.2
   muzzleEffect: {fileID: 1732299649703600, guid: dc07e487641117149b0a966a17e823b9,
     type: 2}
+  effect: {fileID: 1962785285015176, guid: 186fc6f2bd602c7459adf8b1643efcf8, type: 2}
   takenOver: 0
   lockMovement: 0
   allowDisable: 0

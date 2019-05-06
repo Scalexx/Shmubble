@@ -173,12 +173,15 @@ MonoBehaviour:
   stopHomingTimer: 0
   useTarget: 0
   trails:
-  - {fileID: 1634705530940796, guid: 973f9a45b13b2b340943907fea66e055, type: 2}
-  - {fileID: 1098691874345346, guid: 973f9a45b13b2b340943907fea66e055, type: 2}
-  - {fileID: 1983125911072578, guid: 973f9a45b13b2b340943907fea66e055, type: 2}
-  - {fileID: 1835993496446582, guid: 973f9a45b13b2b340943907fea66e055, type: 2}
-  - {fileID: 1743997722895298, guid: 973f9a45b13b2b340943907fea66e055, type: 2}
-  destroyEffect: {fileID: 0}
+  - {fileID: 1889044382280494, guid: 3102ebc8d4b9b70449dad2cb19162b5d, type: 2}
+  - {fileID: 1533223412527136, guid: 3102ebc8d4b9b70449dad2cb19162b5d, type: 2}
+  - {fileID: 1556779225398780, guid: 3102ebc8d4b9b70449dad2cb19162b5d, type: 2}
+  - {fileID: 1424650227877070, guid: 3102ebc8d4b9b70449dad2cb19162b5d, type: 2}
+  - {fileID: 1940843798541712, guid: 3102ebc8d4b9b70449dad2cb19162b5d, type: 2}
+  - {fileID: 1203470990862810, guid: 3102ebc8d4b9b70449dad2cb19162b5d, type: 2}
+  - {fileID: 1949711753398878, guid: 3102ebc8d4b9b70449dad2cb19162b5d, type: 2}
+  destroyEffect: {fileID: 1578371568250014, guid: fb33430940f450c4c9df26bae26ecab7,
+    type: 2}
   trailSound: PlayerSpecialTrail
   impactSound: PlayerSpecialImpact
 --- !u!135 &135388853420932064

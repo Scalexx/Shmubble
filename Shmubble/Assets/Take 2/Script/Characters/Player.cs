@@ -75,6 +75,9 @@ public class Player : MonoBehaviour {
     public GameObject muzzleEffect;
     GameObject muzzleEffectActive;
 
+    public GameObject effect;
+    GameObject effectActive;
+
     float waitShoot;
     float downPeriod;
 
@@ -92,6 +95,8 @@ public class Player : MonoBehaviour {
     public bool disableDash;
 
     bool done;
+    bool antDone;
+    bool flasher;
 
     private Vector3 moveVector;
     private Vector3 lastMotion;
@@ -138,6 +143,7 @@ public class Player : MonoBehaviour {
         {
             if (downPeriod <= 0)
             {
+                antDone = false;
                 allowDisable = false;
                 disableShoot = false;
                 gravity = startGravity;
@@ -146,6 +152,15 @@ public class Player : MonoBehaviour {
             }
             else
             {
+                Invulnerable();
+                if (!antDone)
+                {
+                    effectActive = Instantiate(effect, spawnPointEX.position, spawnPointEX.rotation);
+                    Destroy(effectActive, 3f);
+                    effectActive = null;
+                    antDone = true;
+                }                
+
                 gravity = 0;
                 verticalVelocity = 0;
                 animator.SetBool("Special", true);
@@ -315,7 +330,7 @@ public class Player : MonoBehaviour {
             invulnerabilityTimer -= Time.deltaTime;
 
             flashTimer -= Time.deltaTime;
-            if (flashTimer <= 0)
+            if (flashTimer <= 0 && flasher)
             {
                 for (int i = 0; i < playerRenderers.Count; i++)
                 {
@@ -323,7 +338,7 @@ public class Player : MonoBehaviour {
                     flashTimer = flashPeriod;
                 }
             }
-            if (invulnerabilityTimer <= 0)
+            if (invulnerabilityTimer <= 0 && flasher)
             {
                 for (int i = 0; i < playerRenderers.Count; i++)
                 {
@@ -546,10 +561,18 @@ public class Player : MonoBehaviour {
     {
         invulnerabilityTimer = invulnerabilityPeriod;
 
-        for (int i = 0; i < playerRenderers.Count; i++)
+        if (!EXshoot)
         {
-            playerRenderers[i].enabled = false;
-            flashTimer = flashPeriod;
+            flasher = true;
+            for (int i = 0; i < playerRenderers.Count; i++)
+            {
+                playerRenderers[i].enabled = false;
+                flashTimer = flashPeriod;
+            }
+        }
+        else
+        {
+            flasher = false;
         }
     }
 }

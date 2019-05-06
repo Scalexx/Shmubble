@@ -306,6 +306,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114380464544306626, guid: d0ad52518ecb37646b4beb1a9a91e191,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1403899055}
     - target: {fileID: 224933147249635114, guid: d0ad52518ecb37646b4beb1a9a91e191,
         type: 2}
       propertyPath: m_AnchorMax.y
@@ -379,6 +384,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 474124607}
+  - component: {fileID: 474124608}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -403,6 +409,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &474124608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 474124606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c661191f3edbc4a49ac9f85b979beca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.85
+  direction: {x: -1, y: 0, z: 0}
 --- !u!4 &503818766 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4697508612803860, guid: fa75b19d678c1f948b6df428d9ef8325,
@@ -1212,6 +1231,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1962633150}
   m_Script: {fileID: 11500000, guid: 61ce61d7d0dad564086bcd1cc1be96c0, type: 3}
+--- !u!114 &1403899055 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114639597227603256, guid: 3defac20ff58ce24b90b8b92ba3325d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 81499595}
+  m_Script: {fileID: 11500000, guid: dca414b7514195f438871076f95b397d, type: 3}
 --- !u!114 &1525086445 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114779812009098902, guid: fa75b19d678c1f948b6df428d9ef8325,

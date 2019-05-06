@@ -3543,6 +3543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1913594899032892}
+  settingsMenuUI: {fileID: 1016868375113840}
   someoneDied: 0
   boss: {fileID: 0}
 --- !u!114 &114380464544306626
@@ -3586,6 +3587,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114377939282816938}
         m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: UnpauseSounds
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
