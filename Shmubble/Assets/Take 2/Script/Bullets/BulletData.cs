@@ -77,6 +77,11 @@ public class BulletData : MonoBehaviour {
     Vector3 targetPos;
     Vector3 velocityTarget;
 
+    [Header("Self kill")]
+    public bool useSelfKill;
+    public float selfKillTimer;
+    float selfKillPeriod;
+
     [Space(10)]
     [Header("Effects")]
     [Tooltip("All the trail particles which will need to stay once the gameobject is destroyed.")]
@@ -94,6 +99,7 @@ public class BulletData : MonoBehaviour {
 
     bool firstTime = true;
     bool enteredTarget;
+    bool entered;
     Rigidbody rb;
     bool solidObject;
     string bounds;
@@ -109,6 +115,9 @@ public class BulletData : MonoBehaviour {
 
     void OnEnable ()
     {
+        selfKillPeriod = selfKillTimer;
+        entered = false;
+
         myTrails.Clear();
 
         if (isHoming)
@@ -201,6 +210,22 @@ public class BulletData : MonoBehaviour {
 
     void FixedUpdate ()
     {
+        if (useSelfKill)
+        {
+            if (!entered)
+            {
+                DestroyMe();
+            }
+
+            if (selfKillPeriod <= 0)
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                selfKillPeriod -= Time.deltaTime;
+            }
+        }
         if (useCurve)
         {
             CurveMovement(); 
@@ -307,6 +332,7 @@ public class BulletData : MonoBehaviour {
             {
                 myTrails[i].transform.parent = null;
                 var ps = myTrails[i].GetComponent<ParticleSystem>();
+                print(ps.gameObject.name);
                 if (ps != null)
                 {
                     ps.Stop();
@@ -315,7 +341,14 @@ public class BulletData : MonoBehaviour {
             }
         }
 
-        gameObject.SetActive(false);
+        if (!useSelfKill)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            entered = true;
+        }
     }
 
     void CurveMovement()

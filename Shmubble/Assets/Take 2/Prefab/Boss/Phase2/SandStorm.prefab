@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 54709078412833586}
   - component: {fileID: 114365011639748746}
   m_Layer: 9
-  m_Name: HomingSkulls
+  m_Name: SandStorm
   m_TagString: ProjectileBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,13 +103,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530662a7a8be3ab4a808ab3a2bfc7892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 7
-  damage: 1
+  startSpeed: 0
+  damage: 4
   velocity: {x: 1, y: 0, z: 0}
-  timeBetweenShots: 1.5
-  destroyOnTouch: 1
+  timeBetweenShots: 2
+  destroyOnTouch: 0
   destroyOtherOnTouch: 0
-  destroyOnCollisionGround: 1
+  destroyOnCollisionGround: 0
   stopTimer: 5
   useCurve: 0
   useXCurve: 0
@@ -159,24 +159,23 @@ MonoBehaviour:
     m_RotationOrder: 4
   animationSpeedMultiplier: 1
   curveMaxY: 1
-  useHoming: 1
+  useHoming: 0
   target: {fileID: 4340601524913464, guid: 7b54674ca2316e24f89e43115d10b45e, type: 2}
   angleChangingSpeed: 4
   stopHomingTimer: 5
   useTarget: 0
+  useSelfKill: 1
+  selfKillTimer: 10
   trails:
-  - {fileID: 1014842738944592, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
-  - {fileID: 1197865795242120, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
-  - {fileID: 1257183579102160, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
-  - {fileID: 1655000729487984, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
-  - {fileID: 1379128433194108, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
-  - {fileID: 1611030388626812, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
-  - {fileID: 1197865795242120, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
-  - {fileID: 1507497637061944, guid: b51703c97e2e93d45a649ad1209c0ef4, type: 2}
-  destroyEffect: {fileID: 1343271718141610, guid: b479a852855b9854caa086b93227db6e,
-    type: 2}
-  trailSound: SkullTrail
-  impactSound: SkullImpact
+  - {fileID: 1927870893993240, guid: da63c5d3d7637f947b012f7aa3573947, type: 2}
+  - {fileID: 1451001659727468, guid: da63c5d3d7637f947b012f7aa3573947, type: 2}
+  - {fileID: 1473028112289406, guid: da63c5d3d7637f947b012f7aa3573947, type: 2}
+  - {fileID: 1616908752870982, guid: da63c5d3d7637f947b012f7aa3573947, type: 2}
+  - {fileID: 1349948729685540, guid: da63c5d3d7637f947b012f7aa3573947, type: 2}
+  - {fileID: 1953499923110880, guid: da63c5d3d7637f947b012f7aa3573947, type: 2}
+  destroyEffect: {fileID: 0}
+  trailSound: 
+  impactSound: 
 --- !u!135 &135388853420932064
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -187,5 +186,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
