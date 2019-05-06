@@ -13,7 +13,18 @@ public class TracksSpawner : MonoBehaviour
 
     void Start()
     {
-        trackWidth = projectilePool.pooledObject.GetComponent<BoxCollider>().size.y * projectilePool.pooledObject.transform.localScale.y;
+        if (projectilePool.pooledObject.GetComponent<TrainTracks>().direction.y != 0)
+        {
+            trackWidth = projectilePool.pooledObject.GetComponent<BoxCollider>().size.y * projectilePool.pooledObject.transform.localScale.y;
+        }
+        else if (projectilePool.pooledObject.GetComponent<TrainTracks>().direction.z != 0)
+        {
+            trackWidth = projectilePool.pooledObject.GetComponent<BoxCollider>().size.z * projectilePool.pooledObject.transform.localScale.z;
+        }
+        else if (projectilePool.pooledObject.GetComponent<TrainTracks>().direction.x != 0)
+        {
+            trackWidth = projectilePool.pooledObject.GetComponent<BoxCollider>().size.x * projectilePool.pooledObject.transform.localScale.x;
+        }
     }
 
     void Update()
