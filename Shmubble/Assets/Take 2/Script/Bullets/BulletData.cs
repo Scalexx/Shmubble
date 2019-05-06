@@ -212,14 +212,9 @@ public class BulletData : MonoBehaviour {
     {
         if (useSelfKill)
         {
-            if (!entered)
-            {
-                DestroyMe();
-            }
-
             if (selfKillPeriod <= 0)
             {
-                gameObject.SetActive(false);
+                DestroyMe();
             }
             else
             {
@@ -344,14 +339,7 @@ public class BulletData : MonoBehaviour {
             }
         }
 
-        if (!useSelfKill)
-        {
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            entered = true;
-        }
+        gameObject.SetActive(false);
     }
 
     void CurveMovement()

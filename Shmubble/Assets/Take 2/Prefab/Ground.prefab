@@ -229,6 +229,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4581845489582778}
+  - component: {fileID: 111775062568763380}
   m_Layer: 10
   m_Name: TrainScaleFixPrefab
   m_TagString: Untagged
@@ -312,6 +313,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4534198787763738}
+  - component: {fileID: 111700284761319736}
   m_Layer: 10
   m_Name: TrainScaleFixPrefab
   m_TagString: Untagged
@@ -590,6 +592,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4336905614899056}
+  - component: {fileID: 111708534321110850}
   m_Layer: 10
   m_Name: TrainScaleFixPrefab
   m_TagString: Untagged
@@ -825,6 +828,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4705586115953612}
+  - component: {fileID: 111394143576219664}
   m_Layer: 10
   m_Name: TrainScaleFixPrefab
   m_TagString: Untagged
@@ -1607,7 +1611,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1250255852421140}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.11, y: -3.6, z: -0}
+  m_LocalPosition: {x: 1.11, y: -3.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4500897655310684}
@@ -3800,6 +3804,21 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!111 &111394143576219664
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1763341001075366}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 651b988dc87f4354c9b5c7115be1e315, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 651b988dc87f4354c9b5c7115be1e315, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!111 &111489607020867084
 Animation:
   m_ObjectHideFlags: 1
@@ -3916,6 +3935,51 @@ Animation:
   m_Animation: {fileID: 7400000, guid: dd0fae9ca1dfbb843a8c2f2977c64b3f, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: dd0fae9ca1dfbb843a8c2f2977c64b3f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!111 &111700284761319736
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1250255852421140}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 27f3ec98531d57046968347f549fb5df, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 27f3ec98531d57046968347f549fb5df, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!111 &111708534321110850
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511386763010882}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 182e0583f3fc27a4485b7b88527afd32, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 182e0583f3fc27a4485b7b88527afd32, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!111 &111775062568763380
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1154431499332130}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 79f3781f6e3c26b48aa24325bb346557, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 79f3781f6e3c26b48aa24325bb346557, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0

@@ -525,6 +525,8 @@ public class Boss : MonoBehaviour {
 
                 if (bossHitGround)
                 {
+                    animator.gameObject.transform.localPosition = Vector3.zero;
+                    animator.gameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
                     bossPhase1.SetActive(true);
                     // play return animation
                     animator.SetTrigger("BounceTrigger");
@@ -533,6 +535,8 @@ public class Boss : MonoBehaviour {
 
                     introParticle.SetActive(false);
                     state = State.IDLE;
+                    animator.gameObject.transform.localPosition = Vector3.zero;
+                    animator.gameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
                     animator.SetBool("Idle", true);
                     bossHitGround = false;
                 }
