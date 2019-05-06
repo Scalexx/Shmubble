@@ -178,11 +178,11 @@ MonoBehaviour:
     source: {fileID: 0}
     paused: 0
   - name: PlayerSpecialAttack
-    clip: {fileID: 8300000, guid: 38103b453271c054bb2f53fa14d89170, type: 3}
+    clip: {fileID: 8300000, guid: 1186bee9bd1763f47974d0b58ae91b9d, type: 3}
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 199
     volume: 1
-    pitch: 0.37
+    pitch: 0.413
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
     mixer: {fileID: 0}
     priority: 0
     volume: 0.8
-    pitch: 1.82
+    pitch: 1.264
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -241,11 +241,11 @@ MonoBehaviour:
     source: {fileID: 0}
     paused: 0
   - name: PlayersSpecialTrail
-    clip: {fileID: 8300000, guid: 38103b453271c054bb2f53fa14d89170, type: 3}
+    clip: {fileID: 8300000, guid: 1186bee9bd1763f47974d0b58ae91b9d, type: 3}
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 256
     volume: 1
-    pitch: 0.71
+    pitch: 0.466
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 0
     volume: 0.996
-    pitch: 0.85
+    pitch: 0.659
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 0
     volume: 0.668
-    pitch: 0.335
+    pitch: 0.3
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -282,7 +282,7 @@ MonoBehaviour:
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 0
     volume: 0.6
-    pitch: 0.518
+    pitch: 0.37
     loop: 0
     source: {fileID: 0}
     paused: 0
@@ -365,6 +365,24 @@ MonoBehaviour:
     priority: 0
     volume: 0.6
     pitch: 0.44
+    loop: 0
+    source: {fileID: 0}
+    paused: 0
+  - name: EarthQuakeTrail
+    clip: {fileID: 8300000, guid: e643f668dc9b4734abd26f69c4218f42, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    priority: 0
+    volume: 0.6
+    pitch: 0.35
+    loop: 0
+    source: {fileID: 0}
+    paused: 0
+  - name: MarigoldPillarTrail
+    clip: {fileID: 8300000, guid: edff482337ed7244b950dd35998d7937, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    priority: 0
+    volume: 0.6
+    pitch: 0.425
     loop: 0
     source: {fileID: 0}
     paused: 0

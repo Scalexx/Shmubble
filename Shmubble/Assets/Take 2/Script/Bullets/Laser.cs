@@ -21,12 +21,24 @@ public class Laser : MonoBehaviour
     public GameObject effects;
     GameObject effectActive;
 
+    public string trailSound;
+
+    bool firstTime = true;
+
     void OnEnable()
     {
+        if (!firstTime)
+        {
+            AudioManager.instance.PlayEnvironmentSound(trailSound);
+        }
         laserPeriod = laserTime;
         transform.localScale = new Vector3(0, size.y, size.z);
 
         effectActive = Instantiate(effects, gameObject.transform.parent.transform.position, gameObject.transform.parent.transform.rotation);
+        if (firstTime)
+        {
+            firstTime = false;
+        }
     }
 
     void Update()

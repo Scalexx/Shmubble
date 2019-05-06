@@ -175,3 +175,4 @@ MonoBehaviour:
   laserTime: 0.5
   size: {x: 50, y: 1, z: 1}
   effects: {fileID: 1309758523130936, guid: b02c861ba61d74040859be17429b9fb2, type: 2}
+  trailSound: MarigoldPillarTrail

@@ -4478,10 +4478,10 @@ MonoBehaviour:
   anticipationEnv1: {fileID: 1717200254852826, guid: 84ecc0e1de2893b4ab9bd2a92978ba96,
     type: 2}
   effectOffset: {x: 0, y: -6, z: 0}
-  cameraShakeMagnitude: 10
-  cameraShakeRoughness: 40
+  cameraShakeMagnitude: 7
+  cameraShakeRoughness: 30
   cameraShakeFadeIn: 5
-  cameraShakeFadeOut: 35
+  cameraShakeFadeOut: 45
   anticipationTimerEnv1: 3
   anticipationTimerEnv2: 0
   shotsToFireAttack1: 10
@@ -4550,9 +4550,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   spawnPointsEnv2:
   - {fileID: 0}
   spawnPointsEnv3:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -4568,7 +4575,7 @@ MonoBehaviour:
   - {fileID: 0}
   randomSpawnEnv1: 1
   randomSpawnEnv2: 0
-  randomSpawnEnv3: 0
+  randomSpawnEnv3: 1
   randomSpawnEnv4: 0
   randomSpawnEnv5: 0
   randomSpawnEnv6: 0

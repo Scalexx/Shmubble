@@ -13,7 +13,14 @@ public class TracksSpawner : MonoBehaviour
 
     void Start()
     {
-        trackWidth = projectilePool.pooledObject.GetComponent<BoxCollider>().size.y * 0.5f;
+        if (projectilePool.pooledObject.gameObject.CompareTag("Rails"))
+        {
+            trackWidth = projectilePool.pooledObject.GetComponent<BoxCollider>().size.y * 0.5f;
+        }
+        else
+        {
+            trackWidth = projectilePool.pooledObject.GetComponent<BoxCollider>().size.y * projectilePool.pooledObject.transform.localScale.y;
+        }
     }
 
     void Update()
