@@ -260,6 +260,7 @@ public class BulletData : MonoBehaviour {
 
     void OnTriggerEnter (Collider hit)
     {
+        print(gameObject.name + " collided with " + hit.gameObject.name);
         if (hit.gameObject.CompareTag(bounds))
         {
             DestroyMe();
@@ -283,6 +284,10 @@ public class BulletData : MonoBehaviour {
         }
         else if (destroyOnTouch && target.gameObject.layer == hit.gameObject.layer)
         {
+            if (hit.gameObject.name == "GlassWall")
+            {
+                return;
+            }
             if (gameObject.layer == 9)
             {
                 AudioManager.instance.PlayBossSound(impactSound);

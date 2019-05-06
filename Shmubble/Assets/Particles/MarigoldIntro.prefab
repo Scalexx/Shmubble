@@ -172,10 +172,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
-  impactPrefab: {fileID: 0}
+  impactPrefab: {fileID: 1615602485190336, guid: d55ce293e34f75c4aaeb05299e9970ce,
+    type: 2}
   trails:
   - {fileID: 1044074657950454}
-  boss: {fileID: 0}
 --- !u!135 &135916568970021706
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -248,7 +248,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -110161246
+  randomSeed: 1994485308
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -808,7 +808,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 300
+      scalar: 500
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -3564,7 +3564,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 321c08ed08ed393408efd5dc188e1e8f, type: 2}
+  - {fileID: 2100000, guid: 238640ef820e3f947bab396b4330b005, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

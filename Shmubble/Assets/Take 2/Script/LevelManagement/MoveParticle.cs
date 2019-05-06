@@ -25,7 +25,10 @@ public class MoveParticle : MonoBehaviour {
 
     private void OnCollisionEnter(Collision hit)
     {
-        boss.enabled = true;
+        if (!boss.enabled)
+        {
+            boss.enabled = true;
+        }
 
         speed = 0;
 

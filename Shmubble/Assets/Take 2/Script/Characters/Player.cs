@@ -356,9 +356,13 @@ public class Player : MonoBehaviour {
             {
                 for (int i = 0; i < playerRenderers.Count; i++)
                 {
-                    playerRenderers[i].enabled = !playerRenderers[i].enabled;
+                    playerRenderers[i].enabled = true;
                 }
             }
+        }
+        else
+        {
+            flasher = false;
         }
     }
 
