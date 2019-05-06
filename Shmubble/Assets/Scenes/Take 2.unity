@@ -2456,7 +2456,47 @@ Prefab:
         type: 2}
       propertyPath: spawnPointsEnv2.Array.data[0]
       value: 
-      objectReference: {fileID: 341872772}
+      objectReference: {fileID: 2096917037}
+    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: spawnPointsEnv2.Array.data[1]
+      value: 
+      objectReference: {fileID: 1602835364}
+    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: spawnPointsEnv2.Array.data[2]
+      value: 
+      objectReference: {fileID: 949206860}
+    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: spawnPointsEnv2.Array.data[3]
+      value: 
+      objectReference: {fileID: 612402213}
+    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: spawnPointsEnv2.Array.data[4]
+      value: 
+      objectReference: {fileID: 385266715}
+    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: spawnPointsEnv2.Array.data[5]
+      value: 
+      objectReference: {fileID: 1962633177}
+    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: spawnPointsEnv2.Array.data[6]
+      value: 
+      objectReference: {fileID: 1962633176}
+    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: spawnPointsEnv2.Array.data[7]
+      value: 
+      objectReference: {fileID: 1962633175}
+    - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: spawnPointsEnv2.Array.data[8]
+      value: 
+      objectReference: {fileID: 1962633174}
     - target: {fileID: 114556173417513888, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
         type: 2}
       propertyPath: spawnPointsEnv3.Array.data[0]

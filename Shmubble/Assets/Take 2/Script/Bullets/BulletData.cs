@@ -332,7 +332,6 @@ public class BulletData : MonoBehaviour {
             {
                 myTrails[i].transform.parent = null;
                 var ps = myTrails[i].GetComponent<ParticleSystem>();
-                print(ps.gameObject.name);
                 if (ps != null)
                 {
                     ps.Stop();

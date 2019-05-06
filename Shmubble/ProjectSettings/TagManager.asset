@@ -12,7 +12,6 @@ TagManager:
   - OutOfBoundsFar
   - Bounce
   - Ground
-  - Rails
   layers:
   - Default
   - TransparentFX
