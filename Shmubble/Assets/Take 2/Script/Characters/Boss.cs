@@ -534,6 +534,7 @@ public class Boss : MonoBehaviour {
                     bounceAnimPeriod = bounceAnimTimer;
 
                     introParticle.SetActive(false);
+                    waitTime = 10f;
                     state = State.IDLE;
                     animator.gameObject.transform.localPosition = Vector3.zero;
                     animator.gameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);

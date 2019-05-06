@@ -62,6 +62,10 @@ public class LevelManager : MonoBehaviour {
     [Tooltip("Amount of time for the bars to reach its new value.")]
     public float totalTimeBar;
 
+    public Color bossFlashColor1;
+    public Color bossFlashColor2;
+    public Color bossFlashColor3;
+
     [Space(10)]
     [Tooltip("Game Over screen object.")]
     public GameObject gameOver;
@@ -208,10 +212,12 @@ public class LevelManager : MonoBehaviour {
     {
         if (health <= healthTrigger2)
         {
+            bossTransform.GetComponent<Boss>().flashColor = bossFlashColor3;
             damage = damage * 2;
         }
         else if (health <= healthTrigger1)
         {
+            bossTransform.GetComponent<Boss>().flashColor = bossFlashColor2;
             damage = damage * 1.25f;
         }
         bossHealth -= damage;

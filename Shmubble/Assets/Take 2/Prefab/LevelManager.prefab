@@ -911,7 +911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1515019863053928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,7 +1452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1919541843719976
 GameObject:
   m_ObjectHideFlags: 1
@@ -3187,6 +3187,9 @@ MonoBehaviour:
   perc: 0
   speedBar: 2
   totalTimeBar: 0.5
+  bossFlashColor1: {r: 0.078431375, g: 0.3372549, b: 0.3372549, a: 0.09019608}
+  bossFlashColor2: {r: 0.33725488, g: 0.27656525, b: 0.07843137, a: 0.09019608}
+  bossFlashColor3: {r: 0.33725488, g: 0.07843137, b: 0.07843137, a: 0.09019608}
   gameOver: {fileID: 0}
   gameOverProgressBar: {fileID: 0}
   winScreen: {fileID: 0}
