@@ -229,6 +229,7 @@ public class Player : MonoBehaviour {
 	void FixedUpdate () {
         if (knockBackTimer <= 0)
         {
+            animator.SetBool("Hit", false);
             inputDirection = Input.GetAxis("Horizontal") * speed;
 
             if (IsControllerGrounded() && lockMovement)
@@ -263,13 +264,17 @@ public class Player : MonoBehaviour {
 
                     if (jumping)
                     {
-                        animator.SetBool("Falling", true);
                         verticalVelocity = jumpHeight;
                     }
                 }
                 else
                 {
                     verticalVelocity -= gravity * Time.deltaTime;
+
+                    if (verticalVelocity < -2)
+                    {
+                        animator.SetBool("Falling", true);
+                    }
                 }
                 if (takenOver)
                 {
@@ -296,10 +301,12 @@ public class Player : MonoBehaviour {
             if (tempInput > 0)
             {
                 lastMotion.x = 1;
+                gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.x, 0, gameObject.transform.rotation.z);
             }
             else
             {
                 lastMotion.x = -1;
+                gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.x, 180, gameObject.transform.rotation.z);
             }
         }
 
@@ -383,7 +390,10 @@ public class Player : MonoBehaviour {
             newProjectile.transform.rotation = spawnPoint.rotation;
 
             muzzleEffectActive = Instantiate(muzzleEffect, spawnPoint.position, spawnPoint.rotation);
+            muzzleEffectActive.transform.parent = spawnPoint.transform;
             Destroy(muzzleEffectActive, 0.3f);
+
+            muzzleEffectActive = null;
 
             //add sounds
             newProjectile.SetActive(true);
@@ -427,17 +437,6 @@ public class Player : MonoBehaviour {
             {
                 zRotation = 45;
             }
-            else if (yInput < -0.5)
-            {
-                if (Input.GetButton("Lock Movement") || !IsControllerGrounded())
-                {
-                    zRotation = -45;
-                }
-                else
-                {
-                    zRotation = 0;
-                }
-            }
             else
             {
                 zRotation = 0;
@@ -449,17 +448,6 @@ public class Player : MonoBehaviour {
             {
                 zRotation = 135;
             }
-            else if (yInput < -0.5)
-            {
-                if (Input.GetButton("Lock Movement") || !IsControllerGrounded())
-                {
-                    zRotation = -135;
-                }
-                else
-                {
-                    zRotation = 180;
-                }
-            }
             else
             {
                 zRotation = 180;
@@ -470,24 +458,6 @@ public class Player : MonoBehaviour {
             if (yInput > 0.5)
             {
                 zRotation = 90;
-            }
-            else if (yInput < -0.5)
-            {
-                if (Input.GetButton("Lock Movement") || !IsControllerGrounded())
-                {
-                    zRotation = -90;
-                }
-                else
-                {
-                    if (lastMotion.x >= 0)
-                    {
-                        zRotation = 0;
-                    }
-                    else
-                    {
-                        zRotation = 180;
-                    }
-                }
             }
             else
             {
@@ -501,6 +471,9 @@ public class Player : MonoBehaviour {
                 }
             }
         }
+
+        animator.SetFloat("InputShootX", xInput);
+        animator.SetFloat("InputShootY", yInput);
 
         spawnPoint.eulerAngles = new Vector3(0, 0, zRotation);
         spawnPointEX.eulerAngles = new Vector3(0, 0, zRotation);
@@ -555,6 +528,7 @@ public class Player : MonoBehaviour {
 
     public void Knockback(Vector2 knockBackDirection)
     {
+        animator.SetBool("Hit", true);
         knockBackTimer = knockBackPeriod;
         if (knockBackDirection.x > 0)
         {

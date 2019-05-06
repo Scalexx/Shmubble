@@ -191,15 +191,15 @@ AvatarMask:
   - m_Path: metarig/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/forearm.R_end
     m_Weight: 1
   - m_Path: metarig/spine/spine.001/spine.002/spine.003/spine.004
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: metarig/spine/spine.001/spine.002/spine.003/spine.004/spine.005
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: metarig/spine/spine.001/spine.002/spine.003/spine.004/spine.005/spine.006
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: metarig/spine/spine.001/spine.002/spine.003/spine.004/spine.005/spine.006/face
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: metarig/spine/spine.001/spine.002/spine.003/spine.004/spine.005/spine.006/face/face_end
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: metarig/spine/thigh.L
     m_Weight: 0
   - m_Path: metarig/spine/thigh.L/shin.L
