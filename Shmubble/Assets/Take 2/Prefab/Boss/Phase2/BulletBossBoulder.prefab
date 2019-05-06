@@ -217,7 +217,7 @@ MonoBehaviour:
   stopHomingTimer: 0
   useTarget: 0
   trails: []
-  destroyEffect: {fileID: 1406793801915058, guid: ee199ad70c0bf1543b07a747827e03c3,
+  destroyEffect: {fileID: 1385911722583376, guid: aac94a975e74c474aa7cc5d51e48c6ae,
     type: 2}
   trailSound: EarthQuakeTrail
   impactSound: EarthQuakeImpact

@@ -316,12 +316,26 @@ public class Player : MonoBehaviour {
             if (tempInput > 0)
             {
                 lastMotion.x = 1;
-                gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.x, 0, gameObject.transform.rotation.z);
+                if (allowDisable)
+                {
+                    gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.x, gameObject.transform.rotation.y, gameObject.transform.rotation.z);
+                }
+                else
+                {
+                    gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.x, 0, gameObject.transform.rotation.z);
+                }
             }
             else
             {
                 lastMotion.x = -1;
-                gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.x, 180, gameObject.transform.rotation.z);
+                if (allowDisable)
+                {
+                    gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.x, gameObject.transform.rotation.y, gameObject.transform.rotation.z);
+                }
+                else
+                {
+                    gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.x, 180, gameObject.transform.rotation.z);
+                }
             }
         }
 
