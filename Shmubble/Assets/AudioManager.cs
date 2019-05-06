@@ -79,18 +79,6 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
-    void Start()
-    {
-        if (!ambience[0].source.isPlaying)
-        {
-            AudioManager.instance.PlayAmbientSound("TrainSound");
-        }
-        if (!ambience[1].source.isPlaying)
-        {
-            AudioManager.instance.PlayAmbientSound("WindSound");
-        }
-    }
-
     public void PlayPlayerSound(string name)
     {
         Sound s = Array.Find(player, sound => sound.name == name);

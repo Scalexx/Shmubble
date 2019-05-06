@@ -108,7 +108,10 @@ public class LevelManager : MonoBehaviour {
         healthBar.GetComponent<Slider>().maxValue = health;
         exBar.GetComponent<Slider>().maxValue = specialMaxCharge;
         gameOverProgressBar.maxValue = bossHealth;
+    }
 
+    void Start()
+    {
         if (AudioManager.instance != null)
         {
             AudioManager.instance.PlayAmbientSound("TrainSound");
