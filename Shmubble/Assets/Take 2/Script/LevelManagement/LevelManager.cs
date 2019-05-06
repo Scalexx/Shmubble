@@ -191,16 +191,7 @@ public class LevelManager : MonoBehaviour {
 
     public void GetDamaged (float damage)
     {
-        health -= damage;    
-
-        if (damageDealt >= damage)
-        {
-            damageDealt -= damage;
-        }
-        else
-        {
-            damageDealt = 0;
-        }
+        health -= damage;
 
         if (health <= 0)
         {

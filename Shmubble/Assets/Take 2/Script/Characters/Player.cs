@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
     public float jumpHeight;
     [Tooltip ("How fast the character falls back down.")]
     public float gravity = 25.0f;
+    float startGravity;
     [Tooltip ("Layer to check when the player is grounded.")]
     public LayerMask groundLayer;
     private bool crouch;
@@ -90,6 +91,8 @@ public class Player : MonoBehaviour {
     [HideInInspector]
     public bool disableDash;
 
+    bool done;
+
     private Vector3 moveVector;
     private Vector3 lastMotion;
     private CharacterController controller;
@@ -97,7 +100,7 @@ public class Player : MonoBehaviour {
 	void Start () {
         controller = GetComponent<CharacterController>();
         currentDashTime = maxDashTime;
-        downPeriod = downTime;
+        startGravity = gravity;
     }
 
 	void Update() {
@@ -137,9 +140,14 @@ public class Player : MonoBehaviour {
             {
                 allowDisable = false;
                 disableShoot = false;
+                gravity = startGravity;
+                animator.SetBool("Special", false);
+                EXshoot = false;
             }
             else
             {
+                gravity = 0;
+                verticalVelocity = 0;
                 animator.SetBool("Special", true);
                 downPeriod -= Time.deltaTime;
                 allowDisable = true;
@@ -147,13 +155,21 @@ public class Player : MonoBehaviour {
             }
 
             if (waitShoot <= 0)
-            {
-                HandleExShoot();
+            { 
+                if (!done)
+                {
+                    HandleExShoot();
+                    done = true;
+                }
             }
             else
             {
                 waitShoot -= Time.deltaTime;
             }
+        }
+        else
+        {
+            done = false;
         }
 
         if (disableShoot)
@@ -226,6 +242,11 @@ public class Player : MonoBehaviour {
                 moveVector.x = 0;
                 moveVector.y -= gravity * Time.deltaTime;
                 crouch = true;
+            }
+            else if (EXshoot)
+            {
+                moveVector.x = 0;
+                moveVector.y = 0;
             }
             else
             {
@@ -392,9 +413,6 @@ public class Player : MonoBehaviour {
         float damage = newProjectile.GetComponent<BulletData>().damage;
 
         LevelManager.Instance.SpecialDone(damage);
-
-        animator.SetBool("Special", false);
-        EXshoot = false;
     }
 
     // Delete this function later when Animations are added as it will serve the same purpose

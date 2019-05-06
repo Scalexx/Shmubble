@@ -4134,7 +4134,7 @@ MonoBehaviour:
   knockBackForce: 15
   knockBackPeriod: 0.2
   animator: {fileID: 95523269299942108}
-  downTime: 2
+  downTime: 1.4
   waitTillShoot: 1.2
   muzzleEffect: {fileID: 1732299649703600, guid: dc07e487641117149b0a966a17e823b9,
     type: 2}
