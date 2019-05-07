@@ -983,6 +983,26 @@ Prefab:
       propertyPath: bossTrigger
       value: 
       objectReference: {fileID: 1173040185}
+    - target: {fileID: 114201219245265728, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: cameraShakeFadeOut
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114201219245265728, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: cameraShakeMagnitude
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114201219245265728, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: shotsToFireAttack2
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114201219245265728, guid: 70c0c1a568d015f4f9bf6a013ef3928c,
+        type: 2}
+      propertyPath: shotsToFireAttack1
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70c0c1a568d015f4f9bf6a013ef3928c, type: 2}
   m_IsPrefabParent: 0
@@ -1938,6 +1958,26 @@ Prefab:
         type: 2}
       propertyPath: healthBarFillColor1.b
       value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 114171955745025992, guid: fa75b19d678c1f948b6df428d9ef8325,
+        type: 2}
+      propertyPath: bossHealth
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114171955745025992, guid: fa75b19d678c1f948b6df428d9ef8325,
+        type: 2}
+      propertyPath: health
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114171955745025992, guid: fa75b19d678c1f948b6df428d9ef8325,
+        type: 2}
+      propertyPath: healthTriggerEnvironmental
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114171955745025992, guid: fa75b19d678c1f948b6df428d9ef8325,
+        type: 2}
+      propertyPath: healthTriggerPhaseFinal
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa75b19d678c1f948b6df428d9ef8325, type: 2}
