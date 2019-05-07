@@ -1627,7 +1627,7 @@ GameObject:
   - component: {fileID: 224220251399224684}
   - component: {fileID: 222934739107743516}
   - component: {fileID: 114679092176279014}
-  - component: {fileID: 95803842886131850}
+  - component: {fileID: 95859951139334306}
   m_Layer: 5
   m_Name: Game Over Panel
   m_TagString: Untagged
@@ -2038,7 +2038,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95803842886131850
+--- !u!95 &95859951139334306
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -2047,7 +2047,7 @@ Animator:
   m_GameObject: {fileID: 1785626382682040}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3c936c80209580f4b86b62118c619c77, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8c337650fc9cdf949bfb080bb3a5948f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -2077,7 +2077,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1038514986827076}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -3102,7 +3102,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1295061451331170}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -4227,7 +4227,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1742393286333486}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -4807,7 +4807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6913,7 +6913,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19.18, y: -342.34738}
+  m_AnchoredPosition: {x: -19.18, y: -96.34738}
   m_SizeDelta: {x: 709.75, y: 142.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224047761243312618
@@ -7895,7 +7895,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19.8, y: -533}
+  m_AnchoredPosition: {x: -19.8, y: -287}
   m_SizeDelta: {x: 709.75, y: 176.39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224533513919159262
@@ -8797,7 +8797,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19.341, y: -721.05334}
+  m_AnchoredPosition: {x: -19.341, y: -475.05334}
   m_SizeDelta: {x: 710.071, y: 142.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224933147249635114

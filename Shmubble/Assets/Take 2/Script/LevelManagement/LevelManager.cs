@@ -103,6 +103,8 @@ public class LevelManager : MonoBehaviour {
     [HideInInspector]
     public int spawnPointNumber;
 
+    float timerGameOverUI;
+
     GameObject cameraObject;
     bool gameOverEntered;
 
@@ -110,6 +112,8 @@ public class LevelManager : MonoBehaviour {
     private void Awake ()
     {
         Instance = this;
+
+        timerGameOverUI = deathTimer / 2 - 0.5f;
 
         healthTrigger1 = health / 4;
         healthTrigger2 = 1;
@@ -136,9 +140,13 @@ public class LevelManager : MonoBehaviour {
     {
         if (gameOverEntered)
         {
+            if (deathPeriod <= timerGameOverUI)
+            {
+                gameOver.SetActive(true);
+            }
+
             if (deathPeriod > 0)
             {
-                
                 deathPeriod -= Time.unscaledDeltaTime;
             }
             else
