@@ -258,6 +258,15 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
     paused: 0
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: 0ddca22a5f93a3847b73e0ac8b32898e, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    priority: 0
+    volume: 0.996
+    pitch: 0.659
+    loop: 0
+    source: {fileID: 0}
+    paused: 0
   boss:
   - name: SkullAttack
     clip: {fileID: 8300000, guid: f8610e4d4dac91c4aa2ab4369acb981c, type: 3}
@@ -349,6 +358,15 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
     paused: 0
+  - name: BossRoar
+    clip: {fileID: 8300000, guid: a6e9a56cb69677e44b23fcc54443b4a9, type: 3}
+    mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
+    priority: 88
+    volume: 1
+    pitch: 0.6
+    loop: 0
+    source: {fileID: 0}
+    paused: 0
   environment:
   - name: EarthQuakeRumble
     clip: {fileID: 8300000, guid: e643f668dc9b4734abd26f69c4218f42, type: 3}
@@ -381,7 +399,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: edff482337ed7244b950dd35998d7937, type: 3}
     mixer: {fileID: 243650490520150084, guid: 71d52175cabfac9448c9b8f41e20668f, type: 2}
     priority: 0
-    volume: 0.6
+    volume: 0.87
     pitch: 0.425
     loop: 0
     source: {fileID: 0}
