@@ -272,6 +272,26 @@ public class Boss : MonoBehaviour {
     [HideInInspector]
     public bool bossHitGround;
 
+    [Header("Intro Phase 3")]
+    public float lengthAnimationDeath;
+    public float lengthAnimationIntro;
+    public float waitForIntro;
+
+    bool animDeathDone;
+
+    public Vector3 pos1;
+    public Vector3 pos2;
+    Vector3 targetPos;
+    public GameObject bossTrigger;
+    bool canvasDone;
+    bool phaseSwitchEntered;
+    public bool triggeredNewBoss;
+    public GameObject offsetCameraBoss;
+    bool played;
+    public string screamSound;
+    public float waitTimer;
+
+    private Vector3 velocity;
     private int rand;
 
     void Start () {
@@ -287,7 +307,8 @@ public class Boss : MonoBehaviour {
         startIdleMinTimeEnv = idleMinTimeEnv;
         flashPeriod = flashLength;
 
-        for(int i = 0; i < bossRenderers.Count; i++)
+        targetPos = offsetCameraBoss.transform.position;
+        for (int i = 0; i < bossRenderers.Count; i++)
         {
             normalColor.Add(bossRenderers[i].material.GetColor("_EmissionColor"));
         }
@@ -318,16 +339,11 @@ public class Boss : MonoBehaviour {
         {
             if (!phase2Entered)
             {
-                bossPhase1.SetActive(false);
-                state = State.INTRO;
-                bossPhaseFinal.SetActive(true);
-                animator = animatorPhaseFinal;
+                PhaseSwitch();
 
-                canvasAnim.Play("Canvas");
-                phase2Entered = true;
             }
             
-            Phase2();
+            //Phase2();
         }
 
         if (LevelManager.Instance.bossHealth <= 0)
@@ -588,7 +604,7 @@ public class Boss : MonoBehaviour {
             }
     }
 
-    void Phase2()
+    /*void Phase2()
     {
         switch (state)
         {
@@ -838,7 +854,7 @@ public class Boss : MonoBehaviour {
 
                 break;
         }
-    }
+    }*/
 
     void OnTriggerEnter (Collider hit)
     {
@@ -1168,6 +1184,74 @@ public class Boss : MonoBehaviour {
         }
 
         flashing = true;
+    }
+
+    public void PhaseSwitch()
+    {
+        if (!phaseSwitchEntered)
+        {
+            animator.SetBool("Death", true);
+            phaseSwitchEntered = true;
+        }
+
+        if (lengthAnimationDeath <= 0)
+        {
+            if (!animDeathDone)
+            {
+                bossPhase1.SetActive(false);
+                targetPos = pos1;
+                state = State.INTRO;
+                animator = animatorPhaseFinal;
+                animDeathDone = true;
+            }
+
+            if (waitTimer <= 0)
+            {
+                bossTrigger.GetComponent<BossTrigger>().enabled = true;
+                bossTrigger.SetActive(true);
+            }
+            else
+            {
+                waitTimer -= Time.deltaTime;
+            }
+        }
+        else
+        {
+            lengthAnimationDeath -= Time.deltaTime;
+        }
+        
+        if (triggeredNewBoss)
+        {
+            targetPos = pos2;
+            bossPhaseFinal.SetActive(true);
+
+            if (lengthAnimationIntro <= waitForIntro)
+            {
+                if (!canvasDone)
+                {
+                    canvasAnim.Play("Canvas");
+                    AudioManager.instance.PlayBossSound(screamSound);
+                    canvasDone = true;
+                }
+            } 
+
+            if (lengthAnimationIntro <= 0)
+            {
+                if (!played)
+                {
+                    canvasAnim.Play("ThanksForPlaying");
+                    played = true; 
+                }
+
+                return;
+            }
+            else
+            {
+                lengthAnimationIntro -= Time.deltaTime;
+            }
+        }
+
+        offsetCameraBoss.transform.localPosition = Vector3.SmoothDamp(offsetCameraBoss.transform.localPosition, targetPos, ref velocity, 1f);
     }
 }
 

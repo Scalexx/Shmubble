@@ -75,7 +75,7 @@ public class BossIntro : MonoBehaviour {
                 HUDAnim.Play("HUDin");
                 multipleTargets.enabled = true;
                 smooth = false;
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
             else
             {
