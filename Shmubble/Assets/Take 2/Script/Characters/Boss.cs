@@ -393,19 +393,7 @@ public class Boss : MonoBehaviour {
                     finalPhaseTrigger = true;
                     break;
                 }
-                
-                if (bounceTrigger)
-                {
-                    if (bounceAnimPeriodReturn <= 0)
-                    {
-                        bounceTrigger = false;
-                        bounceAnimPeriodReturn = bounceAnimTimerReturn;
-                    }
-                    else
-                    {
-                        bounceAnimPeriodReturn -= Time.deltaTime;
-                    }
-                } 
+
                 else
                 {
                     // do idle stuff
@@ -546,7 +534,7 @@ public class Boss : MonoBehaviour {
                     animator.gameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
                     bossPhase1.SetActive(true);
                     // play return animation
-                    animator.SetTrigger("BounceTrigger");
+                    //animator.SetTrigger("BounceTrigger");
                     bouncePeriod = bounceTimer;
                     bounceAnimPeriod = bounceAnimTimer;
 
@@ -1198,6 +1186,9 @@ public class Boss : MonoBehaviour {
         {
             if (!animDeathDone)
             {
+                introParticle.GetComponent<IntroParticle>().startPoint = introParticle.transform;
+                introParticle.GetComponent<IntroParticle>().endPoint = startPointParticle.transform;
+                introParticle.SetActive(true);
                 bossPhase1.SetActive(false);
                 targetPos = pos1;
                 state = State.INTRO;
@@ -1240,7 +1231,8 @@ public class Boss : MonoBehaviour {
                 if (!played)
                 {
                     canvasAnim.Play("ThanksForPlaying");
-                    played = true; 
+                    played = true;
+                    LevelManager.Instance.pauseMenu.someoneDied = true;
                 }
 
                 return;

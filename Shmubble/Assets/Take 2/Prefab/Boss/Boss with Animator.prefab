@@ -7868,13 +7868,13 @@ MonoBehaviour:
   bossHitGround: 0
   lengthAnimationDeath: 0
   lengthAnimationIntro: 11.6
-  waitForIntro: 8.2
+  waitForIntro: 3.6
   pos1: {x: 6.622168, y: 0.8, z: 7.493128}
   pos2: {x: -0.83, y: 3.1, z: -0.7}
   bossTrigger: {fileID: 0}
   triggeredNewBoss: 0
   offsetCameraBoss: {fileID: 1982052275386284}
-  screamSound: 
+  screamSound: BossRoar
   waitTimer: 5
 --- !u!137 &137051552605258300
 SkinnedMeshRenderer:

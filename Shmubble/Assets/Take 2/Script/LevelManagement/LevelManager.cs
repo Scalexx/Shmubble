@@ -104,6 +104,7 @@ public class LevelManager : MonoBehaviour {
     public int spawnPointNumber;
 
     float timerGameOverUI;
+    bool audPlayed;
 
     GameObject cameraObject;
     bool gameOverEntered;
@@ -140,9 +141,15 @@ public class LevelManager : MonoBehaviour {
     {
         if (gameOverEntered)
         {
+
             if (deathPeriod <= timerGameOverUI)
             {
-                gameOver.SetActive(true);
+                if (!audPlayed)
+                {
+                    AudioManager.instance.PlayPlayerSound("PlayerDeath");
+                    gameOver.SetActive(true);
+                    audPlayed = true;
+                }
             }
 
             if (deathPeriod > 0)
@@ -318,7 +325,6 @@ public class LevelManager : MonoBehaviour {
             playerTransform.GetComponent<Player>().animator.enabled = false;
             Cursor.visible = true;
             pauseMenu.someoneDied = true;
-            AudioManager.instance.StopAllSounds();
 
             gameOver.SetActive(true);
         }
