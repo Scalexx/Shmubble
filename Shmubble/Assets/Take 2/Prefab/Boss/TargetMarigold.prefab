@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530662a7a8be3ab4a808ab3a2bfc7892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 20
+  startSpeed: 25
   damage: 4
   velocity: {x: 0, y: 0, z: 0}
   timeBetweenShots: 1.5

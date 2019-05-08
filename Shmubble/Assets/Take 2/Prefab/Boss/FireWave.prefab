@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530662a7a8be3ab4a808ab3a2bfc7892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 7
+  startSpeed: 9
   damage: 4
   velocity: {x: 0, y: 0, z: 0}
   timeBetweenShots: 0.1
@@ -401,6 +401,8 @@ MonoBehaviour:
   angleChangingSpeed: 4
   stopHomingTimer: 0
   useTarget: 0
+  useSelfKill: 0
+  selfKillTimer: 0
   trails: []
   destroyEffect: {fileID: 1406793801915058, guid: ee199ad70c0bf1543b07a747827e03c3,
     type: 2}

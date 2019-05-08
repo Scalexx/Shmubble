@@ -384,17 +384,17 @@ public class Player : MonoBehaviour {
                     flashTimer = flashPeriod;
                 }
             }
-            if (invulnerabilityTimer <= 0 && flasher)
-            {
-                for (int i = 0; i < playerRenderers.Count; i++)
-                {
-                    playerRenderers[i].enabled = true;
-                }
-            }
         }
-        else
+        if (invulnerabilityTimer <= 0)
         {
             flasher = false;
+        }
+        if (!flasher)
+        {
+            for (int i = 0; i < playerRenderers.Count; i++)
+            {
+                playerRenderers[i].enabled = true;
+            }
         }
     }
 
